@@ -16,5 +16,11 @@ namespace BCD_Restaurant_Project
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            MessageBox.Show("Hello World!", "Title", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 }
