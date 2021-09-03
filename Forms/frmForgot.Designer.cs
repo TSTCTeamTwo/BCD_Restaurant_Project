@@ -1,7 +1,7 @@
 ﻿
 namespace BCD_Restaurant_Project.Forms
 {
-    partial class frmDesserts
+    partial class frmForgot
     {
         /// <summary>
         /// Required designer variable.
@@ -31,14 +31,14 @@ namespace BCD_Restaurant_Project.Forms
         {
             this.SuspendLayout();
             // 
-            // frmDesserts
+            // frmForgot
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(581, 468);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "frmDesserts";
-            this.Text = "frmDesserts";
+            this.Name = "frmForgot";
+            this.Text = "frmForgot";
             this.ResumeLayout(false);
 
         }
