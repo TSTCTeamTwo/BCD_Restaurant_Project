@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BCD_Restaurant_Project.Forms;
 
 namespace BCD_Restaurant_Project
 {
@@ -16,7 +17,7 @@ namespace BCD_Restaurant_Project
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new frmMain());
         }
     }
 }

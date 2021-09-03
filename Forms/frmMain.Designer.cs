@@ -1,7 +1,7 @@
 ﻿
-namespace BCD_Restaurant_Project
+namespace BCD_Restaurant_Project.Forms
 {
-    partial class Form1
+    partial class frmMain
     {
         /// <summary>
         /// Required designer variable.

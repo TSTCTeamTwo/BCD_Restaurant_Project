@@ -8,19 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace BCD_Restaurant_Project
+namespace BCD_Restaurant_Project.Forms
 {
-    public partial class Form1 : Form
+    public partial class frmReceipt : Form
     {
-        public Form1()
+        public frmReceipt()
         {
             InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-            MessageBox.Show("Hello World!", "Title", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }
