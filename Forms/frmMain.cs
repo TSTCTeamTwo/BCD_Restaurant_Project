@@ -22,5 +22,10 @@ namespace BCD_Restaurant_Project
 
             MessageBox.Show("Hello World!", "Title", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
