@@ -46,16 +46,46 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Forms\Form1.cs">
+    <Compile Include="Forms\frmDesserts.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Forms\frmDesserts.Designer.cs">
+      <DependentUpon>frmDesserts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmDrinks.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmDrinks.Designer.cs">
+      <DependentUpon>frmDrinks.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmFood.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmFood.Designer.cs">
+      <DependentUpon>frmFood.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmOrder.Designer.cs">
+      <DependentUpon>frmOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmReceipt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmReceipt.Designer.cs">
+      <DependentUpon>frmReceipt.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
