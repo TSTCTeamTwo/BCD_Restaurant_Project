@@ -126,8 +126,9 @@ namespace BCD_Restaurant_Project.Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(640, 383);
             this.Controls.Add(this.pnlLogin);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmDrinks";
             this.Text = "frmDrinks";
             this.pnlLogin.ResumeLayout(false);
