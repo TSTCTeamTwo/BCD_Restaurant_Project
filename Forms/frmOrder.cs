@@ -16,5 +16,10 @@ namespace BCD_Restaurant_Project.Forms
         {
             InitializeComponent();
         }
+
+        private void pnlLogin_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
