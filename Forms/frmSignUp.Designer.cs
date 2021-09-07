@@ -170,5 +170,16 @@ namespace BCD_Restaurant_Project.Forms
         }
 
         #endregion
+
+        private System.Windows.Forms.Panel pnlLogin;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.Button btnLogin;
+        private System.Windows.Forms.TextBox tbxPassword;
+        private System.Windows.Forms.TextBox tbxUsername;
+        private System.Windows.Forms.Label lblPassword;
+        private System.Windows.Forms.Label lblUsername;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label1;
     }
 }
