@@ -50,11 +50,11 @@ namespace BCD_Restaurant_Project.Forms
             this.pnlLogin.Controls.Add(this.label1);
             this.pnlLogin.Controls.Add(this.pictureBox1);
             this.pnlLogin.Controls.Add(this.dataGridView1);
-            this.pnlLogin.Location = new System.Drawing.Point(12, 25);
+            this.pnlLogin.Location = new System.Drawing.Point(12, 13);
             this.pnlLogin.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnlLogin.Name = "pnlLogin";
             this.pnlLogin.Size = new System.Drawing.Size(576, 338);
-            this.pnlLogin.TabIndex = 8;
+            this.pnlLogin.TabIndex = 7;
             // 
             // button2
             // 
@@ -106,6 +106,7 @@ namespace BCD_Restaurant_Project.Forms
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Image = global::BCD_Restaurant_Project.Properties.Resources.OIP__1_;
             this.pictureBox1.Location = new System.Drawing.Point(359, 39);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(214, 239);
@@ -125,11 +126,9 @@ namespace BCD_Restaurant_Project.Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(631, 407);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.pnlLogin);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmDrinks";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmDrinks";
             this.pnlLogin.ResumeLayout(false);
             this.pnlLogin.PerformLayout();
