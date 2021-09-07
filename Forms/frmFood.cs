@@ -16,5 +16,10 @@ namespace BCD_Restaurant_Project.Forms
         {
             InitializeComponent();
         }
+
+        private void frmFood_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

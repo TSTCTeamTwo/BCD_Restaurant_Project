@@ -30,9 +30,9 @@ namespace BCD_Restaurant_Project.Forms
         private void InitializeComponent()
         {
             this.pnlLogin = new System.Windows.Forms.Panel();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.lblUsername = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.pnlLogin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -49,6 +49,14 @@ namespace BCD_Restaurant_Project.Forms
             this.pnlLogin.Size = new System.Drawing.Size(412, 249);
             this.pnlLogin.TabIndex = 4;
             this.pnlLogin.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlLogin_Paint);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(21, 38);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(368, 150);
+            this.dataGridView1.TabIndex = 2;
             // 
             // lblUsername
             // 
@@ -73,14 +81,6 @@ namespace BCD_Restaurant_Project.Forms
             this.btnLogin.TabIndex = 0;
             this.btnLogin.Text = "Checkout       $18.99";
             this.btnLogin.UseVisualStyleBackColor = false;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(21, 38);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(368, 150);
-            this.dataGridView1.TabIndex = 2;
             // 
             // frmOrder
             // 
