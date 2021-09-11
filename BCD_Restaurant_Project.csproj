@@ -125,6 +125,12 @@
     <Compile Include="Forms\Customers\frmSignUp.Designer.cs">
       <DependentUpon>frmSignUp.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Employees\frmManageAccounts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Employees\frmManageAccounts.Designer.cs">
+      <DependentUpon>frmManageAccounts.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\Customers\frmDesserts.resx">
@@ -159,6 +165,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Customers\frmSignUp.resx">
       <DependentUpon>frmSignUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Employees\frmManageAccounts.resx">
+      <DependentUpon>frmManageAccounts.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
