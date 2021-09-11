@@ -89,17 +89,17 @@
     <Compile Include="Forms\Customers\frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Employees\frmMainEmployee.cs">
+    <Compile Include="Forms\Employees\frmMainEmployees.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Employees\frmMainEmployee.Designer.cs">
-      <DependentUpon>frmMainEmployee.cs</DependentUpon>
+    <Compile Include="Forms\Employees\frmMainEmployees.Designer.cs">
+      <DependentUpon>frmMainEmployees.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Employees\frmManEmployee.cs">
+    <Compile Include="Forms\Employees\frmMainManagers.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Employees\frmManEmployee.Designer.cs">
-      <DependentUpon>frmManEmployee.cs</DependentUpon>
+    <Compile Include="Forms\Employees\frmMainManagers.Designer.cs">
+      <DependentUpon>frmMainManagers.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Customers\frmOrder.cs">
       <SubType>Form</SubType>
@@ -145,11 +145,11 @@
     <EmbeddedResource Include="Forms\Customers\frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Employees\frmMainEmployee.resx">
-      <DependentUpon>frmMainEmployee.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Employees\frmMainEmployees.resx">
+      <DependentUpon>frmMainEmployees.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Employees\frmManEmployee.resx">
-      <DependentUpon>frmManEmployee.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Employees\frmMainManagers.resx">
+      <DependentUpon>frmMainManagers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Customers\frmPayment.resx">
       <DependentUpon>frmPayment.cs</DependentUpon>
