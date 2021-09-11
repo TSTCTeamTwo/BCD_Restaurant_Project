@@ -37,12 +37,14 @@ namespace BCD_Restaurant_Project.Forms
             this.lblPassword = new System.Windows.Forms.Label();
             this.lblUsername = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.pnlLogin.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlLogin
             // 
             this.pnlLogin.BackColor = System.Drawing.Color.BlanchedAlmond;
+            this.pnlLogin.Controls.Add(this.button1);
             this.pnlLogin.Controls.Add(this.linkLabel2);
             this.pnlLogin.Controls.Add(this.linkLabel1);
             this.pnlLogin.Controls.Add(this.tbxPassword);
@@ -50,7 +52,7 @@ namespace BCD_Restaurant_Project.Forms
             this.pnlLogin.Controls.Add(this.lblPassword);
             this.pnlLogin.Controls.Add(this.lblUsername);
             this.pnlLogin.Controls.Add(this.btnLogin);
-            this.pnlLogin.Location = new System.Drawing.Point(64, 122);
+            this.pnlLogin.Location = new System.Drawing.Point(12, 25);
             this.pnlLogin.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnlLogin.Name = "pnlLogin";
             this.pnlLogin.Size = new System.Drawing.Size(412, 249);
@@ -59,7 +61,7 @@ namespace BCD_Restaurant_Project.Forms
             // linkLabel2
             // 
             this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Location = new System.Drawing.Point(65, 208);
+            this.linkLabel2.Location = new System.Drawing.Point(286, 187);
             this.linkLabel2.Name = "linkLabel2";
             this.linkLabel2.Size = new System.Drawing.Size(58, 17);
             this.linkLabel2.TabIndex = 6;
@@ -69,7 +71,7 @@ namespace BCD_Restaurant_Project.Forms
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(266, 208);
+            this.linkLabel1.Location = new System.Drawing.Point(286, 213);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(114, 17);
             this.linkLabel1.TabIndex = 5;
@@ -120,7 +122,7 @@ namespace BCD_Restaurant_Project.Forms
             // 
             this.btnLogin.BackColor = System.Drawing.Color.White;
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnLogin.Location = new System.Drawing.Point(144, 149);
+            this.btnLogin.Location = new System.Drawing.Point(142, 133);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(125, 44);
@@ -128,12 +130,24 @@ namespace BCD_Restaurant_Project.Forms
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = false;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.White;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.Location = new System.Drawing.Point(32, 194);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(94, 36);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Exit";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(540, 492);
+            this.ClientSize = new System.Drawing.Size(447, 301);
             this.ControlBox = false;
             this.Controls.Add(this.pnlLogin);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -158,5 +172,6 @@ namespace BCD_Restaurant_Project.Forms
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.LinkLabel linkLabel2;
+        private System.Windows.Forms.Button button1;
     }
 }
