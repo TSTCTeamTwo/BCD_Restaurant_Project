@@ -53,93 +53,111 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Forms\frmDesserts.cs">
+    <Compile Include="Forms\Customers\frmDesserts.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmDesserts.Designer.cs">
+    <Compile Include="Forms\Customers\frmDesserts.Designer.cs">
       <DependentUpon>frmDesserts.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmDrinks.cs">
+    <Compile Include="Forms\Customers\frmDrinks.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmDrinks.Designer.cs">
+    <Compile Include="Forms\Customers\frmDrinks.Designer.cs">
       <DependentUpon>frmDrinks.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmFood.cs">
+    <Compile Include="Forms\Customers\frmFood.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmFood.Designer.cs">
+    <Compile Include="Forms\Customers\frmFood.Designer.cs">
       <DependentUpon>frmFood.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmForgot.cs">
+    <Compile Include="Forms\Customers\frmForgot.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmForgot.Designer.cs">
+    <Compile Include="Forms\Customers\frmForgot.Designer.cs">
       <DependentUpon>frmForgot.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmLogin.cs">
+    <Compile Include="Forms\Customers\frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmLogin.Designer.cs">
+    <Compile Include="Forms\Customers\frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmMain.cs">
+    <Compile Include="Forms\Customers\frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmMain.Designer.cs">
+    <Compile Include="Forms\Customers\frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmOrder.cs">
+    <Compile Include="Forms\Employees\frmMainEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmOrder.Designer.cs">
+    <Compile Include="Forms\Employees\frmMainEmployee.Designer.cs">
+      <DependentUpon>frmMainEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Employees\frmManEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Employees\frmManEmployee.Designer.cs">
+      <DependentUpon>frmManEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Customers\frmOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Customers\frmOrder.Designer.cs">
       <DependentUpon>frmOrder.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmPayment.cs">
+    <Compile Include="Forms\Customers\frmPayment.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmPayment.Designer.cs">
+    <Compile Include="Forms\Customers\frmPayment.Designer.cs">
       <DependentUpon>frmPayment.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmReceipt.cs">
+    <Compile Include="Forms\Customers\frmReceipt.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmReceipt.Designer.cs">
+    <Compile Include="Forms\Customers\frmReceipt.Designer.cs">
       <DependentUpon>frmReceipt.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmSignUp.cs">
+    <Compile Include="Forms\Customers\frmSignUp.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmSignUp.Designer.cs">
+    <Compile Include="Forms\Customers\frmSignUp.Designer.cs">
       <DependentUpon>frmSignUp.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\frmDesserts.resx">
+    <EmbeddedResource Include="Forms\Customers\frmDesserts.resx">
       <DependentUpon>frmDesserts.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmDrinks.resx">
+    <EmbeddedResource Include="Forms\Customers\frmDrinks.resx">
       <DependentUpon>frmDrinks.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmFood.resx">
+    <EmbeddedResource Include="Forms\Customers\frmFood.resx">
       <DependentUpon>frmFood.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmForgot.resx">
+    <EmbeddedResource Include="Forms\Customers\frmForgot.resx">
       <DependentUpon>frmForgot.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmLogin.resx">
+    <EmbeddedResource Include="Forms\Customers\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmMain.resx">
+    <EmbeddedResource Include="Forms\Customers\frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmPayment.resx">
+    <EmbeddedResource Include="Forms\Employees\frmMainEmployee.resx">
+      <DependentUpon>frmMainEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Employees\frmManEmployee.resx">
+      <DependentUpon>frmManEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Customers\frmPayment.resx">
       <DependentUpon>frmPayment.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmReceipt.resx">
+    <EmbeddedResource Include="Forms\Customers\frmReceipt.resx">
       <DependentUpon>frmReceipt.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmSignUp.resx">
+    <EmbeddedResource Include="Forms\Customers\frmSignUp.resx">
       <DependentUpon>frmSignUp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -170,6 +188,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Hamburgers-got-their-name-from-Hamburg-Germany.-1024x768.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\P.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
