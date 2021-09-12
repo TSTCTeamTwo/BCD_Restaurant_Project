@@ -53,7 +53,7 @@ namespace BCD_Restaurant_Project.Forms
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(398, 93);
+            this.label3.Location = new System.Drawing.Point(478, 93);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(318, 31);
             this.label3.TabIndex = 22;
@@ -66,7 +66,7 @@ namespace BCD_Restaurant_Project.Forms
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(220, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(645, 75);
+            this.panel3.Size = new System.Drawing.Size(804, 75);
             this.panel3.TabIndex = 20;
             // 
             // label1
@@ -75,11 +75,11 @@ namespace BCD_Restaurant_Project.Forms
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(220, 22);
+            this.label1.Location = new System.Drawing.Point(300, 22);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(208, 25);
+            this.label1.Size = new System.Drawing.Size(218, 25);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Manager Dashboard";
+            this.label1.Text = "Employee Dashboard";
             // 
             // panel1
             // 
@@ -94,7 +94,7 @@ namespace BCD_Restaurant_Project.Forms
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(220, 520);
+            this.panel1.Size = new System.Drawing.Size(220, 468);
             this.panel1.TabIndex = 19;
             // 
             // button6
@@ -231,7 +231,7 @@ namespace BCD_Restaurant_Project.Forms
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.Image = global::BCD_Restaurant_Project.Properties.Resources.P;
-            this.pictureBox1.Location = new System.Drawing.Point(329, 165);
+            this.pictureBox1.Location = new System.Drawing.Point(409, 139);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(442, 270);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -242,7 +242,7 @@ namespace BCD_Restaurant_Project.Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(865, 520);
+            this.ClientSize = new System.Drawing.Size(1024, 468);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
