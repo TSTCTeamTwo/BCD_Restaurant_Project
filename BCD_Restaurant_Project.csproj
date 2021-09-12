@@ -89,6 +89,12 @@
     <Compile Include="Forms\Customers\frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Employees\frmBankInformation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Employees\frmBankInformation.Designer.cs">
+      <DependentUpon>frmBankInformation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Employees\frmMainEmployees.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -162,6 +168,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Customers\frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Employees\frmBankInformation.resx">
+      <DependentUpon>frmBankInformation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Employees\frmMainEmployees.resx">
       <DependentUpon>frmMainEmployees.cs</DependentUpon>
