@@ -1,7 +1,7 @@
 ﻿
 namespace BCD_Restaurant_Project.Forms.Employees
 {
-    partial class frmManageAccounts
+    partial class frmBanking
     {
         /// <summary>
         /// Required designer variable.
@@ -68,11 +68,11 @@ namespace BCD_Restaurant_Project.Forms.Employees
             this.pnlLogin.BackColor = System.Drawing.Color.BlanchedAlmond;
             this.pnlLogin.Controls.Add(this.groupBox2);
             this.pnlLogin.Controls.Add(this.groupBox1);
-            this.pnlLogin.Location = new System.Drawing.Point(23, 20);
+            this.pnlLogin.Location = new System.Drawing.Point(28, 31);
             this.pnlLogin.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnlLogin.Name = "pnlLogin";
             this.pnlLogin.Size = new System.Drawing.Size(727, 515);
-            this.pnlLogin.TabIndex = 6;
+            this.pnlLogin.TabIndex = 7;
             // 
             // groupBox2
             // 
@@ -96,9 +96,9 @@ namespace BCD_Restaurant_Project.Forms.Employees
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Location = new System.Drawing.Point(329, 17);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox2.Size = new System.Drawing.Size(377, 474);
             this.groupBox2.TabIndex = 21;
             this.groupBox2.TabStop = false;
@@ -111,9 +111,9 @@ namespace BCD_Restaurant_Project.Forms.Employees
             this.groupBox3.Controls.Add(this.checkBox1);
             this.groupBox3.Controls.Add(this.button4);
             this.groupBox3.Location = new System.Drawing.Point(4, 271);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox3.Size = new System.Drawing.Size(368, 79);
             this.groupBox3.TabIndex = 29;
             this.groupBox3.TabStop = false;
@@ -145,7 +145,7 @@ namespace BCD_Restaurant_Project.Forms.Employees
             this.checkBox1.BackColor = System.Drawing.SystemColors.Control;
             this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox1.Location = new System.Drawing.Point(20, 50);
-            this.checkBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkBox1.Margin = new System.Windows.Forms.Padding(2);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(174, 17);
             this.checkBox1.TabIndex = 21;
@@ -359,9 +359,9 @@ namespace BCD_Restaurant_Project.Forms.Employees
             // 
             this.groupBox1.Controls.Add(this.dataGridView1);
             this.groupBox1.Location = new System.Drawing.Point(10, 16);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(315, 475);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
@@ -371,22 +371,21 @@ namespace BCD_Restaurant_Project.Forms.Employees
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(8, 17);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(300, 453);
             this.dataGridView1.TabIndex = 13;
             // 
-            // frmManageAccounts
+            // frmBanking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(769, 547);
+            this.ClientSize = new System.Drawing.Size(992, 662);
             this.Controls.Add(this.pnlLogin);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.Name = "frmManageAccounts";
-            this.Text = "frmManageAccounts";
+            this.Name = "frmBanking";
+            this.Text = "frmBanking";
             this.pnlLogin.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
@@ -401,31 +400,31 @@ namespace BCD_Restaurant_Project.Forms.Employees
         #endregion
 
         private System.Windows.Forms.Panel pnlLogin;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox tbxUsername;
-        private System.Windows.Forms.Label lblUsername;
-        private System.Windows.Forms.LinkLabel linkLabel1;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.TextBox tbxPassword;
         private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label lblUsername;
+        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox tbxUsername;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
