@@ -209,7 +209,7 @@ namespace BCD_Restaurant_Project.Forms.Employees
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(870, 558);
+            this.ClientSize = new System.Drawing.Size(559, 357);
             this.Controls.Add(this.pnlLogin);
             this.Name = "frmPersonal";
             this.Text = "frmPersonal";
