@@ -137,6 +137,12 @@
     <Compile Include="Forms\Employees\frmManageMenu.Designer.cs">
       <DependentUpon>frmManageMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Employees\frmPaycheck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Employees\frmPaycheck.Designer.cs">
+      <DependentUpon>frmPaycheck.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\Customers\frmDesserts.resx">
@@ -178,6 +184,9 @@
     <EmbeddedResource Include="Forms\Employees\frmManageMenu.resx">
       <DependentUpon>frmManageMenu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Employees\frmPaycheck.resx">
+      <DependentUpon>frmPaycheck.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -205,10 +214,10 @@
     <Folder Include="Classes\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Hamburgers-got-their-name-from-Hamburg-Germany.-1024x768.jpg" />
+    <None Include="Forms\Resources\Hamburgers-got-their-name-from-Hamburg-Germany.-1024x768.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\P.jpg" />
+    <None Include="Forms\Resources\P.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
