@@ -53,6 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\ProgOps.cs" />
     <Compile Include="Forms\Customers\frmDesserts.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -219,9 +220,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Classes\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\Hamburgers-got-their-name-from-Hamburg-Germany.-1024x768.jpg" />
   </ItemGroup>
