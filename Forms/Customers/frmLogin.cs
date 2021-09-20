@@ -7,7 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.Data.SqlClient;
+using BCD_Restaurant_Project.Classes;
 namespace BCD_Restaurant_Project.Forms
 {
     public partial class frmLogin : Form
@@ -15,6 +16,21 @@ namespace BCD_Restaurant_Project.Forms
         public frmLogin()
         {
             InitializeComponent();
+        }
+
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+            ProgOps.openDatabase();
+        }
+
+        private void frmLogin_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            ProgOps.CloseDatabase();
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
