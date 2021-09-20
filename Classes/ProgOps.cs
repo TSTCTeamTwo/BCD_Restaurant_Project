@@ -13,7 +13,6 @@ namespace BCD_Restaurant_Project.Classes
     {
         private const string CONNECT_STRING = "Server=cstnt.tstc.edu;Database= inew2330fa21;User Id =group2fa212330;password=2547268";
 
-        private static SqlConnection _cntDBConnection = new SqlConnection(CONNECT_STRING);
 
         private static SqlDataAdapter _daAccounts = new SqlDataAdapter();
         private static DataTable _dtAccounts = new DataTable();
