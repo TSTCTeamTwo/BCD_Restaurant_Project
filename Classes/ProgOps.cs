@@ -50,5 +50,40 @@ namespace BCD_Restaurant_Project.Classes
             }
         }
 
+        public static void CloseDatabase()
+        {
+            try
+            {
+                _cntDBConnection.Close();
+                MessageBox.Show("Connection to database was successfully closed.", "Database Connection",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                _cntDBConnection.Dispose();
+                _daAccounts.Dispose();
+                _daEmployees.Dispose();
+                _dtAccounts.Dispose();
+                _dtEmployees.Dispose();
+
+            }catch(SqlException ex)
+            {
+                if(ex is SqlException)
+                {
+                    for (int i = 0; i < ex.Errors.Count; i++)
+                    {
+                        _errorMessages.Append("Index#" + i + "\n" +
+                            "Message: " + ex.Errors[i].Message + "\n" +
+                            "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
+                            "Source: " + ex.Errors[i].Source + "\n" +
+                            "Procedure: " + ex.Errors[i].Procedure + "\n");
+                    }
+                    MessageBox.Show(_errorMessages.ToString(), "Error Close Database", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {//handles generic ones here
+                    MessageBox.Show(ex.Message + "Error (PO2)", "Error Close Database", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
     }
 }
