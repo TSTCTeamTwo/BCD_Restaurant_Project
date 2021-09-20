@@ -9,11 +9,11 @@ using System.Windows.Forms;
 
 namespace BCD_Restaurant_Project.Classes
 {
-    internal class ProgOps
+    class ProgOps
     {
         private const string CONNECT_STRING = "Server=cstnt.tstc.edu;Database= inew2330fa21;User Id =group2fa212330;password=2547268";
 
-        private static SqlConnection _cntDBConnection = new SqlConnection();
+        private static SqlConnection _cntDBConnection = new SqlConnection(CONNECT_STRING);
 
         private static SqlDataAdapter _daAccounts = new SqlDataAdapter();
         private static DataTable _dtAccounts = new DataTable();
@@ -28,6 +28,8 @@ namespace BCD_Restaurant_Project.Classes
             try
             {
                 _cntDBConnection.Open();
+                MessageBox.Show("Connection to database was successfully opened.", "Database Connection",
+                   MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (SqlException exception)
             {

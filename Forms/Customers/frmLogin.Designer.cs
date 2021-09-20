@@ -30,6 +30,7 @@ namespace BCD_Restaurant_Project.Forms
         private void InitializeComponent()
         {
             this.pnlLogin = new System.Windows.Forms.Panel();
+            this.btnExit = new System.Windows.Forms.Button();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.tbxPassword = new System.Windows.Forms.TextBox();
@@ -37,14 +38,13 @@ namespace BCD_Restaurant_Project.Forms
             this.lblPassword = new System.Windows.Forms.Label();
             this.lblUsername = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.pnlLogin.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlLogin
             // 
             this.pnlLogin.BackColor = System.Drawing.Color.BlanchedAlmond;
-            this.pnlLogin.Controls.Add(this.button1);
+            this.pnlLogin.Controls.Add(this.btnExit);
             this.pnlLogin.Controls.Add(this.linkLabel2);
             this.pnlLogin.Controls.Add(this.linkLabel1);
             this.pnlLogin.Controls.Add(this.tbxPassword);
@@ -57,6 +57,19 @@ namespace BCD_Restaurant_Project.Forms
             this.pnlLogin.Name = "pnlLogin";
             this.pnlLogin.Size = new System.Drawing.Size(412, 249);
             this.pnlLogin.TabIndex = 3;
+            // 
+            // btnExit
+            // 
+            this.btnExit.BackColor = System.Drawing.Color.White;
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnExit.Location = new System.Drawing.Point(32, 194);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(94, 36);
+            this.btnExit.TabIndex = 7;
+            this.btnExit.Text = "Exit";
+            this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // linkLabel2
             // 
@@ -130,18 +143,6 @@ namespace BCD_Restaurant_Project.Forms
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = false;
             // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.White;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Location = new System.Drawing.Point(32, 194);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(94, 36);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Exit";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
@@ -156,6 +157,8 @@ namespace BCD_Restaurant_Project.Forms
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmLogin_FormClosing);
+            this.Load += new System.EventHandler(this.frmLogin_Load);
             this.pnlLogin.ResumeLayout(false);
             this.pnlLogin.PerformLayout();
             this.ResumeLayout(false);
@@ -172,6 +175,6 @@ namespace BCD_Restaurant_Project.Forms
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.LinkLabel linkLabel2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnExit;
     }
 }
