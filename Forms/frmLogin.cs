@@ -32,5 +32,10 @@ namespace BCD_Restaurant_Project.Forms
         {
             Application.Exit();
         }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
