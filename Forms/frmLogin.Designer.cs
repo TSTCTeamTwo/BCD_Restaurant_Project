@@ -76,7 +76,7 @@ namespace BCD_Restaurant_Project.Forms
             this.linkLabel2.AutoSize = true;
             this.linkLabel2.Location = new System.Drawing.Point(286, 187);
             this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(58, 17);
+            this.linkLabel2.Size = new System.Drawing.Size(68, 20);
             this.linkLabel2.TabIndex = 6;
             this.linkLabel2.TabStop = true;
             this.linkLabel2.Text = "Sign Up";
@@ -86,7 +86,7 @@ namespace BCD_Restaurant_Project.Forms
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.Location = new System.Drawing.Point(286, 213);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(114, 17);
+            this.linkLabel1.Size = new System.Drawing.Size(136, 20);
             this.linkLabel1.TabIndex = 5;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Forgot Password";
@@ -98,7 +98,7 @@ namespace BCD_Restaurant_Project.Forms
             this.tbxPassword.Location = new System.Drawing.Point(174, 90);
             this.tbxPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbxPassword.Name = "tbxPassword";
-            this.tbxPassword.Size = new System.Drawing.Size(199, 26);
+            this.tbxPassword.Size = new System.Drawing.Size(199, 30);
             this.tbxPassword.TabIndex = 4;
             // 
             // tbxUsername
@@ -108,7 +108,7 @@ namespace BCD_Restaurant_Project.Forms
             this.tbxUsername.Location = new System.Drawing.Point(174, 32);
             this.tbxUsername.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbxUsername.Name = "tbxUsername";
-            this.tbxUsername.Size = new System.Drawing.Size(199, 26);
+            this.tbxUsername.Size = new System.Drawing.Size(199, 30);
             this.tbxUsername.TabIndex = 3;
             // 
             // lblPassword
@@ -116,7 +116,7 @@ namespace BCD_Restaurant_Project.Forms
             this.lblPassword.AutoSize = true;
             this.lblPassword.Location = new System.Drawing.Point(40, 97);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(69, 17);
+            this.lblPassword.Size = new System.Drawing.Size(83, 20);
             this.lblPassword.TabIndex = 2;
             this.lblPassword.Text = "Password";
             this.lblPassword.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -126,7 +126,7 @@ namespace BCD_Restaurant_Project.Forms
             this.lblUsername.AutoSize = true;
             this.lblUsername.Location = new System.Drawing.Point(40, 37);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(73, 17);
+            this.lblUsername.Size = new System.Drawing.Size(86, 20);
             this.lblUsername.TabIndex = 1;
             this.lblUsername.Text = "Username";
             this.lblUsername.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -142,14 +142,14 @@ namespace BCD_Restaurant_Project.Forms
             this.btnLogin.TabIndex = 0;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = false;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // frmLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(447, 301);
-            this.ControlBox = false;
             this.Controls.Add(this.pnlLogin);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
