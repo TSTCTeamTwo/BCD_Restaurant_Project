@@ -78,10 +78,10 @@
     <Compile Include="Forms\Customers\frmForgot.Designer.cs">
       <DependentUpon>frmForgot.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Customers\frmLogin.cs">
+    <Compile Include="Forms\frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Customers\frmLogin.Designer.cs">
+    <Compile Include="Forms\frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Customers\frmMain.cs">
@@ -164,7 +164,7 @@
     <EmbeddedResource Include="Forms\Customers\frmForgot.resx">
       <DependentUpon>frmForgot.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Customers\frmLogin.resx">
+    <EmbeddedResource Include="Forms\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Customers\frmMain.resx">
