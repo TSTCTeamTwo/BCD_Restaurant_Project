@@ -42,7 +42,6 @@ namespace BCD_Restaurant_Project.Forms
             if (tbxUsername.Text.Equals("") || tbxPassword.Text.Equals(""))
             {
                 lblEmpty.Visible = true;
-
             }
             else
             {
@@ -62,7 +61,7 @@ namespace BCD_Restaurant_Project.Forms
                         }
                         else if(employee == 1)//account is employee
                         {
-                           // new frmMainEmployees().Show();
+                           
                         }
                         else
                         {

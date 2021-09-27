@@ -1,7 +1,7 @@
 ﻿
 namespace BCD_Restaurant_Project.Forms
 {
-    partial class frmManEmployee
+    partial class frmMainManagers
     {
         /// <summary>
         /// Required designer variable.
@@ -51,10 +51,9 @@ namespace BCD_Restaurant_Project.Forms
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(449, 143);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(337, 116);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(558, 39);
+            this.label3.Size = new System.Drawing.Size(445, 31);
             this.label3.TabIndex = 22;
             this.label3.Text = "Welcome back, Manager FirstName";
             // 
@@ -63,10 +62,9 @@ namespace BCD_Restaurant_Project.Forms
             this.panel3.BackColor = System.Drawing.Color.DodgerBlue;
             this.panel3.Controls.Add(this.label1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(293, 0);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4);
+            this.panel3.Location = new System.Drawing.Point(220, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(839, 92);
+            this.panel3.Size = new System.Drawing.Size(629, 75);
             this.panel3.TabIndex = 20;
             // 
             // label1
@@ -75,10 +73,9 @@ namespace BCD_Restaurant_Project.Forms
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(282, 27);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(212, 22);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(260, 31);
+            this.label1.Size = new System.Drawing.Size(208, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "Manager Dashboard";
             // 
@@ -92,9 +89,8 @@ namespace BCD_Restaurant_Project.Forms
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(293, 603);
+            this.panel1.Size = new System.Drawing.Size(220, 490);
             this.panel1.TabIndex = 19;
             // 
             // button7
@@ -105,11 +101,10 @@ namespace BCD_Restaurant_Project.Forms
             this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button7.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.button7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button7.Location = new System.Drawing.Point(0, 314);
-            this.button7.Margin = new System.Windows.Forms.Padding(4);
+            this.button7.Location = new System.Drawing.Point(0, 255);
             this.button7.Name = "button7";
-            this.button7.Padding = new System.Windows.Forms.Padding(27, 0, 0, 0);
-            this.button7.Size = new System.Drawing.Size(293, 74);
+            this.button7.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.button7.Size = new System.Drawing.Size(220, 60);
             this.button7.TabIndex = 15;
             this.button7.Text = "Direct Deposit";
             this.button7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -124,11 +119,10 @@ namespace BCD_Restaurant_Project.Forms
             this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button9.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.button9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button9.Location = new System.Drawing.Point(0, 240);
-            this.button9.Margin = new System.Windows.Forms.Padding(4);
+            this.button9.Location = new System.Drawing.Point(0, 195);
             this.button9.Name = "button9";
-            this.button9.Padding = new System.Windows.Forms.Padding(27, 0, 0, 0);
-            this.button9.Size = new System.Drawing.Size(293, 74);
+            this.button9.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.button9.Size = new System.Drawing.Size(220, 60);
             this.button9.TabIndex = 13;
             this.button9.Text = "Manage Menu";
             this.button9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -143,11 +137,10 @@ namespace BCD_Restaurant_Project.Forms
             this.button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button10.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.button10.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button10.Location = new System.Drawing.Point(0, 166);
-            this.button10.Margin = new System.Windows.Forms.Padding(4);
+            this.button10.Location = new System.Drawing.Point(0, 135);
             this.button10.Name = "button10";
-            this.button10.Padding = new System.Windows.Forms.Padding(27, 0, 0, 0);
-            this.button10.Size = new System.Drawing.Size(293, 74);
+            this.button10.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.button10.Size = new System.Drawing.Size(220, 60);
             this.button10.TabIndex = 12;
             this.button10.Text = "Manage Accounts";
             this.button10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -162,11 +155,10 @@ namespace BCD_Restaurant_Project.Forms
             this.button12.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button12.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.button12.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button12.Location = new System.Drawing.Point(0, 92);
-            this.button12.Margin = new System.Windows.Forms.Padding(4);
+            this.button12.Location = new System.Drawing.Point(0, 75);
             this.button12.Name = "button12";
-            this.button12.Padding = new System.Windows.Forms.Padding(27, 0, 0, 0);
-            this.button12.Size = new System.Drawing.Size(293, 74);
+            this.button12.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.button12.Size = new System.Drawing.Size(220, 60);
             this.button12.TabIndex = 10;
             this.button12.Text = "Dashboard";
             this.button12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -179,9 +171,8 @@ namespace BCD_Restaurant_Project.Forms
             this.panel2.Controls.Add(this.label2);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(293, 92);
+            this.panel2.Size = new System.Drawing.Size(220, 75);
             this.panel2.TabIndex = 0;
             // 
             // label2
@@ -190,10 +181,9 @@ namespace BCD_Restaurant_Project.Forms
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(52, 27);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(39, 22);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(168, 31);
+            this.label2.Size = new System.Drawing.Size(131, 25);
             this.label2.TabIndex = 5;
             this.label2.Text = "\"Restaurant\"";
             // 
@@ -201,25 +191,23 @@ namespace BCD_Restaurant_Project.Forms
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.Image = global::BCD_Restaurant_Project.Properties.Resources.P;
-            this.pictureBox1.Location = new System.Drawing.Point(418, 214);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox1.Location = new System.Drawing.Point(314, 174);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(589, 332);
+            this.pictureBox1.Size = new System.Drawing.Size(442, 270);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 21;
             this.pictureBox1.TabStop = false;
             // 
-            // frmManEmployee
+            // frmMainManagers
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1132, 603);
+            this.ClientSize = new System.Drawing.Size(849, 490);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBox1);
-            this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "frmManEmployee";
+            this.Name = "frmMainManagers";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Manage Employees";
             this.panel3.ResumeLayout(false);
