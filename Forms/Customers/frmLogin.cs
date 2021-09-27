@@ -13,6 +13,7 @@ namespace BCD_Restaurant_Project.Forms
 {
     public partial class frmLogin : Form
     {
+        CurrencyManager accountsManager;
         public frmLogin()
         {
             InitializeComponent();
@@ -21,6 +22,7 @@ namespace BCD_Restaurant_Project.Forms
         private void frmLogin_Load(object sender, EventArgs e)
         {
             ProgOps.openDatabase();
+            accountsManager = (CurrencyManager)this.BindingContext[ProgOps.DTAccounts];
         }
 
         private void frmLogin_FormClosing(object sender, FormClosingEventArgs e)
@@ -31,6 +33,18 @@ namespace BCD_Restaurant_Project.Forms
         private void btnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+
+            if (tbxPassword.Equals("") || tbxUsername.Equals(""))
+            {
+                return;
+
+            }
+            
+            
         }
     }
 }
