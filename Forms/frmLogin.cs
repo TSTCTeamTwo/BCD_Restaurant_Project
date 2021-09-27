@@ -13,7 +13,7 @@ namespace BCD_Restaurant_Project.Forms
 {
     public partial class frmLogin : Form
     {
-       
+        private bool isShowing;
         public frmLogin()
         {
             InitializeComponent();
@@ -22,7 +22,7 @@ namespace BCD_Restaurant_Project.Forms
         private void frmLogin_Load(object sender, EventArgs e)
         {
             ProgOps.openDatabase();
-           
+            isShowing = false;
         }
 
         private void frmLogin_FormClosing(object sender, FormClosingEventArgs e)
@@ -53,6 +53,30 @@ namespace BCD_Restaurant_Project.Forms
             frmSignUp sign = new frmSignUp();
             sign.Show();
             this.Hide();
+        }
+
+        private void pbxPasswordIcon_Click(object sender, EventArgs e)
+        {
+            if (!isShowing)
+            {
+                Object rm = Properties.Resources.ResourceManager.GetObject("pressToHide");
+                Bitmap myImage = (Bitmap)rm;
+                Image image = myImage;
+
+                pbxPasswordIcon.Image = image;
+                tbxPassword.PasswordChar = default;
+                isShowing = true;
+            }
+            else
+            {
+                Object rm = Properties.Resources.ResourceManager.GetObject("pressToShow");
+                Bitmap myImage = (Bitmap)rm;
+                Image image = myImage;
+
+                pbxPasswordIcon.Image = image;
+                tbxPassword.PasswordChar = '•';
+                isShowing = false;
+            }
         }
     }
 }

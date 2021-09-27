@@ -220,12 +220,17 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\pressToHide.png" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Hamburgers-got-their-name-from-Hamburg-Germany.-1024x768.jpg" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\P.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pressToShow.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
