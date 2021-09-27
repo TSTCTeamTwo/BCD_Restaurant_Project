@@ -29,15 +29,15 @@ namespace BCD_Restaurant_Project.Forms
             {
                 lblEmpty.Text = "Enter a first name and last name";
             }
-            if (tbxEmail.Text.Equals(""))
+            else if (tbxEmail.Text.Equals(""))
             {
                 lblEmpty.Text = "Enter an email";
             }
-            if (tbxUsername.Text.Equals(""))
+            else if (tbxUsername.Text.Equals(""))
             {
                 lblEmpty.Text = "Enter a username";
             }
-            if (tbxPassword.Text.Equals(""))
+            else if (tbxPassword.Text.Equals(""))
             {
                 lblEmpty.Text = "Enter a password";
 

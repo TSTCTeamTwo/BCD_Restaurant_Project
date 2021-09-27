@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace BCD_Restaurant_Project.Forms
 {
-    public partial class frmManEmployee : Form
+    public partial class frmMainManagers : Form
     {
-        public frmManEmployee()
+        public frmMainManagers()
         {
             InitializeComponent();
         }
