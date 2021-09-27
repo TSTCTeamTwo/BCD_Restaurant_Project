@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace BCD_Restaurant_Project.Classes
 {
-    class ProgOps
+    static class ProgOps
     {
         private const string CONNECT_STRING = "Server=cstnt.tstc.edu;Database= inew2330fa21;User Id =group2fa212330;password=2547268";
 
@@ -72,9 +72,10 @@ namespace BCD_Restaurant_Project.Classes
                 _dtAccounts.Dispose();
                 _dtEmployees.Dispose();
 
-            }catch(SqlException ex)
+            }
+            catch (SqlException ex)
             {
-                if(ex is SqlException)
+                if (ex is SqlException)
                 {
                     for (int i = 0; i < ex.Errors.Count; i++)
                     {
