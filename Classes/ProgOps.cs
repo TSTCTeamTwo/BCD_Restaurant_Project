@@ -27,8 +27,13 @@ namespace BCD_Restaurant_Project.Classes
         public static DataTable DTAccounts
         {
             get { return _dtAccountsTable; }
+            
         }
 
+        public static string AccountFirstname { get; set; } = string.Empty;
+        public static string AccountLastname { get; set; } = string.Empty;
+        public static string Username { get; set; } = string.Empty;
+        public static int AccountID { get; set; } = 0;
 
         public static void openDatabase()
         {
@@ -149,15 +154,49 @@ namespace BCD_Restaurant_Project.Classes
                 accountID =
                     (int)_dtAccountsTable
                         .Rows[0]["AccountID"]; //return row 1 column cell value of column with the name"AccountID"
-                MessageBox.Show("Welcome "+_dtAccountsTable.Rows[0]["FirstName"]+"!");
+               // MessageBox.Show("Welcome "+_dtAccountsTable.Rows[0]["FirstName"]+"!");
             }
-            else
-                MessageBox.Show("Accout not found", "Login", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+            
 
             //dispose all the connections
             return accountID;
 
+        }
+
+        public static void SignUp(string fName, string lName, string username, string email, string password)
+        {
+            try
+            {
+                string query = "INSERT INTO group2fa212330.Accounts(FirstName, LastName, Username, Email, Password, isEmployee, OneTimePassword) VALUES(@FName, @LName, @UName, @Email, @Password, 0, 1)";
+                _sqlAccountsCommand = new SqlCommand(query, _cntDBConnection);
+
+                _sqlAccountsCommand.Parameters.AddWithValue("@FName", fName);
+                _sqlAccountsCommand.Parameters.AddWithValue("@LName", lName);
+                _sqlAccountsCommand.Parameters.AddWithValue("@UName", username);
+                _sqlAccountsCommand.Parameters.AddWithValue("@Email", email);
+                _sqlAccountsCommand.Parameters.AddWithValue("@Password", password);
+                _sqlAccountsCommand.ExecuteNonQuery();
+            }
+            catch(SqlException ex)
+            {
+
+                if (ex is SqlException)
+                {
+                    for (int i = 0; i < ex.Errors.Count; i++)
+                    {
+                        _errorMessages.Append("Index#" + i + "\n" +
+                            "Message: " + ex.Errors[i].Message + "\n" +
+                            "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
+                            "Source: " + ex.Errors[i].Source + "\n" +
+                            "Procedure: " + ex.Errors[i].Procedure + "\n");
+                    }
+                    MessageBox.Show(_errorMessages.ToString(), "Error Close Database", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {//handles generic ones here
+                    MessageBox.Show(ex.Message + "Error (PO2)", "Error Close Database", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
     }

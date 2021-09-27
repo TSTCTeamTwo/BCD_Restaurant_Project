@@ -140,6 +140,7 @@ namespace BCD_Restaurant_Project.Forms
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmForgot";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Forgot";
             this.pnlLogin.ResumeLayout(false);
             this.pnlLogin.PerformLayout();
