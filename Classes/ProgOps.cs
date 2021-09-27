@@ -23,6 +23,12 @@ namespace BCD_Restaurant_Project.Classes
 
         private static readonly StringBuilder _errorMessages = new StringBuilder();
 
+        public static DataTable DTAccounts
+        {
+            get { return _dtAccounts; }
+        }
+
+
         public static void openDatabase()
         {
             try
@@ -87,6 +93,9 @@ namespace BCD_Restaurant_Project.Classes
                 }
             }
         }
+
+        
+        
 
     }
 }
