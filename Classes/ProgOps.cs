@@ -19,6 +19,7 @@ namespace BCD_Restaurant_Project.Classes
         private static SqlDataAdapter _daAccounts = new SqlDataAdapter();
         private static DataTable _dtAccountsTable = new DataTable();
 
+        private static SqlCommand _sqlEmployeesCommand = new SqlCommand();
         private static SqlDataAdapter _daEmployees = new SqlDataAdapter();
         private static DataTable _dtEmployees = new DataTable();
 
@@ -105,19 +106,19 @@ namespace BCD_Restaurant_Project.Classes
 
             string query = "select * from group2fa212330.employees where accountID = " + accountID;
 
-            _sqlAccountsCommand = new SqlCommand(query, _cntDBConnection);
+            _sqlEmployeesCommand = new SqlCommand(query, _cntDBConnection);
 
-            _daAccounts = new SqlDataAdapter();
+            _daEmployees = new SqlDataAdapter();
 
-            _daAccounts.SelectCommand = _sqlAccountsCommand;
+            _daEmployees.SelectCommand = _sqlEmployeesCommand;
 
-            _dtAccountsTable = new DataTable();
-            _daAccounts.Fill(_dtAccountsTable);
+            _dtEmployees = new DataTable();
+            _daEmployees.Fill(_dtEmployees);
 
-            if (_dtAccountsTable.Rows.Count > 0) // if results return a row
+            if (_dtEmployees.Rows.Count > 0) // if results return a row
             {
                 bool tempBool = false;
-                if ((bool)_dtAccountsTable.Rows[0]["IsAdmin"])
+                if ((bool)_dtEmployees.Rows[0]["IsAdmin"])
                 {
                     return 2;// admin
                 }
@@ -128,7 +129,7 @@ namespace BCD_Restaurant_Project.Classes
             }
             else
             {
-                return 0;
+                return 0;//customer
             }
 
 
