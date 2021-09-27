@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using BCD_Restaurant_Project.Classes;
+using BCD_Restaurant_Project.Forms.Employees;
 namespace BCD_Restaurant_Project.Forms
 {
     public partial class frmLogin : Form
@@ -53,15 +54,16 @@ namespace BCD_Restaurant_Project.Forms
                         //saving accounts first name and last name to use it later in the application
                         ProgOps.AccountFirstname = ProgOps.DTAccounts.Rows[0]["FirstName"].ToString();
                         ProgOps.AccountLastname = ProgOps.DTAccounts.Rows[0]["LastName"].ToString();
-                        MessageBox.Show("Welcome " + ProgOps.DTAccounts.Rows[0]["FirstName"] + "!");
+                        
                         employee = ProgOps.verifyEmployeeStatus(ProgOps.AccountID);//storing the type of account
+
                         if(employee == 2)//account is an admin
                         {
-
+                            new frmMainManagers().Show();
                         }
                         else if(employee == 1)//account is employee
                         {
-                           
+                            new frmMainEmployees().Show();
                         }
                         else
                         {
