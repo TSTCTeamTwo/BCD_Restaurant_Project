@@ -131,6 +131,7 @@ namespace BCD_Restaurant_Project.Forms
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmDrinks";
             this.Text = "frmDrinks";
+            this.Load += new System.EventHandler(this.frmDrinks_Load);
             this.pnlLogin.ResumeLayout(false);
             this.pnlLogin.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

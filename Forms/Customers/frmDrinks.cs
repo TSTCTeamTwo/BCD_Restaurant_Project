@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using BCD_Restaurant_Project.Classes;
 namespace BCD_Restaurant_Project.Forms
 {
     public partial class frmDrinks : Form
@@ -20,6 +20,11 @@ namespace BCD_Restaurant_Project.Forms
         private void button2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void frmDrinks_Load(object sender, EventArgs e)
+        {
+            ProgOps.DisplayMenuItems(dataGridView1, 4);
         }
     }
 }
