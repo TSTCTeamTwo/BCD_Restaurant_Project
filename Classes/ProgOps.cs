@@ -23,6 +23,10 @@ namespace BCD_Restaurant_Project.Classes
         private static SqlDataAdapter _daEmployees = new SqlDataAdapter();
         private static DataTable _dtEmployees = new DataTable();
 
+        private static SqlCommand _sqlMenuCommand = new SqlCommand();
+        private static SqlDataAdapter _daMenu = new SqlDataAdapter();
+        private static DataTable _dtMenu = new DataTable();
+
         private static readonly StringBuilder _errorMessages = new StringBuilder();
 
         public static DataTable DTAccounts
@@ -198,6 +202,17 @@ namespace BCD_Restaurant_Project.Classes
                     MessageBox.Show(ex.Message + "Error (PO2)", "Error Close Database", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        public static void DisplayMenuItems(DataGridView dgvDisplay)
+        {
+            string query = "SELECT ItemName, ItemDescription, Price, Image FROM group2fa212330.Menu INNER JOIN group2fa212330.Images ON Menu.ImageID = Images.ImageID";
+            _sqlMenuCommand = new SqlCommand(query, _cntDBConnection);
+            _daMenu.SelectCommand = _sqlMenuCommand;
+            _daMenu.Fill(_dtMenu);
+            dgvDisplay.DataSource = _dtMenu;
+
+            dgvDisplay.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
         }
 
     }
