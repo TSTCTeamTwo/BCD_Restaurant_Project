@@ -19,7 +19,12 @@ namespace BCD_Restaurant_Project.Forms
 
         private void frmDesserts_Load(object sender, EventArgs e)
         {
-            ProgOps.DisplayMenuItems(dataGridView1, 3);
+            ProgOps.DisplayMenuItems(dgvDesserts, 3);
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
