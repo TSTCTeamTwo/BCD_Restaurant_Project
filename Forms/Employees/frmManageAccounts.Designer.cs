@@ -29,7 +29,6 @@ namespace BCD_Restaurant_Project.Forms.Employees
         /// </summary>
         private void InitializeComponent()
         {
-            this.pnlLogin = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.lblPassword = new System.Windows.Forms.Label();
@@ -56,23 +55,11 @@ namespace BCD_Restaurant_Project.Forms.Employees
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.pnlLogin.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pnlLogin
-            // 
-            this.pnlLogin.BackColor = System.Drawing.Color.BlanchedAlmond;
-            this.pnlLogin.Controls.Add(this.groupBox2);
-            this.pnlLogin.Controls.Add(this.groupBox1);
-            this.pnlLogin.Location = new System.Drawing.Point(23, 20);
-            this.pnlLogin.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.pnlLogin.Name = "pnlLogin";
-            this.pnlLogin.Size = new System.Drawing.Size(727, 515);
-            this.pnlLogin.TabIndex = 6;
             // 
             // groupBox2
             // 
@@ -95,11 +82,11 @@ namespace BCD_Restaurant_Project.Forms.Employees
             this.groupBox2.Controls.Add(this.textBox4);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Location = new System.Drawing.Point(329, 17);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Location = new System.Drawing.Point(491, 11);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox2.Size = new System.Drawing.Size(377, 474);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox2.Size = new System.Drawing.Size(377, 405);
             this.groupBox2.TabIndex = 21;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Manage Account";
@@ -110,10 +97,10 @@ namespace BCD_Restaurant_Project.Forms.Employees
             this.groupBox3.Controls.Add(this.tbxPassword);
             this.groupBox3.Controls.Add(this.checkBox1);
             this.groupBox3.Controls.Add(this.button4);
-            this.groupBox3.Location = new System.Drawing.Point(4, 271);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Location = new System.Drawing.Point(4, 246);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox3.Size = new System.Drawing.Size(368, 79);
             this.groupBox3.TabIndex = 29;
             this.groupBox3.TabStop = false;
@@ -145,7 +132,7 @@ namespace BCD_Restaurant_Project.Forms.Employees
             this.checkBox1.BackColor = System.Drawing.SystemColors.Control;
             this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox1.Location = new System.Drawing.Point(20, 50);
-            this.checkBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkBox1.Margin = new System.Windows.Forms.Padding(2);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(174, 17);
             this.checkBox1.TabIndex = 21;
@@ -169,7 +156,7 @@ namespace BCD_Restaurant_Project.Forms.Employees
             // 
             this.textBox6.BackColor = System.Drawing.Color.White;
             this.textBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.Location = new System.Drawing.Point(156, 174);
+            this.textBox6.Location = new System.Drawing.Point(156, 149);
             this.textBox6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(199, 26);
@@ -178,7 +165,7 @@ namespace BCD_Restaurant_Project.Forms.Employees
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(22, 180);
+            this.label6.Location = new System.Drawing.Point(22, 155);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(91, 13);
             this.label6.TabIndex = 27;
@@ -189,7 +176,7 @@ namespace BCD_Restaurant_Project.Forms.Employees
             // 
             this.textBox5.BackColor = System.Drawing.Color.White;
             this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(156, 141);
+            this.textBox5.Location = new System.Drawing.Point(156, 116);
             this.textBox5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(199, 26);
@@ -198,7 +185,7 @@ namespace BCD_Restaurant_Project.Forms.Employees
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(22, 147);
+            this.label2.Location = new System.Drawing.Point(22, 122);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 13);
             this.label2.TabIndex = 25;
@@ -210,7 +197,7 @@ namespace BCD_Restaurant_Project.Forms.Employees
             this.button3.BackColor = System.Drawing.Color.White;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(248, 357);
+            this.button3.Location = new System.Drawing.Point(248, 332);
             this.button3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(99, 28);
@@ -223,7 +210,7 @@ namespace BCD_Restaurant_Project.Forms.Employees
             this.button2.BackColor = System.Drawing.Color.White;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(139, 357);
+            this.button2.Location = new System.Drawing.Point(139, 332);
             this.button2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(99, 28);
@@ -234,7 +221,7 @@ namespace BCD_Restaurant_Project.Forms.Employees
             // lblUsername
             // 
             this.lblUsername.AutoSize = true;
-            this.lblUsername.Location = new System.Drawing.Point(22, 50);
+            this.lblUsername.Location = new System.Drawing.Point(22, 25);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(61, 13);
             this.lblUsername.TabIndex = 7;
@@ -245,7 +232,7 @@ namespace BCD_Restaurant_Project.Forms.Employees
             // 
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel1.Location = new System.Drawing.Point(163, 411);
+            this.linkLabel1.Location = new System.Drawing.Point(167, 364);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(52, 18);
             this.linkLabel1.TabIndex = 5;
@@ -257,7 +244,7 @@ namespace BCD_Restaurant_Project.Forms.Employees
             this.button1.BackColor = System.Drawing.Color.White;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(30, 357);
+            this.button1.Location = new System.Drawing.Point(30, 332);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(99, 28);
@@ -269,7 +256,7 @@ namespace BCD_Restaurant_Project.Forms.Employees
             // 
             this.tbxUsername.BackColor = System.Drawing.Color.White;
             this.tbxUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxUsername.Location = new System.Drawing.Point(156, 44);
+            this.tbxUsername.Location = new System.Drawing.Point(156, 19);
             this.tbxUsername.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbxUsername.Name = "tbxUsername";
             this.tbxUsername.Size = new System.Drawing.Size(69, 26);
@@ -279,7 +266,7 @@ namespace BCD_Restaurant_Project.Forms.Employees
             // 
             this.textBox2.BackColor = System.Drawing.Color.White;
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(156, 240);
+            this.textBox2.Location = new System.Drawing.Point(156, 215);
             this.textBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(199, 26);
@@ -288,7 +275,7 @@ namespace BCD_Restaurant_Project.Forms.Employees
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(22, 246);
+            this.label3.Location = new System.Drawing.Point(22, 221);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(57, 13);
             this.label3.TabIndex = 18;
@@ -298,7 +285,7 @@ namespace BCD_Restaurant_Project.Forms.Employees
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(22, 82);
+            this.label1.Location = new System.Drawing.Point(22, 57);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(32, 13);
             this.label1.TabIndex = 11;
@@ -309,7 +296,7 @@ namespace BCD_Restaurant_Project.Forms.Employees
             // 
             this.textBox3.BackColor = System.Drawing.Color.White;
             this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(156, 206);
+            this.textBox3.Location = new System.Drawing.Point(156, 181);
             this.textBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(199, 26);
@@ -319,7 +306,7 @@ namespace BCD_Restaurant_Project.Forms.Employees
             // 
             this.textBox1.BackColor = System.Drawing.Color.White;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(156, 76);
+            this.textBox1.Location = new System.Drawing.Point(156, 51);
             this.textBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(199, 26);
@@ -329,7 +316,7 @@ namespace BCD_Restaurant_Project.Forms.Employees
             // 
             this.textBox4.BackColor = System.Drawing.Color.White;
             this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(156, 109);
+            this.textBox4.Location = new System.Drawing.Point(156, 84);
             this.textBox4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(199, 26);
@@ -338,7 +325,7 @@ namespace BCD_Restaurant_Project.Forms.Employees
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(22, 115);
+            this.label5.Location = new System.Drawing.Point(22, 90);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(55, 13);
             this.label5.TabIndex = 14;
@@ -348,7 +335,7 @@ namespace BCD_Restaurant_Project.Forms.Employees
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(22, 212);
+            this.label4.Location = new System.Drawing.Point(22, 187);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(58, 13);
             this.label4.TabIndex = 15;
@@ -358,11 +345,11 @@ namespace BCD_Restaurant_Project.Forms.Employees
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.dataGridView1);
-            this.groupBox1.Location = new System.Drawing.Point(10, 16);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Location = new System.Drawing.Point(4, 11);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox1.Size = new System.Drawing.Size(315, 475);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Size = new System.Drawing.Size(483, 361);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Accounts";
@@ -371,23 +358,23 @@ namespace BCD_Restaurant_Project.Forms.Employees
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(8, 17);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(300, 453);
+            this.dataGridView1.Size = new System.Drawing.Size(470, 334);
             this.dataGridView1.TabIndex = 13;
             // 
             // frmManageAccounts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(769, 547);
-            this.Controls.Add(this.pnlLogin);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ClientSize = new System.Drawing.Size(1498, 547);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmManageAccounts";
-            this.Text = "frmManageAccounts";
-            this.pnlLogin.ResumeLayout(false);
+            this.Text = "Manage Accounts";
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -399,8 +386,6 @@ namespace BCD_Restaurant_Project.Forms.Employees
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel pnlLogin;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbxUsername;

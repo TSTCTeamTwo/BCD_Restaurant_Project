@@ -32,6 +32,7 @@ namespace BCD_Restaurant_Project.Forms
             this.pnlTitle = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnCheckout = new System.Windows.Forms.Button();
             this.btnLogOut = new System.Windows.Forms.Button();
             this.btnDesserts = new System.Windows.Forms.Button();
             this.btnDrinks = new System.Windows.Forms.Button();
@@ -40,7 +41,6 @@ namespace BCD_Restaurant_Project.Forms
             this.panel2 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.pnlDisplay = new System.Windows.Forms.Panel();
-            this.btnCheckout = new System.Windows.Forms.Button();
             this.pnlTitle.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -51,9 +51,10 @@ namespace BCD_Restaurant_Project.Forms
             this.pnlTitle.BackColor = System.Drawing.Color.DodgerBlue;
             this.pnlTitle.Controls.Add(this.lblTitle);
             this.pnlTitle.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlTitle.Location = new System.Drawing.Point(220, 0);
+            this.pnlTitle.Location = new System.Drawing.Point(330, 0);
+            this.pnlTitle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnlTitle.Name = "pnlTitle";
-            this.pnlTitle.Size = new System.Drawing.Size(1035, 75);
+            this.pnlTitle.Size = new System.Drawing.Size(1552, 98);
             this.pnlTitle.TabIndex = 1;
             // 
             // lblTitle
@@ -62,7 +63,8 @@ namespace BCD_Restaurant_Project.Forms
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblTitle.Location = new System.Drawing.Point(466, 19);
+            this.lblTitle.Location = new System.Drawing.Point(699, 25);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(117, 25);
             this.lblTitle.TabIndex = 0;
@@ -80,9 +82,30 @@ namespace BCD_Restaurant_Project.Forms
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(220, 504);
+            this.panel1.Size = new System.Drawing.Size(330, 659);
             this.panel1.TabIndex = 11;
+            // 
+            // btnCheckout
+            // 
+            this.btnCheckout.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnCheckout.FlatAppearance.BorderSize = 0;
+            this.btnCheckout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCheckout.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCheckout.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.btnCheckout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCheckout.Location = new System.Drawing.Point(0, 488);
+            this.btnCheckout.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCheckout.Name = "btnCheckout";
+            this.btnCheckout.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnCheckout.Size = new System.Drawing.Size(330, 78);
+            this.btnCheckout.TabIndex = 7;
+            this.btnCheckout.Text = "Checkout";
+            this.btnCheckout.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCheckout.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCheckout.UseVisualStyleBackColor = true;
+            this.btnCheckout.Click += new System.EventHandler(this.btnCheckout_Click_1);
             // 
             // btnLogOut
             // 
@@ -92,16 +115,16 @@ namespace BCD_Restaurant_Project.Forms
             this.btnLogOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogOut.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.btnLogOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLogOut.Location = new System.Drawing.Point(0, 315);
+            this.btnLogOut.Location = new System.Drawing.Point(0, 410);
+            this.btnLogOut.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnLogOut.Name = "btnLogOut";
-            this.btnLogOut.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btnLogOut.Size = new System.Drawing.Size(220, 60);
+            this.btnLogOut.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnLogOut.Size = new System.Drawing.Size(330, 78);
             this.btnLogOut.TabIndex = 6;
             this.btnLogOut.Text = "Log Out / Exit";
             this.btnLogOut.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnLogOut.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnLogOut.UseVisualStyleBackColor = true;
-//            this.btnLogOut.Click += new System.EventHandler(this.btnCheckout_Click);
             // 
             // btnDesserts
             // 
@@ -111,10 +134,11 @@ namespace BCD_Restaurant_Project.Forms
             this.btnDesserts.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDesserts.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.btnDesserts.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDesserts.Location = new System.Drawing.Point(0, 255);
+            this.btnDesserts.Location = new System.Drawing.Point(0, 332);
+            this.btnDesserts.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnDesserts.Name = "btnDesserts";
-            this.btnDesserts.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btnDesserts.Size = new System.Drawing.Size(220, 60);
+            this.btnDesserts.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnDesserts.Size = new System.Drawing.Size(330, 78);
             this.btnDesserts.TabIndex = 4;
             this.btnDesserts.Text = "Desserts";
             this.btnDesserts.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -130,10 +154,11 @@ namespace BCD_Restaurant_Project.Forms
             this.btnDrinks.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDrinks.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.btnDrinks.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDrinks.Location = new System.Drawing.Point(0, 195);
+            this.btnDrinks.Location = new System.Drawing.Point(0, 254);
+            this.btnDrinks.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnDrinks.Name = "btnDrinks";
-            this.btnDrinks.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btnDrinks.Size = new System.Drawing.Size(220, 60);
+            this.btnDrinks.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnDrinks.Size = new System.Drawing.Size(330, 78);
             this.btnDrinks.TabIndex = 3;
             this.btnDrinks.Text = "Drinks";
             this.btnDrinks.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -149,10 +174,11 @@ namespace BCD_Restaurant_Project.Forms
             this.btnFood.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFood.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.btnFood.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFood.Location = new System.Drawing.Point(0, 135);
+            this.btnFood.Location = new System.Drawing.Point(0, 176);
+            this.btnFood.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnFood.Name = "btnFood";
-            this.btnFood.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btnFood.Size = new System.Drawing.Size(220, 60);
+            this.btnFood.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnFood.Size = new System.Drawing.Size(330, 78);
             this.btnFood.TabIndex = 2;
             this.btnFood.Text = "Food";
             this.btnFood.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -168,10 +194,11 @@ namespace BCD_Restaurant_Project.Forms
             this.btnDashboard.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDashboard.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.btnDashboard.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDashboard.Location = new System.Drawing.Point(0, 75);
+            this.btnDashboard.Location = new System.Drawing.Point(0, 98);
+            this.btnDashboard.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnDashboard.Name = "btnDashboard";
-            this.btnDashboard.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btnDashboard.Size = new System.Drawing.Size(220, 60);
+            this.btnDashboard.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnDashboard.Size = new System.Drawing.Size(330, 78);
             this.btnDashboard.TabIndex = 1;
             this.btnDashboard.Text = "Dashboard";
             this.btnDashboard.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -184,8 +211,9 @@ namespace BCD_Restaurant_Project.Forms
             this.panel2.Controls.Add(this.label2);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(220, 75);
+            this.panel2.Size = new System.Drawing.Size(330, 98);
             this.panel2.TabIndex = 0;
             // 
             // label2
@@ -194,7 +222,8 @@ namespace BCD_Restaurant_Project.Forms
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(39, 22);
+            this.label2.Location = new System.Drawing.Point(82, 25);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(131, 25);
             this.label2.TabIndex = 0;
@@ -203,39 +232,21 @@ namespace BCD_Restaurant_Project.Forms
             // pnlDisplay
             // 
             this.pnlDisplay.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlDisplay.Location = new System.Drawing.Point(220, 75);
+            this.pnlDisplay.Location = new System.Drawing.Point(330, 98);
+            this.pnlDisplay.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnlDisplay.Name = "pnlDisplay";
-            this.pnlDisplay.Size = new System.Drawing.Size(1035, 429);
+            this.pnlDisplay.Size = new System.Drawing.Size(1552, 561);
             this.pnlDisplay.TabIndex = 0;
-            // 
-            // btnCheckout
-            // 
-            this.btnCheckout.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnCheckout.FlatAppearance.BorderSize = 0;
-            this.btnCheckout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCheckout.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCheckout.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.btnCheckout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCheckout.Location = new System.Drawing.Point(0, 375);
-            this.btnCheckout.Name = "btnCheckout";
-            this.btnCheckout.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btnCheckout.Size = new System.Drawing.Size(220, 60);
-            this.btnCheckout.TabIndex = 7;
-            this.btnCheckout.Text = "Checkout";
-            this.btnCheckout.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCheckout.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnCheckout.UseVisualStyleBackColor = true;
-            this.btnCheckout.Click += new System.EventHandler(this.btnCheckout_Click_1);
             // 
             // frmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1255, 504);
+            this.ClientSize = new System.Drawing.Size(1882, 659);
             this.Controls.Add(this.pnlDisplay);
             this.Controls.Add(this.pnlTitle);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Font = new System.Drawing.Font("Lucida Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dashboard";

@@ -110,7 +110,7 @@ namespace BCD_Restaurant_Project.Forms
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmDesserts";
-            this.Text = "frmDesserts";
+            this.Text = "Desserts";
             this.Load += new System.EventHandler(this.frmDesserts_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDesserts)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
