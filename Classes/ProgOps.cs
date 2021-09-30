@@ -209,10 +209,13 @@ namespace BCD_Restaurant_Project.Classes
             string query = "SELECT ItemName, ItemDescription, Price, Image FROM group2fa212330.Menu INNER JOIN group2fa212330.Images ON Menu.ImageID = Images.ImageID WHERE CategoryID = "+categoryId;
             _sqlMenuCommand = new SqlCommand(query, _cntDBConnection);
             _daMenu.SelectCommand = _sqlMenuCommand;
+            dgvDisplay.Rows.Clear();
+            _dtMenu.Clear();
             _daMenu.Fill(_dtMenu);
             dgvDisplay.DataSource = _dtMenu;
 
             dgvDisplay.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            
         }
 
     }

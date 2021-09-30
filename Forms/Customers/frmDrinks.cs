@@ -26,5 +26,10 @@ namespace BCD_Restaurant_Project.Forms
         {
             ProgOps.DisplayMenuItems(dataGridView1, 4);
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

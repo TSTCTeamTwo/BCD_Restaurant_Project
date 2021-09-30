@@ -29,7 +29,6 @@ namespace BCD_Restaurant_Project.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            this.pnlLogin = new System.Windows.Forms.Panel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.checkBox13 = new System.Windows.Forms.CheckBox();
             this.checkBox19 = new System.Windows.Forms.CheckBox();
@@ -56,37 +55,16 @@ namespace BCD_Restaurant_Project.Forms
             this.checkBox11 = new System.Windows.Forms.CheckBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.pnlLogin.SuspendLayout();
+            this.dgvFOod = new System.Windows.Forms.DataGridView();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFOod)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pnlLogin
-            // 
-            this.pnlLogin.BackColor = System.Drawing.Color.BlanchedAlmond;
-            this.pnlLogin.Controls.Add(this.groupBox4);
-            this.pnlLogin.Controls.Add(this.groupBox3);
-            this.pnlLogin.Controls.Add(this.groupBox2);
-            this.pnlLogin.Controls.Add(this.groupBox1);
-            this.pnlLogin.Controls.Add(this.button2);
-            this.pnlLogin.Controls.Add(this.button1);
-            this.pnlLogin.Controls.Add(this.label2);
-            this.pnlLogin.Controls.Add(this.label1);
-            this.pnlLogin.Controls.Add(this.pictureBox1);
-            this.pnlLogin.Controls.Add(this.dataGridView1);
-            this.pnlLogin.Location = new System.Drawing.Point(4, 6);
-            this.pnlLogin.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.pnlLogin.Name = "pnlLogin";
-            this.pnlLogin.Size = new System.Drawing.Size(622, 501);
-            this.pnlLogin.TabIndex = 5;
             // 
             // groupBox4
             // 
@@ -94,7 +72,7 @@ namespace BCD_Restaurant_Project.Forms
             this.groupBox4.Controls.Add(this.checkBox19);
             this.groupBox4.Controls.Add(this.checkBox22);
             this.groupBox4.ForeColor = System.Drawing.Color.Black;
-            this.groupBox4.Location = new System.Drawing.Point(193, 401);
+            this.groupBox4.Location = new System.Drawing.Point(475, 278);
             this.groupBox4.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(2);
@@ -140,7 +118,7 @@ namespace BCD_Restaurant_Project.Forms
             this.groupBox3.Controls.Add(this.checkBox16);
             this.groupBox3.Controls.Add(this.checkBox14);
             this.groupBox3.Controls.Add(this.checkBox15);
-            this.groupBox3.Location = new System.Drawing.Point(4, 401);
+            this.groupBox3.Location = new System.Drawing.Point(756, 279);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
@@ -207,7 +185,7 @@ namespace BCD_Restaurant_Project.Forms
             this.groupBox2.Controls.Add(this.checkBox4);
             this.groupBox2.Controls.Add(this.checkBox10);
             this.groupBox2.Controls.Add(this.checkBox9);
-            this.groupBox2.Location = new System.Drawing.Point(4, 305);
+            this.groupBox2.Location = new System.Drawing.Point(13, 278);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
@@ -285,7 +263,7 @@ namespace BCD_Restaurant_Project.Forms
             this.groupBox1.Controls.Add(this.checkBox12);
             this.groupBox1.Controls.Add(this.checkBox11);
             this.groupBox1.ForeColor = System.Drawing.Color.Black;
-            this.groupBox1.Location = new System.Drawing.Point(230, 305);
+            this.groupBox1.Location = new System.Drawing.Point(239, 278);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
@@ -360,7 +338,7 @@ namespace BCD_Restaurant_Project.Forms
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.SystemColors.Control;
-            this.button2.Location = new System.Drawing.Point(393, 461);
+            this.button2.Location = new System.Drawing.Point(545, 378);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(225, 37);
             this.button2.TabIndex = 5;
@@ -373,30 +351,17 @@ namespace BCD_Restaurant_Project.Forms
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.Control;
-            this.button1.Location = new System.Drawing.Point(272, 462);
+            this.button1.Location = new System.Drawing.Point(424, 379);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(116, 35);
             this.button1.TabIndex = 4;
             this.button1.Text = "Order";
             this.button1.UseVisualStyleBackColor = false;
             // 
-            // label2
-            // 
-            this.label2.BackColor = System.Drawing.Color.DarkOrange;
-            this.label2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.Control;
-            this.label2.Location = new System.Drawing.Point(0, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(622, 36);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Beef, Chicken, Family Bundles and Salads\r\n";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(385, 260);
+            this.label1.Location = new System.Drawing.Point(811, 233);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(116, 39);
             this.label1.TabIndex = 2;
@@ -405,36 +370,46 @@ namespace BCD_Restaurant_Project.Forms
             // pictureBox1
             // 
             this.pictureBox1.Image = global::BCD_Restaurant_Project.Properties.Resources.Hamburgers_got_their_name_from_Hamburg_Germany__1024x768;
-            this.pictureBox1.Location = new System.Drawing.Point(388, 39);
+            this.pictureBox1.Location = new System.Drawing.Point(814, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(214, 218);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // dataGridView1
+            // dgvFOod
             // 
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 39);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(379, 260);
-            this.dataGridView1.TabIndex = 0;
+            this.dgvFOod.AllowUserToAddRows = false;
+            this.dgvFOod.AllowUserToDeleteRows = false;
+            this.dgvFOod.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvFOod.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvFOod.Location = new System.Drawing.Point(12, 12);
+            this.dgvFOod.Name = "dgvFOod";
+            this.dgvFOod.ReadOnly = true;
+            this.dgvFOod.RowHeadersWidth = 51;
+            this.dgvFOod.Size = new System.Drawing.Size(793, 260);
+            this.dgvFOod.TabIndex = 0;
             // 
             // frmFood
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(632, 514);
-            this.Controls.Add(this.pnlLogin);
+            this.ClientSize = new System.Drawing.Size(1554, 990);
+            this.Controls.Add(this.groupBox4);
+            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.dgvFOod);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmFood";
-            this.Text = "frmFood";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Food";
             this.Load += new System.EventHandler(this.frmFood_Load);
-            this.pnlLogin.ResumeLayout(false);
-            this.pnlLogin.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -444,20 +419,18 @@ namespace BCD_Restaurant_Project.Forms
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFOod)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel pnlLogin;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvFOod;
         private System.Windows.Forms.CheckBox checkBox14;
         private System.Windows.Forms.CheckBox checkBox15;
         private System.Windows.Forms.CheckBox checkBox16;
