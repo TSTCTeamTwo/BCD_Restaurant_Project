@@ -14,7 +14,7 @@ namespace BCD_Restaurant_Project.Classes
         private const string CONNECT_STRING = "Server=cstnt.tstc.edu;Database= inew2330fa21;User Id =group2fa212330;password=2547268";
 
         private static SqlConnection _cntDBConnection = new SqlConnection(CONNECT_STRING);
-
+        private static int totalItems;
         private static SqlCommand _sqlAccountsCommand = new SqlCommand();
         private static SqlDataAdapter _daAccounts = new SqlDataAdapter();
         private static DataTable _dtAccountsTable = new DataTable();
@@ -161,7 +161,6 @@ namespace BCD_Restaurant_Project.Classes
                         .Rows[0]["AccountID"]; //return row 1 column cell value of column with the name"AccountID"
                // MessageBox.Show("Welcome "+_dtAccountsTable.Rows[0]["FirstName"]+"!");
             }
-            
 
             //dispose all the connections
             return accountID;
