@@ -30,7 +30,6 @@ namespace BCD_Restaurant_Project.Forms.Employees
         private void InitializeComponent()
         {
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -48,6 +47,8 @@ namespace BCD_Restaurant_Project.Forms.Employees
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.button4 = new System.Windows.Forms.Button();
+            this.tbxImagePath = new System.Windows.Forms.TextBox();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -55,7 +56,8 @@ namespace BCD_Restaurant_Project.Forms.Employees
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.comboBox2);
+            this.groupBox2.Controls.Add(this.tbxImagePath);
+            this.groupBox2.Controls.Add(this.button4);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.comboBox1);
             this.groupBox2.Controls.Add(this.label6);
@@ -79,15 +81,6 @@ namespace BCD_Restaurant_Project.Forms.Employees
             this.groupBox2.TabIndex = 21;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Manage Menu Item";
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(151, 176);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(199, 21);
-            this.comboBox2.TabIndex = 30;
             // 
             // label3
             // 
@@ -271,6 +264,26 @@ namespace BCD_Restaurant_Project.Forms.Employees
             this.dataGridView1.Size = new System.Drawing.Size(421, 318);
             this.dataGridView1.TabIndex = 13;
             // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(151, 212);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(199, 23);
+            this.button4.TabIndex = 30;
+            this.button4.Text = "btnLoadInImage";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // tbxImagePath
+            // 
+            this.tbxImagePath.BackColor = System.Drawing.Color.White;
+            this.tbxImagePath.Enabled = false;
+            this.tbxImagePath.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxImagePath.Location = new System.Drawing.Point(151, 179);
+            this.tbxImagePath.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tbxImagePath.Name = "tbxImagePath";
+            this.tbxImagePath.Size = new System.Drawing.Size(199, 26);
+            this.tbxImagePath.TabIndex = 31;
+            // 
             // frmManageMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -307,7 +320,8 @@ namespace BCD_Restaurant_Project.Forms.Employees
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.TextBox tbxImagePath;
     }
 }

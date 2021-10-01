@@ -19,7 +19,7 @@ namespace BCD_Restaurant_Project.Forms
 
         private void frmFood_Load(object sender, EventArgs e)
         {
-            ProgOps.DisplayMenuItems(dgvFOod, 1);
+            ProgOps.DisplayMenuItems(dgvFood, 1);
         }
 
         

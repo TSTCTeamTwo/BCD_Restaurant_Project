@@ -29,59 +29,59 @@ namespace BCD_Restaurant_Project.Forms.Employees
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.gbxBankInformation = new System.Windows.Forms.GroupBox();
+            this.btnConfirmNewDeposit = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.tbxAccount = new System.Windows.Forms.TextBox();
+            this.tbxRouting = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.lblUsername = new System.Windows.Forms.Label();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.lnkLblReturn = new System.Windows.Forms.LinkLabel();
+            this.btnChangeNumbers = new System.Windows.Forms.Button();
             this.tbxUsername = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbxName = new System.Windows.Forms.TextBox();
+            this.tbxEmail = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.groupBox2.SuspendLayout();
+            this.gbxBankInformation.SuspendLayout();
             this.SuspendLayout();
             // 
-            // groupBox2
+            // gbxBankInformation
             // 
-            this.groupBox2.Controls.Add(this.button2);
-            this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.textBox2);
-            this.groupBox2.Controls.Add(this.textBox4);
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.lblUsername);
-            this.groupBox2.Controls.Add(this.linkLabel1);
-            this.groupBox2.Controls.Add(this.button1);
-            this.groupBox2.Controls.Add(this.tbxUsername);
-            this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.textBox3);
-            this.groupBox2.Controls.Add(this.textBox1);
-            this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Location = new System.Drawing.Point(225, 39);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox2.Size = new System.Drawing.Size(403, 306);
-            this.groupBox2.TabIndex = 21;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Bank Information";
+            this.gbxBankInformation.Controls.Add(this.btnConfirmNewDeposit);
+            this.gbxBankInformation.Controls.Add(this.label2);
+            this.gbxBankInformation.Controls.Add(this.tbxAccount);
+            this.gbxBankInformation.Controls.Add(this.tbxRouting);
+            this.gbxBankInformation.Controls.Add(this.label3);
+            this.gbxBankInformation.Controls.Add(this.lblUsername);
+            this.gbxBankInformation.Controls.Add(this.lnkLblReturn);
+            this.gbxBankInformation.Controls.Add(this.btnChangeNumbers);
+            this.gbxBankInformation.Controls.Add(this.tbxUsername);
+            this.gbxBankInformation.Controls.Add(this.label1);
+            this.gbxBankInformation.Controls.Add(this.tbxName);
+            this.gbxBankInformation.Controls.Add(this.tbxEmail);
+            this.gbxBankInformation.Controls.Add(this.label4);
+            this.gbxBankInformation.Location = new System.Drawing.Point(225, 39);
+            this.gbxBankInformation.Margin = new System.Windows.Forms.Padding(2);
+            this.gbxBankInformation.Name = "gbxBankInformation";
+            this.gbxBankInformation.Padding = new System.Windows.Forms.Padding(2);
+            this.gbxBankInformation.Size = new System.Drawing.Size(403, 306);
+            this.gbxBankInformation.TabIndex = 21;
+            this.gbxBankInformation.TabStop = false;
+            this.gbxBankInformation.Text = "Bank Information";
             // 
-            // button2
+            // btnConfirmNewDeposit
             // 
-            this.button2.BackColor = System.Drawing.Color.White;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(25, 252);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(166, 28);
-            this.button2.TabIndex = 25;
-            this.button2.Text = "C&onfirm New Deposit";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnConfirmNewDeposit.BackColor = System.Drawing.Color.White;
+            this.btnConfirmNewDeposit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnConfirmNewDeposit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConfirmNewDeposit.Location = new System.Drawing.Point(25, 252);
+            this.btnConfirmNewDeposit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnConfirmNewDeposit.Name = "btnConfirmNewDeposit";
+            this.btnConfirmNewDeposit.Size = new System.Drawing.Size(166, 28);
+            this.btnConfirmNewDeposit.TabIndex = 25;
+            this.btnConfirmNewDeposit.Text = "C&onfirm New Deposit";
+            this.btnConfirmNewDeposit.UseVisualStyleBackColor = false;
             // 
             // label2
             // 
@@ -93,25 +93,25 @@ namespace BCD_Restaurant_Project.Forms.Employees
             this.label2.Text = "Routing Number";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox2
+            // tbxAccount
             // 
-            this.textBox2.BackColor = System.Drawing.Color.White;
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(156, 159);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(199, 26);
-            this.textBox2.TabIndex = 24;
+            this.tbxAccount.BackColor = System.Drawing.Color.White;
+            this.tbxAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxAccount.Location = new System.Drawing.Point(156, 159);
+            this.tbxAccount.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tbxAccount.Name = "tbxAccount";
+            this.tbxAccount.Size = new System.Drawing.Size(199, 26);
+            this.tbxAccount.TabIndex = 24;
             // 
-            // textBox4
+            // tbxRouting
             // 
-            this.textBox4.BackColor = System.Drawing.Color.White;
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(156, 125);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(199, 26);
-            this.textBox4.TabIndex = 22;
+            this.tbxRouting.BackColor = System.Drawing.Color.White;
+            this.tbxRouting.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxRouting.Location = new System.Drawing.Point(156, 125);
+            this.tbxRouting.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tbxRouting.Name = "tbxRouting";
+            this.tbxRouting.Size = new System.Drawing.Size(199, 26);
+            this.tbxRouting.TabIndex = 22;
             // 
             // label3
             // 
@@ -133,29 +133,29 @@ namespace BCD_Restaurant_Project.Forms.Employees
             this.lblUsername.Text = "Account ID";
             this.lblUsername.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // linkLabel1
+            // lnkLblReturn
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel1.Location = new System.Drawing.Point(283, 225);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(52, 18);
-            this.linkLabel1.TabIndex = 5;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Return";
+            this.lnkLblReturn.AutoSize = true;
+            this.lnkLblReturn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lnkLblReturn.Location = new System.Drawing.Point(283, 225);
+            this.lnkLblReturn.Name = "lnkLblReturn";
+            this.lnkLblReturn.Size = new System.Drawing.Size(52, 18);
+            this.lnkLblReturn.TabIndex = 5;
+            this.lnkLblReturn.TabStop = true;
+            this.lnkLblReturn.Text = "Return";
             // 
-            // button1
+            // btnChangeNumbers
             // 
-            this.button1.BackColor = System.Drawing.Color.White;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(25, 203);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(233, 28);
-            this.button1.TabIndex = 20;
-            this.button1.Text = "&Change Routing/Account Number";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnChangeNumbers.BackColor = System.Drawing.Color.White;
+            this.btnChangeNumbers.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnChangeNumbers.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChangeNumbers.Location = new System.Drawing.Point(25, 203);
+            this.btnChangeNumbers.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnChangeNumbers.Name = "btnChangeNumbers";
+            this.btnChangeNumbers.Size = new System.Drawing.Size(233, 28);
+            this.btnChangeNumbers.TabIndex = 20;
+            this.btnChangeNumbers.Text = "&Change Routing/Account Number";
+            this.btnChangeNumbers.UseVisualStyleBackColor = false;
             // 
             // tbxUsername
             // 
@@ -177,25 +177,25 @@ namespace BCD_Restaurant_Project.Forms.Employees
             this.label1.Text = "Email";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox3
+            // tbxName
             // 
-            this.textBox3.BackColor = System.Drawing.Color.White;
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(156, 89);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(199, 26);
-            this.textBox3.TabIndex = 17;
+            this.tbxName.BackColor = System.Drawing.Color.White;
+            this.tbxName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxName.Location = new System.Drawing.Point(156, 89);
+            this.tbxName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tbxName.Name = "tbxName";
+            this.tbxName.Size = new System.Drawing.Size(199, 26);
+            this.tbxName.TabIndex = 17;
             // 
-            // textBox1
+            // tbxEmail
             // 
-            this.textBox1.BackColor = System.Drawing.Color.White;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(156, 55);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(199, 26);
-            this.textBox1.TabIndex = 12;
+            this.tbxEmail.BackColor = System.Drawing.Color.White;
+            this.tbxEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxEmail.Location = new System.Drawing.Point(156, 55);
+            this.tbxEmail.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tbxEmail.Name = "tbxEmail";
+            this.tbxEmail.Size = new System.Drawing.Size(199, 26);
+            this.tbxEmail.TabIndex = 12;
             // 
             // label4
             // 
@@ -212,29 +212,29 @@ namespace BCD_Restaurant_Project.Forms.Employees
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.gbxBankInformation);
             this.Name = "frmBankInformation";
             this.Text = "Bank Information";
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.gbxBankInformation.ResumeLayout(false);
+            this.gbxBankInformation.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox gbxBankInformation;
         private System.Windows.Forms.Label lblUsername;
-        private System.Windows.Forms.LinkLabel linkLabel1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.LinkLabel lnkLblReturn;
+        private System.Windows.Forms.Button btnChangeNumbers;
         private System.Windows.Forms.TextBox tbxUsername;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbxName;
+        private System.Windows.Forms.TextBox tbxEmail;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnConfirmNewDeposit;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox tbxAccount;
+        private System.Windows.Forms.TextBox tbxRouting;
         private System.Windows.Forms.Label label3;
     }
 }

@@ -30,6 +30,10 @@ namespace BCD_Restaurant_Project.Forms
         private void InitializeComponent()
         {
             this.pnlLogin = new System.Windows.Forms.Panel();
+            this.tbxPassword = new System.Windows.Forms.TextBox();
+            this.tbxUsername = new System.Windows.Forms.TextBox();
+            this.lblPassword = new System.Windows.Forms.Label();
+            this.lblUsername = new System.Windows.Forms.Label();
             this.lblEmpty = new System.Windows.Forms.Label();
             this.tbxEmail = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -38,12 +42,8 @@ namespace BCD_Restaurant_Project.Forms
             this.lblLastName = new System.Windows.Forms.Label();
             this.lblFirstname = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.lnkReturn = new System.Windows.Forms.LinkLabel();
+            this.lnkLblReturn = new System.Windows.Forms.LinkLabel();
             this.btnLogin = new System.Windows.Forms.Button();
-            this.tbxPassword = new System.Windows.Forms.TextBox();
-            this.tbxUsername = new System.Windows.Forms.TextBox();
-            this.lblPassword = new System.Windows.Forms.Label();
-            this.lblUsername = new System.Windows.Forms.Label();
             this.pnlLogin.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,13 +62,53 @@ namespace BCD_Restaurant_Project.Forms
             this.pnlLogin.Controls.Add(this.lblLastName);
             this.pnlLogin.Controls.Add(this.lblFirstname);
             this.pnlLogin.Controls.Add(this.label2);
-            this.pnlLogin.Controls.Add(this.lnkReturn);
+            this.pnlLogin.Controls.Add(this.lnkLblReturn);
             this.pnlLogin.Controls.Add(this.btnLogin);
             this.pnlLogin.Location = new System.Drawing.Point(12, 35);
             this.pnlLogin.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnlLogin.Name = "pnlLogin";
             this.pnlLogin.Size = new System.Drawing.Size(439, 334);
             this.pnlLogin.TabIndex = 5;
+            // 
+            // tbxPassword
+            // 
+            this.tbxPassword.BackColor = System.Drawing.Color.White;
+            this.tbxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxPassword.Location = new System.Drawing.Point(183, 208);
+            this.tbxPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tbxPassword.Name = "tbxPassword";
+            this.tbxPassword.Size = new System.Drawing.Size(199, 26);
+            this.tbxPassword.TabIndex = 17;
+            // 
+            // tbxUsername
+            // 
+            this.tbxUsername.BackColor = System.Drawing.Color.White;
+            this.tbxUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxUsername.Location = new System.Drawing.Point(183, 174);
+            this.tbxUsername.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tbxUsername.Name = "tbxUsername";
+            this.tbxUsername.Size = new System.Drawing.Size(199, 26);
+            this.tbxUsername.TabIndex = 16;
+            // 
+            // lblPassword
+            // 
+            this.lblPassword.AutoSize = true;
+            this.lblPassword.Location = new System.Drawing.Point(47, 216);
+            this.lblPassword.Name = "lblPassword";
+            this.lblPassword.Size = new System.Drawing.Size(53, 13);
+            this.lblPassword.TabIndex = 15;
+            this.lblPassword.Text = "Password";
+            this.lblPassword.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblUsername
+            // 
+            this.lblUsername.AutoSize = true;
+            this.lblUsername.Location = new System.Drawing.Point(47, 182);
+            this.lblUsername.Name = "lblUsername";
+            this.lblUsername.Size = new System.Drawing.Size(55, 13);
+            this.lblUsername.TabIndex = 14;
+            this.lblUsername.Text = "Username";
+            this.lblUsername.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblEmpty
             // 
@@ -155,17 +195,17 @@ namespace BCD_Restaurant_Project.Forms
             this.label2.Text = "Sign Up";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lnkReturn
+            // lnkLblReturn
             // 
-            this.lnkReturn.AutoSize = true;
-            this.lnkReturn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lnkReturn.Location = new System.Drawing.Point(177, 290);
-            this.lnkReturn.Name = "lnkReturn";
-            this.lnkReturn.Size = new System.Drawing.Size(52, 18);
-            this.lnkReturn.TabIndex = 5;
-            this.lnkReturn.TabStop = true;
-            this.lnkReturn.Text = "Return";
-            this.lnkReturn.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkReturn_LinkClicked);
+            this.lnkLblReturn.AutoSize = true;
+            this.lnkLblReturn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lnkLblReturn.Location = new System.Drawing.Point(177, 290);
+            this.lnkLblReturn.Name = "lnkLblReturn";
+            this.lnkLblReturn.Size = new System.Drawing.Size(52, 18);
+            this.lnkLblReturn.TabIndex = 5;
+            this.lnkLblReturn.TabStop = true;
+            this.lnkLblReturn.Text = "Return";
+            this.lnkLblReturn.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkReturn_LinkClicked);
             // 
             // btnLogin
             // 
@@ -180,46 +220,6 @@ namespace BCD_Restaurant_Project.Forms
             this.btnLogin.Text = "SIGN UP";
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
-            // 
-            // tbxPassword
-            // 
-            this.tbxPassword.BackColor = System.Drawing.Color.White;
-            this.tbxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxPassword.Location = new System.Drawing.Point(183, 208);
-            this.tbxPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tbxPassword.Name = "tbxPassword";
-            this.tbxPassword.Size = new System.Drawing.Size(199, 26);
-            this.tbxPassword.TabIndex = 17;
-            // 
-            // tbxUsername
-            // 
-            this.tbxUsername.BackColor = System.Drawing.Color.White;
-            this.tbxUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxUsername.Location = new System.Drawing.Point(183, 174);
-            this.tbxUsername.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tbxUsername.Name = "tbxUsername";
-            this.tbxUsername.Size = new System.Drawing.Size(199, 26);
-            this.tbxUsername.TabIndex = 16;
-            // 
-            // lblPassword
-            // 
-            this.lblPassword.AutoSize = true;
-            this.lblPassword.Location = new System.Drawing.Point(47, 216);
-            this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(53, 13);
-            this.lblPassword.TabIndex = 15;
-            this.lblPassword.Text = "Password";
-            this.lblPassword.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblUsername
-            // 
-            this.lblUsername.AutoSize = true;
-            this.lblUsername.Location = new System.Drawing.Point(47, 182);
-            this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(55, 13);
-            this.lblUsername.TabIndex = 14;
-            this.lblUsername.Text = "Username";
-            this.lblUsername.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // frmSignUp
             // 
@@ -242,7 +242,7 @@ namespace BCD_Restaurant_Project.Forms
 
         private System.Windows.Forms.Panel pnlLogin;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.LinkLabel lnkReturn;
+        private System.Windows.Forms.LinkLabel lnkLblReturn;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.TextBox tbxLastName;
         private System.Windows.Forms.TextBox tbxFirstname;

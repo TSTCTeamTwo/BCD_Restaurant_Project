@@ -33,8 +33,8 @@ namespace BCD_Restaurant_Project.Forms
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.pnlLogin = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.tbxUsername = new System.Windows.Forms.TextBox();
+            this.lnkLblSignIn = new System.Windows.Forms.LinkLabel();
+            this.tbxEmail = new System.Windows.Forms.TextBox();
             this.lblUsername = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
             this.pnlLogin.SuspendLayout();
@@ -61,8 +61,8 @@ namespace BCD_Restaurant_Project.Forms
             // 
             this.pnlLogin.BackColor = System.Drawing.Color.BlanchedAlmond;
             this.pnlLogin.Controls.Add(this.label2);
-            this.pnlLogin.Controls.Add(this.linkLabel1);
-            this.pnlLogin.Controls.Add(this.tbxUsername);
+            this.pnlLogin.Controls.Add(this.lnkLblSignIn);
+            this.pnlLogin.Controls.Add(this.tbxEmail);
             this.pnlLogin.Controls.Add(this.lblUsername);
             this.pnlLogin.Controls.Add(this.btnLogin);
             this.pnlLogin.Location = new System.Drawing.Point(12, 66);
@@ -82,26 +82,26 @@ namespace BCD_Restaurant_Project.Forms
             this.label2.Text = "Set password";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // linkLabel1
+            // lnkLblSignIn
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel1.Location = new System.Drawing.Point(135, 158);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(107, 18);
-            this.linkLabel1.TabIndex = 5;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Back to Sign in";
+            this.lnkLblSignIn.AutoSize = true;
+            this.lnkLblSignIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lnkLblSignIn.Location = new System.Drawing.Point(135, 158);
+            this.lnkLblSignIn.Name = "lnkLblSignIn";
+            this.lnkLblSignIn.Size = new System.Drawing.Size(107, 18);
+            this.lnkLblSignIn.TabIndex = 5;
+            this.lnkLblSignIn.TabStop = true;
+            this.lnkLblSignIn.Text = "Back to Sign in";
             // 
-            // tbxUsername
+            // tbxEmail
             // 
-            this.tbxUsername.BackColor = System.Drawing.Color.White;
-            this.tbxUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxUsername.Location = new System.Drawing.Point(90, 76);
-            this.tbxUsername.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tbxUsername.Name = "tbxUsername";
-            this.tbxUsername.Size = new System.Drawing.Size(199, 26);
-            this.tbxUsername.TabIndex = 3;
+            this.tbxEmail.BackColor = System.Drawing.Color.White;
+            this.tbxEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxEmail.Location = new System.Drawing.Point(90, 76);
+            this.tbxEmail.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tbxEmail.Name = "tbxEmail";
+            this.tbxEmail.Size = new System.Drawing.Size(199, 26);
+            this.tbxEmail.TabIndex = 3;
             // 
             // lblUsername
             // 
@@ -155,8 +155,8 @@ namespace BCD_Restaurant_Project.Forms
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Panel pnlLogin;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.LinkLabel linkLabel1;
-        private System.Windows.Forms.TextBox tbxUsername;
+        private System.Windows.Forms.LinkLabel lnkLblSignIn;
+        private System.Windows.Forms.TextBox tbxEmail;
         private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.Button btnLogin;
     }
