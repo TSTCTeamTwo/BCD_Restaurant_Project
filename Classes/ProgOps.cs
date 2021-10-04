@@ -215,6 +215,7 @@ namespace BCD_Restaurant_Project.Classes
             dgvDisplay.DataSource = _dtMenu;
 
             dgvDisplay.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dgvDisplay.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
             
         }
 
