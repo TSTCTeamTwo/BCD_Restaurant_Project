@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using BCD_Restaurant_Project.Classes;
+using BCD_Restaurant_Project.Forms.Customers;
 using BCD_Restaurant_Project.Forms.Employees;
 namespace BCD_Restaurant_Project.Forms
 {

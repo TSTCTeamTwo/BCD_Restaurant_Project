@@ -55,9 +55,9 @@ namespace BCD_Restaurant_Project.Forms
             this.checkBox11 = new System.Windows.Forms.CheckBox();
             this.btnCheckout = new System.Windows.Forms.Button();
             this.btnAddToOrder = new System.Windows.Forms.Button();
-            this.lblDescription = new System.Windows.Forms.Label();
             this.pbxFood = new System.Windows.Forms.PictureBox();
             this.dgvFood = new System.Windows.Forms.DataGridView();
+            this.lblDescription = new System.Windows.Forms.Label();
             this.gbxShakes.SuspendLayout();
             this.gbxTea.SuspendLayout();
             this.gbxSides.SuspendLayout();
@@ -361,15 +361,6 @@ namespace BCD_Restaurant_Project.Forms
             this.btnAddToOrder.Text = "&Add To Order";
             this.btnAddToOrder.UseVisualStyleBackColor = false;
             // 
-            // lblDescription
-            // 
-            this.lblDescription.AutoSize = true;
-            this.lblDescription.Location = new System.Drawing.Point(811, 233);
-            this.lblDescription.Name = "lblDescription";
-            this.lblDescription.Size = new System.Drawing.Size(116, 39);
-            this.lblDescription.TabIndex = 2;
-            this.lblDescription.Text = "Description Description\r\nDescription Description\r\nDescription Description";
-            // 
             // pbxFood
             // 
             this.pbxFood.Image = global::BCD_Restaurant_Project.Properties.Resources.Hamburgers_got_their_name_from_Hamburg_Germany__1024x768;
@@ -384,14 +375,40 @@ namespace BCD_Restaurant_Project.Forms
             // 
             this.dgvFood.AllowUserToAddRows = false;
             this.dgvFood.AllowUserToDeleteRows = false;
+            this.dgvFood.AllowUserToResizeColumns = false;
+            this.dgvFood.AllowUserToResizeRows = false;
             this.dgvFood.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvFood.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvFood.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgvFood.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvFood.CausesValidation = false;
+            this.dgvFood.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvFood.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgvFood.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvFood.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dgvFood.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgvFood.GridColor = System.Drawing.Color.Black;
             this.dgvFood.Location = new System.Drawing.Point(12, 12);
+            this.dgvFood.MultiSelect = false;
             this.dgvFood.Name = "dgvFood";
             this.dgvFood.ReadOnly = true;
+            this.dgvFood.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgvFood.RowHeadersWidth = 51;
+            this.dgvFood.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvFood.ShowCellErrors = false;
+            this.dgvFood.ShowEditingIcon = false;
+            this.dgvFood.ShowRowErrors = false;
             this.dgvFood.Size = new System.Drawing.Size(793, 260);
             this.dgvFood.TabIndex = 0;
+            // 
+            // lblDescription
+            // 
+            this.lblDescription.AutoSize = true;
+            this.lblDescription.Location = new System.Drawing.Point(811, 233);
+            this.lblDescription.Name = "lblDescription";
+            this.lblDescription.Size = new System.Drawing.Size(116, 39);
+            this.lblDescription.TabIndex = 2;
+            this.lblDescription.Text = "Description Description\r\nDescription Description\r\nDescription Description";
             // 
             // frmFood
             // 
@@ -431,7 +448,6 @@ namespace BCD_Restaurant_Project.Forms
         #endregion
         private System.Windows.Forms.Button btnCheckout;
         private System.Windows.Forms.Button btnAddToOrder;
-        private System.Windows.Forms.Label lblDescription;
         private System.Windows.Forms.PictureBox pbxFood;
         private System.Windows.Forms.DataGridView dgvFood;
         private System.Windows.Forms.CheckBox checkBox14;
@@ -458,5 +474,6 @@ namespace BCD_Restaurant_Project.Forms
         private System.Windows.Forms.RadioButton rdoShakeVanilla;
         private System.Windows.Forms.RadioButton rdoShakeStrawberry;
         private System.Windows.Forms.RadioButton rdoShakeChocolate;
+        private System.Windows.Forms.Label lblDescription;
     }
 }

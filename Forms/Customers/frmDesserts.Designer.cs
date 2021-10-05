@@ -48,6 +48,7 @@ namespace BCD_Restaurant_Project.Forms
             this.dgvDesserts.Location = new System.Drawing.Point(75, 27);
             this.dgvDesserts.Name = "dgvDesserts";
             this.dgvDesserts.ReadOnly = true;
+            this.dgvDesserts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDesserts.Size = new System.Drawing.Size(593, 303);
             this.dgvDesserts.TabIndex = 0;
             this.dgvDesserts.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
