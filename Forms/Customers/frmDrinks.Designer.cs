@@ -93,6 +93,7 @@ namespace BCD_Restaurant_Project.Forms
             this.dgvShakes.Location = new System.Drawing.Point(90, 32);
             this.dgvShakes.Name = "dgvShakes";
             this.dgvShakes.ReadOnly = true;
+            this.dgvShakes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvShakes.Size = new System.Drawing.Size(593, 303);
             this.dgvShakes.TabIndex = 0;
             this.dgvShakes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);

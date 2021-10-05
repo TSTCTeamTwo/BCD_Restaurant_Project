@@ -205,7 +205,7 @@ namespace BCD_Restaurant_Project.Classes
 
         public static void DisplayMenuItems(DataGridView dgvDisplay, int categoryId)
         {
-            string query = "SELECT ItemName, ItemDescription, Price, Image FROM group2fa212330.Menu INNER JOIN group2fa212330.Images ON Menu.ImageID = Images.ImageID WHERE CategoryID = "+categoryId;
+            string query = "SELECT ItemName AS 'Item', ItemDescription AS 'Description', FORMAT(Price, 'C') AS Price, Image FROM group2fa212330.Menu INNER JOIN group2fa212330.Images ON Menu.ImageID = Images.ImageID WHERE CategoryID = "+categoryId;
             _sqlMenuCommand = new SqlCommand(query, _cntDBConnection);
             _daMenu.SelectCommand = _sqlMenuCommand;
             dgvDisplay.Rows.Clear();
