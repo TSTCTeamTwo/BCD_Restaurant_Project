@@ -35,8 +35,8 @@ namespace BCD_Restaurant_Project.Classes
             
         }
 
-        public static string AccountFirstname { get; set; } = string.Empty;
-        public static string AccountLastname { get; set; } = string.Empty;
+        public static string AccountFirstName { get; set; } = string.Empty;
+        public static string AccountLastName { get; set; } = string.Empty;
         public static string Username { get; set; } = string.Empty;
         public static int AccountID { get; set; } = 0;
 
@@ -135,9 +135,7 @@ namespace BCD_Restaurant_Project.Classes
             {
                 return 0;//customer
             }
-
-
-
+            
         }
 
         public static int verifyAccountExistence(string username, string password)
@@ -145,7 +143,8 @@ namespace BCD_Restaurant_Project.Classes
 
             int accountID = -1;//start with no account
 
-            string query = "select * from group2fa212330.Accounts where username = '" + username + "' AND password = '" + password + "'";
+            string query = "select * from group2fa212330.Accounts where username = '" + username + "' AND (password = " +
+                           "'" + password + "' OR OneTimePassword = '" + password + "')";
 
             _sqlAccountsCommand = new SqlCommand(query, _cntDBConnection);
 
@@ -156,13 +155,21 @@ namespace BCD_Restaurant_Project.Classes
 
             if (_dtAccountsTable.Rows.Count > 0) // if results return a row
             {
-                accountID =
-                    (int)_dtAccountsTable
-                        .Rows[0]["AccountID"]; //return row 1 column cell value of column with the name"AccountID"
-               // MessageBox.Show("Welcome "+_dtAccountsTable.Rows[0]["FirstName"]+"!");
+                accountID = (int)_dtAccountsTable .Rows[0]["AccountID"]; //return row 1 column cell value of column with the name"AccountID"
+
+                if (password == (string)_dtAccountsTable.Rows[0]["OneTimePassword"])
+                {
+                    //TODO - place stored procedure code here
+
+                }
+
+                // MessageBox.Show("Welcome "+_dtAccountsTable.Rows[0]["FirstName"]+"!");
             }
 
             //dispose all the connections
+            //_dtAccountsTable.Dispose();
+            //_daAccounts.Dispose();
+            //_sqlAccountsCommand.Dispose();
             return accountID;
 
         }
