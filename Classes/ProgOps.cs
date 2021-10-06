@@ -39,6 +39,7 @@ namespace BCD_Restaurant_Project.Classes
         public static string AccountLastname { get; set; } = string.Empty;
         public static string Username { get; set; } = string.Empty;
         public static int AccountID { get; set; } = 0;
+        public static string OneTimePassword { get; set; } = string.Empty;
 
         public static void openDatabase()
         {

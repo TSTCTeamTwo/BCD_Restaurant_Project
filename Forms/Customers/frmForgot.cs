@@ -16,5 +16,10 @@ namespace BCD_Restaurant_Project.Forms
         {
             InitializeComponent();
         }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

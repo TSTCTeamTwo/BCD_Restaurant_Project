@@ -54,6 +54,7 @@ namespace BCD_Restaurant_Project.Forms
                         //saving accounts first name and last name to use it later in the application
                         ProgOps.AccountFirstname = ProgOps.DTAccounts.Rows[0]["FirstName"].ToString();
                         ProgOps.AccountLastname = ProgOps.DTAccounts.Rows[0]["LastName"].ToString();
+                        ProgOps.OneTimePassword = ProgOps.DTAccounts.Rows[0]["OneTimePassword"].ToString();
                         
                         employee = ProgOps.verifyEmployeeStatus(ProgOps.AccountID);//storing the type of account
 
