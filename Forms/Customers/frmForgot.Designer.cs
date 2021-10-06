@@ -92,6 +92,7 @@ namespace BCD_Restaurant_Project.Forms.Customers
             this.lnkLblSignIn.TabIndex = 5;
             this.lnkLblSignIn.TabStop = true;
             this.lnkLblSignIn.Text = "Back to Sign in";
+            this.lnkLblSignIn.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkLblSignIn_LinkClicked);
             // 
             // tbxEmail
             // 
@@ -126,10 +127,11 @@ namespace BCD_Restaurant_Project.Forms.Customers
             this.btnLogin.TabIndex = 0;
             this.btnLogin.Text = "RESET VIA EMAIL";
             this.btnLogin.UseVisualStyleBackColor = false;
-//            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click_1);
             // 
             // frmForgot
             // 
+            this.AcceptButton = this.btnLogin;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
@@ -143,6 +145,7 @@ namespace BCD_Restaurant_Project.Forms.Customers
             this.Name = "frmForgot";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Forgot";
+            this.Load += new System.EventHandler(this.frmForgot_Load);
             this.pnlLogin.ResumeLayout(false);
             this.pnlLogin.PerformLayout();
             this.ResumeLayout(false);

@@ -53,10 +53,10 @@ namespace BCD_Restaurant_Project.Forms
                     ProgOps.AccountID = ProgOps.verifyAccountExistence(tbxUsername.Text, tbxPassword.Text);
                     if (ProgOps.AccountID != -1)
                     {
-                        //saving accounts first name and last name to use it later in the application
+                        //saving accounts first name and last name to use it later in the application and one time password to send to user if needed
                         ProgOps.AccountFirstName = ProgOps.DTAccounts.Rows[0]["FirstName"].ToString();
                         ProgOps.AccountLastName = ProgOps.DTAccounts.Rows[0]["LastName"].ToString();
-                        
+
                         employee = ProgOps.verifyEmployeeStatus(ProgOps.AccountID);//storing the type of account
 
                         ProgOps.CloseDatabase();
