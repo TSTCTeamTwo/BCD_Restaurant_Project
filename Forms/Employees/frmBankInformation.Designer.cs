@@ -61,7 +61,7 @@ namespace BCD_Restaurant_Project.Forms.Employees
             this.gbxBankInformation.Controls.Add(this.tbxName);
             this.gbxBankInformation.Controls.Add(this.tbxEmail);
             this.gbxBankInformation.Controls.Add(this.label4);
-            this.gbxBankInformation.Location = new System.Drawing.Point(225, 39);
+            this.gbxBankInformation.Location = new System.Drawing.Point(22, 30);
             this.gbxBankInformation.Margin = new System.Windows.Forms.Padding(2);
             this.gbxBankInformation.Name = "gbxBankInformation";
             this.gbxBankInformation.Padding = new System.Windows.Forms.Padding(2);
@@ -96,22 +96,26 @@ namespace BCD_Restaurant_Project.Forms.Employees
             // tbxAccount
             // 
             this.tbxAccount.BackColor = System.Drawing.Color.White;
+            this.tbxAccount.Enabled = false;
             this.tbxAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxAccount.Location = new System.Drawing.Point(156, 159);
             this.tbxAccount.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbxAccount.Name = "tbxAccount";
             this.tbxAccount.Size = new System.Drawing.Size(199, 26);
             this.tbxAccount.TabIndex = 24;
+            this.tbxAccount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxAccount_KeyPress);
             // 
             // tbxRouting
             // 
             this.tbxRouting.BackColor = System.Drawing.Color.White;
+            this.tbxRouting.Enabled = false;
             this.tbxRouting.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxRouting.Location = new System.Drawing.Point(156, 125);
             this.tbxRouting.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbxRouting.Name = "tbxRouting";
             this.tbxRouting.Size = new System.Drawing.Size(199, 26);
             this.tbxRouting.TabIndex = 22;
+            this.tbxRouting.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxRouting_KeyPress);
             // 
             // label3
             // 
@@ -156,10 +160,12 @@ namespace BCD_Restaurant_Project.Forms.Employees
             this.btnChangeNumbers.TabIndex = 20;
             this.btnChangeNumbers.Text = "&Change Routing/Account Number";
             this.btnChangeNumbers.UseVisualStyleBackColor = false;
+            this.btnChangeNumbers.Click += new System.EventHandler(this.btnChangeNumbers_Click);
             // 
             // tbxUsername
             // 
             this.tbxUsername.BackColor = System.Drawing.Color.White;
+            this.tbxUsername.Enabled = false;
             this.tbxUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxUsername.Location = new System.Drawing.Point(156, 23);
             this.tbxUsername.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -180,6 +186,7 @@ namespace BCD_Restaurant_Project.Forms.Employees
             // tbxName
             // 
             this.tbxName.BackColor = System.Drawing.Color.White;
+            this.tbxName.Enabled = false;
             this.tbxName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxName.Location = new System.Drawing.Point(156, 89);
             this.tbxName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -190,6 +197,7 @@ namespace BCD_Restaurant_Project.Forms.Employees
             // tbxEmail
             // 
             this.tbxEmail.BackColor = System.Drawing.Color.White;
+            this.tbxEmail.Enabled = false;
             this.tbxEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxEmail.Location = new System.Drawing.Point(156, 55);
             this.tbxEmail.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -215,6 +223,7 @@ namespace BCD_Restaurant_Project.Forms.Employees
             this.Controls.Add(this.gbxBankInformation);
             this.Name = "frmBankInformation";
             this.Text = "Bank Information";
+            this.Load += new System.EventHandler(this.frmBankInformation_Load);
             this.gbxBankInformation.ResumeLayout(false);
             this.gbxBankInformation.PerformLayout();
             this.ResumeLayout(false);
