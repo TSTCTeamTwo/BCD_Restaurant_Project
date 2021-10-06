@@ -32,14 +32,14 @@ namespace BCD_Restaurant_Project.Classes
         public static DataTable DTAccounts
         {
             get { return _dtAccountsTable; }
-            
+
         }
 
         public static string AccountFirstName { get; set; } = string.Empty;
         public static string AccountLastName { get; set; } = string.Empty;
         public static string Username { get; set; } = string.Empty;
         public static int AccountID { get; set; } = 0;
-
+        public static string OTP { get; set; } = string.Empty;
         public static void openDatabase()
         {
             try
@@ -135,7 +135,7 @@ namespace BCD_Restaurant_Project.Classes
             {
                 return 0;//customer
             }
-            
+
         }
 
         public static int verifyAccountExistence(string username, string password)
@@ -149,13 +149,13 @@ namespace BCD_Restaurant_Project.Classes
             _sqlAccountsCommand = new SqlCommand(query, _cntDBConnection);
 
             _daAccounts = new SqlDataAdapter(selectCommand: _sqlAccountsCommand);
-            
+
             _dtAccountsTable = new DataTable();
             _daAccounts.Fill(_dtAccountsTable);
 
             if (_dtAccountsTable.Rows.Count > 0) // if results return a row
             {
-                accountID = (int)_dtAccountsTable .Rows[0]["AccountID"]; //return row 1 column cell value of column with the name"AccountID"
+                accountID = (int)_dtAccountsTable.Rows[0]["AccountID"]; //return row 1 column cell value of column with the name"AccountID"
 
                 if (password == (string)_dtAccountsTable.Rows[0]["OneTimePassword"])
                 {
@@ -174,6 +174,53 @@ namespace BCD_Restaurant_Project.Classes
 
         }
 
+        public static string OneTimePassword(string email)
+        {
+            string result = string.Empty;
+            try
+            {
+                //returning the accounts information that matches the email entered in the tbxForgot
+                string query = "SELECT OneTimePassword FROM group2fa212330.Accounts WHERE Email =  '" + email + "'";
+                _sqlAccountsCommand = new SqlCommand(query, _cntDBConnection);
+                _daAccounts.SelectCommand = _sqlAccountsCommand;
+                _dtAccountsTable = new DataTable();
+                _daAccounts.Fill(_dtAccountsTable);
+
+                //if the account exists
+                if (_dtAccountsTable.Rows.Count != 0)
+                {
+                    //store the one time password to return in the forgot form
+                    result = (string)_dtAccountsTable.Rows[0]["OneTimePassword"];
+                }
+                else
+                {
+                    MessageBox.Show("No account associated with the email entered", "Reset Password", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (SqlException ex)
+            {
+                if (ex is SqlException)
+                {
+                    for (int i = 0; i < ex.Errors.Count; i++)
+                    {
+                        _errorMessages.Append("Index#" + i + "\n" +
+                            "Message: " + ex.Errors[i].Message + "\n" +
+                            "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
+                            "Source: " + ex.Errors[i].Source + "\n" +
+                            "Procedure: " + ex.Errors[i].Procedure + "\n");
+                    }
+                    MessageBox.Show(_errorMessages.ToString(), "Error Close Database", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {//handles generic ones here
+                    MessageBox.Show(ex.Message + "Error (PO2)", "Error Close Database", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+            //returning OTP to send VIA email
+            return result;
+        }
+
         public static void SignUp(string fName, string lName, string username, string email, string password)
         {
             try
@@ -188,7 +235,7 @@ namespace BCD_Restaurant_Project.Classes
                 _sqlAccountsCommand.Parameters.AddWithValue("@Password", password);
                 _sqlAccountsCommand.ExecuteNonQuery();
             }
-            catch(SqlException ex)
+            catch (SqlException ex)
             {
 
                 if (ex is SqlException)
@@ -212,7 +259,7 @@ namespace BCD_Restaurant_Project.Classes
 
         public static void DisplayMenuItems(DataGridView dgvDisplay, int categoryId)
         {
-            string query = "SELECT ItemName AS 'Item', ItemDescription AS 'Description', FORMAT(Price, 'C') AS Price, Image FROM group2fa212330.Menu INNER JOIN group2fa212330.Images ON Menu.ImageID = Images.ImageID WHERE CategoryID = "+categoryId;
+            string query = "SELECT ItemName AS 'Item', ItemDescription AS 'Description', FORMAT(Price, 'C') AS Price, Image FROM group2fa212330.Menu INNER JOIN group2fa212330.Images ON Menu.ImageID = Images.ImageID WHERE CategoryID = " + categoryId;
             _sqlMenuCommand = new SqlCommand(query, _cntDBConnection);
             _daMenu.SelectCommand = _sqlMenuCommand;
             dgvDisplay.Rows.Clear();
@@ -222,8 +269,21 @@ namespace BCD_Restaurant_Project.Classes
 
             dgvDisplay.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dgvDisplay.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-            
+
         }
 
+        public static bool IsValidEmail(string email)
+        {
+            try
+            {
+                //using mail namespace to validate the email being passed in
+                var addr = new System.Net.Mail.MailAddress(email);
+                return addr.Address == email;
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 }
