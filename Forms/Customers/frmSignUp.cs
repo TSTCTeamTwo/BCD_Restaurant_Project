@@ -43,6 +43,14 @@ namespace BCD_Restaurant_Project.Forms
 
             }
             ProgOps.SignUp(tbxFirstname.Text, tbxLastName.Text, tbxUsername.Text, tbxEmail.Text, tbxPassword.Text);
+
+            MessageBox.Show("Sign up was successful.", "SignUp", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            Close();
+        }
+
+        private void frmSignUp_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            ProgOps.CloseDatabase();
         }
     }
 }
