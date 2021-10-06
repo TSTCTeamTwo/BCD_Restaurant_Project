@@ -29,7 +29,6 @@ namespace BCD_Restaurant_Project.Forms.Employees
         /// </summary>
         private void InitializeComponent()
         {
-            this.pnlLogin = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -43,19 +42,8 @@ namespace BCD_Restaurant_Project.Forms.Employees
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.pnlLogin.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // pnlLogin
-            // 
-            this.pnlLogin.BackColor = System.Drawing.Color.BlanchedAlmond;
-            this.pnlLogin.Controls.Add(this.groupBox2);
-            this.pnlLogin.Location = new System.Drawing.Point(72, 13);
-            this.pnlLogin.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.pnlLogin.Name = "pnlLogin";
-            this.pnlLogin.Size = new System.Drawing.Size(415, 297);
-            this.pnlLogin.TabIndex = 7;
             // 
             // groupBox2
             // 
@@ -71,12 +59,12 @@ namespace BCD_Restaurant_Project.Forms.Employees
             this.groupBox2.Controls.Add(this.textBox4);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Location = new System.Drawing.Point(21, 17);
+            this.groupBox2.Location = new System.Drawing.Point(44, 31);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox2.Size = new System.Drawing.Size(372, 268);
-            this.groupBox2.TabIndex = 21;
+            this.groupBox2.Size = new System.Drawing.Size(472, 298);
+            this.groupBox2.TabIndex = 22;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Personal Information";
             // 
@@ -209,11 +197,10 @@ namespace BCD_Restaurant_Project.Forms.Employees
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(559, 357);
-            this.Controls.Add(this.pnlLogin);
+            this.ClientSize = new System.Drawing.Size(691, 436);
+            this.Controls.Add(this.groupBox2);
             this.Name = "frmPersonal";
-            this.Text = "frmPersonal";
-            this.pnlLogin.ResumeLayout(false);
+            this.Text = "Personal Information";
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
@@ -222,10 +209,12 @@ namespace BCD_Restaurant_Project.Forms.Employees
 
         #endregion
 
-        private System.Windows.Forms.Panel pnlLogin;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox tbxUsername;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox3;
@@ -233,8 +222,5 @@ namespace BCD_Restaurant_Project.Forms.Employees
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label2;
     }
 }
