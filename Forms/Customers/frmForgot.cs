@@ -11,17 +11,5 @@ namespace BCD_Restaurant_Project.Forms.Customers
         {
             InitializeComponent();
         }
-
-        private void btnLogin_Click(object sender, EventArgs e)
-        {
-            var smtpClient = new SmtpClient("smtp.gmail.com")
-            {
-                Port = 587,
-                Credentials = new NetworkCredential("tstcteamtwo@gmail.com", "bcdTeamTwo"),
-                EnableSsl = true,
-            };
-
-            smtpClient.Send("tstcteamtwo@gmail.com", "baviles599@gmail.com", "TEST 1", "body");
-        }
     }
 }
