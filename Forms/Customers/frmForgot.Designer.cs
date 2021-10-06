@@ -1,5 +1,5 @@
 ﻿
-namespace BCD_Restaurant_Project.Forms
+namespace BCD_Restaurant_Project.Forms.Customers
 {
     partial class frmForgot
     {
