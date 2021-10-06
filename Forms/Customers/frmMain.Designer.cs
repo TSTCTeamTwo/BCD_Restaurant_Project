@@ -1,5 +1,5 @@
 ﻿
-namespace BCD_Restaurant_Project.Forms
+namespace BCD_Restaurant_Project.Forms.Customers
 {
     partial class frmMain
     {
@@ -31,19 +31,19 @@ namespace BCD_Restaurant_Project.Forms
         {
             this.pnlTitle = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnlFourth = new System.Windows.Forms.Panel();
             this.btnCheckout = new System.Windows.Forms.Button();
             this.btnLogOut = new System.Windows.Forms.Button();
             this.btnDesserts = new System.Windows.Forms.Button();
             this.btnDrinks = new System.Windows.Forms.Button();
             this.btnFood = new System.Windows.Forms.Button();
             this.btnDashboard = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.pnlThird = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.pnlDisplay = new System.Windows.Forms.Panel();
             this.pnlTitle.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.pnlFourth.SuspendLayout();
+            this.pnlThird.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlTitle
@@ -52,7 +52,7 @@ namespace BCD_Restaurant_Project.Forms
             this.pnlTitle.Controls.Add(this.lblTitle);
             this.pnlTitle.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlTitle.Location = new System.Drawing.Point(330, 0);
-            this.pnlTitle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlTitle.Margin = new System.Windows.Forms.Padding(4);
             this.pnlTitle.Name = "pnlTitle";
             this.pnlTitle.Size = new System.Drawing.Size(1552, 98);
             this.pnlTitle.TabIndex = 1;
@@ -70,22 +70,22 @@ namespace BCD_Restaurant_Project.Forms
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "Dashboard";
             // 
-            // panel1
+            // pnlFourth
             // 
-            this.panel1.BackColor = System.Drawing.Color.SteelBlue;
-            this.panel1.Controls.Add(this.btnCheckout);
-            this.panel1.Controls.Add(this.btnLogOut);
-            this.panel1.Controls.Add(this.btnDesserts);
-            this.panel1.Controls.Add(this.btnDrinks);
-            this.panel1.Controls.Add(this.btnFood);
-            this.panel1.Controls.Add(this.btnDashboard);
-            this.panel1.Controls.Add(this.panel2);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(330, 659);
-            this.panel1.TabIndex = 11;
+            this.pnlFourth.BackColor = System.Drawing.Color.SteelBlue;
+            this.pnlFourth.Controls.Add(this.btnCheckout);
+            this.pnlFourth.Controls.Add(this.btnLogOut);
+            this.pnlFourth.Controls.Add(this.btnDesserts);
+            this.pnlFourth.Controls.Add(this.btnDrinks);
+            this.pnlFourth.Controls.Add(this.btnFood);
+            this.pnlFourth.Controls.Add(this.btnDashboard);
+            this.pnlFourth.Controls.Add(this.pnlThird);
+            this.pnlFourth.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnlFourth.Location = new System.Drawing.Point(0, 0);
+            this.pnlFourth.Margin = new System.Windows.Forms.Padding(4);
+            this.pnlFourth.Name = "pnlFourth";
+            this.pnlFourth.Size = new System.Drawing.Size(330, 659);
+            this.pnlFourth.TabIndex = 11;
             // 
             // btnCheckout
             // 
@@ -96,7 +96,7 @@ namespace BCD_Restaurant_Project.Forms
             this.btnCheckout.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.btnCheckout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCheckout.Location = new System.Drawing.Point(0, 488);
-            this.btnCheckout.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCheckout.Margin = new System.Windows.Forms.Padding(4);
             this.btnCheckout.Name = "btnCheckout";
             this.btnCheckout.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.btnCheckout.Size = new System.Drawing.Size(330, 78);
@@ -116,7 +116,7 @@ namespace BCD_Restaurant_Project.Forms
             this.btnLogOut.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.btnLogOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnLogOut.Location = new System.Drawing.Point(0, 410);
-            this.btnLogOut.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLogOut.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogOut.Name = "btnLogOut";
             this.btnLogOut.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.btnLogOut.Size = new System.Drawing.Size(330, 78);
@@ -125,6 +125,7 @@ namespace BCD_Restaurant_Project.Forms
             this.btnLogOut.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnLogOut.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnLogOut.UseVisualStyleBackColor = true;
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
             // btnDesserts
             // 
@@ -135,7 +136,7 @@ namespace BCD_Restaurant_Project.Forms
             this.btnDesserts.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.btnDesserts.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDesserts.Location = new System.Drawing.Point(0, 332);
-            this.btnDesserts.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDesserts.Margin = new System.Windows.Forms.Padding(4);
             this.btnDesserts.Name = "btnDesserts";
             this.btnDesserts.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.btnDesserts.Size = new System.Drawing.Size(330, 78);
@@ -155,7 +156,7 @@ namespace BCD_Restaurant_Project.Forms
             this.btnDrinks.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.btnDrinks.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDrinks.Location = new System.Drawing.Point(0, 254);
-            this.btnDrinks.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDrinks.Margin = new System.Windows.Forms.Padding(4);
             this.btnDrinks.Name = "btnDrinks";
             this.btnDrinks.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.btnDrinks.Size = new System.Drawing.Size(330, 78);
@@ -175,7 +176,7 @@ namespace BCD_Restaurant_Project.Forms
             this.btnFood.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.btnFood.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnFood.Location = new System.Drawing.Point(0, 176);
-            this.btnFood.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnFood.Margin = new System.Windows.Forms.Padding(4);
             this.btnFood.Name = "btnFood";
             this.btnFood.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.btnFood.Size = new System.Drawing.Size(330, 78);
@@ -195,7 +196,7 @@ namespace BCD_Restaurant_Project.Forms
             this.btnDashboard.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.btnDashboard.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDashboard.Location = new System.Drawing.Point(0, 98);
-            this.btnDashboard.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDashboard.Margin = new System.Windows.Forms.Padding(4);
             this.btnDashboard.Name = "btnDashboard";
             this.btnDashboard.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.btnDashboard.Size = new System.Drawing.Size(330, 78);
@@ -205,16 +206,16 @@ namespace BCD_Restaurant_Project.Forms
             this.btnDashboard.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDashboard.UseVisualStyleBackColor = true;
             // 
-            // panel2
+            // pnlThird
             // 
-            this.panel2.BackColor = System.Drawing.Color.RoyalBlue;
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(330, 98);
-            this.panel2.TabIndex = 0;
+            this.pnlThird.BackColor = System.Drawing.Color.RoyalBlue;
+            this.pnlThird.Controls.Add(this.label2);
+            this.pnlThird.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlThird.Location = new System.Drawing.Point(0, 0);
+            this.pnlThird.Margin = new System.Windows.Forms.Padding(4);
+            this.pnlThird.Name = "pnlThird";
+            this.pnlThird.Size = new System.Drawing.Size(330, 98);
+            this.pnlThird.TabIndex = 0;
             // 
             // label2
             // 
@@ -233,29 +234,29 @@ namespace BCD_Restaurant_Project.Forms
             // 
             this.pnlDisplay.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlDisplay.Location = new System.Drawing.Point(330, 98);
-            this.pnlDisplay.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlDisplay.Margin = new System.Windows.Forms.Padding(4);
             this.pnlDisplay.Name = "pnlDisplay";
             this.pnlDisplay.Size = new System.Drawing.Size(1552, 561);
             this.pnlDisplay.TabIndex = 0;
             // 
             // frmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1882, 659);
             this.Controls.Add(this.pnlDisplay);
             this.Controls.Add(this.pnlTitle);
-            this.Controls.Add(this.panel1);
-            this.Font = new System.Drawing.Font("Lucida Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Controls.Add(this.pnlFourth);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dashboard";
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.pnlTitle.ResumeLayout(false);
             this.pnlTitle.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.pnlFourth.ResumeLayout(false);
+            this.pnlThird.ResumeLayout(false);
+            this.pnlThird.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -263,13 +264,13 @@ namespace BCD_Restaurant_Project.Forms
         #endregion
         private System.Windows.Forms.Panel pnlTitle;
         private System.Windows.Forms.Label lblTitle;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnlFourth;
         private System.Windows.Forms.Button btnLogOut;
         private System.Windows.Forms.Button btnDesserts;
         private System.Windows.Forms.Button btnDrinks;
         private System.Windows.Forms.Button btnFood;
         private System.Windows.Forms.Button btnDashboard;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel pnlThird;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel pnlDisplay;
         private System.Windows.Forms.Button btnCheckout;

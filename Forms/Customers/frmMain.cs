@@ -1,8 +1,8 @@
 ﻿using System;
-using System.Linq;
 using System.Windows.Forms;
+using BCD_Restaurant_Project.Classes;
 
-namespace BCD_Restaurant_Project.Forms
+namespace BCD_Restaurant_Project.Forms.Customers
 {
     public partial class frmMain : Form
     {
@@ -12,22 +12,15 @@ namespace BCD_Restaurant_Project.Forms
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-            MessageBox.Show("Hello World!", "Title", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
         private void frmMain_Load(object sender, EventArgs e)
         {
-
+            RandomColor.setFormColors(this); //sets the theme colors
         }
 
         private void OpenChildForm(Form childForm, object btnSender)
         {
             if (activeForm != null)
             {
-                
                 
                 activeForm.Close();
             }
@@ -38,6 +31,7 @@ namespace BCD_Restaurant_Project.Forms
             this.pnlDisplay.Controls.Add(childForm);
             childForm.BringToFront();
             childForm.Show();
+            RandomColor.setFormColors(childForm);
             lblTitle.Text = childForm.Text;
         }
 
@@ -59,6 +53,11 @@ namespace BCD_Restaurant_Project.Forms
         private void btnCheckout_Click_1(object sender, EventArgs e)
         {
             OpenChildForm(new frmOrder(), sender);
+        }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

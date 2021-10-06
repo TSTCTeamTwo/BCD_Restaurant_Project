@@ -29,26 +29,26 @@ namespace BCD_Restaurant_Project.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
+            this.crvReceiptViewer = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.SuspendLayout();
             // 
-            // crystalReportViewer1
+            // crvReceiptViewer
             // 
-            this.crystalReportViewer1.ActiveViewIndex = -1;
-            this.crystalReportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.crystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.crystalReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.crystalReportViewer1.Location = new System.Drawing.Point(0, 0);
-            this.crystalReportViewer1.Name = "crystalReportViewer1";
-            this.crystalReportViewer1.Size = new System.Drawing.Size(800, 450);
-            this.crystalReportViewer1.TabIndex = 0;
+            this.crvReceiptViewer.ActiveViewIndex = -1;
+            this.crvReceiptViewer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.crvReceiptViewer.Cursor = System.Windows.Forms.Cursors.Default;
+            this.crvReceiptViewer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.crvReceiptViewer.Location = new System.Drawing.Point(0, 0);
+            this.crvReceiptViewer.Name = "crvReceiptViewer";
+            this.crvReceiptViewer.Size = new System.Drawing.Size(800, 450);
+            this.crvReceiptViewer.TabIndex = 0;
             // 
             // frmReceipt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.crystalReportViewer1);
+            this.Controls.Add(this.crvReceiptViewer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmReceipt";
             this.Text = "frmReceipt";
@@ -58,6 +58,6 @@ namespace BCD_Restaurant_Project.Forms
 
         #endregion
 
-        private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer1;
+        private CrystalDecisions.Windows.Forms.CrystalReportViewer crvReceiptViewer;
     }
 }

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using BCD_Restaurant_Project.Classes;
+using BCD_Restaurant_Project.Forms.Customers;
 using BCD_Restaurant_Project.Forms.Employees;
 namespace BCD_Restaurant_Project.Forms
 {
@@ -25,6 +26,7 @@ namespace BCD_Restaurant_Project.Forms
         {
             ProgOps.openDatabase();
             isShowing = false;
+            tbxUsername.Focus();
         }
 
         private void frmLogin_FormClosing(object sender, FormClosingEventArgs e)
@@ -39,7 +41,7 @@ namespace BCD_Restaurant_Project.Forms
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            int employee;
+            int employee = -1;
             if (tbxUsername.Text.Equals("") || tbxPassword.Text.Equals(""))
             {
                 lblEmpty.Visible = true;
@@ -52,13 +54,14 @@ namespace BCD_Restaurant_Project.Forms
                     if (ProgOps.AccountID != -1)
                     {
                         //saving accounts first name and last name to use it later in the application
-                        ProgOps.AccountFirstname = ProgOps.DTAccounts.Rows[0]["FirstName"].ToString();
-                        ProgOps.AccountLastname = ProgOps.DTAccounts.Rows[0]["LastName"].ToString();
-                        ProgOps.OneTimePassword = ProgOps.DTAccounts.Rows[0]["OneTimePassword"].ToString();
+                        ProgOps.AccountFirstName = ProgOps.DTAccounts.Rows[0]["FirstName"].ToString();
+                        ProgOps.AccountLastName = ProgOps.DTAccounts.Rows[0]["LastName"].ToString();
                         
                         employee = ProgOps.verifyEmployeeStatus(ProgOps.AccountID);//storing the type of account
 
-                        if(employee == 2)//account is an admin
+                        ProgOps.CloseDatabase();
+
+                        if (employee == 2)//account is an admin
                         {
                             new frmMainManagers().Show();
                         }
@@ -71,6 +74,7 @@ namespace BCD_Restaurant_Project.Forms
                             new frmMain().Show();
                         }
                         lblEmpty.Visible = false;
+                        Hide();
                     }
                     else
                     {

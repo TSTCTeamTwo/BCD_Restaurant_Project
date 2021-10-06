@@ -29,103 +29,106 @@ namespace BCD_Restaurant_Project.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.checkBox13 = new System.Windows.Forms.CheckBox();
-            this.checkBox19 = new System.Windows.Forms.CheckBox();
-            this.checkBox22 = new System.Windows.Forms.CheckBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.gbxShakes = new System.Windows.Forms.GroupBox();
+            this.rdoShakeChocolate = new System.Windows.Forms.RadioButton();
+            this.rdoShakeVanilla = new System.Windows.Forms.RadioButton();
+            this.rdoShakeStrawberry = new System.Windows.Forms.RadioButton();
+            this.gbxTea = new System.Windows.Forms.GroupBox();
             this.checkBox18 = new System.Windows.Forms.CheckBox();
             this.checkBox17 = new System.Windows.Forms.CheckBox();
             this.checkBox16 = new System.Windows.Forms.CheckBox();
             this.checkBox14 = new System.Windows.Forms.CheckBox();
             this.checkBox15 = new System.Windows.Forms.CheckBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.gbxSides = new System.Windows.Forms.GroupBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.checkBox4 = new System.Windows.Forms.CheckBox();
             this.checkBox10 = new System.Windows.Forms.CheckBox();
             this.checkBox9 = new System.Windows.Forms.CheckBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gbxSoftDrinks = new System.Windows.Forms.GroupBox();
             this.checkBox8 = new System.Windows.Forms.CheckBox();
             this.checkBox7 = new System.Windows.Forms.CheckBox();
             this.checkBox6 = new System.Windows.Forms.CheckBox();
             this.checkBox5 = new System.Windows.Forms.CheckBox();
             this.checkBox12 = new System.Windows.Forms.CheckBox();
             this.checkBox11 = new System.Windows.Forms.CheckBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.dgvFOod = new System.Windows.Forms.DataGridView();
-            this.groupBox4.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvFOod)).BeginInit();
+            this.btnCheckout = new System.Windows.Forms.Button();
+            this.btnAddToOrder = new System.Windows.Forms.Button();
+            this.pbxFood = new System.Windows.Forms.PictureBox();
+            this.dgvFood = new System.Windows.Forms.DataGridView();
+            this.lblDescription = new System.Windows.Forms.Label();
+            this.gbxShakes.SuspendLayout();
+            this.gbxTea.SuspendLayout();
+            this.gbxSides.SuspendLayout();
+            this.gbxSoftDrinks.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxFood)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFood)).BeginInit();
             this.SuspendLayout();
             // 
-            // groupBox4
+            // gbxShakes
             // 
-            this.groupBox4.Controls.Add(this.checkBox13);
-            this.groupBox4.Controls.Add(this.checkBox19);
-            this.groupBox4.Controls.Add(this.checkBox22);
-            this.groupBox4.ForeColor = System.Drawing.Color.Black;
-            this.groupBox4.Location = new System.Drawing.Point(475, 278);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(2);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox4.Size = new System.Drawing.Size(259, 46);
-            this.groupBox4.TabIndex = 28;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Shakes (Replaces Other Drink Options) (+$1.09)";
+            this.gbxShakes.Controls.Add(this.rdoShakeChocolate);
+            this.gbxShakes.Controls.Add(this.rdoShakeVanilla);
+            this.gbxShakes.Controls.Add(this.rdoShakeStrawberry);
+            this.gbxShakes.ForeColor = System.Drawing.Color.Black;
+            this.gbxShakes.Location = new System.Drawing.Point(475, 278);
+            this.gbxShakes.Margin = new System.Windows.Forms.Padding(2);
+            this.gbxShakes.Name = "gbxShakes";
+            this.gbxShakes.Padding = new System.Windows.Forms.Padding(2);
+            this.gbxShakes.Size = new System.Drawing.Size(259, 46);
+            this.gbxShakes.TabIndex = 28;
+            this.gbxShakes.TabStop = false;
+            this.gbxShakes.Text = "Shakes (Replaces Other Drink Options) (+$1.09)";
             // 
-            // checkBox13
+            // rdoShakeChocolate
             // 
-            this.checkBox13.AutoSize = true;
-            this.checkBox13.Location = new System.Drawing.Point(13, 18);
-            this.checkBox13.Name = "checkBox13";
-            this.checkBox13.Size = new System.Drawing.Size(57, 17);
-            this.checkBox13.TabIndex = 12;
-            this.checkBox13.Text = "Vanilla";
-            this.checkBox13.UseVisualStyleBackColor = true;
+            this.rdoShakeChocolate.AutoSize = true;
+            this.rdoShakeChocolate.Location = new System.Drawing.Point(164, 18);
+            this.rdoShakeChocolate.Name = "rdoShakeChocolate";
+            this.rdoShakeChocolate.Size = new System.Drawing.Size(73, 17);
+            this.rdoShakeChocolate.TabIndex = 31;
+            this.rdoShakeChocolate.TabStop = true;
+            this.rdoShakeChocolate.Text = "Chocolate";
+            this.rdoShakeChocolate.UseVisualStyleBackColor = true;
             // 
-            // checkBox19
+            // rdoShakeVanilla
             // 
-            this.checkBox19.AutoSize = true;
-            this.checkBox19.Location = new System.Drawing.Point(85, 18);
-            this.checkBox19.Name = "checkBox19";
-            this.checkBox19.Size = new System.Drawing.Size(76, 17);
-            this.checkBox19.TabIndex = 13;
-            this.checkBox19.Text = "Strawberry";
-            this.checkBox19.UseVisualStyleBackColor = true;
+            this.rdoShakeVanilla.AutoSize = true;
+            this.rdoShakeVanilla.Location = new System.Drawing.Point(21, 18);
+            this.rdoShakeVanilla.Name = "rdoShakeVanilla";
+            this.rdoShakeVanilla.Size = new System.Drawing.Size(56, 17);
+            this.rdoShakeVanilla.TabIndex = 20;
+            this.rdoShakeVanilla.TabStop = true;
+            this.rdoShakeVanilla.Text = "&Vanilla";
+            this.rdoShakeVanilla.UseVisualStyleBackColor = true;
             // 
-            // checkBox22
+            // rdoShakeStrawberry
             // 
-            this.checkBox22.AutoSize = true;
-            this.checkBox22.Location = new System.Drawing.Point(176, 18);
-            this.checkBox22.Name = "checkBox22";
-            this.checkBox22.Size = new System.Drawing.Size(74, 17);
-            this.checkBox22.TabIndex = 19;
-            this.checkBox22.Text = "Chocolate";
-            this.checkBox22.UseVisualStyleBackColor = true;
+            this.rdoShakeStrawberry.AutoSize = true;
+            this.rdoShakeStrawberry.Location = new System.Drawing.Point(83, 18);
+            this.rdoShakeStrawberry.Name = "rdoShakeStrawberry";
+            this.rdoShakeStrawberry.Size = new System.Drawing.Size(75, 17);
+            this.rdoShakeStrawberry.TabIndex = 30;
+            this.rdoShakeStrawberry.TabStop = true;
+            this.rdoShakeStrawberry.Text = "&Strawberry";
+            this.rdoShakeStrawberry.UseVisualStyleBackColor = true;
             // 
-            // groupBox3
+            // gbxTea
             // 
-            this.groupBox3.Controls.Add(this.checkBox18);
-            this.groupBox3.Controls.Add(this.checkBox17);
-            this.groupBox3.Controls.Add(this.checkBox16);
-            this.groupBox3.Controls.Add(this.checkBox14);
-            this.groupBox3.Controls.Add(this.checkBox15);
-            this.groupBox3.Location = new System.Drawing.Point(756, 279);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox3.Size = new System.Drawing.Size(184, 94);
-            this.groupBox3.TabIndex = 29;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Tea (Hot or Cold)";
+            this.gbxTea.Controls.Add(this.checkBox18);
+            this.gbxTea.Controls.Add(this.checkBox17);
+            this.gbxTea.Controls.Add(this.checkBox16);
+            this.gbxTea.Controls.Add(this.checkBox14);
+            this.gbxTea.Controls.Add(this.checkBox15);
+            this.gbxTea.Location = new System.Drawing.Point(756, 279);
+            this.gbxTea.Margin = new System.Windows.Forms.Padding(2);
+            this.gbxTea.Name = "gbxTea";
+            this.gbxTea.Padding = new System.Windows.Forms.Padding(2);
+            this.gbxTea.Size = new System.Drawing.Size(184, 94);
+            this.gbxTea.TabIndex = 29;
+            this.gbxTea.TabStop = false;
+            this.gbxTea.Text = "Tea (Hot or Cold)";
             // 
             // checkBox18
             // 
@@ -177,22 +180,22 @@ namespace BCD_Restaurant_Project.Forms
             this.checkBox15.Text = "Sweet Tea";
             this.checkBox15.UseVisualStyleBackColor = true;
             // 
-            // groupBox2
+            // gbxSides
             // 
-            this.groupBox2.Controls.Add(this.checkBox1);
-            this.groupBox2.Controls.Add(this.checkBox2);
-            this.groupBox2.Controls.Add(this.checkBox3);
-            this.groupBox2.Controls.Add(this.checkBox4);
-            this.groupBox2.Controls.Add(this.checkBox10);
-            this.groupBox2.Controls.Add(this.checkBox9);
-            this.groupBox2.Location = new System.Drawing.Point(13, 278);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox2.Size = new System.Drawing.Size(221, 90);
-            this.groupBox2.TabIndex = 28;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Sides";
+            this.gbxSides.Controls.Add(this.checkBox1);
+            this.gbxSides.Controls.Add(this.checkBox2);
+            this.gbxSides.Controls.Add(this.checkBox3);
+            this.gbxSides.Controls.Add(this.checkBox4);
+            this.gbxSides.Controls.Add(this.checkBox10);
+            this.gbxSides.Controls.Add(this.checkBox9);
+            this.gbxSides.Location = new System.Drawing.Point(13, 278);
+            this.gbxSides.Margin = new System.Windows.Forms.Padding(2);
+            this.gbxSides.Name = "gbxSides";
+            this.gbxSides.Padding = new System.Windows.Forms.Padding(2);
+            this.gbxSides.Size = new System.Drawing.Size(221, 90);
+            this.gbxSides.TabIndex = 28;
+            this.gbxSides.TabStop = false;
+            this.gbxSides.Text = "Sides";
             // 
             // checkBox1
             // 
@@ -254,23 +257,23 @@ namespace BCD_Restaurant_Project.Forms
             this.checkBox9.Text = "Baked Potato";
             this.checkBox9.UseVisualStyleBackColor = true;
             // 
-            // groupBox1
+            // gbxSoftDrinks
             // 
-            this.groupBox1.Controls.Add(this.checkBox8);
-            this.groupBox1.Controls.Add(this.checkBox7);
-            this.groupBox1.Controls.Add(this.checkBox6);
-            this.groupBox1.Controls.Add(this.checkBox5);
-            this.groupBox1.Controls.Add(this.checkBox12);
-            this.groupBox1.Controls.Add(this.checkBox11);
-            this.groupBox1.ForeColor = System.Drawing.Color.Black;
-            this.groupBox1.Location = new System.Drawing.Point(239, 278);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(221, 91);
-            this.groupBox1.TabIndex = 27;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Soft Drinks";
+            this.gbxSoftDrinks.Controls.Add(this.checkBox8);
+            this.gbxSoftDrinks.Controls.Add(this.checkBox7);
+            this.gbxSoftDrinks.Controls.Add(this.checkBox6);
+            this.gbxSoftDrinks.Controls.Add(this.checkBox5);
+            this.gbxSoftDrinks.Controls.Add(this.checkBox12);
+            this.gbxSoftDrinks.Controls.Add(this.checkBox11);
+            this.gbxSoftDrinks.ForeColor = System.Drawing.Color.Black;
+            this.gbxSoftDrinks.Location = new System.Drawing.Point(239, 278);
+            this.gbxSoftDrinks.Margin = new System.Windows.Forms.Padding(2);
+            this.gbxSoftDrinks.Name = "gbxSoftDrinks";
+            this.gbxSoftDrinks.Padding = new System.Windows.Forms.Padding(2);
+            this.gbxSoftDrinks.Size = new System.Drawing.Size(221, 91);
+            this.gbxSoftDrinks.TabIndex = 27;
+            this.gbxSoftDrinks.TabStop = false;
+            this.gbxSoftDrinks.Text = "Soft Drinks";
             // 
             // checkBox8
             // 
@@ -332,105 +335,121 @@ namespace BCD_Restaurant_Project.Forms
             this.checkBox11.Text = "Gatorade";
             this.checkBox11.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnCheckout
             // 
-            this.button2.BackColor = System.Drawing.Color.OrangeRed;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.SystemColors.Control;
-            this.button2.Location = new System.Drawing.Point(545, 378);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(225, 37);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "Checkout    $12.99";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnCheckout.BackColor = System.Drawing.Color.OrangeRed;
+            this.btnCheckout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCheckout.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCheckout.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnCheckout.Location = new System.Drawing.Point(545, 378);
+            this.btnCheckout.Name = "btnCheckout";
+            this.btnCheckout.Size = new System.Drawing.Size(225, 37);
+            this.btnCheckout.TabIndex = 5;
+            this.btnCheckout.Text = "&Checkout    $12.99";
+            this.btnCheckout.UseVisualStyleBackColor = false;
             // 
-            // button1
+            // btnAddToOrder
             // 
-            this.button1.BackColor = System.Drawing.Color.OrangeRed;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.Control;
-            this.button1.Location = new System.Drawing.Point(424, 379);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(116, 35);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Order";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnAddToOrder.BackColor = System.Drawing.Color.OrangeRed;
+            this.btnAddToOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddToOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddToOrder.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnAddToOrder.Location = new System.Drawing.Point(424, 379);
+            this.btnAddToOrder.Name = "btnAddToOrder";
+            this.btnAddToOrder.Size = new System.Drawing.Size(116, 35);
+            this.btnAddToOrder.TabIndex = 4;
+            this.btnAddToOrder.Text = "&Add To Order";
+            this.btnAddToOrder.UseVisualStyleBackColor = false;
             // 
-            // label1
+            // pbxFood
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(811, 233);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(116, 39);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Description Description\r\nDescription Description\r\nDescription Description";
+            this.pbxFood.Image = global::BCD_Restaurant_Project.Properties.Resources.Hamburgers_got_their_name_from_Hamburg_Germany__1024x768;
+            this.pbxFood.Location = new System.Drawing.Point(814, 12);
+            this.pbxFood.Name = "pbxFood";
+            this.pbxFood.Size = new System.Drawing.Size(214, 218);
+            this.pbxFood.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbxFood.TabIndex = 1;
+            this.pbxFood.TabStop = false;
             // 
-            // pictureBox1
+            // dgvFood
             // 
-            this.pictureBox1.Image = global::BCD_Restaurant_Project.Properties.Resources.Hamburgers_got_their_name_from_Hamburg_Germany__1024x768;
-            this.pictureBox1.Location = new System.Drawing.Point(814, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(214, 218);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
+            this.dgvFood.AllowUserToAddRows = false;
+            this.dgvFood.AllowUserToDeleteRows = false;
+            this.dgvFood.AllowUserToResizeColumns = false;
+            this.dgvFood.AllowUserToResizeRows = false;
+            this.dgvFood.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvFood.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvFood.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgvFood.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvFood.CausesValidation = false;
+            this.dgvFood.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvFood.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvFood.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvFood.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dgvFood.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgvFood.GridColor = System.Drawing.Color.Black;
+            this.dgvFood.Location = new System.Drawing.Point(12, 12);
+            this.dgvFood.MultiSelect = false;
+            this.dgvFood.Name = "dgvFood";
+            this.dgvFood.ReadOnly = true;
+            this.dgvFood.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvFood.RowHeadersWidth = 51;
+            this.dgvFood.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvFood.ShowCellErrors = false;
+            this.dgvFood.ShowEditingIcon = false;
+            this.dgvFood.ShowRowErrors = false;
+            this.dgvFood.Size = new System.Drawing.Size(793, 260);
+            this.dgvFood.TabIndex = 0;
             // 
-            // dgvFOod
+            // lblDescription
             // 
-            this.dgvFOod.AllowUserToAddRows = false;
-            this.dgvFOod.AllowUserToDeleteRows = false;
-            this.dgvFOod.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvFOod.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvFOod.Location = new System.Drawing.Point(12, 12);
-            this.dgvFOod.Name = "dgvFOod";
-            this.dgvFOod.ReadOnly = true;
-            this.dgvFOod.RowHeadersWidth = 51;
-            this.dgvFOod.Size = new System.Drawing.Size(793, 260);
-            this.dgvFOod.TabIndex = 0;
+            this.lblDescription.AutoSize = true;
+            this.lblDescription.Location = new System.Drawing.Point(811, 233);
+            this.lblDescription.Name = "lblDescription";
+            this.lblDescription.Size = new System.Drawing.Size(116, 39);
+            this.lblDescription.TabIndex = 2;
+            this.lblDescription.Text = "Description Description\r\nDescription Description\r\nDescription Description";
             // 
             // frmFood
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1554, 990);
-            this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.dgvFOod);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.gbxShakes);
+            this.Controls.Add(this.gbxTea);
+            this.Controls.Add(this.btnAddToOrder);
+            this.Controls.Add(this.gbxSides);
+            this.Controls.Add(this.dgvFood);
+            this.Controls.Add(this.gbxSoftDrinks);
+            this.Controls.Add(this.pbxFood);
+            this.Controls.Add(this.btnCheckout);
+            this.Controls.Add(this.lblDescription);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmFood";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Food";
             this.Load += new System.EventHandler(this.frmFood_Load);
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvFOod)).EndInit();
+            this.gbxShakes.ResumeLayout(false);
+            this.gbxShakes.PerformLayout();
+            this.gbxTea.ResumeLayout(false);
+            this.gbxTea.PerformLayout();
+            this.gbxSides.ResumeLayout(false);
+            this.gbxSides.PerformLayout();
+            this.gbxSoftDrinks.ResumeLayout(false);
+            this.gbxSoftDrinks.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxFood)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFood)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.DataGridView dgvFOod;
+        private System.Windows.Forms.Button btnCheckout;
+        private System.Windows.Forms.Button btnAddToOrder;
+        private System.Windows.Forms.PictureBox pbxFood;
+        private System.Windows.Forms.DataGridView dgvFood;
         private System.Windows.Forms.CheckBox checkBox14;
         private System.Windows.Forms.CheckBox checkBox15;
         private System.Windows.Forms.CheckBox checkBox16;
@@ -448,12 +467,13 @@ namespace BCD_Restaurant_Project.Forms
         private System.Windows.Forms.CheckBox checkBox3;
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.CheckBox checkBox19;
-        private System.Windows.Forms.CheckBox checkBox22;
-        private System.Windows.Forms.CheckBox checkBox13;
+        private System.Windows.Forms.GroupBox gbxSoftDrinks;
+        private System.Windows.Forms.GroupBox gbxSides;
+        private System.Windows.Forms.GroupBox gbxTea;
+        private System.Windows.Forms.GroupBox gbxShakes;
+        private System.Windows.Forms.RadioButton rdoShakeVanilla;
+        private System.Windows.Forms.RadioButton rdoShakeStrawberry;
+        private System.Windows.Forms.RadioButton rdoShakeChocolate;
+        private System.Windows.Forms.Label lblDescription;
     }
 }

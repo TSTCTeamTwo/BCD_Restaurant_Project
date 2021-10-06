@@ -29,100 +29,101 @@ namespace BCD_Restaurant_Project.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.btnReturnToDrinks = new System.Windows.Forms.Button();
+            this.btnCheckout = new System.Windows.Forms.Button();
+            this.lblDescription = new System.Windows.Forms.Label();
+            this.pbxShakes = new System.Windows.Forms.PictureBox();
+            this.dgvShakes = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxShakes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvShakes)).BeginInit();
             this.SuspendLayout();
             // 
-            // button2
+            // btnReturnToDrinks
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button2.Location = new System.Drawing.Point(90, 341);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(156, 35);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "Return to drinks";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnReturnToDrinks.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnReturnToDrinks.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReturnToDrinks.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReturnToDrinks.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnReturnToDrinks.Location = new System.Drawing.Point(90, 341);
+            this.btnReturnToDrinks.Name = "btnReturnToDrinks";
+            this.btnReturnToDrinks.Size = new System.Drawing.Size(156, 35);
+            this.btnReturnToDrinks.TabIndex = 5;
+            this.btnReturnToDrinks.Text = "Return to drinks";
+            this.btnReturnToDrinks.UseVisualStyleBackColor = false;
             // 
-            // button1
+            // btnCheckout
             // 
-            this.button1.BackColor = System.Drawing.Color.OrangeRed;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.Control;
-            this.button1.Location = new System.Drawing.Point(497, 341);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(186, 35);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Add shake to meal";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnCheckout.BackColor = System.Drawing.Color.OrangeRed;
+            this.btnCheckout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCheckout.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCheckout.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnCheckout.Location = new System.Drawing.Point(497, 341);
+            this.btnCheckout.Name = "btnCheckout";
+            this.btnCheckout.Size = new System.Drawing.Size(186, 35);
+            this.btnCheckout.TabIndex = 4;
+            this.btnCheckout.Text = "Add shake to meal";
+            this.btnCheckout.UseVisualStyleBackColor = false;
             // 
-            // label1
+            // lblDescription
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(689, 317);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(116, 39);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Description Description\r\nDescription Description\r\nDescription Description";
+            this.lblDescription.AutoSize = true;
+            this.lblDescription.Location = new System.Drawing.Point(689, 317);
+            this.lblDescription.Name = "lblDescription";
+            this.lblDescription.Size = new System.Drawing.Size(116, 39);
+            this.lblDescription.TabIndex = 2;
+            this.lblDescription.Text = "Description Description\r\nDescription Description\r\nDescription Description";
             // 
-            // pictureBox1
+            // pbxShakes
             // 
-            this.pictureBox1.Image = global::BCD_Restaurant_Project.Properties.Resources.OIP__1_;
-            this.pictureBox1.Location = new System.Drawing.Point(692, 32);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(214, 282);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
+            this.pbxShakes.Image = global::BCD_Restaurant_Project.Properties.Resources.OIP__1_;
+            this.pbxShakes.Location = new System.Drawing.Point(692, 32);
+            this.pbxShakes.Name = "pbxShakes";
+            this.pbxShakes.Size = new System.Drawing.Size(214, 282);
+            this.pbxShakes.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbxShakes.TabIndex = 1;
+            this.pbxShakes.TabStop = false;
             // 
-            // dataGridView1
+            // dgvShakes
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(90, 32);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(593, 303);
-            this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dgvShakes.AllowUserToAddRows = false;
+            this.dgvShakes.AllowUserToDeleteRows = false;
+            this.dgvShakes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvShakes.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvShakes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvShakes.Location = new System.Drawing.Point(90, 32);
+            this.dgvShakes.Name = "dgvShakes";
+            this.dgvShakes.ReadOnly = true;
+            this.dgvShakes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvShakes.Size = new System.Drawing.Size(593, 303);
+            this.dgvShakes.TabIndex = 0;
+            this.dgvShakes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // frmDrinks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1106, 643);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.btnReturnToDrinks);
+            this.Controls.Add(this.btnCheckout);
+            this.Controls.Add(this.dgvShakes);
+            this.Controls.Add(this.pbxShakes);
+            this.Controls.Add(this.lblDescription);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmDrinks";
             this.Text = "Drinks";
             this.Load += new System.EventHandler(this.frmDrinks_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxShakes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvShakes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button btnReturnToDrinks;
+        private System.Windows.Forms.Button btnCheckout;
+        private System.Windows.Forms.Label lblDescription;
+        private System.Windows.Forms.PictureBox pbxShakes;
+        private System.Windows.Forms.DataGridView dgvShakes;
     }
 }

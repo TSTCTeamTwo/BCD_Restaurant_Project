@@ -24,7 +24,7 @@ namespace BCD_Restaurant_Project.Forms
 
         private void frmDrinks_Load(object sender, EventArgs e)
         {
-            ProgOps.DisplayMenuItems(dataGridView1, 4);
+            ProgOps.DisplayMenuItems(dgvShakes, 4);
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
