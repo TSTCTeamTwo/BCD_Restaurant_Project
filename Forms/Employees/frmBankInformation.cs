@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Media;
+using BCD_Restaurant_Project.Classes;
 namespace BCD_Restaurant_Project.Forms.Employees
 {
     public partial class frmBankInformation : Form
@@ -19,7 +20,7 @@ namespace BCD_Restaurant_Project.Forms.Employees
 
         private void frmBankInformation_Load(object sender, EventArgs e)
         {
-
+           // ProgOps.BankInformation(tbxName, tbxEmail, tbxAccountID, tbxAccount, tbxRouting);
         }
 
         private void tbxAccount_KeyPress(object sender, KeyPressEventArgs e)

@@ -50,7 +50,7 @@ namespace BCD_Restaurant_Project.Forms.Employees
             this.panel3.Controls.Add(this.lblTitle);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(330, 0);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(944, 104);
             this.panel3.TabIndex = 16;
@@ -78,7 +78,7 @@ namespace BCD_Restaurant_Project.Forms.Employees
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(330, 678);
             this.panel1.TabIndex = 15;
@@ -92,7 +92,7 @@ namespace BCD_Restaurant_Project.Forms.Employees
             this.btnBankInformation.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.btnBankInformation.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnBankInformation.Location = new System.Drawing.Point(0, 353);
-            this.btnBankInformation.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnBankInformation.Margin = new System.Windows.Forms.Padding(4);
             this.btnBankInformation.Name = "btnBankInformation";
             this.btnBankInformation.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.btnBankInformation.Size = new System.Drawing.Size(330, 83);
@@ -112,7 +112,7 @@ namespace BCD_Restaurant_Project.Forms.Employees
             this.btnPersonal.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.btnPersonal.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPersonal.Location = new System.Drawing.Point(0, 270);
-            this.btnPersonal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnPersonal.Margin = new System.Windows.Forms.Padding(4);
             this.btnPersonal.Name = "btnPersonal";
             this.btnPersonal.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.btnPersonal.Size = new System.Drawing.Size(330, 83);
@@ -132,7 +132,7 @@ namespace BCD_Restaurant_Project.Forms.Employees
             this.btnPaycheck.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.btnPaycheck.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPaycheck.Location = new System.Drawing.Point(0, 187);
-            this.btnPaycheck.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnPaycheck.Margin = new System.Windows.Forms.Padding(4);
             this.btnPaycheck.Name = "btnPaycheck";
             this.btnPaycheck.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.btnPaycheck.Size = new System.Drawing.Size(330, 83);
@@ -152,7 +152,7 @@ namespace BCD_Restaurant_Project.Forms.Employees
             this.button1.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button1.Location = new System.Drawing.Point(0, 104);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.button1.Size = new System.Drawing.Size(330, 83);
@@ -168,7 +168,7 @@ namespace BCD_Restaurant_Project.Forms.Employees
             this.panel2.Controls.Add(this.label2);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(330, 104);
             this.panel2.TabIndex = 0;
@@ -179,7 +179,7 @@ namespace BCD_Restaurant_Project.Forms.Employees
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(58, 30);
+            this.label2.Location = new System.Drawing.Point(82, 30);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(131, 25);
@@ -190,7 +190,7 @@ namespace BCD_Restaurant_Project.Forms.Employees
             // 
             this.pnlDisplay.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlDisplay.Location = new System.Drawing.Point(330, 104);
-            this.pnlDisplay.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlDisplay.Margin = new System.Windows.Forms.Padding(4);
             this.pnlDisplay.Name = "pnlDisplay";
             this.pnlDisplay.Size = new System.Drawing.Size(944, 574);
             this.pnlDisplay.TabIndex = 17;
@@ -204,7 +204,7 @@ namespace BCD_Restaurant_Project.Forms.Employees
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmMainEmployees";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Employee";

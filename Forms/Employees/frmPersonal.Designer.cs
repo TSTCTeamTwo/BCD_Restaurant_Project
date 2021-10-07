@@ -30,16 +30,16 @@ namespace BCD_Restaurant_Project.Forms.Employees
         private void InitializeComponent()
         {
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.tbxPassword = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.lblUsername = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.button1 = new System.Windows.Forms.Button();
-            this.tbxUsername = new System.Windows.Forms.TextBox();
+            this.tbxAccountID = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.tbxName = new System.Windows.Forms.TextBox();
+            this.tbxEmail = new System.Windows.Forms.TextBox();
+            this.tbxUsername = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
@@ -47,16 +47,16 @@ namespace BCD_Restaurant_Project.Forms.Employees
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.textBox2);
+            this.groupBox2.Controls.Add(this.tbxPassword);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.lblUsername);
             this.groupBox2.Controls.Add(this.linkLabel1);
             this.groupBox2.Controls.Add(this.button1);
-            this.groupBox2.Controls.Add(this.tbxUsername);
+            this.groupBox2.Controls.Add(this.tbxAccountID);
             this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.textBox3);
-            this.groupBox2.Controls.Add(this.textBox1);
-            this.groupBox2.Controls.Add(this.textBox4);
+            this.groupBox2.Controls.Add(this.tbxName);
+            this.groupBox2.Controls.Add(this.tbxEmail);
+            this.groupBox2.Controls.Add(this.tbxUsername);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Location = new System.Drawing.Point(44, 31);
@@ -68,16 +68,16 @@ namespace BCD_Restaurant_Project.Forms.Employees
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Personal Information";
             // 
-            // textBox2
+            // tbxPassword
             // 
-            this.textBox2.BackColor = System.Drawing.Color.White;
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(154, 160);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(199, 26);
-            this.textBox2.TabIndex = 22;
+            this.tbxPassword.BackColor = System.Drawing.Color.White;
+            this.tbxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxPassword.Location = new System.Drawing.Point(154, 160);
+            this.tbxPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tbxPassword.Name = "tbxPassword";
+            this.tbxPassword.ReadOnly = true;
+            this.tbxPassword.Size = new System.Drawing.Size(199, 26);
+            this.tbxPassword.TabIndex = 22;
             // 
             // label2
             // 
@@ -123,15 +123,15 @@ namespace BCD_Restaurant_Project.Forms.Employees
             this.button1.Text = "&Change Password";
             this.button1.UseVisualStyleBackColor = false;
             // 
-            // tbxUsername
+            // tbxAccountID
             // 
-            this.tbxUsername.BackColor = System.Drawing.Color.White;
-            this.tbxUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxUsername.Location = new System.Drawing.Point(154, 28);
-            this.tbxUsername.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tbxUsername.Name = "tbxUsername";
-            this.tbxUsername.Size = new System.Drawing.Size(69, 26);
-            this.tbxUsername.TabIndex = 9;
+            this.tbxAccountID.BackColor = System.Drawing.Color.White;
+            this.tbxAccountID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxAccountID.Location = new System.Drawing.Point(154, 28);
+            this.tbxAccountID.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tbxAccountID.Name = "tbxAccountID";
+            this.tbxAccountID.Size = new System.Drawing.Size(69, 26);
+            this.tbxAccountID.TabIndex = 9;
             // 
             // label1
             // 
@@ -143,35 +143,35 @@ namespace BCD_Restaurant_Project.Forms.Employees
             this.label1.Text = "Email";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox3
+            // tbxName
             // 
-            this.textBox3.BackColor = System.Drawing.Color.White;
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(154, 127);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(199, 26);
-            this.textBox3.TabIndex = 17;
+            this.tbxName.BackColor = System.Drawing.Color.White;
+            this.tbxName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxName.Location = new System.Drawing.Point(154, 127);
+            this.tbxName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tbxName.Name = "tbxName";
+            this.tbxName.Size = new System.Drawing.Size(199, 26);
+            this.tbxName.TabIndex = 17;
             // 
-            // textBox1
+            // tbxEmail
             // 
-            this.textBox1.BackColor = System.Drawing.Color.White;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(154, 60);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(199, 26);
-            this.textBox1.TabIndex = 12;
+            this.tbxEmail.BackColor = System.Drawing.Color.White;
+            this.tbxEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxEmail.Location = new System.Drawing.Point(154, 60);
+            this.tbxEmail.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tbxEmail.Name = "tbxEmail";
+            this.tbxEmail.Size = new System.Drawing.Size(199, 26);
+            this.tbxEmail.TabIndex = 12;
             // 
-            // textBox4
+            // tbxUsername
             // 
-            this.textBox4.BackColor = System.Drawing.Color.White;
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(154, 93);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(199, 26);
-            this.textBox4.TabIndex = 16;
+            this.tbxUsername.BackColor = System.Drawing.Color.White;
+            this.tbxUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxUsername.Location = new System.Drawing.Point(154, 93);
+            this.tbxUsername.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tbxUsername.Name = "tbxUsername";
+            this.tbxUsername.Size = new System.Drawing.Size(199, 26);
+            this.tbxUsername.TabIndex = 16;
             // 
             // label5
             // 
@@ -201,6 +201,7 @@ namespace BCD_Restaurant_Project.Forms.Employees
             this.Controls.Add(this.groupBox2);
             this.Name = "frmPersonal";
             this.Text = "Personal Information";
+            this.Load += new System.EventHandler(this.frmPersonal_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
@@ -210,16 +211,16 @@ namespace BCD_Restaurant_Project.Forms.Employees
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox tbxPassword;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox tbxUsername;
+        private System.Windows.Forms.TextBox tbxAccountID;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox tbxName;
+        private System.Windows.Forms.TextBox tbxEmail;
+        private System.Windows.Forms.TextBox tbxUsername;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
     }

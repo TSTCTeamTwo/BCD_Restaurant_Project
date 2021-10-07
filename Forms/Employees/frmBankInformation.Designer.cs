@@ -38,7 +38,7 @@ namespace BCD_Restaurant_Project.Forms.Employees
             this.lblUsername = new System.Windows.Forms.Label();
             this.lnkLblReturn = new System.Windows.Forms.LinkLabel();
             this.btnChangeNumbers = new System.Windows.Forms.Button();
-            this.tbxUsername = new System.Windows.Forms.TextBox();
+            this.tbxAccountID = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tbxName = new System.Windows.Forms.TextBox();
             this.tbxEmail = new System.Windows.Forms.TextBox();
@@ -56,7 +56,7 @@ namespace BCD_Restaurant_Project.Forms.Employees
             this.gbxBankInformation.Controls.Add(this.lblUsername);
             this.gbxBankInformation.Controls.Add(this.lnkLblReturn);
             this.gbxBankInformation.Controls.Add(this.btnChangeNumbers);
-            this.gbxBankInformation.Controls.Add(this.tbxUsername);
+            this.gbxBankInformation.Controls.Add(this.tbxAccountID);
             this.gbxBankInformation.Controls.Add(this.label1);
             this.gbxBankInformation.Controls.Add(this.tbxName);
             this.gbxBankInformation.Controls.Add(this.tbxEmail);
@@ -162,16 +162,16 @@ namespace BCD_Restaurant_Project.Forms.Employees
             this.btnChangeNumbers.UseVisualStyleBackColor = false;
             this.btnChangeNumbers.Click += new System.EventHandler(this.btnChangeNumbers_Click);
             // 
-            // tbxUsername
+            // tbxAccountID
             // 
-            this.tbxUsername.BackColor = System.Drawing.Color.White;
-            this.tbxUsername.Enabled = false;
-            this.tbxUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxUsername.Location = new System.Drawing.Point(156, 23);
-            this.tbxUsername.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tbxUsername.Name = "tbxUsername";
-            this.tbxUsername.Size = new System.Drawing.Size(69, 26);
-            this.tbxUsername.TabIndex = 9;
+            this.tbxAccountID.BackColor = System.Drawing.Color.White;
+            this.tbxAccountID.Enabled = false;
+            this.tbxAccountID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxAccountID.Location = new System.Drawing.Point(156, 23);
+            this.tbxAccountID.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tbxAccountID.Name = "tbxAccountID";
+            this.tbxAccountID.Size = new System.Drawing.Size(69, 26);
+            this.tbxAccountID.TabIndex = 9;
             // 
             // label1
             // 
@@ -235,7 +235,7 @@ namespace BCD_Restaurant_Project.Forms.Employees
         private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.LinkLabel lnkLblReturn;
         private System.Windows.Forms.Button btnChangeNumbers;
-        private System.Windows.Forms.TextBox tbxUsername;
+        private System.Windows.Forms.TextBox tbxAccountID;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbxName;
         private System.Windows.Forms.TextBox tbxEmail;
