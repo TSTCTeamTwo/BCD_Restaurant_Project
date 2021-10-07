@@ -25,27 +25,22 @@ namespace BCD_Restaurant_Project.Forms
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if (tbxFirstname.Text.Equals("") || tbxLastName.Text.Equals(""))
-            {
-                lblEmpty.Text = "Enter a first name and last name";
-            }
-            else if (tbxEmail.Text.Equals(""))
-            {
-                lblEmpty.Text = "Enter an email";
-            }
-            else if (tbxUsername.Text.Equals(""))
-            {
-                lblEmpty.Text = "Enter a username";
-            }
-            else if (tbxPassword.Text.Equals(""))
-            {
-                lblEmpty.Text = "Enter a password";
 
-            }
-            ProgOps.SignUp(tbxFirstname.Text, tbxLastName.Text, tbxUsername.Text, tbxEmail.Text, tbxPassword.Text);
+            bool emailOK = ProgOps.IsValidEmail(tbxEmail.Text);
 
-            MessageBox.Show("Sign up was successful.", "SignUp", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            Close();
+            if (emailOK)
+            {
+                ProgOps.SignUp(tbxFirstname.Text, tbxLastName.Text, tbxUsername.Text, tbxEmail.Text, tbxPassword.Text);
+                MessageBox.Show("Sign up was successful.", "SignUp", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Close();
+            }
+            else
+            {
+                MessageBox.Show("Enter a valid email address.", "Sign Up", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            
+            
         }
 
         private void frmSignUp_FormClosing(object sender, FormClosingEventArgs e)
