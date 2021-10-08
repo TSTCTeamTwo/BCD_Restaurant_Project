@@ -20,7 +20,7 @@ namespace BCD_Restaurant_Project.Forms.Employees
 
         private void frmBankInformation_Load(object sender, EventArgs e)
         {
-           // ProgOps.BankInformation(tbxName, tbxEmail, tbxAccountID, tbxAccount, tbxRouting);
+           ProgOps.BankInformation(tbxName, tbxEmail, tbxAccountID, tbxAccount, tbxRouting);
         }
 
         private void tbxAccount_KeyPress(object sender, KeyPressEventArgs e)

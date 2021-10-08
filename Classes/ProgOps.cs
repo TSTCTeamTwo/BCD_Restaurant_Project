@@ -304,56 +304,61 @@ namespace BCD_Restaurant_Project.Classes
 
 
         //method for binding the bank information form
-        //public static void BankInformation(TextBox tbxName, TextBox tbxEmail, TextBox tbxAccountID, TextBox tbxAccNumber, TextBox tbxRouNumber)
-        //{
-        //    //  
-        //    try
-        //    {
-        //        string query = "SELECT CONCAT(FirstName, ' ', LastName) AS Name, Email, A.AccountID, AccountNumber, RoutingNumber " +
-        //            "FROM group2fa212330.Employees AS E JOIN group2fa212330.Accounts AS A ON E.AccountID = A.AccountID WHERE A.AccountID =" + AccountID;
+        public static void BankInformation(TextBox tbxName, TextBox tbxEmail, TextBox tbxAccountID, TextBox tbxAccNumber, TextBox tbxRouNumber)
+        {
+            //  
+            try
+            {
+                _cntDBConnection = new SqlConnection(CONNECT_STRING);
+                string query = "SELECT CONCAT(FirstName, ' ', LastName) AS Name, Email, A.AccountID, AccountNumber, RoutingNumber " +
+                    "FROM group2fa212330.Employees AS E JOIN group2fa212330.Accounts AS A ON E.AccountID = A.AccountID WHERE A.AccountID =" + AccountID;
 
-        //        _sqlAccountsCommand = new SqlCommand(query, _cntDBConnection);
-        //        _daAccounts = new SqlDataAdapter();
-        //        _daAccounts.SelectCommand = _sqlAccountsCommand;
-        //        _dtAccountsTable = new DataTable();
-        //        _daAccounts.Fill(_dtAccountsTable);
+                _sqlAccountsCommand = new SqlCommand(query, _cntDBConnection);
+                _daAccounts = new SqlDataAdapter();
+                _daAccounts.SelectCommand = _sqlAccountsCommand;
+                _dtAccountsTable = new DataTable();
+                _daAccounts.Fill(_dtAccountsTable);
 
-        //        //binding the texboxes
-        //        tbxName.DataBindings.Add("Text", _dtAccountsTable, "Name");
-        //        tbxEmail.DataBindings.Add("Text", _dtAccountsTable, "Email");
-        //        tbxAccountID.DataBindings.Add("Text", _dtAccountsTable, "AccountID");
-        //        tbxAccNumber.DataBindings.Add("Text", _dtAccountsTable, "AccountNumber");
-        //        tbxRouNumber.DataBindings.Add("Text", _dtAccountsTable, "RoutingNumber");
-        //    }
-        //    catch(SqlException ex)
-        //    {
-        //        if (ex is SqlException)
-        //        {
-        //            for (int i = 0; i < ex.Errors.Count; i++)
-        //            {
-        //                _errorMessages.Append("Index#" + i + "\n" +
-        //                    "Message: " + ex.Errors[i].Message + "\n" +
-        //                    "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
-        //                    "Source: " + ex.Errors[i].Source + "\n" +
-        //                    "Procedure: " + ex.Errors[i].Procedure + "\n");
-        //            }
-        //            MessageBox.Show(_errorMessages.ToString(), "Error Close Database", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //        }
-        //        else
-        //        {//handles generic ones here
-        //            MessageBox.Show(ex.Message + "Error (PO2)", "Error Close Database", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //        }
-        //        //MessageBox.Show(ex.StackTrace + "Error (PO2)", "Error Close Database", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-        //}
+                //binding the texboxes
+                tbxName.DataBindings.Add("Text", _dtAccountsTable, "Name");
+                tbxEmail.DataBindings.Add("Text", _dtAccountsTable, "Email");
+                tbxAccountID.DataBindings.Add("Text", _dtAccountsTable, "AccountID");
+                tbxAccNumber.DataBindings.Add("Text", _dtAccountsTable, "AccountNumber");
+                tbxRouNumber.DataBindings.Add("Text", _dtAccountsTable, "RoutingNumber");
+            }
+            catch (SqlException ex)
+            {
+                if (ex is SqlException)
+                {
+                    for (int i = 0; i < ex.Errors.Count; i++)
+                    {
+                        _errorMessages.Append("Index#" + i + "\n" +
+                            "Message: " + ex.Errors[i].Message + "\n" +
+                            "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
+                            "Source: " + ex.Errors[i].Source + "\n" +
+                            "Procedure: " + ex.Errors[i].Procedure + "\n");
+                    }
+                    MessageBox.Show(_errorMessages.ToString(), "Error Close Database", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {//handles generic ones here
+                    MessageBox.Show(ex.Message + "Error (PO2)", "Error Close Database", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                //MessageBox.Show(ex.StackTrace + "Error (PO2)", "Error Close Database", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
         public static void PersonalInformation(TextBox tbxAccountID, TextBox tbxEmail, TextBox tbxUsername, TextBox tbxName, TextBox tbxPassword)
         {
             try
             {
-                string query = "SELECT AccountID, Email, Username, CONCAT(FirstName,' ', LastName) AS Name, Password FROM group2fa212330.Accounts";
+                _cntDBConnection = new SqlConnection(CONNECT_STRING);
+                //_cntDBConnection.Open();
+                string query = "SELECT AccountID, Email, Username, CONCAT(FirstName,' ', LastName) AS Name, Password FROM group2fa212330.Accounts WHERE AccountID = "+AccountID;
                 _sqlAccountsCommand = new SqlCommand(query, _cntDBConnection);
+                _daAccounts = new SqlDataAdapter();
                 _daAccounts.SelectCommand = _sqlAccountsCommand;
+                _dtAccountsTable = new DataTable();
                 _daAccounts.Fill(_dtAccountsTable);
 
                 tbxAccountID.DataBindings.Add("Text", _dtAccountsTable, "AccountID");

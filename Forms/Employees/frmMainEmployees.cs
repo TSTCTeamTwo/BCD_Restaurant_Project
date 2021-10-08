@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using BCD_Restaurant_Project.Classes;
 namespace BCD_Restaurant_Project.Forms.Employees
 {
     public partial class frmMainEmployees : Form
@@ -25,7 +25,9 @@ namespace BCD_Restaurant_Project.Forms.Employees
 
         private void btnPersonal_Click(object sender, EventArgs e)
         {
+            
             OpenChildForm(new frmPersonal(), sender);
+           
         }
         private void btnBankInformation_Click(object sender, EventArgs e)
         {
@@ -37,8 +39,6 @@ namespace BCD_Restaurant_Project.Forms.Employees
         {
             if (activeForm != null)
             {
-
-
                 activeForm.Close();
             }
             activeForm = childForm;
