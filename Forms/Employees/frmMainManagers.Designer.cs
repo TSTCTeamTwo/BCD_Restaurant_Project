@@ -56,7 +56,7 @@ namespace BCD_Restaurant_Project.Forms
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(653, 152);
+            this.label3.Location = new System.Drawing.Point(652, 152);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(445, 31);
@@ -69,7 +69,7 @@ namespace BCD_Restaurant_Project.Forms
             this.panel3.Controls.Add(this.lblTitle);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(330, 0);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1317, 98);
             this.panel3.TabIndex = 20;
@@ -80,7 +80,7 @@ namespace BCD_Restaurant_Project.Forms
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblTitle.Location = new System.Drawing.Point(505, 29);
+            this.lblTitle.Location = new System.Drawing.Point(506, 29);
             this.lblTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(208, 25);
@@ -97,7 +97,7 @@ namespace BCD_Restaurant_Project.Forms
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(330, 660);
             this.panel1.TabIndex = 19;
@@ -111,7 +111,7 @@ namespace BCD_Restaurant_Project.Forms
             this.btnDirectDeposit.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.btnDirectDeposit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDirectDeposit.Location = new System.Drawing.Point(0, 335);
-            this.btnDirectDeposit.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDirectDeposit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnDirectDeposit.Name = "btnDirectDeposit";
             this.btnDirectDeposit.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.btnDirectDeposit.Size = new System.Drawing.Size(330, 79);
@@ -131,7 +131,7 @@ namespace BCD_Restaurant_Project.Forms
             this.btnMenu.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.btnMenu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnMenu.Location = new System.Drawing.Point(0, 256);
-            this.btnMenu.Margin = new System.Windows.Forms.Padding(4);
+            this.btnMenu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnMenu.Name = "btnMenu";
             this.btnMenu.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.btnMenu.Size = new System.Drawing.Size(330, 79);
@@ -151,7 +151,7 @@ namespace BCD_Restaurant_Project.Forms
             this.btnManagers.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.btnManagers.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnManagers.Location = new System.Drawing.Point(0, 177);
-            this.btnManagers.Margin = new System.Windows.Forms.Padding(4);
+            this.btnManagers.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnManagers.Name = "btnManagers";
             this.btnManagers.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.btnManagers.Size = new System.Drawing.Size(330, 79);
@@ -171,7 +171,7 @@ namespace BCD_Restaurant_Project.Forms
             this.btnDashboard.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.btnDashboard.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDashboard.Location = new System.Drawing.Point(0, 98);
-            this.btnDashboard.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDashboard.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnDashboard.Name = "btnDashboard";
             this.btnDashboard.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.btnDashboard.Size = new System.Drawing.Size(330, 79);
@@ -188,7 +188,7 @@ namespace BCD_Restaurant_Project.Forms
             this.panel2.Controls.Add(this.label2);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(330, 98);
             this.panel2.TabIndex = 0;
@@ -211,7 +211,7 @@ namespace BCD_Restaurant_Project.Forms
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.Image = global::BCD_Restaurant_Project.Properties.Resources.P;
             this.pictureBox1.Location = new System.Drawing.Point(657, 237);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(663, 353);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -224,7 +224,7 @@ namespace BCD_Restaurant_Project.Forms
             this.pnlDisplay.Controls.Add(this.pictureBox2);
             this.pnlDisplay.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlDisplay.Location = new System.Drawing.Point(330, 98);
-            this.pnlDisplay.Margin = new System.Windows.Forms.Padding(4);
+            this.pnlDisplay.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnlDisplay.Name = "pnlDisplay";
             this.pnlDisplay.Size = new System.Drawing.Size(1317, 562);
             this.pnlDisplay.TabIndex = 23;
@@ -234,7 +234,7 @@ namespace BCD_Restaurant_Project.Forms
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(406, 23);
+            this.label1.Location = new System.Drawing.Point(406, 24);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(454, 31);
             this.label1.TabIndex = 20;
@@ -253,7 +253,7 @@ namespace BCD_Restaurant_Project.Forms
             // 
             // frmMainManagers
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1647, 660);
             this.Controls.Add(this.pnlDisplay);
@@ -261,8 +261,8 @@ namespace BCD_Restaurant_Project.Forms
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBox1);
-            this.Font = new System.Drawing.Font("Lucida Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmMainManagers";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Manage Employees";

@@ -319,7 +319,7 @@ namespace BCD_Restaurant_Project.Classes
                 _dtAccountsTable = new DataTable();
                 _daAccounts.Fill(_dtAccountsTable);
 
-                //binding the texboxes
+                //binding the textboxes
                 tbxName.DataBindings.Add("Text", _dtAccountsTable, "Name");
                 tbxEmail.DataBindings.Add("Text", _dtAccountsTable, "Email");
                 tbxAccountID.DataBindings.Add("Text", _dtAccountsTable, "AccountID");
@@ -387,6 +387,33 @@ namespace BCD_Restaurant_Project.Classes
                     MessageBox.Show(ex.Message + "Error (PO2)", "Error Close Database", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        public static void fillDgvWithAccountTable(DataGridView dgvAccounts, TextBox tbxAccountID, TextBox tbxEmail, TextBox tbxUsername, TextBox tbxPassword,
+            TextBox tbxConfirmPassword, TextBox tbxLastName, TextBox tbxFirstName)
+        {
+
+             _cntDBConnection = new SqlConnection(CONNECT_STRING);
+
+            string sqlQuery111111111 = "SELECT * from group2fa212330.Accounts";
+
+            _sqlAccountsCommand = new SqlCommand(sqlQuery111111111, _cntDBConnection);
+
+            _daAccounts = new SqlDataAdapter(selectCommand: _sqlAccountsCommand);
+            _dtAccountsTable.Clear();
+            _daAccounts.Fill(_dtAccountsTable);
+
+            dgvAccounts.DataSource = _dtAccountsTable;
+
+            tbxAccountID.DataBindings.Add("Text", dgvAccounts.DataSource, "AccountID");
+            tbxEmail.DataBindings.Add("Text", dgvAccounts.DataSource, "Email");
+            tbxUsername.DataBindings.Add("Text", dgvAccounts.DataSource, "Username");
+            tbxPassword.DataBindings.Add("Text", dgvAccounts.DataSource, "Password");
+            tbxConfirmPassword.DataBindings.Add("Text", dgvAccounts.DataSource, "Password");
+            tbxLastName.DataBindings.Add("Text", dgvAccounts.DataSource, "Lastname");
+            tbxFirstName.DataBindings.Add("Text", dgvAccounts.DataSource, "Firstname");
+
+
         }
     }
 }

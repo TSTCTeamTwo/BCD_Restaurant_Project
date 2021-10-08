@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Threading;
 using BCD_Restaurant_Project.Classes;
 using BCD_Restaurant_Project.Forms.Customers;
 using BCD_Restaurant_Project.Forms.Employees;
@@ -27,6 +28,14 @@ namespace BCD_Restaurant_Project.Forms
             ProgOps.openDatabase();
             isShowing = false;
             tbxUsername.Focus();
+
+            ////FOR TESTING
+
+            tbxUsername.Text = "sdeerr2";
+            tbxPassword.Text = "xSK0fYE";
+
+            btnLogin.Focus();
+
         }
 
         private void frmLogin_FormClosing(object sender, FormClosingEventArgs e)

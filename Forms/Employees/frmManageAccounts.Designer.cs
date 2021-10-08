@@ -29,77 +29,57 @@ namespace BCD_Restaurant_Project.Forms.Employees
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.tbxDesignateAccountAsEmployee = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.lblPassword = new System.Windows.Forms.Label();
-            this.tbxPassword = new System.Windows.Forms.TextBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.tbxEmployeeID = new System.Windows.Forms.TextBox();
+            this.cbxMakeAccountAdmin = new System.Windows.Forms.CheckBox();
+            this.btnDeleteEmployeeAccount = new System.Windows.Forms.Button();
+            this.tbxConfirmPassword = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.tbxPassword = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.lblUsername = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.tbxUsername = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.btnEdit = new System.Windows.Forms.Button();
+            this.tbxAccountID = new System.Windows.Forms.TextBox();
+            this.tbxFirstName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.tbxLastName = new System.Windows.Forms.TextBox();
+            this.tbxEmail = new System.Windows.Forms.TextBox();
+            this.tbxUsername = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button5 = new System.Windows.Forms.Button();
-            this.groupBox2.SuspendLayout();
+            this.dgvAccounts = new System.Windows.Forms.DataGridView();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAccounts)).BeginInit();
             this.SuspendLayout();
             // 
-            // groupBox2
+            // tbxDesignateAccountAsEmployee
             // 
-            this.groupBox2.Controls.Add(this.button5);
-            this.groupBox2.Controls.Add(this.groupBox3);
-            this.groupBox2.Controls.Add(this.textBox6);
-            this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.textBox5);
-            this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.button3);
-            this.groupBox2.Controls.Add(this.button2);
-            this.groupBox2.Controls.Add(this.lblUsername);
-            this.groupBox2.Controls.Add(this.linkLabel1);
-            this.groupBox2.Controls.Add(this.button1);
-            this.groupBox2.Controls.Add(this.tbxUsername);
-            this.groupBox2.Controls.Add(this.textBox2);
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.textBox3);
-            this.groupBox2.Controls.Add(this.textBox1);
-            this.groupBox2.Controls.Add(this.textBox4);
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Location = new System.Drawing.Point(491, 11);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox2.Size = new System.Drawing.Size(377, 443);
-            this.groupBox2.TabIndex = 21;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Manage Account";
+            this.tbxDesignateAccountAsEmployee.BackColor = System.Drawing.Color.White;
+            this.tbxDesignateAccountAsEmployee.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.tbxDesignateAccountAsEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxDesignateAccountAsEmployee.Location = new System.Drawing.Point(512, 245);
+            this.tbxDesignateAccountAsEmployee.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tbxDesignateAccountAsEmployee.Name = "tbxDesignateAccountAsEmployee";
+            this.tbxDesignateAccountAsEmployee.Size = new System.Drawing.Size(330, 30);
+            this.tbxDesignateAccountAsEmployee.TabIndex = 30;
+            this.tbxDesignateAccountAsEmployee.Text = "&Designate Account As Employee";
+            this.tbxDesignateAccountAsEmployee.UseVisualStyleBackColor = false;
             // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.lblPassword);
-            this.groupBox3.Controls.Add(this.tbxPassword);
-            this.groupBox3.Controls.Add(this.checkBox1);
-            this.groupBox3.Controls.Add(this.button4);
-            this.groupBox3.Location = new System.Drawing.Point(4, 294);
+            this.groupBox3.Controls.Add(this.tbxEmployeeID);
+            this.groupBox3.Controls.Add(this.cbxMakeAccountAdmin);
+            this.groupBox3.Controls.Add(this.btnDeleteEmployeeAccount);
+            this.groupBox3.Location = new System.Drawing.Point(491, 281);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
@@ -118,112 +98,114 @@ namespace BCD_Restaurant_Project.Forms.Employees
             this.lblPassword.Text = "Employee ID";
             this.lblPassword.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // tbxPassword
+            // tbxEmployeeID
             // 
-            this.tbxPassword.BackColor = System.Drawing.Color.White;
-            this.tbxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxPassword.Location = new System.Drawing.Point(88, 19);
-            this.tbxPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tbxPassword.Name = "tbxPassword";
-            this.tbxPassword.Size = new System.Drawing.Size(127, 26);
-            this.tbxPassword.TabIndex = 10;
+            this.tbxEmployeeID.BackColor = System.Drawing.Color.White;
+            this.tbxEmployeeID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxEmployeeID.Location = new System.Drawing.Point(88, 19);
+            this.tbxEmployeeID.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tbxEmployeeID.Name = "tbxEmployeeID";
+            this.tbxEmployeeID.Size = new System.Drawing.Size(127, 26);
+            this.tbxEmployeeID.TabIndex = 10;
             // 
-            // checkBox1
+            // cbxMakeAccountAdmin
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.BackColor = System.Drawing.SystemColors.Control;
-            this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox1.Location = new System.Drawing.Point(20, 50);
-            this.checkBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(174, 17);
-            this.checkBox1.TabIndex = 21;
-            this.checkBox1.Text = "Make This Account A Manager";
-            this.checkBox1.UseVisualStyleBackColor = false;
+            this.cbxMakeAccountAdmin.AutoSize = true;
+            this.cbxMakeAccountAdmin.BackColor = System.Drawing.SystemColors.Control;
+            this.cbxMakeAccountAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxMakeAccountAdmin.Location = new System.Drawing.Point(20, 50);
+            this.cbxMakeAccountAdmin.Margin = new System.Windows.Forms.Padding(2);
+            this.cbxMakeAccountAdmin.Name = "cbxMakeAccountAdmin";
+            this.cbxMakeAccountAdmin.Size = new System.Drawing.Size(174, 17);
+            this.cbxMakeAccountAdmin.TabIndex = 21;
+            this.cbxMakeAccountAdmin.Text = "Make This Account A Manager";
+            this.cbxMakeAccountAdmin.UseVisualStyleBackColor = false;
             // 
-            // button4
+            // btnDeleteEmployeeAccount
             // 
-            this.button4.BackColor = System.Drawing.Color.White;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(226, 17);
-            this.button4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(136, 45);
-            this.button4.TabIndex = 24;
-            this.button4.Text = "De&lete Employee Record";
-            this.button4.UseVisualStyleBackColor = false;
+            this.btnDeleteEmployeeAccount.BackColor = System.Drawing.Color.White;
+            this.btnDeleteEmployeeAccount.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnDeleteEmployeeAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteEmployeeAccount.Location = new System.Drawing.Point(226, 17);
+            this.btnDeleteEmployeeAccount.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnDeleteEmployeeAccount.Name = "btnDeleteEmployeeAccount";
+            this.btnDeleteEmployeeAccount.Size = new System.Drawing.Size(136, 45);
+            this.btnDeleteEmployeeAccount.TabIndex = 24;
+            this.btnDeleteEmployeeAccount.Text = "De&lete Employee Record";
+            this.btnDeleteEmployeeAccount.UseVisualStyleBackColor = false;
             // 
-            // textBox6
+            // tbxConfirmPassword
             // 
-            this.textBox6.BackColor = System.Drawing.Color.White;
-            this.textBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.Location = new System.Drawing.Point(155, 149);
-            this.textBox6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(199, 26);
-            this.textBox6.TabIndex = 28;
+            this.tbxConfirmPassword.BackColor = System.Drawing.Color.White;
+            this.tbxConfirmPassword.Enabled = false;
+            this.tbxConfirmPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxConfirmPassword.Location = new System.Drawing.Point(643, 145);
+            this.tbxConfirmPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tbxConfirmPassword.Name = "tbxConfirmPassword";
+            this.tbxConfirmPassword.Size = new System.Drawing.Size(199, 26);
+            this.tbxConfirmPassword.TabIndex = 28;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(21, 155);
+            this.label6.Location = new System.Drawing.Point(509, 152);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(91, 13);
             this.label6.TabIndex = 27;
             this.label6.Text = "Confirm Password";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox5
+            // tbxPassword
             // 
-            this.textBox5.BackColor = System.Drawing.Color.White;
-            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(155, 116);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(199, 26);
-            this.textBox5.TabIndex = 26;
+            this.tbxPassword.BackColor = System.Drawing.Color.White;
+            this.tbxPassword.Enabled = false;
+            this.tbxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxPassword.Location = new System.Drawing.Point(643, 112);
+            this.tbxPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tbxPassword.Name = "tbxPassword";
+            this.tbxPassword.Size = new System.Drawing.Size(199, 26);
+            this.tbxPassword.TabIndex = 26;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(21, 122);
+            this.label2.Location = new System.Drawing.Point(509, 119);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 13);
             this.label2.TabIndex = 25;
             this.label2.Text = "Password";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // button3
+            // btnDelete
             // 
-            this.button3.BackColor = System.Drawing.Color.White;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(246, 379);
-            this.button3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(99, 28);
-            this.button3.TabIndex = 23;
-            this.button3.Text = "&Delete Account";
-            this.button3.UseVisualStyleBackColor = false;
+            this.btnDelete.BackColor = System.Drawing.Color.White;
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.Location = new System.Drawing.Point(735, 366);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(99, 28);
+            this.btnDelete.TabIndex = 23;
+            this.btnDelete.Text = "&Delete Account";
+            this.btnDelete.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // btnAdd
             // 
-            this.button2.BackColor = System.Drawing.Color.White;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(137, 379);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(99, 28);
-            this.button2.TabIndex = 22;
-            this.button2.Text = "&Add";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnAdd.BackColor = System.Drawing.Color.White;
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.Location = new System.Drawing.Point(626, 366);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(99, 28);
+            this.btnAdd.TabIndex = 22;
+            this.btnAdd.Text = "&Add";
+            this.btnAdd.UseVisualStyleBackColor = false;
             // 
             // lblUsername
             // 
             this.lblUsername.AutoSize = true;
-            this.lblUsername.Location = new System.Drawing.Point(21, 25);
+            this.lblUsername.Location = new System.Drawing.Point(509, 11);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(61, 13);
             this.lblUsername.TabIndex = 7;
@@ -234,50 +216,52 @@ namespace BCD_Restaurant_Project.Forms.Employees
             // 
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel1.Location = new System.Drawing.Point(165, 411);
+            this.linkLabel1.Location = new System.Drawing.Point(654, 398);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(52, 18);
             this.linkLabel1.TabIndex = 5;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Return";
             // 
-            // button1
+            // btnEdit
             // 
-            this.button1.BackColor = System.Drawing.Color.White;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(28, 379);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(99, 28);
-            this.button1.TabIndex = 20;
-            this.button1.Text = "&Edit";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnEdit.BackColor = System.Drawing.Color.White;
+            this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEdit.Location = new System.Drawing.Point(517, 366);
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(99, 28);
+            this.btnEdit.TabIndex = 20;
+            this.btnEdit.Text = "&Edit";
+            this.btnEdit.UseVisualStyleBackColor = false;
             // 
-            // tbxUsername
+            // tbxAccountID
             // 
-            this.tbxUsername.BackColor = System.Drawing.Color.White;
-            this.tbxUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxUsername.Location = new System.Drawing.Point(155, 19);
-            this.tbxUsername.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tbxUsername.Name = "tbxUsername";
-            this.tbxUsername.Size = new System.Drawing.Size(69, 26);
-            this.tbxUsername.TabIndex = 9;
+            this.tbxAccountID.BackColor = System.Drawing.Color.White;
+            this.tbxAccountID.Enabled = false;
+            this.tbxAccountID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxAccountID.Location = new System.Drawing.Point(643, 11);
+            this.tbxAccountID.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tbxAccountID.Name = "tbxAccountID";
+            this.tbxAccountID.Size = new System.Drawing.Size(69, 26);
+            this.tbxAccountID.TabIndex = 9;
             // 
-            // textBox2
+            // tbxFirstName
             // 
-            this.textBox2.BackColor = System.Drawing.Color.White;
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(155, 215);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(199, 26);
-            this.textBox2.TabIndex = 19;
+            this.tbxFirstName.BackColor = System.Drawing.Color.White;
+            this.tbxFirstName.Enabled = false;
+            this.tbxFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxFirstName.Location = new System.Drawing.Point(643, 211);
+            this.tbxFirstName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tbxFirstName.Name = "tbxFirstName";
+            this.tbxFirstName.Size = new System.Drawing.Size(199, 26);
+            this.tbxFirstName.TabIndex = 19;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(21, 221);
+            this.label3.Location = new System.Drawing.Point(509, 218);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(57, 13);
             this.label3.TabIndex = 18;
@@ -287,47 +271,50 @@ namespace BCD_Restaurant_Project.Forms.Employees
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(21, 57);
+            this.label1.Location = new System.Drawing.Point(509, 52);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(32, 13);
             this.label1.TabIndex = 11;
             this.label1.Text = "Email";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox3
+            // tbxLastName
             // 
-            this.textBox3.BackColor = System.Drawing.Color.White;
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(155, 181);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(199, 26);
-            this.textBox3.TabIndex = 17;
+            this.tbxLastName.BackColor = System.Drawing.Color.White;
+            this.tbxLastName.Enabled = false;
+            this.tbxLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxLastName.Location = new System.Drawing.Point(643, 177);
+            this.tbxLastName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tbxLastName.Name = "tbxLastName";
+            this.tbxLastName.Size = new System.Drawing.Size(199, 26);
+            this.tbxLastName.TabIndex = 17;
             // 
-            // textBox1
+            // tbxEmail
             // 
-            this.textBox1.BackColor = System.Drawing.Color.White;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(155, 51);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(199, 26);
-            this.textBox1.TabIndex = 12;
+            this.tbxEmail.BackColor = System.Drawing.Color.White;
+            this.tbxEmail.Enabled = false;
+            this.tbxEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxEmail.Location = new System.Drawing.Point(643, 45);
+            this.tbxEmail.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tbxEmail.Name = "tbxEmail";
+            this.tbxEmail.Size = new System.Drawing.Size(199, 26);
+            this.tbxEmail.TabIndex = 12;
             // 
-            // textBox4
+            // tbxUsername
             // 
-            this.textBox4.BackColor = System.Drawing.Color.White;
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(155, 84);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(199, 26);
-            this.textBox4.TabIndex = 16;
+            this.tbxUsername.BackColor = System.Drawing.Color.White;
+            this.tbxUsername.Enabled = false;
+            this.tbxUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxUsername.Location = new System.Drawing.Point(643, 79);
+            this.tbxUsername.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tbxUsername.Name = "tbxUsername";
+            this.tbxUsername.Size = new System.Drawing.Size(199, 26);
+            this.tbxUsername.TabIndex = 16;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(21, 90);
+            this.label5.Location = new System.Drawing.Point(509, 86);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(55, 13);
             this.label5.TabIndex = 14;
@@ -337,7 +324,7 @@ namespace BCD_Restaurant_Project.Forms.Employees
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(21, 187);
+            this.label4.Location = new System.Drawing.Point(509, 184);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(58, 13);
             this.label4.TabIndex = 15;
@@ -346,87 +333,109 @@ namespace BCD_Restaurant_Project.Forms.Employees
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.dataGridView1);
+            this.groupBox1.Controls.Add(this.dgvAccounts);
             this.groupBox1.Location = new System.Drawing.Point(4, 11);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(483, 361);
+            this.groupBox1.Size = new System.Drawing.Size(483, 332);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Accounts";
             // 
-            // dataGridView1
+            // dgvAccounts
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(8, 17);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(470, 334);
-            this.dataGridView1.TabIndex = 13;
-            // 
-            // button5
-            // 
-            this.button5.BackColor = System.Drawing.Color.White;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(24, 246);
-            this.button5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(330, 30);
-            this.button5.TabIndex = 30;
-            this.button5.Text = "&Designate Account As Employee";
-            this.button5.UseVisualStyleBackColor = false;
+            this.dgvAccounts.AllowUserToAddRows = false;
+            this.dgvAccounts.AllowUserToDeleteRows = false;
+            this.dgvAccounts.AllowUserToResizeColumns = false;
+            this.dgvAccounts.AllowUserToResizeRows = false;
+            this.dgvAccounts.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.dgvAccounts.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            this.dgvAccounts.BackgroundColor = System.Drawing.SystemColors.ControlDark;
+            this.dgvAccounts.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
+            this.dgvAccounts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAccounts.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dgvAccounts.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgvAccounts.Location = new System.Drawing.Point(6, 17);
+            this.dgvAccounts.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvAccounts.MultiSelect = false;
+            this.dgvAccounts.Name = "dgvAccounts";
+            this.dgvAccounts.ReadOnly = true;
+            this.dgvAccounts.RowHeadersVisible = false;
+            this.dgvAccounts.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
+            this.dgvAccounts.RowTemplate.Height = 24;
+            this.dgvAccounts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvAccounts.ShowCellErrors = false;
+            this.dgvAccounts.ShowEditingIcon = false;
+            this.dgvAccounts.ShowRowErrors = false;
+            this.dgvAccounts.Size = new System.Drawing.Size(470, 298);
+            this.dgvAccounts.TabIndex = 13;
             // 
             // frmManageAccounts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1498, 547);
-            this.Controls.Add(this.groupBox2);
+            this.ClientSize = new System.Drawing.Size(1131, 828);
+            this.Controls.Add(this.tbxDesignateAccountAsEmployee);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.tbxConfirmPassword);
+            this.Controls.Add(this.lblUsername);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.tbxPassword);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.tbxUsername);
+            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.tbxEmail);
+            this.Controls.Add(this.btnAdd);
+            this.Controls.Add(this.tbxLastName);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.linkLabel1);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.btnEdit);
+            this.Controls.Add(this.tbxFirstName);
+            this.Controls.Add(this.tbxAccountID);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmManageAccounts";
             this.Text = "Manage Accounts";
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.Load += new System.EventHandler(this.frmManageAccounts_Load);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAccounts)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbxEmail;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox tbxUsername;
+        private System.Windows.Forms.TextBox tbxAccountID;
         private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.LinkLabel linkLabel1;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.DataGridView dgvAccounts;
+        private System.Windows.Forms.TextBox tbxFirstName;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox tbxLastName;
+        private System.Windows.Forms.TextBox tbxUsername;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label lblPassword;
-        private System.Windows.Forms.TextBox tbxPassword;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox tbxEmployeeID;
+        private System.Windows.Forms.CheckBox cbxMakeAccountAdmin;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button btnDeleteEmployeeAccount;
+        private System.Windows.Forms.TextBox tbxConfirmPassword;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox tbxPassword;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button tbxDesignateAccountAsEmployee;
     }
 }
