@@ -21,5 +21,10 @@ namespace BCD_Restaurant_Project.Forms.Employees
         {
             ProgOps.ModifyMenu(dgvMenu);
         }
+
+        private void dgvMenu_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            ProgOps.MenuBinding((int)dgvMenu.CurrentCell.Value,tbxName, tbxItemID,tbxDescription,tbxPrice,tbxImagePath);
+        }
     }
 }

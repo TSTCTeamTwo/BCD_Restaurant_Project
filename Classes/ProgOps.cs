@@ -436,7 +436,63 @@ namespace BCD_Restaurant_Project.Classes
             }
             catch(SqlException ex)
             {
+                if (ex is SqlException)
+                {
+                    for (int i = 0; i < ex.Errors.Count; i++)
+                    {
+                        _errorMessages.Append("Index#" + i + "\n" +
+                            "Message: " + ex.Errors[i].Message + "\n" +
+                            "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
+                            "Source: " + ex.Errors[i].Source + "\n" +
+                            "Procedure: " + ex.Errors[i].Procedure + "\n");
+                    }
+                    MessageBox.Show(_errorMessages.ToString(), "Error Close Database", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {//handles generic ones here
+                    MessageBox.Show(ex.Message + "Error (PO2)", "Error Close Database", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
 
+        public static void MenuBinding(int itemID,TextBox tbItemName, TextBox tbItemID, TextBox tbDescription, TextBox tbPrice, TextBox tbImage)
+        {
+            try
+            {
+                string query = "SELECT ItemID, ItemName, Description, Price, Image FROM group2fa212330.Menu, group2fa212330.Images WHERE ItemID = " + itemID;
+                _cntDBConnection = new SqlConnection(CONNECT_STRING);
+
+                _sqlMenuCommand = new SqlCommand(query, _cntDBConnection);
+                _daMenu = new SqlDataAdapter();
+                _daMenu.SelectCommand = _sqlMenuCommand;
+                _dtMenu = new DataTable();
+                _daMenu.Fill(_dtMenu);
+
+                tbItemName.DataBindings.Add("Text", _dtMenu, "ItemName");
+                tbItemID.DataBindings.Add("Text", _dtMenu, "ItemID");
+                tbDescription.DataBindings.Add("Text", _dtMenu, "Description");
+                tbPrice.DataBindings.Add("Text", _dtMenu, "Price");
+                tbImage.DataBindings.Add("Text", _dtMenu, "Image");
+                
+            }
+            catch(SqlException ex)
+            {
+                if (ex is SqlException)
+                {
+                    for (int i = 0; i < ex.Errors.Count; i++)
+                    {
+                        _errorMessages.Append("Index#" + i + "\n" +
+                            "Message: " + ex.Errors[i].Message + "\n" +
+                            "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
+                            "Source: " + ex.Errors[i].Source + "\n" +
+                            "Procedure: " + ex.Errors[i].Procedure + "\n");
+                    }
+                    MessageBox.Show(_errorMessages.ToString(), "Error Close Database", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {//handles generic ones here
+                    MessageBox.Show(ex.Message + "Error (PO2)", "Error Close Database", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
     }

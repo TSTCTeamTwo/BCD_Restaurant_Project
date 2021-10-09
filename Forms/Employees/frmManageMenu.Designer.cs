@@ -283,6 +283,7 @@ namespace BCD_Restaurant_Project.Forms.Employees
             this.dgvMenu.RowTemplate.Height = 24;
             this.dgvMenu.Size = new System.Drawing.Size(421, 318);
             this.dgvMenu.TabIndex = 13;
+            this.dgvMenu.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMenu_CellClick);
             // 
             // frmManageMenu
             // 
