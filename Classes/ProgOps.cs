@@ -14,7 +14,7 @@ namespace BCD_Restaurant_Project.Classes
         private const string CONNECT_STRING = "Server=cstnt.tstc.edu;Database= inew2330fa21;User Id =group2fa212330;password=2547268";
 
         private static SqlConnection _cntDBConnection = new SqlConnection(CONNECT_STRING);
-        private static int totalItems;
+
         private static SqlCommand _sqlAccountsCommand = new SqlCommand();
         private static SqlDataAdapter _daAccounts = new SqlDataAdapter();
         private static DataTable _dtAccountsTable = new DataTable();
@@ -32,16 +32,14 @@ namespace BCD_Restaurant_Project.Classes
         public static DataTable DTAccounts
         {
             get { return _dtAccountsTable; }
-            
+
         }
 
-        public static string AccountFirstname { get; set; } = string.Empty;
-        public static string AccountLastname { get; set; } = string.Empty;
+        public static string AccountFirstName { get; set; } = string.Empty;
+        public static string AccountLastName { get; set; } = string.Empty;
         public static string Username { get; set; } = string.Empty;
         public static int AccountID { get; set; } = 0;
-
-        public static double TotalCheckout { get; set; } = 0;
-
+        public static string OTP { get; set; } = string.Empty;
         public static void openDatabase()
         {
             try
@@ -138,8 +136,6 @@ namespace BCD_Restaurant_Project.Classes
                 return 0;//customer
             }
 
-
-
         }
 
         public static int verifyAccountExistence(string username, string password)
@@ -147,28 +143,87 @@ namespace BCD_Restaurant_Project.Classes
 
             int accountID = -1;//start with no account
 
-            string query = "select * from group2fa212330.Accounts where username = '" + username + "' AND password = '" + password + "'";
+            string query = "select * from group2fa212330.Accounts where username = '" + username + "' AND (password = " +
+                           "'" + password + "' OR OneTimePassword = '" + password + "')";
 
             _sqlAccountsCommand = new SqlCommand(query, _cntDBConnection);
 
             _daAccounts = new SqlDataAdapter(selectCommand: _sqlAccountsCommand);
-            
+
             _dtAccountsTable = new DataTable();
             _daAccounts.Fill(_dtAccountsTable);
 
             if (_dtAccountsTable.Rows.Count > 0) // if results return a row
             {
-                accountID =
-                    (int)_dtAccountsTable
-                        .Rows[0]["AccountID"]; //return row 1 column cell value of column with the name"AccountID"
-               // MessageBox.Show("Welcome "+_dtAccountsTable.Rows[0]["FirstName"]+"!");
+                accountID = (int)_dtAccountsTable.Rows[0]["AccountID"]; //return row 1 column cell value of column with the name"AccountID"
+
+                if (password == (string)_dtAccountsTable.Rows[0]["OneTimePassword"])
+                {
+                    //TODO - place stored procedure code here
+                    
+                }
+
+                // MessageBox.Show("Welcome "+_dtAccountsTable.Rows[0]["FirstName"]+"!");
             }
 
             //dispose all the connections
+            //_dtAccountsTable.Dispose();
+            //_daAccounts.Dispose();
+            //_sqlAccountsCommand.Dispose();
             return accountID;
 
         }
 
+        //Returning the one time password of the user with the email that is provided, can't use get because 
+        //user hasn't been found
+        public static string OneTimePassword(string email)
+        {
+            string result = string.Empty;
+            try
+            {
+                //returning the accounts information that matches the email entered in the tbxForgot
+                string query = "SELECT OneTimePassword FROM group2fa212330.Accounts WHERE Email =  '" + email + "'";
+                _sqlAccountsCommand = new SqlCommand(query, _cntDBConnection);
+                _daAccounts.SelectCommand = _sqlAccountsCommand;
+                _dtAccountsTable = new DataTable();
+                _daAccounts.Fill(_dtAccountsTable);
+
+                //if the account exists
+                if (_dtAccountsTable.Rows.Count != 0)
+                {
+                    //store the one time password to return in the forgot form
+                    result = (string)_dtAccountsTable.Rows[0]["OneTimePassword"];
+                }
+                else
+                {
+                    MessageBox.Show("No account associated with the email entered", "Reset Password", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (SqlException ex)
+            {
+                if (ex is SqlException)
+                {
+                    for (int i = 0; i < ex.Errors.Count; i++)
+                    {
+                        _errorMessages.Append("Index#" + i + "\n" +
+                            "Message: " + ex.Errors[i].Message + "\n" +
+                            "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
+                            "Source: " + ex.Errors[i].Source + "\n" +
+                            "Procedure: " + ex.Errors[i].Procedure + "\n");
+                    }
+                    MessageBox.Show(_errorMessages.ToString(), "Error Close Database", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {//handles generic ones here
+                    MessageBox.Show(ex.Message + "Error (PO2)", "Error Close Database", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+            //returning OTP to send VIA email
+            return result;
+        }
+
+        //method for the user to sign up and add the information onto the database
         public static void SignUp(string fName, string lName, string username, string email, string password)
         {
             try
@@ -183,7 +238,7 @@ namespace BCD_Restaurant_Project.Classes
                 _sqlAccountsCommand.Parameters.AddWithValue("@Password", password);
                 _sqlAccountsCommand.ExecuteNonQuery();
             }
-            catch(SqlException ex)
+            catch (SqlException ex)
             {
 
                 if (ex is SqlException)
@@ -205,9 +260,10 @@ namespace BCD_Restaurant_Project.Classes
             }
         }
 
+        //displaying the specific items wherever the user is in the form
         public static void DisplayMenuItems(DataGridView dgvDisplay, int categoryId)
         {
-            string query = "SELECT ItemName AS 'Item', ItemDescription AS 'Description', FORMAT(Price, 'C') AS Price, Image FROM group2fa212330.Menu INNER JOIN group2fa212330.Images ON Menu.ImageID = Images.ImageID WHERE CategoryID = "+categoryId;
+            string query = "SELECT ItemName AS 'Item', ItemDescription AS 'Description', FORMAT(Price, 'C') AS Price, Image FROM group2fa212330.Menu INNER JOIN group2fa212330.Images ON Menu.ImageID = Images.ImageID WHERE CategoryID = " + categoryId;
             _sqlMenuCommand = new SqlCommand(query, _cntDBConnection);
             _daMenu.SelectCommand = _sqlMenuCommand;
             dgvDisplay.Rows.Clear();
@@ -217,29 +273,103 @@ namespace BCD_Restaurant_Project.Classes
 
             dgvDisplay.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dgvDisplay.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-            
+
         }
 
-        public static void ModifyMenu(DataGridView dgvMenu)
+        //Method to validate if the user enters a valid email anywhere in the program
+        public static bool IsValidEmail(string email)
         {
             try
             {
-                string query = "SELECT * FROM group2fa212330.Menu";
-                _sqlMenuCommand = new SqlCommand(query, _cntDBConnection);
-                _daMenu = new SqlDataAdapter();
-                _daMenu.SelectCommand = _sqlMenuCommand;
-                _dtMenu = new DataTable();
-                dgvMenu.Rows.Clear();
-                _daMenu.Fill(_dtMenu);
-                dgvMenu.DataSource = _dtMenu;
+                //using mail namespace to validate the email being passed in
+                var addr = new System.Net.Mail.MailAddress(email);
+                return addr.Address == email;
+            }
+            catch
+            {
+                return false;
+            }
+        }
 
-                dgvMenu.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-                dgvMenu.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+        public static void OneTimePasswordGenerator()
+        {
+            string newOTP = "DECLARE @password varchar(20) " +
+                    "exec group2fa212330.spRandomPassword @len = 10, @output = @password out " +
+                    "UPDATE group2fa212330.Accounts " +
+                    "SET OneTimePassword = @password " +
+                    "WHERE AccountID = "+AccountID;
+            _sqlAccountsCommand = new SqlCommand(newOTP, _cntDBConnection);
+            _sqlAccountsCommand.ExecuteNonQuery();
+        }
+
+
+        //method for binding the bank information form
+        public static void BankInformation(TextBox tbxName, TextBox tbxEmail, TextBox tbxAccountID, TextBox tbxAccNumber, TextBox tbxRouNumber)
+        {
+            //  
+            try
+            {
+                _cntDBConnection = new SqlConnection(CONNECT_STRING);
+                string query = "SELECT CONCAT(FirstName, ' ', LastName) AS Name, Email, A.AccountID, AccountNumber, RoutingNumber " +
+                    "FROM group2fa212330.Employees AS E JOIN group2fa212330.Accounts AS A ON E.AccountID = A.AccountID WHERE A.AccountID =" + AccountID;
+
+                _sqlAccountsCommand = new SqlCommand(query, _cntDBConnection);
+                _daAccounts = new SqlDataAdapter();
+                _daAccounts.SelectCommand = _sqlAccountsCommand;
+                _dtAccountsTable = new DataTable();
+                _daAccounts.Fill(_dtAccountsTable);
+
+                //binding the textboxes
+                tbxName.DataBindings.Add("Text", _dtAccountsTable, "Name");
+                tbxEmail.DataBindings.Add("Text", _dtAccountsTable, "Email");
+                tbxAccountID.DataBindings.Add("Text", _dtAccountsTable, "AccountID");
+                tbxAccNumber.DataBindings.Add("Text", _dtAccountsTable, "AccountNumber");
+                tbxRouNumber.DataBindings.Add("Text", _dtAccountsTable, "RoutingNumber");
+            }
+            catch (SqlException ex)
+            {
+                if (ex is SqlException)
+                {
+                    for (int i = 0; i < ex.Errors.Count; i++)
+                    {
+                        _errorMessages.Append("Index#" + i + "\n" +
+                            "Message: " + ex.Errors[i].Message + "\n" +
+                            "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
+                            "Source: " + ex.Errors[i].Source + "\n" +
+                            "Procedure: " + ex.Errors[i].Procedure + "\n");
+                    }
+                    MessageBox.Show(_errorMessages.ToString(), "Error Close Database", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {//handles generic ones here
+                    MessageBox.Show(ex.Message + "Error (PO2)", "Error Close Database", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                //MessageBox.Show(ex.StackTrace + "Error (PO2)", "Error Close Database", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public static void PersonalInformation(TextBox tbxAccountID, TextBox tbxEmail, TextBox tbxUsername, TextBox tbxName, TextBox tbxPassword)
+        {
+            try
+            {
+                _cntDBConnection = new SqlConnection(CONNECT_STRING);
+                //_cntDBConnection.Open();
+                string query = "SELECT AccountID, Email, Username, CONCAT(FirstName,' ', LastName) AS Name, Password FROM group2fa212330.Accounts WHERE AccountID = "+AccountID;
+                _sqlAccountsCommand = new SqlCommand(query, _cntDBConnection);
+                _daAccounts = new SqlDataAdapter();
+                _daAccounts.SelectCommand = _sqlAccountsCommand;
+                _dtAccountsTable = new DataTable();
+                _daAccounts.Fill(_dtAccountsTable);
+
+                tbxAccountID.DataBindings.Add("Text", _dtAccountsTable, "AccountID");
+                tbxEmail.DataBindings.Add("Text", _dtAccountsTable, "Email");
+                tbxUsername.DataBindings.Add("Text", _dtAccountsTable, "Username");
+                tbxName.DataBindings.Add("Text",_dtAccountsTable,"Name");
+                tbxPassword.DataBindings.Add("Text", _dtAccountsTable, "Password");
 
             }
             catch(SqlException ex)
             {
-
                 if (ex is SqlException)
                 {
                     for (int i = 0; i < ex.Errors.Count; i++)
@@ -259,5 +389,31 @@ namespace BCD_Restaurant_Project.Classes
             }
         }
 
+        public static void fillDgvWithAccountTable(DataGridView dgvAccounts, TextBox tbxAccountID, TextBox tbxEmail, TextBox tbxUsername, TextBox tbxPassword,
+            TextBox tbxConfirmPassword, TextBox tbxLastName, TextBox tbxFirstName)
+        {
+
+             _cntDBConnection = new SqlConnection(CONNECT_STRING);
+
+            string sqlQuery111111111 = "SELECT * from group2fa212330.Accounts";
+
+            _sqlAccountsCommand = new SqlCommand(sqlQuery111111111, _cntDBConnection);
+
+            _daAccounts = new SqlDataAdapter(selectCommand: _sqlAccountsCommand);
+            _dtAccountsTable.Clear();
+            _daAccounts.Fill(_dtAccountsTable);
+
+            dgvAccounts.DataSource = _dtAccountsTable;
+
+            tbxAccountID.DataBindings.Add("Text", dgvAccounts.DataSource, "AccountID");
+            tbxEmail.DataBindings.Add("Text", dgvAccounts.DataSource, "Email");
+            tbxUsername.DataBindings.Add("Text", dgvAccounts.DataSource, "Username");
+            tbxPassword.DataBindings.Add("Text", dgvAccounts.DataSource, "Password");
+            tbxConfirmPassword.DataBindings.Add("Text", dgvAccounts.DataSource, "Password");
+            tbxLastName.DataBindings.Add("Text", dgvAccounts.DataSource, "Lastname");
+            tbxFirstName.DataBindings.Add("Text", dgvAccounts.DataSource, "Firstname");
+
+
+        }
     }
 }

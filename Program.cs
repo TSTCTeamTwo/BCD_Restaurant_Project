@@ -18,7 +18,7 @@ namespace BCD_Restaurant_Project
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmManageMenu());
+            Application.Run(new frmLogin());
             
         }
     }

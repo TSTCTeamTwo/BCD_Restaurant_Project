@@ -1,5 +1,5 @@
 ﻿
-namespace BCD_Restaurant_Project.Forms
+namespace BCD_Restaurant_Project.Forms.Customers
 {
     partial class frmForgot
     {
@@ -75,7 +75,7 @@ namespace BCD_Restaurant_Project.Forms
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(143, 21);
+            this.label2.Location = new System.Drawing.Point(157, 47);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(99, 18);
             this.label2.TabIndex = 6;
@@ -86,18 +86,19 @@ namespace BCD_Restaurant_Project.Forms
             // 
             this.lnkLblSignIn.AutoSize = true;
             this.lnkLblSignIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lnkLblSignIn.Location = new System.Drawing.Point(135, 158);
+            this.lnkLblSignIn.Location = new System.Drawing.Point(153, 184);
             this.lnkLblSignIn.Name = "lnkLblSignIn";
             this.lnkLblSignIn.Size = new System.Drawing.Size(107, 18);
             this.lnkLblSignIn.TabIndex = 5;
             this.lnkLblSignIn.TabStop = true;
             this.lnkLblSignIn.Text = "Back to Sign in";
+            this.lnkLblSignIn.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkLblSignIn_LinkClicked);
             // 
             // tbxEmail
             // 
             this.tbxEmail.BackColor = System.Drawing.Color.White;
             this.tbxEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxEmail.Location = new System.Drawing.Point(90, 76);
+            this.tbxEmail.Location = new System.Drawing.Point(107, 102);
             this.tbxEmail.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbxEmail.Name = "tbxEmail";
             this.tbxEmail.Size = new System.Drawing.Size(199, 26);
@@ -107,7 +108,7 @@ namespace BCD_Restaurant_Project.Forms
             // 
             this.lblUsername.AutoSize = true;
             this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsername.Location = new System.Drawing.Point(87, 54);
+            this.lblUsername.Location = new System.Drawing.Point(184, 80);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(45, 18);
             this.lblUsername.TabIndex = 1;
@@ -119,16 +120,18 @@ namespace BCD_Restaurant_Project.Forms
             this.btnLogin.BackColor = System.Drawing.Color.White;
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogin.Location = new System.Drawing.Point(90, 110);
+            this.btnLogin.Location = new System.Drawing.Point(107, 136);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(199, 44);
             this.btnLogin.TabIndex = 0;
             this.btnLogin.Text = "RESET VIA EMAIL";
             this.btnLogin.UseVisualStyleBackColor = false;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click_1);
             // 
             // frmForgot
             // 
+            this.AcceptButton = this.btnLogin;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
@@ -142,6 +145,7 @@ namespace BCD_Restaurant_Project.Forms
             this.Name = "frmForgot";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Forgot";
+            this.Load += new System.EventHandler(this.frmForgot_Load);
             this.pnlLogin.ResumeLayout(false);
             this.pnlLogin.PerformLayout();
             this.ResumeLayout(false);
