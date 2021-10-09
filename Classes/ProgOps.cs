@@ -415,5 +415,29 @@ namespace BCD_Restaurant_Project.Classes
 
 
         }
+
+        public static void ModifyMenu(DataGridView dgvMenu)
+        {
+            try
+            {
+                _cntDBConnection = new SqlConnection(CONNECT_STRING);
+                string query = "SELECT * FROM group2fa212330.Menu";
+
+                _sqlMenuCommand = new SqlCommand(query, _cntDBConnection);
+                _daMenu = new SqlDataAdapter();
+                _daMenu.SelectCommand = _sqlMenuCommand;
+                _dtMenu = new DataTable();
+                _daMenu.Fill(_dtMenu);
+
+                dgvMenu.DataSource = _dtMenu;
+
+                dgvMenu.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+                dgvMenu.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            }
+            catch(SqlException ex)
+            {
+
+            }
+        }
     }
 }
