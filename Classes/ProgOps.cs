@@ -40,6 +40,8 @@ namespace BCD_Restaurant_Project.Classes
         public static string Username { get; set; } = string.Empty;
         public static int AccountID { get; set; } = 0;
 
+        public static double TotalCheckout { get; set; } = 0;
+
         public static void openDatabase()
         {
             try
@@ -216,6 +218,45 @@ namespace BCD_Restaurant_Project.Classes
             dgvDisplay.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dgvDisplay.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
             
+        }
+
+        public static void ModifyMenu(DataGridView dgvMenu)
+        {
+            try
+            {
+                string query = "SELECT * FROM group2fa212330.Menu";
+                _sqlMenuCommand = new SqlCommand(query, _cntDBConnection);
+                _daMenu = new SqlDataAdapter();
+                _daMenu.SelectCommand = _sqlMenuCommand;
+                _dtMenu = new DataTable();
+                dgvMenu.Rows.Clear();
+                _daMenu.Fill(_dtMenu);
+                dgvMenu.DataSource = _dtMenu;
+
+                dgvMenu.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+                dgvMenu.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+
+            }
+            catch(SqlException ex)
+            {
+
+                if (ex is SqlException)
+                {
+                    for (int i = 0; i < ex.Errors.Count; i++)
+                    {
+                        _errorMessages.Append("Index#" + i + "\n" +
+                            "Message: " + ex.Errors[i].Message + "\n" +
+                            "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
+                            "Source: " + ex.Errors[i].Source + "\n" +
+                            "Procedure: " + ex.Errors[i].Procedure + "\n");
+                    }
+                    MessageBox.Show(_errorMessages.ToString(), "Error Close Database", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {//handles generic ones here
+                    MessageBox.Show(ex.Message + "Error (PO2)", "Error Close Database", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
     }

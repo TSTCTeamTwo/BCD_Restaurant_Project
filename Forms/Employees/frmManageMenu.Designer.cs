@@ -30,48 +30,48 @@ namespace BCD_Restaurant_Project.Forms.Employees
         private void InitializeComponent()
         {
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.tbxImagePath = new System.Windows.Forms.TextBox();
+            this.btnLoadImage = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbxCategories = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.tbxPrice = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.lblUsername = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.tbxUsername = new System.Windows.Forms.TextBox();
+            this.btnEdit = new System.Windows.Forms.Button();
+            this.tbxItemID = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.tbxName = new System.Windows.Forms.TextBox();
+            this.tbxDescription = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button4 = new System.Windows.Forms.Button();
-            this.tbxImagePath = new System.Windows.Forms.TextBox();
+            this.dgvMenu = new System.Windows.Forms.DataGridView();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMenu)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.tbxImagePath);
-            this.groupBox2.Controls.Add(this.button4);
+            this.groupBox2.Controls.Add(this.btnLoadImage);
             this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.comboBox1);
+            this.groupBox2.Controls.Add(this.cbxCategories);
             this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.textBox5);
+            this.groupBox2.Controls.Add(this.tbxPrice);
             this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.button3);
-            this.groupBox2.Controls.Add(this.button2);
+            this.groupBox2.Controls.Add(this.btnDelete);
+            this.groupBox2.Controls.Add(this.btnAdd);
             this.groupBox2.Controls.Add(this.lblUsername);
             this.groupBox2.Controls.Add(this.linkLabel1);
-            this.groupBox2.Controls.Add(this.button1);
-            this.groupBox2.Controls.Add(this.tbxUsername);
+            this.groupBox2.Controls.Add(this.btnEdit);
+            this.groupBox2.Controls.Add(this.tbxItemID);
             this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.textBox1);
-            this.groupBox2.Controls.Add(this.textBox4);
+            this.groupBox2.Controls.Add(this.tbxName);
+            this.groupBox2.Controls.Add(this.tbxDescription);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Location = new System.Drawing.Point(23, 20);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
@@ -81,6 +81,26 @@ namespace BCD_Restaurant_Project.Forms.Employees
             this.groupBox2.TabIndex = 21;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Manage Menu Item";
+            // 
+            // tbxImagePath
+            // 
+            this.tbxImagePath.BackColor = System.Drawing.Color.White;
+            this.tbxImagePath.Enabled = false;
+            this.tbxImagePath.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxImagePath.Location = new System.Drawing.Point(151, 179);
+            this.tbxImagePath.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tbxImagePath.Name = "tbxImagePath";
+            this.tbxImagePath.Size = new System.Drawing.Size(199, 26);
+            this.tbxImagePath.TabIndex = 31;
+            // 
+            // btnLoadImage
+            // 
+            this.btnLoadImage.Location = new System.Drawing.Point(151, 212);
+            this.btnLoadImage.Name = "btnLoadImage";
+            this.btnLoadImage.Size = new System.Drawing.Size(199, 23);
+            this.btnLoadImage.TabIndex = 30;
+            this.btnLoadImage.Text = "New Image";
+            this.btnLoadImage.UseVisualStyleBackColor = true;
             // 
             // label3
             // 
@@ -92,14 +112,14 @@ namespace BCD_Restaurant_Project.Forms.Employees
             this.label3.Text = "Image";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // comboBox1
+            // cbxCategories
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(151, 151);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(199, 21);
-            this.comboBox1.TabIndex = 28;
+            this.cbxCategories.FormattingEnabled = true;
+            this.cbxCategories.Location = new System.Drawing.Point(151, 151);
+            this.cbxCategories.Margin = new System.Windows.Forms.Padding(2);
+            this.cbxCategories.Name = "cbxCategories";
+            this.cbxCategories.Size = new System.Drawing.Size(199, 21);
+            this.cbxCategories.TabIndex = 28;
             // 
             // label6
             // 
@@ -111,15 +131,15 @@ namespace BCD_Restaurant_Project.Forms.Employees
             this.label6.Text = "Category";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox5
+            // tbxPrice
             // 
-            this.textBox5.BackColor = System.Drawing.Color.White;
-            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(151, 116);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(83, 26);
-            this.textBox5.TabIndex = 26;
+            this.tbxPrice.BackColor = System.Drawing.Color.White;
+            this.tbxPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxPrice.Location = new System.Drawing.Point(151, 116);
+            this.tbxPrice.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tbxPrice.Name = "tbxPrice";
+            this.tbxPrice.Size = new System.Drawing.Size(83, 26);
+            this.tbxPrice.TabIndex = 26;
             // 
             // label2
             // 
@@ -131,31 +151,31 @@ namespace BCD_Restaurant_Project.Forms.Employees
             this.label2.Text = "Price";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // button3
+            // btnDelete
             // 
-            this.button3.BackColor = System.Drawing.Color.White;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(229, 248);
-            this.button3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(99, 28);
-            this.button3.TabIndex = 23;
-            this.button3.Text = "&Delete Account";
-            this.button3.UseVisualStyleBackColor = false;
+            this.btnDelete.BackColor = System.Drawing.Color.White;
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.Location = new System.Drawing.Point(229, 248);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(99, 28);
+            this.btnDelete.TabIndex = 23;
+            this.btnDelete.Text = "&Delete Account";
+            this.btnDelete.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // btnAdd
             // 
-            this.button2.BackColor = System.Drawing.Color.White;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(120, 248);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(99, 28);
-            this.button2.TabIndex = 22;
-            this.button2.Text = "&Add";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnAdd.BackColor = System.Drawing.Color.White;
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.Location = new System.Drawing.Point(120, 248);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(99, 28);
+            this.btnAdd.TabIndex = 22;
+            this.btnAdd.Text = "&Add";
+            this.btnAdd.UseVisualStyleBackColor = false;
             // 
             // lblUsername
             // 
@@ -178,28 +198,28 @@ namespace BCD_Restaurant_Project.Forms.Employees
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Return";
             // 
-            // button1
+            // btnEdit
             // 
-            this.button1.BackColor = System.Drawing.Color.White;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(11, 248);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(99, 28);
-            this.button1.TabIndex = 20;
-            this.button1.Text = "&Edit";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnEdit.BackColor = System.Drawing.Color.White;
+            this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEdit.Location = new System.Drawing.Point(11, 248);
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(99, 28);
+            this.btnEdit.TabIndex = 20;
+            this.btnEdit.Text = "&Edit";
+            this.btnEdit.UseVisualStyleBackColor = false;
             // 
-            // tbxUsername
+            // tbxItemID
             // 
-            this.tbxUsername.BackColor = System.Drawing.Color.White;
-            this.tbxUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxUsername.Location = new System.Drawing.Point(151, 19);
-            this.tbxUsername.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tbxUsername.Name = "tbxUsername";
-            this.tbxUsername.Size = new System.Drawing.Size(69, 26);
-            this.tbxUsername.TabIndex = 9;
+            this.tbxItemID.BackColor = System.Drawing.Color.White;
+            this.tbxItemID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxItemID.Location = new System.Drawing.Point(151, 19);
+            this.tbxItemID.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tbxItemID.Name = "tbxItemID";
+            this.tbxItemID.Size = new System.Drawing.Size(69, 26);
+            this.tbxItemID.TabIndex = 9;
             // 
             // label1
             // 
@@ -211,25 +231,25 @@ namespace BCD_Restaurant_Project.Forms.Employees
             this.label1.Text = "Item Name";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox1
+            // tbxName
             // 
-            this.textBox1.BackColor = System.Drawing.Color.White;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(151, 51);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(199, 26);
-            this.textBox1.TabIndex = 12;
+            this.tbxName.BackColor = System.Drawing.Color.White;
+            this.tbxName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxName.Location = new System.Drawing.Point(151, 51);
+            this.tbxName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tbxName.Name = "tbxName";
+            this.tbxName.Size = new System.Drawing.Size(199, 26);
+            this.tbxName.TabIndex = 12;
             // 
-            // textBox4
+            // tbxDescription
             // 
-            this.textBox4.BackColor = System.Drawing.Color.White;
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(151, 84);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(199, 26);
-            this.textBox4.TabIndex = 16;
+            this.tbxDescription.BackColor = System.Drawing.Color.White;
+            this.tbxDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxDescription.Location = new System.Drawing.Point(151, 84);
+            this.tbxDescription.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tbxDescription.Name = "tbxDescription";
+            this.tbxDescription.Size = new System.Drawing.Size(199, 26);
+            this.tbxDescription.TabIndex = 16;
             // 
             // label5
             // 
@@ -243,7 +263,7 @@ namespace BCD_Restaurant_Project.Forms.Employees
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.dataGridView1);
+            this.groupBox1.Controls.Add(this.dgvMenu);
             this.groupBox1.Location = new System.Drawing.Point(404, 11);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
@@ -253,36 +273,16 @@ namespace BCD_Restaurant_Project.Forms.Employees
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Menu";
             // 
-            // dataGridView1
+            // dgvMenu
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(8, 17);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(421, 318);
-            this.dataGridView1.TabIndex = 13;
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(151, 212);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(199, 23);
-            this.button4.TabIndex = 30;
-            this.button4.Text = "btnLoadInImage";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // tbxImagePath
-            // 
-            this.tbxImagePath.BackColor = System.Drawing.Color.White;
-            this.tbxImagePath.Enabled = false;
-            this.tbxImagePath.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxImagePath.Location = new System.Drawing.Point(151, 179);
-            this.tbxImagePath.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tbxImagePath.Name = "tbxImagePath";
-            this.tbxImagePath.Size = new System.Drawing.Size(199, 26);
-            this.tbxImagePath.TabIndex = 31;
+            this.dgvMenu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMenu.Location = new System.Drawing.Point(8, 17);
+            this.dgvMenu.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvMenu.Name = "dgvMenu";
+            this.dgvMenu.RowHeadersWidth = 51;
+            this.dgvMenu.RowTemplate.Height = 24;
+            this.dgvMenu.Size = new System.Drawing.Size(421, 318);
+            this.dgvMenu.TabIndex = 13;
             // 
             // frmManageMenu
             // 
@@ -294,10 +294,11 @@ namespace BCD_Restaurant_Project.Forms.Employees
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmManageMenu";
             this.Text = "Manage Menu";
+            this.Load += new System.EventHandler(this.frmManageMenu_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMenu)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -305,23 +306,23 @@ namespace BCD_Restaurant_Project.Forms.Employees
         #endregion
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox tbxPrice;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.LinkLabel linkLabel1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox tbxUsername;
+        private System.Windows.Forms.Button btnEdit;
+        private System.Windows.Forms.TextBox tbxItemID;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbxName;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.DataGridView dgvMenu;
+        private System.Windows.Forms.TextBox tbxDescription;
+        private System.Windows.Forms.ComboBox cbxCategories;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnLoadImage;
         private System.Windows.Forms.TextBox tbxImagePath;
     }
 }
