@@ -275,15 +275,29 @@ namespace BCD_Restaurant_Project.Forms.Employees
             // 
             // dgvMenu
             // 
+            this.dgvMenu.AllowUserToAddRows = false;
+            this.dgvMenu.AllowUserToDeleteRows = false;
+            this.dgvMenu.AllowUserToResizeColumns = false;
+            this.dgvMenu.AllowUserToResizeRows = false;
+            this.dgvMenu.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvMenu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMenu.Location = new System.Drawing.Point(8, 17);
+            this.dgvMenu.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgvMenu.Location = new System.Drawing.Point(8, 16);
             this.dgvMenu.Margin = new System.Windows.Forms.Padding(2);
             this.dgvMenu.Name = "dgvMenu";
+            this.dgvMenu.ReadOnly = true;
+            this.dgvMenu.RowHeadersVisible = false;
             this.dgvMenu.RowHeadersWidth = 51;
             this.dgvMenu.RowTemplate.Height = 24;
-            this.dgvMenu.Size = new System.Drawing.Size(421, 318);
+            this.dgvMenu.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvMenu.ShowCellErrors = false;
+            this.dgvMenu.ShowCellToolTips = false;
+            this.dgvMenu.ShowEditingIcon = false;
+            this.dgvMenu.ShowRowErrors = false;
+            this.dgvMenu.Size = new System.Drawing.Size(421, 282);
             this.dgvMenu.TabIndex = 13;
             this.dgvMenu.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMenu_CellClick);
+//            this.dgvMenu.Scroll += new System.Windows.Forms.ScrollEventHandler(this.dgvMenu_Scroll);
             // 
             // frmManageMenu
             // 

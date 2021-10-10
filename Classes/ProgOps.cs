@@ -395,9 +395,9 @@ namespace BCD_Restaurant_Project.Classes
 
              _cntDBConnection = new SqlConnection(CONNECT_STRING);
 
-            string sqlQuery111111111 = "SELECT * from group2fa212330.Accounts";
+            string sqlQuery = "SELECT * from group2fa212330.Accounts";
 
-            _sqlAccountsCommand = new SqlCommand(sqlQuery111111111, _cntDBConnection);
+            _sqlAccountsCommand = new SqlCommand(sqlQuery, _cntDBConnection);
 
             _daAccounts = new SqlDataAdapter(selectCommand: _sqlAccountsCommand);
             _dtAccountsTable.Clear();
@@ -416,12 +416,12 @@ namespace BCD_Restaurant_Project.Classes
 
         }
 
-        public static void ModifyMenu(DataGridView dgvMenu)
+        public static void ModifyMenu(DataGridView dgvMenu, TextBox tbItemName, TextBox tbItemID, TextBox tbDescription, TextBox tbPrice, TextBox tbImage)
         {
             try
             {
                 _cntDBConnection = new SqlConnection(CONNECT_STRING);
-                string query = "SELECT * FROM group2fa212330.Menu";
+                string query = "SELECT ItemID, ItemName, ItemDescription, FORMAT(Price, 'C') AS Price, Image FROM group2fa212330.Menu AS M INNER JOIN group2fa212330.Images AS I ON M.ImageID = I.ImageID";
 
                 _sqlMenuCommand = new SqlCommand(query, _cntDBConnection);
                 _daMenu = new SqlDataAdapter();
@@ -433,47 +433,12 @@ namespace BCD_Restaurant_Project.Classes
 
                 dgvMenu.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
                 dgvMenu.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-            }
-            catch(SqlException ex)
-            {
-                if (ex is SqlException)
-                {
-                    for (int i = 0; i < ex.Errors.Count; i++)
-                    {
-                        _errorMessages.Append("Index#" + i + "\n" +
-                            "Message: " + ex.Errors[i].Message + "\n" +
-                            "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
-                            "Source: " + ex.Errors[i].Source + "\n" +
-                            "Procedure: " + ex.Errors[i].Procedure + "\n");
-                    }
-                    MessageBox.Show(_errorMessages.ToString(), "Error Close Database", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
-                {//handles generic ones here
-                    MessageBox.Show(ex.Message + "Error (PO2)", "Error Close Database", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-        }
-
-        public static void MenuBinding(int itemID,TextBox tbItemName, TextBox tbItemID, TextBox tbDescription, TextBox tbPrice, TextBox tbImage)
-        {
-            try
-            {
-                string query = "SELECT ItemID, ItemName, Description, Price, Image FROM group2fa212330.Menu, group2fa212330.Images WHERE ItemID = " + itemID;
-                _cntDBConnection = new SqlConnection(CONNECT_STRING);
-
-                _sqlMenuCommand = new SqlCommand(query, _cntDBConnection);
-                _daMenu = new SqlDataAdapter();
-                _daMenu.SelectCommand = _sqlMenuCommand;
-                _dtMenu = new DataTable();
-                _daMenu.Fill(_dtMenu);
 
                 tbItemName.DataBindings.Add("Text", _dtMenu, "ItemName");
                 tbItemID.DataBindings.Add("Text", _dtMenu, "ItemID");
-                tbDescription.DataBindings.Add("Text", _dtMenu, "Description");
+                tbDescription.DataBindings.Add("Text", _dtMenu, "ItemDescription");
                 tbPrice.DataBindings.Add("Text", _dtMenu, "Price");
                 tbImage.DataBindings.Add("Text", _dtMenu, "Image");
-                
             }
             catch(SqlException ex)
             {
@@ -495,5 +460,48 @@ namespace BCD_Restaurant_Project.Classes
                 }
             }
         }
+
+        //public static void menubinding(datagridview dgvmenu, textbox tbitemname, textbox tbitemid, textbox tbdescription, textbox tbprice, textbox tbimage)
+        //{
+        //    try
+        //    {
+        //        string query = "select itemid, itemname, itemdescription, price, image from group2fa212330.menu as m inner join group2fa212330.images as i on m.imageid = i.imageid";
+        //        _cntdbconnection = new sqlconnection(connect_string);
+
+        //        _sqlmenucommand = new sqlcommand(query, _cntdbconnection);
+        //        _damenu = new sqldataadapter();
+        //        _damenu.selectcommand = _sqlmenucommand;
+        //        _dtmenu = new datatable();
+        //        _damenu.fill(_dtmenu);
+
+        //        dgvmenu.datasource = _dtmenu;
+
+        //        tbitemname.databindings.add("text", _dtmenu, "itemname");
+        //        tbitemid.databindings.add("text", _dtmenu, "itemid");
+        //        tbdescription.databindings.add("text", _dtmenu, "itemdescription");
+        //        tbprice.databindings.add("text", _dtmenu, "price");
+        //        tbimage.databindings.add("text", _dtmenu, "image");
+
+        //    }
+        //    catch (sqlexception ex)
+        //    {
+        //        if (ex is sqlexception)
+        //        {
+        //            for (int i = 0; i < ex.errors.count; i++)
+        //            {
+        //                _errormessages.append("index#" + i + "\n" +
+        //                    "message: " + ex.errors[i].message + "\n" +
+        //                    "linenumber: " + ex.errors[i].linenumber + "\n" +
+        //                    "source: " + ex.errors[i].source + "\n" +
+        //                    "procedure: " + ex.errors[i].procedure + "\n");
+        //            }
+        //            messagebox.show(_errormessages.tostring(), "error close database", messageboxbuttons.ok, messageboxicon.error);
+        //        }
+        //        else
+        //        {//handles generic ones here
+        //            messagebox.show(ex.message + "error (po2)", "error close database", messageboxbuttons.ok, messageboxicon.error);
+        //        }
+        //    }
+        //}
     }
 }
