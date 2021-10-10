@@ -19,12 +19,14 @@ namespace BCD_Restaurant_Project.Forms.Employees
 
         private void frmManageMenu_Load(object sender, EventArgs e)
         {
-            ProgOps.ModifyMenu(dgvMenu);
+            ProgOps.ModifyMenu(dgvMenu, tbxName, tbxItemID, tbxDescription, tbxPrice, tbxImagePath);
         }
 
         private void dgvMenu_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            ProgOps.MenuBinding((int)dgvMenu.CurrentCell.Value,tbxName, tbxItemID,tbxDescription,tbxPrice,tbxImagePath);
+            //ProgOps.MenuBinding(dgvMenu,tbxName, tbxItemID,tbxDescription,tbxPrice,tbxImagePath);
         }
+
+        
     }
 }
