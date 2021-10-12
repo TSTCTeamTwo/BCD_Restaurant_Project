@@ -26,100 +26,100 @@ namespace BCD_Restaurant_Project.Forms.Employees
         private void frmManageAccounts_Load(object sender, EventArgs e)
         {
             ProgOps.openDatabase();
-            ProgOps.fillDgvWithAccountTable(tbxAccountID, tbxEmail, tbxUsername, tbxPassword, tbxConfirmPassword,
-                tbxLastName, tbxFirstName);
+            //ProgOps.fillDgvWithAccountTable(tbxAccountID, tbxEmail, tbxUsername, tbxPassword, tbxConfirmPassword,
+            // tbxLastName, tbxFirstName);
 
-            accountsManager = (CurrencyManager)BindingContext[ProgOps.DTAccountsTable];
+            //accountsManager = (CurrencyManager)BindingContext[ProgOps.DTAccountsTable];
             SetState("View");
 
         }
 
         private void SetState(string view)
-{
-            myState = appState;
-            switch (appState)
-            {
-                case "View":
-                    btnPrevious.Focus();
-                    //COLOR
-                    tbxEmployeeID.BackColor = Color.White;
-                    tbxEmployeeID.ForeColor = Color.Black;
-                    //READONLY
-                    tbxEmployeeID.ReadOnly = true;
-                    tbxLastName.ReadOnly = true;
-                    tbxFirstName.ReadOnly = true;
-                    tbxExtension.ReadOnly = true;
-                    //ENABLED - BUTTONS
-                    btnPrevious.Enabled = true;
-                    btnNext.Enabled = true;
-                    btnAddNew.Enabled = true;
-                    btnSave.Enabled = false;
-                    btnCancel.Enabled = false;
-                    btnEdit.Enabled = true;
-                    btnDelete.Enabled = true;
-                    btnPrevious.Focus();
-                    break;
+        {
+            //myState = appState;
+            //switch (appState)
+            //{
+            //    case "View":
+            //        btnPrevious.Focus();
+            //        //COLOR
+            //        tbxEmployeeID.BackColor = Color.White;
+            //        tbxEmployeeID.ForeColor = Color.Black;
+            //        //READONLY
+            //        tbxEmployeeID.ReadOnly = true;
+            //        tbxLastName.ReadOnly = true;
+            //        tbxFirstName.ReadOnly = true;
+            //        tbxExtension.ReadOnly = true;
+            //        //ENABLED - BUTTONS
+            //        btnPrevious.Enabled = true;
+            //        btnNext.Enabled = true;
+            //        btnAddNew.Enabled = true;
+            //        btnSave.Enabled = false;
+            //        btnCancel.Enabled = false;
+            //        btnEdit.Enabled = true;
+            //        btnDelete.Enabled = true;
+            //        btnPrevious.Focus();
+            //        break;
 
-                case "Add New":
-                    //COLOR
-                    tbxEmployeeID.BackColor = Color.Red;
-                    tbxEmployeeID.ForeColor = Color.Black;
-                    //READONLY
-                    tbxEmployeeID.ReadOnly = true;
-                    tbxLastName.ReadOnly = false;
-                    tbxFirstName.ReadOnly = false;
-                    tbxExtension.ReadOnly = false;
-                    //ENABLED - BUTTONS
-                    btnPrevious.Enabled = false;
-                    btnNext.Enabled = false;
-                    btnAddNew.Enabled = false;
-                    btnSave.Enabled = true;
-                    btnCancel.Enabled = true;
-                    btnEdit.Enabled = false;
-                    btnDelete.Enabled = false;
-                    tbxLastName.Focus();
-                    break;
+            //    case "Add New":
+            //        //COLOR
+            //        tbxEmployeeID.BackColor = Color.Red;
+            //        tbxEmployeeID.ForeColor = Color.Black;
+            //        //READONLY
+            //        tbxEmployeeID.ReadOnly = true;
+            //        tbxLastName.ReadOnly = false;
+            //        tbxFirstName.ReadOnly = false;
+            //        tbxExtension.ReadOnly = false;
+            //        //ENABLED - BUTTONS
+            //        btnPrevious.Enabled = false;
+            //        btnNext.Enabled = false;
+            //        btnAddNew.Enabled = false;
+            //        btnSave.Enabled = true;
+            //        btnCancel.Enabled = true;
+            //        btnEdit.Enabled = false;
+            //        btnDelete.Enabled = false;
+            //        tbxLastName.Focus();
+            //        break;
 
-                case "Edit":
-                    //COLOR
-                    tbxEmployeeID.BackColor = Color.Red;
-                    tbxEmployeeID.ForeColor = Color.Black;
-                    //READONLY
-                    tbxEmployeeID.ReadOnly = true;
-                    tbxLastName.ReadOnly = false;
-                    tbxFirstName.ReadOnly = false;
-                    tbxExtension.ReadOnly = false;
-                    //ENABLED - BUTTONS
-                    btnPrevious.Enabled = false;
-                    btnNext.Enabled = false;
-                    btnAddNew.Enabled = false;
-                    btnSave.Enabled = true;
-                    btnCancel.Enabled = true;
-                    btnEdit.Enabled = false;
-                    btnDelete.Enabled = true;
-                    tbxLastName.Focus();
-                    break;
+            //    case "Edit":
+            //        //COLOR
+            //        tbxEmployeeID.BackColor = Color.Red;
+            //        tbxEmployeeID.ForeColor = Color.Black;
+            //        //READONLY
+            //        tbxEmployeeID.ReadOnly = true;
+            //        tbxLastName.ReadOnly = false;
+            //        tbxFirstName.ReadOnly = false;
+            //        tbxExtension.ReadOnly = false;
+            //        //ENABLED - BUTTONS
+            //        btnPrevious.Enabled = false;
+            //        btnNext.Enabled = false;
+            //        btnAddNew.Enabled = false;
+            //        btnSave.Enabled = true;
+            //        btnCancel.Enabled = true;
+            //        btnEdit.Enabled = false;
+            //        btnDelete.Enabled = true;
+            //        tbxLastName.Focus();
+            //        break;
 
-                default: // Add or Edit if not View
-                    tbxEmployeeID.BackColor = Color.Red;
-                    tbxEmployeeID.ForeColor = Color.White;
-                    tbxEmployeeID.ReadOnly = true;
-                    tbxLastName.ReadOnly = false;
-                    tbxFirstName.ReadOnly = false;
-                    tbxExtension.ReadOnly = false;
-                    tbxEmployeeID.Enabled = true;
-                    tbxLastName.Enabled = true;
-                    tbxFirstName.Enabled = true;
-                    tbxExtension.Enabled = true;
-                    btnPrevious.Enabled = false;
-                    btnNext.Enabled = false;
-                    btnAddNew.Enabled = false;
-                    btnSave.Enabled = true;
-                    btnCancel.Enabled = true;
-                    btnEdit.Enabled = false;
-                    btnDelete.Enabled = false;
-                    break;
-            }
+            //    default: // Add or Edit if not View
+            //        tbxEmployeeID.BackColor = Color.Red;
+            //        tbxEmployeeID.ForeColor = Color.White;
+            //        tbxEmployeeID.ReadOnly = true;
+            //        tbxLastName.ReadOnly = false;
+            //        tbxFirstName.ReadOnly = false;
+            //        tbxExtension.ReadOnly = false;
+            //        tbxEmployeeID.Enabled = true;
+            //        tbxLastName.Enabled = true;
+            //        tbxFirstName.Enabled = true;
+            //        tbxExtension.Enabled = true;
+            //        btnPrevious.Enabled = false;
+            //        btnNext.Enabled = false;
+            //        btnAddNew.Enabled = false;
+            //        btnSave.Enabled = true;
+            //        btnCancel.Enabled = true;
+            //        btnEdit.Enabled = false;
+            //        btnDelete.Enabled = false;
+            //        break;
+            //}
         }
     }
 }

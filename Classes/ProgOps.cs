@@ -430,12 +430,17 @@ namespace BCD_Restaurant_Project.Classes
 
         }
 
-        public static void ModifyMenu(TextBox tbItemName, TextBox tbItemID, TextBox tbDescription, TextBox tbPrice, TextBox tbImage, ComboBox cbCategory, CurrencyManager c)
+        public static void ModifyMenu(TextBox tbItemName, TextBox tbItemID, TextBox tbDescription, TextBox tbPrice, TextBox tbImage, ComboBox cbCategory,
+            Form form, out CurrencyManager c)
         {
+
+            c = null;
+
             try
             {
                 _cntDBConnection = new SqlConnection(CONNECT_STRING);
-                string query = "SELECT ItemID, ItemName, ItemDescription, FORMAT(Price, 'C') AS Price, Image FROM group2fa212330.Menu AS M INNER JOIN group2fa212330.Images AS I ON M.ImageID = I.ImageID";
+                string query = "SELECT ItemID, ItemName, ItemDescription, FORMAT(Price, 'C') AS Price, Image, CategoryName FROM group2fa212330.Menu AS M INNER JOIN group2fa212330.Images AS I ON M.ImageID = I.ImageID " +
+                               "INNER JOIN group2fa212330.Categories c on M.CategoryID = C.CategoryID";
 
                 _sqlMenuCommand = new SqlCommand(query, _cntDBConnection);
                 _daMenu = new SqlDataAdapter();
@@ -486,8 +491,11 @@ namespace BCD_Restaurant_Project.Classes
                 cbCategory.ValueMember = "CategoryID";
                 cbCategory.DataBindings.Add("SelectedItem", _dtCategory, "CategoryID");
 
+                c = (CurrencyManager)form.BindingContext[ProgOps.DTMenu];
+
                 int index = cbCategory.FindString(_dtMenu.Rows[c.Position]["CategoryName"].ToString());
                 cbCategory.SelectedIndex = index;
+                
             }
             catch(SqlException ex)
             {
@@ -508,8 +516,15 @@ namespace BCD_Restaurant_Project.Classes
                     MessageBox.Show(ex.Message + "Error (PO2)", "Error Close Database", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+
         }
 
-        
+        public static void changeCategory(CurrencyManager currency, ComboBox cbCategory)
+        {
+            int index = cbCategory.FindString(_dtMenu.Rows[currency.Position]["CategoryName"].ToString());
+            cbCategory.SelectedIndex = index;
+        }
+
+
     }
 }

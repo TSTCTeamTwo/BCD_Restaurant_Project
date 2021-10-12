@@ -19,12 +19,9 @@ namespace BCD_Restaurant_Project.Forms.Employees
 
         CurrencyManager menuManager;
 
-        
-
         private void frmManageMenu_Load(object sender, EventArgs e)
         {
-            ProgOps.ModifyMenu(tbxName, tbxItemID, tbxDescription, tbxPrice, tbxImagePath, cbxCategories, menuManager);
-            menuManager = (CurrencyManager)this.BindingContext[ProgOps.DTMenu];
+            ProgOps.ModifyMenu(tbxName, tbxItemID, tbxDescription, tbxPrice, tbxImagePath, cbxCategories, this, out menuManager);
             
         }
 
@@ -38,20 +35,29 @@ namespace BCD_Restaurant_Project.Forms.Employees
 
             if (menuManager.Position == menuManager.Count - 1)
             {
-                
             }
-            menuManager.Position++;
-            SetText();
+            else
+            {
+                menuManager.Position++;
+                SetText();
+                ProgOps.changeCategory(menuManager, cbxCategories);
+            }
+            
         }
 
         private void btnPrevious_Click(object sender, EventArgs e)
         {
             if(menuManager.Position == 0)
             {
-
+                
             }
-            menuManager.Position--;
-            SetText();
+            else
+            {
+                menuManager.Position--;
+                SetText();
+                ProgOps.changeCategory(menuManager, cbxCategories);
+            }
+            
         }
 
         private void SetText()
