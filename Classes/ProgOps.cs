@@ -35,6 +35,11 @@ namespace BCD_Restaurant_Project.Classes
 
         }
 
+        public static DataTable DTMenu
+        {
+            get { return _dtMenu; }
+        }
+
         public static string AccountFirstName { get; set; } = string.Empty;
         public static string AccountLastName { get; set; } = string.Empty;
         public static string Username { get; set; } = string.Empty;
@@ -416,7 +421,7 @@ namespace BCD_Restaurant_Project.Classes
 
         }
 
-        public static void ModifyMenu(DataGridView dgvMenu, TextBox tbItemName, TextBox tbItemID, TextBox tbDescription, TextBox tbPrice, TextBox tbImage)
+        public static void ModifyMenu(TextBox tbItemName, TextBox tbItemID, TextBox tbDescription, TextBox tbPrice, TextBox tbImage, ComboBox cbCategory)
         {
             try
             {
@@ -429,10 +434,33 @@ namespace BCD_Restaurant_Project.Classes
                 _dtMenu = new DataTable();
                 _daMenu.Fill(_dtMenu);
 
-                dgvMenu.DataSource = _dtMenu;
+                _cntDBConnection.Open();
 
-                dgvMenu.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-                dgvMenu.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+                string category = "SELECT CategoryName FROM group2fa212330.Categories";
+
+                _sqlMenuCommand = new SqlCommand(category, _cntDBConnection);
+
+                SqlDataReader categoryReader = null;
+
+                categoryReader = _sqlMenuCommand.ExecuteReader();
+
+                
+                List<string> categoryList = new List<string>();
+
+                while (categoryReader.Read())
+                {
+                    categoryList.Add(categoryReader["CategoryName"].ToString());
+                }
+
+                for(int i = 0; i< categoryList.Count; i++)
+                {
+                    cbCategory.Items.Add(categoryList[i]);
+                }
+
+                
+
+                _cntDBConnection.Close();
+                
 
                 tbItemName.DataBindings.Add("Text", _dtMenu, "ItemName");
                 tbItemID.DataBindings.Add("Text", _dtMenu, "ItemID");
@@ -461,47 +489,6 @@ namespace BCD_Restaurant_Project.Classes
             }
         }
 
-        //public static void menubinding(datagridview dgvmenu, textbox tbitemname, textbox tbitemid, textbox tbdescription, textbox tbprice, textbox tbimage)
-        //{
-        //    try
-        //    {
-        //        string query = "select itemid, itemname, itemdescription, price, image from group2fa212330.menu as m inner join group2fa212330.images as i on m.imageid = i.imageid";
-        //        _cntdbconnection = new sqlconnection(connect_string);
-
-        //        _sqlmenucommand = new sqlcommand(query, _cntdbconnection);
-        //        _damenu = new sqldataadapter();
-        //        _damenu.selectcommand = _sqlmenucommand;
-        //        _dtmenu = new datatable();
-        //        _damenu.fill(_dtmenu);
-
-        //        dgvmenu.datasource = _dtmenu;
-
-        //        tbitemname.databindings.add("text", _dtmenu, "itemname");
-        //        tbitemid.databindings.add("text", _dtmenu, "itemid");
-        //        tbdescription.databindings.add("text", _dtmenu, "itemdescription");
-        //        tbprice.databindings.add("text", _dtmenu, "price");
-        //        tbimage.databindings.add("text", _dtmenu, "image");
-
-        //    }
-        //    catch (sqlexception ex)
-        //    {
-        //        if (ex is sqlexception)
-        //        {
-        //            for (int i = 0; i < ex.errors.count; i++)
-        //            {
-        //                _errormessages.append("index#" + i + "\n" +
-        //                    "message: " + ex.errors[i].message + "\n" +
-        //                    "linenumber: " + ex.errors[i].linenumber + "\n" +
-        //                    "source: " + ex.errors[i].source + "\n" +
-        //                    "procedure: " + ex.errors[i].procedure + "\n");
-        //            }
-        //            messagebox.show(_errormessages.tostring(), "error close database", messageboxbuttons.ok, messageboxicon.error);
-        //        }
-        //        else
-        //        {//handles generic ones here
-        //            messagebox.show(ex.message + "error (po2)", "error close database", messageboxbuttons.ok, messageboxicon.error);
-        //        }
-        //    }
-        //}
+        
     }
 }
