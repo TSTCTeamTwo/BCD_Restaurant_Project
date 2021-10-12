@@ -447,33 +447,6 @@ namespace BCD_Restaurant_Project.Classes
                 _daMenu.SelectCommand = _sqlMenuCommand;
                 _dtMenu = new DataTable();
                 _daMenu.Fill(_dtMenu);
-
-                //_cntDBConnection.Open();
-
-                //string category = "SELECT CategoryName FROM group2fa212330.Categories";
-
-                //_sqlMenuCommand = new SqlCommand(category, _cntDBConnection);
-
-                //SqlDataReader categoryReader = null;
-
-                //categoryReader = _sqlMenuCommand.ExecuteReader();
-
-
-                //List<string> categoryList = new List<string>();
-
-                //while (categoryReader.Read())
-                //{
-                //    categoryList.Add(categoryReader["CategoryName"].ToString());
-                //}
-
-                //for(int i = 0; i< categoryList.Count; i++)
-                //{
-                //    cbCategory.Items.Add(categoryList[i]);
-                //}
-
-
-
-                //_cntDBConnection.Close();
                 
                 tbItemName.DataBindings.Add("Text", _dtMenu, "ItemName");
                 tbItemID.DataBindings.Add("Text", _dtMenu, "ItemID");
@@ -493,8 +466,8 @@ namespace BCD_Restaurant_Project.Classes
 
                 c = (CurrencyManager)form.BindingContext[ProgOps.DTMenu];
 
-                int index = cbCategory.FindString(_dtMenu.Rows[c.Position]["CategoryName"].ToString());
-                cbCategory.SelectedIndex = index;
+                //int index = cbCategory.FindString(_dtMenu.Rows[c.Position]["CategoryName"].ToString());
+                //cbCategory.SelectedIndex = index;
                 
             }
             catch(SqlException ex)
