@@ -19,12 +19,13 @@ namespace BCD_Restaurant_Project.Forms.Employees
 
         CurrencyManager menuManager;
 
-        int bookmark;
+        
 
         private void frmManageMenu_Load(object sender, EventArgs e)
         {
-            ProgOps.ModifyMenu(tbxName, tbxItemID, tbxDescription, tbxPrice, tbxImagePath, cbxCategories);
+            ProgOps.ModifyMenu(tbxName, tbxItemID, tbxDescription, tbxPrice, tbxImagePath, cbxCategories, menuManager);
             menuManager = (CurrencyManager)this.BindingContext[ProgOps.DTMenu];
+            
         }
 
         private void dgvMenu_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -34,6 +35,7 @@ namespace BCD_Restaurant_Project.Forms.Employees
 
         private void btnNext_Click(object sender, EventArgs e)
         {
+
             if (menuManager.Position == menuManager.Count - 1)
             {
                 

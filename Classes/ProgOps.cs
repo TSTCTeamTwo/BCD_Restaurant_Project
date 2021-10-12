@@ -27,6 +27,10 @@ namespace BCD_Restaurant_Project.Classes
         private static SqlDataAdapter _daMenu = new SqlDataAdapter();
         private static DataTable _dtMenu = new DataTable();
 
+        private static SqlCommand _sqlCategoryCommand = new SqlCommand();
+        private static SqlDataAdapter _daCategory = new SqlDataAdapter();
+        private static DataTable _dtCategory = new DataTable();
+
         private static readonly StringBuilder _errorMessages = new StringBuilder();
 
         public static DataTable DTAccounts
@@ -38,6 +42,11 @@ namespace BCD_Restaurant_Project.Classes
         public static DataTable DTMenu
         {
             get { return _dtMenu; }
+        }
+
+        public static DataTable DTCategories
+        {
+            get { return _dtCategory; }
         }
 
         public static string AccountFirstName { get; set; } = string.Empty;
@@ -421,7 +430,7 @@ namespace BCD_Restaurant_Project.Classes
 
         }
 
-        public static void ModifyMenu(TextBox tbItemName, TextBox tbItemID, TextBox tbDescription, TextBox tbPrice, TextBox tbImage, ComboBox cbCategory)
+        public static void ModifyMenu(TextBox tbItemName, TextBox tbItemID, TextBox tbDescription, TextBox tbPrice, TextBox tbImage, ComboBox cbCategory, CurrencyManager c)
         {
             try
             {
@@ -434,39 +443,51 @@ namespace BCD_Restaurant_Project.Classes
                 _dtMenu = new DataTable();
                 _daMenu.Fill(_dtMenu);
 
-                _cntDBConnection.Open();
+                //_cntDBConnection.Open();
 
-                string category = "SELECT CategoryName FROM group2fa212330.Categories";
+                //string category = "SELECT CategoryName FROM group2fa212330.Categories";
 
-                _sqlMenuCommand = new SqlCommand(category, _cntDBConnection);
+                //_sqlMenuCommand = new SqlCommand(category, _cntDBConnection);
 
-                SqlDataReader categoryReader = null;
+                //SqlDataReader categoryReader = null;
 
-                categoryReader = _sqlMenuCommand.ExecuteReader();
+                //categoryReader = _sqlMenuCommand.ExecuteReader();
 
+
+                //List<string> categoryList = new List<string>();
+
+                //while (categoryReader.Read())
+                //{
+                //    categoryList.Add(categoryReader["CategoryName"].ToString());
+                //}
+
+                //for(int i = 0; i< categoryList.Count; i++)
+                //{
+                //    cbCategory.Items.Add(categoryList[i]);
+                //}
+
+
+
+                //_cntDBConnection.Close();
                 
-                List<string> categoryList = new List<string>();
-
-                while (categoryReader.Read())
-                {
-                    categoryList.Add(categoryReader["CategoryName"].ToString());
-                }
-
-                for(int i = 0; i< categoryList.Count; i++)
-                {
-                    cbCategory.Items.Add(categoryList[i]);
-                }
-
-                
-
-                _cntDBConnection.Close();
-                
-
                 tbItemName.DataBindings.Add("Text", _dtMenu, "ItemName");
                 tbItemID.DataBindings.Add("Text", _dtMenu, "ItemID");
                 tbDescription.DataBindings.Add("Text", _dtMenu, "ItemDescription");
                 tbPrice.DataBindings.Add("Text", _dtMenu, "Price");
                 tbImage.DataBindings.Add("Text", _dtMenu, "Image");
+
+
+                string categoryName = "SELECT * FROM group2fa212330.Categories";
+                _sqlCategoryCommand = new SqlCommand(categoryName, _cntDBConnection);
+                _daCategory.SelectCommand = _sqlCategoryCommand;
+                _daCategory.Fill(_dtCategory);
+                cbCategory.DataSource = _dtCategory;
+                cbCategory.DisplayMember = "CategoryName";
+                cbCategory.ValueMember = "CategoryID";
+                cbCategory.DataBindings.Add("SelectedItem", _dtCategory, "CategoryID");
+
+                int index = cbCategory.FindString(_dtMenu.Rows[c.Position]["CategoryName"].ToString());
+                cbCategory.SelectedIndex = index;
             }
             catch(SqlException ex)
             {
