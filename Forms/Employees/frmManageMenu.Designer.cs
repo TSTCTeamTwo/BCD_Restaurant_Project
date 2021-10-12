@@ -37,7 +37,6 @@ namespace BCD_Restaurant_Project.Forms.Employees
             this.label6 = new System.Windows.Forms.Label();
             this.tbxPrice = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnDelete = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.lblUsername = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
@@ -47,17 +46,18 @@ namespace BCD_Restaurant_Project.Forms.Employees
             this.tbxName = new System.Windows.Forms.TextBox();
             this.tbxDescription = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dgvMenu = new System.Windows.Forms.DataGridView();
+            this.btnNext = new System.Windows.Forms.Button();
+            this.btnPrevious = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMenu)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.tbxImagePath);
+            this.groupBox2.Controls.Add(this.btnNext);
             this.groupBox2.Controls.Add(this.btnLoadImage);
+            this.groupBox2.Controls.Add(this.btnPrevious);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.cbxCategories);
             this.groupBox2.Controls.Add(this.label6);
@@ -77,7 +77,7 @@ namespace BCD_Restaurant_Project.Forms.Employees
             this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox2.Size = new System.Drawing.Size(377, 326);
+            this.groupBox2.Size = new System.Drawing.Size(377, 369);
             this.groupBox2.TabIndex = 21;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Manage Menu Item";
@@ -151,25 +151,12 @@ namespace BCD_Restaurant_Project.Forms.Employees
             this.label2.Text = "Price";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btnDelete
-            // 
-            this.btnDelete.BackColor = System.Drawing.Color.White;
-            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Location = new System.Drawing.Point(229, 248);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(99, 28);
-            this.btnDelete.TabIndex = 23;
-            this.btnDelete.Text = "&Delete Account";
-            this.btnDelete.UseVisualStyleBackColor = false;
-            // 
             // btnAdd
             // 
             this.btnAdd.BackColor = System.Drawing.Color.White;
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Location = new System.Drawing.Point(120, 248);
+            this.btnAdd.Location = new System.Drawing.Point(121, 242);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(99, 28);
@@ -191,7 +178,7 @@ namespace BCD_Restaurant_Project.Forms.Employees
             // 
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel1.Location = new System.Drawing.Point(148, 280);
+            this.linkLabel1.Location = new System.Drawing.Point(137, 321);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(52, 18);
             this.linkLabel1.TabIndex = 5;
@@ -203,7 +190,7 @@ namespace BCD_Restaurant_Project.Forms.Employees
             this.btnEdit.BackColor = System.Drawing.Color.White;
             this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEdit.Location = new System.Drawing.Point(11, 248);
+            this.btnEdit.Location = new System.Drawing.Point(12, 242);
             this.btnEdit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(99, 28);
@@ -261,43 +248,46 @@ namespace BCD_Restaurant_Project.Forms.Employees
             this.label5.Text = "Description";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // groupBox1
+            // btnNext
             // 
-            this.groupBox1.Controls.Add(this.dgvMenu);
-            this.groupBox1.Location = new System.Drawing.Point(404, 11);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(433, 340);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Menu";
+            this.btnNext.BackColor = System.Drawing.Color.White;
+            this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnNext.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNext.Location = new System.Drawing.Point(121, 278);
+            this.btnNext.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(99, 28);
+            this.btnNext.TabIndex = 33;
+            this.btnNext.Text = "&Next";
+            this.btnNext.UseVisualStyleBackColor = false;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
-            // dgvMenu
+            // btnPrevious
             // 
-            this.dgvMenu.AllowUserToAddRows = false;
-            this.dgvMenu.AllowUserToDeleteRows = false;
-            this.dgvMenu.AllowUserToResizeColumns = false;
-            this.dgvMenu.AllowUserToResizeRows = false;
-            this.dgvMenu.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvMenu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMenu.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvMenu.Location = new System.Drawing.Point(8, 16);
-            this.dgvMenu.Margin = new System.Windows.Forms.Padding(2);
-            this.dgvMenu.Name = "dgvMenu";
-            this.dgvMenu.ReadOnly = true;
-            this.dgvMenu.RowHeadersVisible = false;
-            this.dgvMenu.RowHeadersWidth = 51;
-            this.dgvMenu.RowTemplate.Height = 24;
-            this.dgvMenu.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvMenu.ShowCellErrors = false;
-            this.dgvMenu.ShowCellToolTips = false;
-            this.dgvMenu.ShowEditingIcon = false;
-            this.dgvMenu.ShowRowErrors = false;
-            this.dgvMenu.Size = new System.Drawing.Size(421, 282);
-            this.dgvMenu.TabIndex = 13;
-            this.dgvMenu.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMenu_CellClick);
-//            this.dgvMenu.Scroll += new System.Windows.Forms.ScrollEventHandler(this.dgvMenu_Scroll);
+            this.btnPrevious.BackColor = System.Drawing.Color.White;
+            this.btnPrevious.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnPrevious.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrevious.Location = new System.Drawing.Point(12, 278);
+            this.btnPrevious.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnPrevious.Name = "btnPrevious";
+            this.btnPrevious.Size = new System.Drawing.Size(99, 28);
+            this.btnPrevious.TabIndex = 32;
+            this.btnPrevious.Text = "&Previous";
+            this.btnPrevious.UseVisualStyleBackColor = false;
+            this.btnPrevious.Click += new System.EventHandler(this.btnPrevious_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.BackColor = System.Drawing.Color.White;
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.Location = new System.Drawing.Point(230, 242);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(99, 28);
+            this.btnDelete.TabIndex = 23;
+            this.btnDelete.Text = "&Delete Account";
+            this.btnDelete.UseVisualStyleBackColor = false;
             // 
             // frmManageMenu
             // 
@@ -305,15 +295,12 @@ namespace BCD_Restaurant_Project.Forms.Employees
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1047, 512);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmManageMenu";
             this.Text = "Manage Menu";
             this.Load += new System.EventHandler(this.frmManageMenu_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMenu)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -323,7 +310,6 @@ namespace BCD_Restaurant_Project.Forms.Employees
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox tbxPrice;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.LinkLabel linkLabel1;
@@ -332,12 +318,13 @@ namespace BCD_Restaurant_Project.Forms.Employees
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbxName;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DataGridView dgvMenu;
         private System.Windows.Forms.TextBox tbxDescription;
         private System.Windows.Forms.ComboBox cbxCategories;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnLoadImage;
         private System.Windows.Forms.TextBox tbxImagePath;
+        private System.Windows.Forms.Button btnNext;
+        private System.Windows.Forms.Button btnPrevious;
+        private System.Windows.Forms.Button btnDelete;
     }
 }
