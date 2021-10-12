@@ -17,16 +17,44 @@ namespace BCD_Restaurant_Project.Forms.Employees
             InitializeComponent();
         }
 
+        CurrencyManager menuManager;
+
+        int bookmark;
+
         private void frmManageMenu_Load(object sender, EventArgs e)
         {
-            ProgOps.ModifyMenu(dgvMenu, tbxName, tbxItemID, tbxDescription, tbxPrice, tbxImagePath);
+            ProgOps.ModifyMenu(tbxName, tbxItemID, tbxDescription, tbxPrice, tbxImagePath, cbxCategories);
+            menuManager = (CurrencyManager)this.BindingContext[ProgOps.DTMenu];
         }
 
         private void dgvMenu_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            //ProgOps.MenuBinding(dgvMenu,tbxName, tbxItemID,tbxDescription,tbxPrice,tbxImagePath);
+           
         }
 
-        
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            if (menuManager.Position == menuManager.Count - 1)
+            {
+                
+            }
+            menuManager.Position++;
+            SetText();
+        }
+
+        private void btnPrevious_Click(object sender, EventArgs e)
+        {
+            if(menuManager.Position == 0)
+            {
+
+            }
+            menuManager.Position--;
+            SetText();
+        }
+
+        private void SetText()
+        {
+            this.Text = "Menu - Record" + (menuManager.Position + 1).ToString() + " of" + menuManager.Count.ToString() + " Records";
+        }
     }
 }
