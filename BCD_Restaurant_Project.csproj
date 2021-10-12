@@ -53,6 +53,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\MenuItem.cs" />
+    <Compile Include="Classes\OrderManagement.cs" />
     <Compile Include="Classes\ProgOps.cs" />
     <Compile Include="Classes\RandomColor.cs" />
     <Compile Include="Forms\Customers\frmDesserts.cs">
