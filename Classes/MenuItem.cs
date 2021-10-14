@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace BCD_Restaurant_Project.Classes
@@ -13,18 +14,17 @@ namespace BCD_Restaurant_Project.Classes
         {
         }
 
-        public MenuItem(int itemID, int quantity, decimal pricePerUnit, int indexOfDataGridViewRow)
+        public MenuItem(int quantity, decimal individualPrice, int indexOfDataGridViewRow)
         {
-            ItemID = itemID;
             Quantity = quantity;
-            PricePerUnit = pricePerUnit;
+            IndividualPrice = individualPrice;
             IndexOfDataGridViewRow = indexOfDataGridViewRow;
         }
 
         public int ItemID { get; set; }
         public int Quantity { get; set; }
-        public decimal PricePerUnit { get; set; }
-        public decimal LineItemPrice => Quantity * PricePerUnit;
+        public decimal IndividualPrice { get; set; }
+        public decimal LineItemPrice => Quantity * IndividualPrice;
         public int IndexOfDataGridViewRow { get; set; }
 
     }
