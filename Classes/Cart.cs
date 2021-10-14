@@ -11,8 +11,6 @@ namespace BCD_Restaurant_Project.Classes
 {
     class OrderManagement
     {
-        public static int AccountID { get; set; } = 0;
-        public static string OTP { get; set; } = string.Empty;
 
         //Dictionary for the primary key of the menuitem, and the values associated with the item
         public static Dictionary<int, MenuItem> myCart = new Dictionary<int, MenuItem>();
@@ -20,10 +18,11 @@ namespace BCD_Restaurant_Project.Classes
         // Dictionary for the primary key of the menuitem, and the int is the qty removed
         public static Dictionary<int, int> removedItems = new Dictionary<int, int>();
 
-        public const int _MENU_NAME = 0;
-        public const int _MENU_DESCRIPTION = 1;
-        public const int _MENU_FORMAT = 3;
-        public const int _MENU_QUANTITY = 4;
+        //datagridview positions
+        public const int _MENU_ITEMID = 0;
+        public const int _MENU_NAME = 1;
+        public const int _MENU_PRICE = 2;
+        public const int _MENU_QUANTITY = 3;
 
         private static decimal SubTotal { get; set; }
         private static decimal TaxTotal { get; set; }
@@ -39,9 +38,8 @@ namespace BCD_Restaurant_Project.Classes
             return myCart.ContainsKey(itemID);
         }
 
-        private static void addToCart(DataGridView dgvMenu)
+        private static void addToCartFromFood(DataGridView dgvMenu)
         {
-
             //verify there is a current row selected
             if (dgvMenu.CurrentRow != null)
             {
@@ -49,10 +47,53 @@ namespace BCD_Restaurant_Project.Classes
                 int quantity;
                 decimal price;
 
-                itemName = dgvMenu.CurrentRow.Cells[]
-
+                itemName = dgvMenu.CurrentRow.Cells[_MENU_NAME].Value.ToString();
+                quantity = Convert.ToInt32(dgvMenu.CurrentRow.Cells[_MENU_QUANTITY].Value);
+                price = Convert.ToDecimal(dgvMenu.CurrentRow.Cells[_MENU_PRICE].Value);
+                int itemID = Convert.ToInt32(dgvMenu.CurrentRow.Cells[_MENU_ITEMID].Value);
+                
+                if (searchForItemInCart(itemID))
+                {
+                    myCart[itemID].Quantity++;
+                }
+                else
+                {
+                    myCart.Add(itemID, new MenuItem(itemName, quantity, price));
+                }  
             }
 
+        }
+
+        public static void removeFromCart(DataGridView dgvItems)
+        {
+            if(dgvItems.CurrentRow != null)
+            {
+                int itemID = Convert.ToInt32(dgvItems.CurrentRow.Cells[0].Value);
+
+                myCart[itemID].Quantity--;
+
+                if(myCart[itemID].Quantity == 0)
+                {
+                    dgvItems.CurrentRow.Cells.RemoveAt(dgvItems.CurrentRow.Index);
+                }
+            }
+        }
+
+        public static void clearCart(DataGridView dgvItems)
+        {
+            dgvItems.Rows.Clear();
+            myCart.Clear();
+        }
+
+        public static void buttonCalculate(System.Windows.Forms.Button btnCheckout)
+        {
+            btnCheckout.Enabled = true;
+            decimal totalPrice =0;
+            for(int i =0; i<myCart.Count; i++)
+            {
+                totalPrice += myCart[i].TotalPrice;
+            }
+            btnCheckout.Text = "Checkout   $" + totalPrice.ToString();
         }
 
     }

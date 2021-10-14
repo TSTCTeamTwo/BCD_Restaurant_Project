@@ -23,7 +23,6 @@ namespace BCD_Restaurant_Project.Classes
         }
 
         public string ItemName { get; set; }
-
         public int Quantity { get; set; }
         public decimal IndividualPrice { get; set; }
         public decimal TotalPrice => Quantity * IndividualPrice;
