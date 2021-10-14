@@ -20,11 +20,9 @@ namespace BCD_Restaurant_Project.Classes
             IndividualPrice = individualPrice;
             IndexOfDataGridViewRow = indexOfDataGridViewRow;
         }
-
-        public int ItemID { get; set; }
         public int Quantity { get; set; }
         public decimal IndividualPrice { get; set; }
-        public decimal LineItemPrice => Quantity * IndividualPrice;
+        public decimal TotalPrice => Quantity * IndividualPrice;
         public int IndexOfDataGridViewRow { get; set; }
 
     }
