@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -14,16 +15,18 @@ namespace BCD_Restaurant_Project.Classes
         {
         }
 
-        public MenuItem(int quantity, decimal individualPrice, int indexOfDataGridViewRow)
+        public MenuItem(string itemName, int quantity, decimal individualPrice)
         {
+            ItemName = itemName;
             Quantity = quantity;
             IndividualPrice = individualPrice;
-            IndexOfDataGridViewRow = indexOfDataGridViewRow;
         }
+
+        public string ItemName { get; set; }
+
         public int Quantity { get; set; }
         public decimal IndividualPrice { get; set; }
         public decimal TotalPrice => Quantity * IndividualPrice;
-        public int IndexOfDataGridViewRow { get; set; }
 
     }
 }
