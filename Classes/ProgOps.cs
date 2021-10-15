@@ -19,39 +19,43 @@ namespace BCD_Restaurant_Project.Classes
         private static SqlDataAdapter _daAccounts = new SqlDataAdapter();
         private static DataTable _dtAccountsTable = new DataTable();
 
-        private static SqlCommand _sqlEmployeesCommand = new SqlCommand();
-        private static SqlDataAdapter _daEmployees = new SqlDataAdapter();
-        private static DataTable _dtEmployees = new DataTable();
-
-        private static SqlCommand _sqlMenuCommand = new SqlCommand();
-        private static SqlDataAdapter _daMenu = new SqlDataAdapter();
-        private static DataTable _dtMenu = new DataTable();
-
-        private static SqlCommand _sqlCategoryCommand = new SqlCommand();
-        private static SqlDataAdapter _daCategory = new SqlDataAdapter();
-        private static DataTable _dtCategory = new DataTable();
-
-        private static readonly StringBuilder _errorMessages = new StringBuilder();
-
         public static DataTable DTAccounts
         {
             get { return _dtAccountsTable; }
 
         }
 
+        private static SqlCommand _sqlEmployeesCommand = new SqlCommand();
+        private static SqlDataAdapter _daEmployees = new SqlDataAdapter();
+        private static DataTable _dtEmployees = new DataTable();
+
+        public static DataTable DTEmployees
+        {
+            get { return _dtEmployees; }
+        }
+
+        private static SqlCommand _sqlMenuCommand = new SqlCommand();
+        private static SqlDataAdapter _daMenu = new SqlDataAdapter();
+        private static DataTable _dtMenu = new DataTable();
+
         public static DataTable DTMenu
         {
             get { return _dtMenu; }
         }
+
+        private static SqlCommand _sqlCategoryCommand = new SqlCommand();
+        private static SqlDataAdapter _daCategory = new SqlDataAdapter();
+        private static DataTable _dtCategory = new DataTable();
 
         public static DataTable DTCategories
         {
             get { return _dtCategory; }
         }
 
+        private static StringBuilder ErrorMessages { get; } = new StringBuilder();
+
         public static string AccountFirstName { get; set; } = string.Empty;
         public static string AccountLastName { get; set; } = string.Empty;
-        public static string Username { get; set; } = string.Empty;
         public static int AccountID { get; set; } = 0;
         public static string OTP { get; set; } = string.Empty;
         public static void openDatabase()
@@ -59,20 +63,17 @@ namespace BCD_Restaurant_Project.Classes
             try
             {
                 _cntDBConnection.Open();
-                //MessageBox.Show("Connection to database was successfully opened.", "Database Connection",MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (SqlException exception)
             {
                 for (int i = 0; i < exception.Errors.Count; i++)
                 {
-                    _errorMessages.Append("Index #" + i + "\n" +
-                                          "Message: " + exception.Errors[i].Message + "\n" +
-                                          "LineNumber: " + exception.Errors[i].LineNumber + "\n" +
-                                          "Source: " + exception.Errors[i].Source + "\n" +
+                    ErrorMessages.Append("Index #" + i + "\n" + "Message: " + exception.Errors[i].Message + "\n" +
+                                          "LineNumber: " + exception.Errors[i].LineNumber + "\n" + "Source: " + exception.Errors[i].Source + "\n" +
                                           "Procedure: " + exception.Errors[i].Procedure + "\n");
                 }
 
-                MessageBox.Show(_errorMessages.ToString(), "Error Dispose Publisher", MessageBoxButtons.OK,
+                MessageBox.Show(ErrorMessages.ToString(), "Error Dispose Publisher", MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
             }
             catch (Exception ex)
@@ -102,13 +103,13 @@ namespace BCD_Restaurant_Project.Classes
                 {
                     for (int i = 0; i < ex.Errors.Count; i++)
                     {
-                        _errorMessages.Append("Index#" + i + "\n" +
+                        ErrorMessages.Append("Index#" + i + "\n" +
                             "Message: " + ex.Errors[i].Message + "\n" +
                             "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
                             "Source: " + ex.Errors[i].Source + "\n" +
                             "Procedure: " + ex.Errors[i].Procedure + "\n");
                     }
-                    MessageBox.Show(_errorMessages.ToString(), "Error Close Database", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(ErrorMessages.ToString(), "Error Close Database", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {//handles generic ones here
@@ -219,13 +220,13 @@ namespace BCD_Restaurant_Project.Classes
                 {
                     for (int i = 0; i < ex.Errors.Count; i++)
                     {
-                        _errorMessages.Append("Index#" + i + "\n" +
+                        ErrorMessages.Append("Index#" + i + "\n" +
                             "Message: " + ex.Errors[i].Message + "\n" +
                             "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
                             "Source: " + ex.Errors[i].Source + "\n" +
                             "Procedure: " + ex.Errors[i].Procedure + "\n");
                     }
-                    MessageBox.Show(_errorMessages.ToString(), "Error Close Database", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(ErrorMessages.ToString(), "Error Close Database", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {//handles generic ones here
@@ -259,13 +260,13 @@ namespace BCD_Restaurant_Project.Classes
                 {
                     for (int i = 0; i < ex.Errors.Count; i++)
                     {
-                        _errorMessages.Append("Index#" + i + "\n" +
+                        ErrorMessages.Append("Index#" + i + "\n" +
                             "Message: " + ex.Errors[i].Message + "\n" +
                             "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
                             "Source: " + ex.Errors[i].Source + "\n" +
                             "Procedure: " + ex.Errors[i].Procedure + "\n");
                     }
-                    MessageBox.Show(_errorMessages.ToString(), "Error Close Database", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(ErrorMessages.ToString(), "Error Close Database", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {//handles generic ones here
@@ -346,13 +347,13 @@ namespace BCD_Restaurant_Project.Classes
                 {
                     for (int i = 0; i < ex.Errors.Count; i++)
                     {
-                        _errorMessages.Append("Index#" + i + "\n" +
+                        ErrorMessages.Append("Index#" + i + "\n" +
                             "Message: " + ex.Errors[i].Message + "\n" +
                             "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
                             "Source: " + ex.Errors[i].Source + "\n" +
                             "Procedure: " + ex.Errors[i].Procedure + "\n");
                     }
-                    MessageBox.Show(_errorMessages.ToString(), "Error Close Database", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(ErrorMessages.ToString(), "Error Close Database", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {//handles generic ones here
@@ -388,13 +389,13 @@ namespace BCD_Restaurant_Project.Classes
                 {
                     for (int i = 0; i < ex.Errors.Count; i++)
                     {
-                        _errorMessages.Append("Index#" + i + "\n" +
+                        ErrorMessages.Append("Index#" + i + "\n" +
                             "Message: " + ex.Errors[i].Message + "\n" +
                             "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
                             "Source: " + ex.Errors[i].Source + "\n" +
                             "Procedure: " + ex.Errors[i].Procedure + "\n");
                     }
-                    MessageBox.Show(_errorMessages.ToString(), "Error Close Database", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(ErrorMessages.ToString(), "Error Close Database", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {//handles generic ones here
@@ -476,13 +477,13 @@ namespace BCD_Restaurant_Project.Classes
                 {
                     for (int i = 0; i < ex.Errors.Count; i++)
                     {
-                        _errorMessages.Append("Index#" + i + "\n" +
+                        ErrorMessages.Append("Index#" + i + "\n" +
                             "Message: " + ex.Errors[i].Message + "\n" +
                             "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
                             "Source: " + ex.Errors[i].Source + "\n" +
                             "Procedure: " + ex.Errors[i].Procedure + "\n");
                     }
-                    MessageBox.Show(_errorMessages.ToString(), "Error Close Database", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(ErrorMessages.ToString(), "Error Close Database", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {//handles generic ones here
