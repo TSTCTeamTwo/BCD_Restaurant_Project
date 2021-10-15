@@ -21,7 +21,6 @@ namespace BCD_Restaurant_Project.Forms.Customers
         {
             if (activeForm != null)
             {
-                
                 activeForm.Close();
             }
             activeForm = childForm;

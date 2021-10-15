@@ -22,6 +22,9 @@ namespace BCD_Restaurant_Project.Forms
             ProgOps.DisplayMenuItems(dgvFood, 1);
         }
 
-        
+        private void btnAddToOrder_Click(object sender, EventArgs e)
+        {
+            Cart.addToCartFromFood(dgvFood);
+        }
     }
 }
