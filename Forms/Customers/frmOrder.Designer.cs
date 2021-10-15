@@ -32,6 +32,8 @@ namespace BCD_Restaurant_Project.Forms
             this.dgvOrder = new System.Windows.Forms.DataGridView();
             this.lblUsername = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
+            this.btnRemove = new System.Windows.Forms.Button();
+            this.btnClear = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrder)).BeginInit();
             this.SuspendLayout();
             // 
@@ -42,6 +44,7 @@ namespace BCD_Restaurant_Project.Forms
             this.dgvOrder.Name = "dgvOrder";
             this.dgvOrder.Size = new System.Drawing.Size(877, 303);
             this.dgvOrder.TabIndex = 2;
+            this.dgvOrder.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOrder_CellContentClick);
             // 
             // lblUsername
             // 
@@ -67,17 +70,48 @@ namespace BCD_Restaurant_Project.Forms
             this.btnLogin.Text = "Checkout       $18.99";
             this.btnLogin.UseVisualStyleBackColor = false;
             // 
+            // btnRemove
+            // 
+            this.btnRemove.BackColor = System.Drawing.Color.White;
+            this.btnRemove.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnRemove.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRemove.Location = new System.Drawing.Point(530, 399);
+            this.btnRemove.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnRemove.Name = "btnRemove";
+            this.btnRemove.Size = new System.Drawing.Size(373, 44);
+            this.btnRemove.TabIndex = 3;
+            this.btnRemove.Text = "Remove Item";
+            this.btnRemove.UseVisualStyleBackColor = false;
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
+            // 
+            // btnClear
+            // 
+            this.btnClear.BackColor = System.Drawing.Color.White;
+            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClear.Location = new System.Drawing.Point(155, 399);
+            this.btnClear.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(369, 44);
+            this.btnClear.TabIndex = 4;
+            this.btnClear.Text = "Clear Cart";
+            this.btnClear.UseVisualStyleBackColor = false;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
             // frmOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1112, 588);
+            this.Controls.Add(this.btnClear);
+            this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.lblUsername);
             this.Controls.Add(this.dgvOrder);
             this.Controls.Add(this.btnLogin);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmOrder";
             this.Text = "frmOrder";
+            this.Load += new System.EventHandler(this.frmOrder_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrder)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -88,5 +122,7 @@ namespace BCD_Restaurant_Project.Forms
         private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.DataGridView dgvOrder;
+        private System.Windows.Forms.Button btnRemove;
+        private System.Windows.Forms.Button btnClear;
     }
 }
