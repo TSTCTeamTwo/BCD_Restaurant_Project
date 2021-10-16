@@ -51,6 +51,14 @@ namespace BCD_Restaurant_Project.Forms.Employees
             lblTitle.Text = childForm.Text;
         }
 
-        
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Confirm log out. ", "Log Out", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                this.Hide();
+                new frmLogin().Show();
+            }
+        }
     }
 }

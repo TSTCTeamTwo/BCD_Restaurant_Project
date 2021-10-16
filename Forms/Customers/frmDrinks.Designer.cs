@@ -33,7 +33,6 @@ namespace BCD_Restaurant_Project.Forms
             this.pbxShakes = new System.Windows.Forms.PictureBox();
             this.dgvDrinks = new System.Windows.Forms.DataGridView();
             this.btnAddToOrder = new System.Windows.Forms.Button();
-            this.btnCheckout = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbxShakes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDrinks)).BeginInit();
             this.SuspendLayout();
@@ -85,25 +84,11 @@ namespace BCD_Restaurant_Project.Forms
             this.btnAddToOrder.UseVisualStyleBackColor = false;
             this.btnAddToOrder.Click += new System.EventHandler(this.btnAddToOrder_Click);
             // 
-            // btnCheckout
-            // 
-            this.btnCheckout.BackColor = System.Drawing.Color.OrangeRed;
-            this.btnCheckout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCheckout.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCheckout.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnCheckout.Location = new System.Drawing.Point(457, 341);
-            this.btnCheckout.Name = "btnCheckout";
-            this.btnCheckout.Size = new System.Drawing.Size(226, 35);
-            this.btnCheckout.TabIndex = 7;
-            this.btnCheckout.Text = "Checkout   $8.99";
-            this.btnCheckout.UseVisualStyleBackColor = false;
-            // 
             // frmDrinks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1106, 643);
-            this.Controls.Add(this.btnCheckout);
             this.Controls.Add(this.btnAddToOrder);
             this.Controls.Add(this.dgvDrinks);
             this.Controls.Add(this.pbxShakes);
@@ -124,6 +109,5 @@ namespace BCD_Restaurant_Project.Forms
         private System.Windows.Forms.PictureBox pbxShakes;
         private System.Windows.Forms.DataGridView dgvDrinks;
         private System.Windows.Forms.Button btnAddToOrder;
-        private System.Windows.Forms.Button btnCheckout;
     }
 }
