@@ -26,5 +26,10 @@ namespace BCD_Restaurant_Project.Forms
         {
 
         }
+
+        private void btnAddToOrder_Click(object sender, EventArgs e)
+        {
+            Cart.addToCartFromDesserts(dgvDesserts);
+        }
     }
 }

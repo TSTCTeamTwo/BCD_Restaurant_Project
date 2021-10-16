@@ -17,19 +17,24 @@ namespace BCD_Restaurant_Project.Forms
             InitializeComponent();
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
+     
         private void frmDrinks_Load(object sender, EventArgs e)
         {
-            ProgOps.DisplayMenuItems(dgvShakes, 4);
+            ProgOps.DisplayMenuItems(dgvDrinks, 4);
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+       
+
+        private void btnReturnToDrinks_Click(object sender, EventArgs e)
         {
 
         }
+
+        private void btnAddToOrder_Click(object sender, EventArgs e)
+        {
+            Cart.addToCartFromDrinks(dgvDrinks);
+        }
+
+        
     }
 }

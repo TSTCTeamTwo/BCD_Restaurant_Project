@@ -84,6 +84,7 @@ namespace BCD_Restaurant_Project.Forms
             this.btnAddToOrder.TabIndex = 4;
             this.btnAddToOrder.Text = "Add to Order";
             this.btnAddToOrder.UseVisualStyleBackColor = false;
+            this.btnAddToOrder.Click += new System.EventHandler(this.btnAddToOrder_Click);
             // 
             // btnCheckout
             // 
