@@ -102,10 +102,10 @@ namespace BCD_Restaurant_Project.Classes
             foreach (var panel in m.Controls.OfType<Panel>())
             {
 
-                MessageBox.Show(panel.Name.ToString(), "Title", MessageBoxButtons.OK, MessageBoxIcon.Information);
+               // MessageBox.Show(panel.Name.ToString(), "Title", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 foreach (var label in panel.Controls.OfType<Label>())
                 {
-                    MessageBox.Show(label.Name.ToString(), "Title", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                   // MessageBox.Show(label.Name.ToString(), "Title", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     label.BackColor = PrimaryColor;
                     label.ForeColor = getTextColor();
                 }

@@ -53,11 +53,9 @@ namespace BCD_Restaurant_Project.Forms
             this.checkBox5 = new System.Windows.Forms.CheckBox();
             this.checkBox12 = new System.Windows.Forms.CheckBox();
             this.checkBox11 = new System.Windows.Forms.CheckBox();
-            this.btnCheckout = new System.Windows.Forms.Button();
             this.btnAddToOrder = new System.Windows.Forms.Button();
             this.pbxFood = new System.Windows.Forms.PictureBox();
             this.dgvFood = new System.Windows.Forms.DataGridView();
-            this.lblDescription = new System.Windows.Forms.Label();
             this.gbxShakes.SuspendLayout();
             this.gbxTea.SuspendLayout();
             this.gbxSides.SuspendLayout();
@@ -121,7 +119,7 @@ namespace BCD_Restaurant_Project.Forms
             this.gbxTea.Controls.Add(this.checkBox16);
             this.gbxTea.Controls.Add(this.checkBox14);
             this.gbxTea.Controls.Add(this.checkBox15);
-            this.gbxTea.Location = new System.Drawing.Point(756, 279);
+            this.gbxTea.Location = new System.Drawing.Point(762, 276);
             this.gbxTea.Margin = new System.Windows.Forms.Padding(2);
             this.gbxTea.Name = "gbxTea";
             this.gbxTea.Padding = new System.Windows.Forms.Padding(2);
@@ -335,26 +333,13 @@ namespace BCD_Restaurant_Project.Forms
             this.checkBox11.Text = "Gatorade";
             this.checkBox11.UseVisualStyleBackColor = true;
             // 
-            // btnCheckout
-            // 
-            this.btnCheckout.BackColor = System.Drawing.Color.OrangeRed;
-            this.btnCheckout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCheckout.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCheckout.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnCheckout.Location = new System.Drawing.Point(545, 378);
-            this.btnCheckout.Name = "btnCheckout";
-            this.btnCheckout.Size = new System.Drawing.Size(225, 37);
-            this.btnCheckout.TabIndex = 5;
-            this.btnCheckout.Text = "&Checkout    $12.99";
-            this.btnCheckout.UseVisualStyleBackColor = false;
-            // 
             // btnAddToOrder
             // 
             this.btnAddToOrder.BackColor = System.Drawing.Color.OrangeRed;
             this.btnAddToOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddToOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddToOrder.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnAddToOrder.Location = new System.Drawing.Point(424, 379);
+            this.btnAddToOrder.Location = new System.Drawing.Point(496, 342);
             this.btnAddToOrder.Name = "btnAddToOrder";
             this.btnAddToOrder.Size = new System.Drawing.Size(116, 35);
             this.btnAddToOrder.TabIndex = 4;
@@ -402,15 +387,6 @@ namespace BCD_Restaurant_Project.Forms
             this.dgvFood.Size = new System.Drawing.Size(793, 260);
             this.dgvFood.TabIndex = 0;
             // 
-            // lblDescription
-            // 
-            this.lblDescription.AutoSize = true;
-            this.lblDescription.Location = new System.Drawing.Point(811, 233);
-            this.lblDescription.Name = "lblDescription";
-            this.lblDescription.Size = new System.Drawing.Size(116, 39);
-            this.lblDescription.TabIndex = 2;
-            this.lblDescription.Text = "Description Description\r\nDescription Description\r\nDescription Description";
-            // 
             // frmFood
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -423,8 +399,6 @@ namespace BCD_Restaurant_Project.Forms
             this.Controls.Add(this.dgvFood);
             this.Controls.Add(this.gbxSoftDrinks);
             this.Controls.Add(this.pbxFood);
-            this.Controls.Add(this.btnCheckout);
-            this.Controls.Add(this.lblDescription);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmFood";
@@ -442,12 +416,10 @@ namespace BCD_Restaurant_Project.Forms
             ((System.ComponentModel.ISupportInitialize)(this.pbxFood)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFood)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Button btnCheckout;
         private System.Windows.Forms.Button btnAddToOrder;
         private System.Windows.Forms.PictureBox pbxFood;
         private System.Windows.Forms.DataGridView dgvFood;
@@ -475,6 +447,5 @@ namespace BCD_Restaurant_Project.Forms
         private System.Windows.Forms.RadioButton rdoShakeVanilla;
         private System.Windows.Forms.RadioButton rdoShakeStrawberry;
         private System.Windows.Forms.RadioButton rdoShakeChocolate;
-        private System.Windows.Forms.Label lblDescription;
     }
 }
