@@ -110,7 +110,7 @@ namespace BCD_Restaurant_Project.Forms
             this.Controls.Add(this.btnLogin);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmOrder";
-            this.Text = "frmOrder";
+            this.Text = "Order";
             this.Load += new System.EventHandler(this.frmOrder_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrder)).EndInit();
             this.ResumeLayout(false);

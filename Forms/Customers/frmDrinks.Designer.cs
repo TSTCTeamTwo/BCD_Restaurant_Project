@@ -29,40 +29,14 @@ namespace BCD_Restaurant_Project.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnReturnToDrinks = new System.Windows.Forms.Button();
-            this.btnCheckout = new System.Windows.Forms.Button();
             this.lblDescription = new System.Windows.Forms.Label();
             this.pbxShakes = new System.Windows.Forms.PictureBox();
-            this.dgvShakes = new System.Windows.Forms.DataGridView();
+            this.dgvDrinks = new System.Windows.Forms.DataGridView();
+            this.btnAddToOrder = new System.Windows.Forms.Button();
+            this.btnCheckout = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbxShakes)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvShakes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDrinks)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnReturnToDrinks
-            // 
-            this.btnReturnToDrinks.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.btnReturnToDrinks.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReturnToDrinks.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReturnToDrinks.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnReturnToDrinks.Location = new System.Drawing.Point(90, 341);
-            this.btnReturnToDrinks.Name = "btnReturnToDrinks";
-            this.btnReturnToDrinks.Size = new System.Drawing.Size(156, 35);
-            this.btnReturnToDrinks.TabIndex = 5;
-            this.btnReturnToDrinks.Text = "Return to drinks";
-            this.btnReturnToDrinks.UseVisualStyleBackColor = false;
-            // 
-            // btnCheckout
-            // 
-            this.btnCheckout.BackColor = System.Drawing.Color.OrangeRed;
-            this.btnCheckout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCheckout.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCheckout.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnCheckout.Location = new System.Drawing.Point(497, 341);
-            this.btnCheckout.Name = "btnCheckout";
-            this.btnCheckout.Size = new System.Drawing.Size(186, 35);
-            this.btnCheckout.TabIndex = 4;
-            this.btnCheckout.Text = "Add shake to meal";
-            this.btnCheckout.UseVisualStyleBackColor = false;
             // 
             // lblDescription
             // 
@@ -83,29 +57,55 @@ namespace BCD_Restaurant_Project.Forms
             this.pbxShakes.TabIndex = 1;
             this.pbxShakes.TabStop = false;
             // 
-            // dgvShakes
+            // dgvDrinks
             // 
-            this.dgvShakes.AllowUserToAddRows = false;
-            this.dgvShakes.AllowUserToDeleteRows = false;
-            this.dgvShakes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvShakes.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dgvShakes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvShakes.Location = new System.Drawing.Point(90, 32);
-            this.dgvShakes.Name = "dgvShakes";
-            this.dgvShakes.ReadOnly = true;
-            this.dgvShakes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvShakes.Size = new System.Drawing.Size(593, 303);
-            this.dgvShakes.TabIndex = 0;
-            this.dgvShakes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dgvDrinks.AllowUserToAddRows = false;
+            this.dgvDrinks.AllowUserToDeleteRows = false;
+            this.dgvDrinks.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvDrinks.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvDrinks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDrinks.Location = new System.Drawing.Point(90, 32);
+            this.dgvDrinks.Name = "dgvDrinks";
+            this.dgvDrinks.ReadOnly = true;
+            this.dgvDrinks.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvDrinks.Size = new System.Drawing.Size(593, 303);
+            this.dgvDrinks.TabIndex = 0;
+            // 
+            // btnAddToOrder
+            // 
+            this.btnAddToOrder.BackColor = System.Drawing.Color.OrangeRed;
+            this.btnAddToOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddToOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddToOrder.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnAddToOrder.Location = new System.Drawing.Point(90, 341);
+            this.btnAddToOrder.Name = "btnAddToOrder";
+            this.btnAddToOrder.Size = new System.Drawing.Size(116, 35);
+            this.btnAddToOrder.TabIndex = 6;
+            this.btnAddToOrder.Text = "Add to Order";
+            this.btnAddToOrder.UseVisualStyleBackColor = false;
+            this.btnAddToOrder.Click += new System.EventHandler(this.btnAddToOrder_Click);
+            // 
+            // btnCheckout
+            // 
+            this.btnCheckout.BackColor = System.Drawing.Color.OrangeRed;
+            this.btnCheckout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCheckout.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCheckout.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnCheckout.Location = new System.Drawing.Point(457, 341);
+            this.btnCheckout.Name = "btnCheckout";
+            this.btnCheckout.Size = new System.Drawing.Size(226, 35);
+            this.btnCheckout.TabIndex = 7;
+            this.btnCheckout.Text = "Checkout   $8.99";
+            this.btnCheckout.UseVisualStyleBackColor = false;
             // 
             // frmDrinks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1106, 643);
-            this.Controls.Add(this.btnReturnToDrinks);
             this.Controls.Add(this.btnCheckout);
-            this.Controls.Add(this.dgvShakes);
+            this.Controls.Add(this.btnAddToOrder);
+            this.Controls.Add(this.dgvDrinks);
             this.Controls.Add(this.pbxShakes);
             this.Controls.Add(this.lblDescription);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -113,17 +113,17 @@ namespace BCD_Restaurant_Project.Forms
             this.Text = "Drinks";
             this.Load += new System.EventHandler(this.frmDrinks_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbxShakes)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvShakes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDrinks)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Button btnReturnToDrinks;
-        private System.Windows.Forms.Button btnCheckout;
         private System.Windows.Forms.Label lblDescription;
         private System.Windows.Forms.PictureBox pbxShakes;
-        private System.Windows.Forms.DataGridView dgvShakes;
+        private System.Windows.Forms.DataGridView dgvDrinks;
+        private System.Windows.Forms.Button btnAddToOrder;
+        private System.Windows.Forms.Button btnCheckout;
     }
 }

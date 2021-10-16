@@ -41,7 +41,7 @@ namespace BCD_Restaurant_Project.Classes
 
                 //assigning the variables to respected cell positions using variables declared at the top
                 itemName = dgvMenu.CurrentRow.Cells[_MENU_NAME].Value.ToString();
-                //quantity = Convert.ToInt32(dgvMenu.CurrentRow.Cells[_MENU_QUANTITY].Value);
+                //using substring to ignore the $ sign
                 price = Convert.ToDecimal(dgvMenu.CurrentRow.Cells[_MENU_PRICE].Value.ToString().Substring(1));
                 int itemID = Convert.ToInt32(dgvMenu.CurrentRow.Cells[_MENU_ITEMID].Value);
                 
@@ -58,6 +58,52 @@ namespace BCD_Restaurant_Project.Classes
                 }  
             }
 
+        }
+
+        public static void addToCartFromDrinks(DataGridView dgvDrinks)
+        {
+            if(dgvDrinks != null)
+            {
+                int itemID;
+                decimal price;
+                string itemName;
+
+                itemID = Convert.ToInt32(dgvDrinks.CurrentRow.Cells[_MENU_ITEMID].Value);
+                price = Convert.ToDecimal(dgvDrinks.CurrentRow.Cells[_MENU_PRICE].Value.ToString().Substring(1));
+                itemName = dgvDrinks.CurrentRow.Cells[_MENU_NAME].Value.ToString();
+
+                if (myCart.ContainsKey(itemID))
+                {
+                    myCart[itemID].Quantity++;
+                }
+                else
+                {
+                    myCart.Add(itemID, new MenuItem(itemName, 1, price));
+                }
+            }
+        }
+
+        public static void addToCartFromDesserts(DataGridView dgvDesserts)
+        {
+            if (dgvDesserts != null)
+            {
+                int itemID;
+                decimal price;
+                string itemName;
+
+                itemID = Convert.ToInt32(dgvDesserts.CurrentRow.Cells[_MENU_ITEMID].Value);
+                price = Convert.ToDecimal(dgvDesserts.CurrentRow.Cells[_MENU_PRICE].Value.ToString().Substring(1));
+                itemName = dgvDesserts.CurrentRow.Cells[_MENU_NAME].Value.ToString();
+
+                if (myCart.ContainsKey(itemID))
+                {
+                    myCart[itemID].Quantity++;
+                }
+                else
+                {
+                    myCart.Add(itemID, new MenuItem(itemName, 1, price));
+                }
+            }
         }
 
         public static void removeFromCart(DataGridView dgvItems)
@@ -77,7 +123,6 @@ namespace BCD_Restaurant_Project.Classes
                     }
 
                 }
-                
 
             }
         }
