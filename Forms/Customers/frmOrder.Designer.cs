@@ -31,7 +31,7 @@ namespace BCD_Restaurant_Project.Forms
         {
             this.dgvOrder = new System.Windows.Forms.DataGridView();
             this.lblUsername = new System.Windows.Forms.Label();
-            this.btnLogin = new System.Windows.Forms.Button();
+            this.btnCheckout = new System.Windows.Forms.Button();
             this.btnRemove = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrder)).BeginInit();
@@ -63,18 +63,18 @@ namespace BCD_Restaurant_Project.Forms
             this.lblUsername.Text = "Your order";
             this.lblUsername.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btnLogin
+            // btnCheckout
             // 
-            this.btnLogin.BackColor = System.Drawing.Color.White;
-            this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogin.Location = new System.Drawing.Point(159, 254);
-            this.btnLogin.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(748, 44);
-            this.btnLogin.TabIndex = 0;
-            this.btnLogin.Text = "Checkout       $18.99";
-            this.btnLogin.UseVisualStyleBackColor = false;
+            this.btnCheckout.BackColor = System.Drawing.Color.White;
+            this.btnCheckout.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCheckout.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCheckout.Location = new System.Drawing.Point(159, 254);
+            this.btnCheckout.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnCheckout.Name = "btnCheckout";
+            this.btnCheckout.Size = new System.Drawing.Size(748, 44);
+            this.btnCheckout.TabIndex = 0;
+            this.btnCheckout.Text = "Checkout       $18.99";
+            this.btnCheckout.UseVisualStyleBackColor = false;
             // 
             // btnRemove
             // 
@@ -113,7 +113,7 @@ namespace BCD_Restaurant_Project.Forms
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.lblUsername);
             this.Controls.Add(this.dgvOrder);
-            this.Controls.Add(this.btnLogin);
+            this.Controls.Add(this.btnCheckout);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmOrder";
             this.Text = "Order";
@@ -126,7 +126,7 @@ namespace BCD_Restaurant_Project.Forms
 
         #endregion
         private System.Windows.Forms.Label lblUsername;
-        private System.Windows.Forms.Button btnLogin;
+        private System.Windows.Forms.Button btnCheckout;
         private System.Windows.Forms.DataGridView dgvOrder;
         private System.Windows.Forms.Button btnRemove;
         private System.Windows.Forms.Button btnClear;
