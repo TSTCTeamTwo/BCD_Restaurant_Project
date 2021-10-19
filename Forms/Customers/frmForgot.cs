@@ -20,7 +20,7 @@ namespace BCD_Restaurant_Project.Forms.Customers
 
         private void btnLogin_Click_1(object sender, EventArgs e)
         {
-            bool emailOK = ProgOps.IsValidEmail(tbxEmail.Text);
+            bool emailOK = ProgOps.isValidEmail(tbxEmail.Text);
             if (tbxEmail.Text.Equals(""))
             {
                 MessageBox.Show("Enter an email", "Reset Password", MessageBoxButtons.OK, MessageBoxIcon.Information);
