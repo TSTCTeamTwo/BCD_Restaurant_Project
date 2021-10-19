@@ -133,13 +133,7 @@ namespace BCD_Restaurant_Project.Classes
             myCart.Clear();
         }
 
-        public static void finalizeOrder()
-        {
-            /*
-             
-             
-             */
-        }
+       
 
         public static void buttonCalculate(Button btnCheckout)
         {
