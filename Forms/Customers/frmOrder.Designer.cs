@@ -75,6 +75,7 @@ namespace BCD_Restaurant_Project.Forms
             this.btnCheckout.TabIndex = 0;
             this.btnCheckout.Text = "Checkout       $18.99";
             this.btnCheckout.UseVisualStyleBackColor = false;
+            this.btnCheckout.Click += new System.EventHandler(this.btnCheckout_Click);
             // 
             // btnRemove
             // 

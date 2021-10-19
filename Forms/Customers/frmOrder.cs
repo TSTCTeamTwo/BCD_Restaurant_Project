@@ -77,6 +77,9 @@ namespace BCD_Restaurant_Project.Forms
 
         }
 
-        
+        private void btnCheckout_Click(object sender, EventArgs e)
+        {
+            ProgOps.finalizeOrder();
+        }
     }
 }

@@ -52,6 +52,24 @@ namespace BCD_Restaurant_Project.Classes
             get { return _dtCategory; }
         }
 
+        private static SqlCommand _sqlOrdersCommand = new SqlCommand();
+        private static SqlDataAdapter _daOrders = new SqlDataAdapter();
+        private static DataTable _dtOrders = new DataTable();
+
+        public static DataTable DTOrders
+        {
+            get { return _dtOrders; }
+        }
+
+        private static SqlCommand _sqlOrderItemsCommand = new SqlCommand();
+        private static SqlDataAdapter _daOrderItems = new SqlDataAdapter();
+        private static DataTable _dtOrderItems = new DataTable();
+
+        public static DataTable DTOrderItems
+        {
+            get { return _dtOrderItems; }
+        }
+
         private static StringBuilder ErrorMessages { get; } = new StringBuilder();
 
         public static string AccountFirstName { get; set; } = string.Empty;
@@ -278,6 +296,7 @@ namespace BCD_Restaurant_Project.Classes
         //displaying the specific items wherever the user is in the form
         public static void DisplayMenuItems(DataGridView dgvDisplay, int categoryId)
         {
+            //_cntDBConnection = new SqlConnection(CONNECT_STRING);
             string query = "SELECT ItemID, ItemName AS 'Item', ItemDescription AS 'Description', FORMAT(Price, 'C') AS Price, Image FROM group2fa212330.Menu INNER JOIN group2fa212330.Images ON Menu.ImageID = Images.ImageID WHERE CategoryID = " + categoryId;
             _sqlMenuCommand = new SqlCommand(query, _cntDBConnection);
             _daMenu.SelectCommand = _sqlMenuCommand;
@@ -499,6 +518,33 @@ namespace BCD_Restaurant_Project.Classes
             cbCategory.SelectedIndex = index;
         }
 
-
+        public static void finalizeOrder()
+        {
+            try
+            {
+                string query = "INSERT INTO Orders(AccountID, PaymentID, OrderDate, OrderQty, TotalDue, Tip) VALUES(" + AccountID + ", 2," + DateTime.Now.ToString() + ", 0, 0, 0";
+                _sqlOrdersCommand = new SqlCommand(query, _cntDBConnection);
+                _sqlOrdersCommand.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                if (ex is SqlException)
+                {
+                    for (int i = 0; i < ex.Errors.Count; i++)
+                    {
+                        ErrorMessages.Append("Index#" + i + "\n" +
+                            "Message: " + ex.Errors[i].Message + "\n" +
+                            "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
+                            "Source: " + ex.Errors[i].Source + "\n" +
+                            "Procedure: " + ex.Errors[i].Procedure + "\n");
+                    }
+                    MessageBox.Show(ErrorMessages.ToString(), "Error Close Database", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {//handles generic ones here
+                    MessageBox.Show(ex.Message + "Error (PO2)", "Error Close Database", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
     }
 }

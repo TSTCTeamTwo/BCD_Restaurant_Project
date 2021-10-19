@@ -31,8 +31,8 @@ namespace BCD_Restaurant_Project.Forms
 
             ////FOR TESTING
 
-            tbxUsername.Text = "sdeerr2";
-            tbxPassword.Text = "xSK0fYE";
+            tbxUsername.Text = "rdemeza0";
+            tbxPassword.Text = "59g0GR05";
 
             btnLogin.Focus();
 
