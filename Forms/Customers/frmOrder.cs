@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BCD_Restaurant_Project.Classes;
+using BCD_Restaurant_Project.Forms.Customers;
 namespace BCD_Restaurant_Project.Forms
 {
     public partial class frmOrder : Form
@@ -79,7 +80,9 @@ namespace BCD_Restaurant_Project.Forms
 
         private void btnCheckout_Click(object sender, EventArgs e)
         {
-            ProgOps.finalizeOrder();
+            this.Hide();
+            new frmPayment().Show();
+            
         }
     }
 }

@@ -32,7 +32,7 @@ namespace BCD_Restaurant_Project.Classes
 
         private static SqlCommand _sqlOrdersCommand = new SqlCommand();
         private static SqlDataAdapter _daOrders = new SqlDataAdapter();
-        public static DataTable DTOrders { get; } = new DataTable();
+        public static DataTable DTOrders { get; private set; } = new DataTable();
 
         private static SqlCommand _sqlOrderItemsCommand = new SqlCommand();
         private static SqlDataAdapter _daOrderItems = new SqlDataAdapter();
@@ -48,6 +48,7 @@ namespace BCD_Restaurant_Project.Classes
         {
             try
             {
+                _cntDBConnection = new SqlConnection(CONNECT_STRING);
                 _cntDBConnection.Open();
             }
             catch (SqlException exception)
@@ -79,6 +80,14 @@ namespace BCD_Restaurant_Project.Classes
                 _cntDBConnection.Dispose();
                 _daAccounts.Dispose();
                 _daEmployees.Dispose();
+                _daCategory.Dispose();
+                _daMenu.Dispose();
+                _daOrderItems.Dispose();
+                _daOrders.Dispose();
+                DTCategories.Dispose();
+                DTMenu.Dispose();
+                DTOrders.Dispose();
+                DTOrderItems.Dispose();
                 DTAccounts.Dispose();
                 DTEmployees.Dispose();
 
@@ -159,16 +168,11 @@ namespace BCD_Restaurant_Project.Classes
                 if (password == (string)DTAccounts.Rows[0]["OneTimePassword"])
                 {
                     //TODO - place stored procedure code here
-                    
+                    generateOneTimePassword();
                 }
 
                 // MessageBox.Show("Welcome "+_dtAccountsTable.Rows[0]["FirstName"]+"!");
             }
-
-            //dispose all the connections
-            //_dtAccountsTable.Dispose();
-            //_daAccounts.Dispose();
-            //_sqlAccountsCommand.Dispose();
             return accountID;
 
         }
@@ -257,7 +261,7 @@ namespace BCD_Restaurant_Project.Classes
         //displaying the specific items wherever the user is in the form
         public static void displayMenuItems(DataGridView dgvDisplay, int categoryId)
         {
-            _cntDBConnection = new SqlConnection(CONNECT_STRING);
+         //   _cntDBConnection = new SqlConnection(CONNECT_STRING);
             string query = "SELECT ItemID, ItemName AS 'Item', ItemDescription AS 'Description', FORMAT(Price, 'C') AS Price, Image FROM group2fa212330.Menu INNER JOIN group2fa212330.Images ON Menu.ImageID = Images.ImageID WHERE CategoryID = " + categoryId;
             _sqlMenuCommand = new SqlCommand(query, _cntDBConnection);
             _daMenu.SelectCommand = _sqlMenuCommand;
@@ -303,7 +307,7 @@ namespace BCD_Restaurant_Project.Classes
               
             try
             {
-                _cntDBConnection = new SqlConnection(CONNECT_STRING);
+              //  _cntDBConnection = new SqlConnection(CONNECT_STRING);
                 string query = "SELECT CONCAT(FirstName, ' ', LastName) AS Name, Email, A.AccountID, AccountNumber, RoutingNumber " +
                     "FROM group2fa212330.Employees AS E JOIN group2fa212330.Accounts AS A ON E.AccountID = A.AccountID WHERE A.AccountID =" + AccountID;
 
@@ -344,7 +348,7 @@ namespace BCD_Restaurant_Project.Classes
         {
             try
             {
-                _cntDBConnection = new SqlConnection(CONNECT_STRING);
+              //  _cntDBConnection = new SqlConnection(CONNECT_STRING);
                 //_cntDBConnection.Open();
                 string query = "SELECT AccountID, Email, Username, CONCAT(FirstName,' ', LastName) AS Name, Password FROM group2fa212330.Accounts WHERE AccountID = "+AccountID;
                 _sqlAccountsCommand = new SqlCommand(query, _cntDBConnection);
@@ -383,7 +387,7 @@ namespace BCD_Restaurant_Project.Classes
             TextBox tbxConfirmPassword, TextBox tbxLastName, TextBox tbxFirstName)
         {
 
-             _cntDBConnection = new SqlConnection(CONNECT_STRING);
+            // _cntDBConnection = new SqlConnection(CONNECT_STRING);
 
             string sqlQuery = "SELECT * from group2fa212330.Accounts";
 
@@ -412,7 +416,7 @@ namespace BCD_Restaurant_Project.Classes
 
             try
             {
-                _cntDBConnection = new SqlConnection(CONNECT_STRING);
+               // _cntDBConnection = new SqlConnection(CONNECT_STRING);
                 string query = "SELECT ItemID, ItemName, ItemDescription, FORMAT(Price, 'C') AS Price, Image, CategoryName FROM group2fa212330.Menu AS M INNER JOIN group2fa212330.Images AS I ON M.ImageID = I.ImageID " +
                                "INNER JOIN group2fa212330.Categories c on M.CategoryID = C.CategoryID";
 
@@ -477,6 +481,9 @@ namespace BCD_Restaurant_Project.Classes
                 string query = "INSERT INTO Orders(AccountID, PaymentID, OrderDate, OrderQty, TotalDue, Tip) VALUES(" + AccountID + ", 2," + DateTime.Now.ToString() + ", 0, 0, 0";
                 _sqlOrdersCommand = new SqlCommand(query, _cntDBConnection);
                 _sqlOrdersCommand.ExecuteNonQuery();
+
+                //for each item id in cart, add that item with the order id to the order items table with the quantity in cart
+                
             }
             catch (SqlException ex)
             {
@@ -496,5 +503,61 @@ namespace BCD_Restaurant_Project.Classes
                     MessageBoxIcon.Error);
             }
         }
+
+        public static int getNewOrderID()
+        {
+            int orderID = -1;
+            string query = "SELECT MAX(OrderID) FROM group2fa212330.Orders";
+            _sqlOrdersCommand = new SqlCommand(query, _cntDBConnection);
+            _daOrders.SelectCommand = _sqlOrdersCommand;
+            DTOrders = new DataTable();
+            _daOrders.Fill(DTOrders);
+
+            if(DTOrders.Rows.Count != 0)
+            {
+                orderID = (int)DTOrders.Rows[0]["OrderID"];
+            }
+
+            _sqlOrdersCommand.Dispose();
+            _daOrders.Dispose();
+
+            return orderID;
+        }
+
+        public static void addPayment(string cardNumber, string cardType, string security, MaskedTextBox expiration)
+        {
+            try
+            {
+                string query = "INSERT INT0 Payment(AccountID, Type, CardNumber, CardName, SecurityCode, ExpirationDate) " +
+                    "VALUES("+AccountID.ToString()+", "+cardType+", "+cardNumber+", "+security+", "+expiration.Text.ToString()+" )";
+                SqlCommand _sqlPaymentCommand = new SqlCommand(query, _cntDBConnection);
+                _sqlPaymentCommand.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                for (int i = 0; i < ex.Errors.Count; i++)
+                {
+                    ErrorMessages.Append("Index#" + i + "\n" +
+                                         "Message: " + ex.Errors[i].Message + "\n" +
+                                         "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
+                                         "Source: " + ex.Errors[i].Source + "\n" +
+                                         "Procedure: " + ex.Errors[i].Procedure + "\n");
+                }
+                MessageBox.Show(ErrorMessages.ToString(), "Error Close Database", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error:\n\t" + ex.Message, "ProgOps Error", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+        }
+
+        public static void checkPayment()
+        {
+            
+        }
+
+
+
     }
 }
