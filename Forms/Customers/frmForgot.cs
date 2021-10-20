@@ -31,7 +31,7 @@ namespace BCD_Restaurant_Project.Forms.Customers
             }
             else
             {
-                string otp = ProgOps.OneTimePassword(tbxEmail.Text);
+                string otp = ProgOps.verifyOneTimePassword(tbxEmail.Text);
                 if (!otp.Equals(""))
                 {
                     using (MailMessage mail = new MailMessage())

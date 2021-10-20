@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace BCD_Restaurant_Project.Classes
@@ -15,60 +12,31 @@ namespace BCD_Restaurant_Project.Classes
 
         private static SqlConnection _cntDBConnection = new SqlConnection(CONNECT_STRING);
 
+        //Objects for Accounts Table
         private static SqlCommand _sqlAccountsCommand = new SqlCommand();
         private static SqlDataAdapter _daAccounts = new SqlDataAdapter();
-        private static DataTable _dtAccountsTable = new DataTable();
-
-        public static DataTable DTAccounts
-        {
-            get { return _dtAccountsTable; }
-
-        }
+        public static DataTable DTAccounts { get; private set; } = new DataTable();
 
         private static SqlCommand _sqlEmployeesCommand = new SqlCommand();
         private static SqlDataAdapter _daEmployees = new SqlDataAdapter();
-        private static DataTable _dtEmployees = new DataTable();
-
-        public static DataTable DTEmployees
-        {
-            get { return _dtEmployees; }
-        }
+        public static DataTable DTEmployees { get; private set; } = new DataTable();
 
         private static SqlCommand _sqlMenuCommand = new SqlCommand();
         private static SqlDataAdapter _daMenu = new SqlDataAdapter();
-        private static DataTable _dtMenu = new DataTable();
-
-        public static DataTable DTMenu
-        {
-            get { return _dtMenu; }
-        }
+        public static DataTable DTMenu { get; private set; } = new DataTable();
 
         private static SqlCommand _sqlCategoryCommand = new SqlCommand();
         private static SqlDataAdapter _daCategory = new SqlDataAdapter();
         private static DataTable _dtCategory = new DataTable();
-
-        public static DataTable DTCategories
-        {
-            get { return _dtCategory; }
-        }
+        public static DataTable DTCategories => _dtCategory;
 
         private static SqlCommand _sqlOrdersCommand = new SqlCommand();
         private static SqlDataAdapter _daOrders = new SqlDataAdapter();
-        private static DataTable _dtOrders = new DataTable();
-
-        public static DataTable DTOrders
-        {
-            get { return _dtOrders; }
-        }
+        public static DataTable DTOrders { get; } = new DataTable();
 
         private static SqlCommand _sqlOrderItemsCommand = new SqlCommand();
         private static SqlDataAdapter _daOrderItems = new SqlDataAdapter();
-        private static DataTable _dtOrderItems = new DataTable();
-
-        public static DataTable DTOrderItems
-        {
-            get { return _dtOrderItems; }
-        }
+        public static DataTable DTOrderItems { get; } = new DataTable();
 
         private static StringBuilder ErrorMessages { get; } = new StringBuilder();
 
@@ -96,12 +64,12 @@ namespace BCD_Restaurant_Project.Classes
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message + "Error (PO8)", "Error Opening Database", MessageBoxButtons.OK,
+                MessageBox.Show("Error:\n\t" + ex.Message, "Error Opening Database", MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
             }
         }
 
-        public static void CloseDatabase()
+        public static void closeDatabase()
         {
             try
             {
@@ -111,28 +79,26 @@ namespace BCD_Restaurant_Project.Classes
                 _cntDBConnection.Dispose();
                 _daAccounts.Dispose();
                 _daEmployees.Dispose();
-                _dtAccountsTable.Dispose();
-                _dtEmployees.Dispose();
+                DTAccounts.Dispose();
+                DTEmployees.Dispose();
 
             }
             catch (SqlException ex)
             {
-                if (ex is SqlException)
+                for (int i = 0; i < ex.Errors.Count; i++)
                 {
-                    for (int i = 0; i < ex.Errors.Count; i++)
-                    {
-                        ErrorMessages.Append("Index#" + i + "\n" +
-                            "Message: " + ex.Errors[i].Message + "\n" +
-                            "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
-                            "Source: " + ex.Errors[i].Source + "\n" +
-                            "Procedure: " + ex.Errors[i].Procedure + "\n");
-                    }
-                    MessageBox.Show(ErrorMessages.ToString(), "Error Close Database", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    ErrorMessages.Append("Index#" + i + "\n" +
+                                         "Message: " + ex.Errors[i].Message + "\n" +
+                                         "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
+                                         "Source: " + ex.Errors[i].Source + "\n" +
+                                         "Procedure: " + ex.Errors[i].Procedure + "\n");
                 }
-                else
-                {//handles generic ones here
-                    MessageBox.Show(ex.Message + "Error (PO2)", "Error Close Database", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                MessageBox.Show(ErrorMessages.ToString(), "Error Close Database", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error:\n\t" + ex.Message, "Error Opening Database", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
             }
         }
 
@@ -149,13 +115,13 @@ namespace BCD_Restaurant_Project.Classes
 
             _daEmployees.SelectCommand = _sqlEmployeesCommand;
 
-            _dtEmployees = new DataTable();
-            _daEmployees.Fill(_dtEmployees);
+            DTEmployees = new DataTable();
+            _daEmployees.Fill(DTEmployees);
 
-            if (_dtEmployees.Rows.Count > 0) // if results return a row
+            if (DTEmployees.Rows.Count > 0) // if results return a row
             {
                 bool tempBool = false;
-                if ((bool)_dtEmployees.Rows[0]["IsAdmin"])
+                if ((bool)DTEmployees.Rows[0]["IsAdmin"])
                 {
                     return 2;// admin
                 }
@@ -183,14 +149,14 @@ namespace BCD_Restaurant_Project.Classes
 
             _daAccounts = new SqlDataAdapter(selectCommand: _sqlAccountsCommand);
 
-            _dtAccountsTable = new DataTable();
-            _daAccounts.Fill(_dtAccountsTable);
+            DTAccounts = new DataTable();
+            _daAccounts.Fill(DTAccounts);
 
-            if (_dtAccountsTable.Rows.Count > 0) // if results return a row
+            if (DTAccounts.Rows.Count > 0) // if results return a row
             {
-                accountID = (int)_dtAccountsTable.Rows[0]["AccountID"]; //return row 1 column cell value of column with the name"AccountID"
+                accountID = (int)DTAccounts.Rows[0]["AccountID"]; //return row 1 column cell value of column with the name"AccountID"
 
-                if (password == (string)_dtAccountsTable.Rows[0]["OneTimePassword"])
+                if (password == (string)DTAccounts.Rows[0]["OneTimePassword"])
                 {
                     //TODO - place stored procedure code here
                     
@@ -209,7 +175,7 @@ namespace BCD_Restaurant_Project.Classes
 
         //Returning the one time password of the user with the email that is provided, can't use get because 
         //user hasn't been found
-        public static string OneTimePassword(string email)
+        public static string verifyOneTimePassword(string email)
         {
             string result = string.Empty;
             try
@@ -218,14 +184,14 @@ namespace BCD_Restaurant_Project.Classes
                 string query = "SELECT OneTimePassword FROM group2fa212330.Accounts WHERE Email =  '" + email + "'";
                 _sqlAccountsCommand = new SqlCommand(query, _cntDBConnection);
                 _daAccounts.SelectCommand = _sqlAccountsCommand;
-                _dtAccountsTable = new DataTable();
-                _daAccounts.Fill(_dtAccountsTable);
+                DTAccounts = new DataTable();
+                _daAccounts.Fill(DTAccounts);
 
                 //if the account exists
-                if (_dtAccountsTable.Rows.Count != 0)
+                if (DTAccounts.Rows.Count != 0)
                 {
                     //store the one time password to return in the forgot form
-                    result = (string)_dtAccountsTable.Rows[0]["OneTimePassword"];
+                    result = (string)DTAccounts.Rows[0]["OneTimePassword"];
                 }
                 else
                 {
@@ -234,22 +200,20 @@ namespace BCD_Restaurant_Project.Classes
             }
             catch (SqlException ex)
             {
-                if (ex is SqlException)
+                for (int i = 0; i < ex.Errors.Count; i++)
                 {
-                    for (int i = 0; i < ex.Errors.Count; i++)
-                    {
-                        ErrorMessages.Append("Index#" + i + "\n" +
-                            "Message: " + ex.Errors[i].Message + "\n" +
-                            "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
-                            "Source: " + ex.Errors[i].Source + "\n" +
-                            "Procedure: " + ex.Errors[i].Procedure + "\n");
-                    }
-                    MessageBox.Show(ErrorMessages.ToString(), "Error Close Database", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    ErrorMessages.Append("Index#" + i + "\n" +
+                                         "Message: " + ex.Errors[i].Message + "\n" +
+                                         "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
+                                         "Source: " + ex.Errors[i].Source + "\n" +
+                                         "Procedure: " + ex.Errors[i].Procedure + "\n");
                 }
-                else
-                {//handles generic ones here
-                    MessageBox.Show(ex.Message + "Error (PO2)", "Error Close Database", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                MessageBox.Show(ErrorMessages.ToString(), "Error Closing Database", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error:\n\t" + ex.Message, "ProgOps Error", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
             }
 
             //returning OTP to send VIA email
@@ -257,7 +221,7 @@ namespace BCD_Restaurant_Project.Classes
         }
 
         //method for the user to sign up and add the information onto the database
-        public static void SignUp(string fName, string lName, string username, string email, string password)
+        public static void insertNewAccount(string fName, string lName, string username, string email, string password)
         {
             try
             {
@@ -273,37 +237,34 @@ namespace BCD_Restaurant_Project.Classes
             }
             catch (SqlException ex)
             {
-
-                if (ex is SqlException)
+                for (int i = 0; i < ex.Errors.Count; i++)
                 {
-                    for (int i = 0; i < ex.Errors.Count; i++)
-                    {
-                        ErrorMessages.Append("Index#" + i + "\n" +
-                            "Message: " + ex.Errors[i].Message + "\n" +
-                            "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
-                            "Source: " + ex.Errors[i].Source + "\n" +
-                            "Procedure: " + ex.Errors[i].Procedure + "\n");
-                    }
-                    MessageBox.Show(ErrorMessages.ToString(), "Error Close Database", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    ErrorMessages.Append("Index#" + i + "\n" +
+                                         "Message: " + ex.Errors[i].Message + "\n" +
+                                         "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
+                                         "Source: " + ex.Errors[i].Source + "\n" +
+                                         "Procedure: " + ex.Errors[i].Procedure + "\n");
                 }
-                else
-                {//handles generic ones here
-                    MessageBox.Show(ex.Message + "Error (PO2)", "Error Close Database", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                MessageBox.Show(ErrorMessages.ToString(), "Error Close Database", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error:\n\t" + ex.Message, "ProgOps Error", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
             }
         }
 
         //displaying the specific items wherever the user is in the form
-        public static void DisplayMenuItems(DataGridView dgvDisplay, int categoryId)
+        public static void displayMenuItems(DataGridView dgvDisplay, int categoryId)
         {
-            //_cntDBConnection = new SqlConnection(CONNECT_STRING);
+            _cntDBConnection = new SqlConnection(CONNECT_STRING);
             string query = "SELECT ItemID, ItemName AS 'Item', ItemDescription AS 'Description', FORMAT(Price, 'C') AS Price, Image FROM group2fa212330.Menu INNER JOIN group2fa212330.Images ON Menu.ImageID = Images.ImageID WHERE CategoryID = " + categoryId;
             _sqlMenuCommand = new SqlCommand(query, _cntDBConnection);
             _daMenu.SelectCommand = _sqlMenuCommand;
             dgvDisplay.Rows.Clear();
-            _dtMenu.Clear();
-            _daMenu.Fill(_dtMenu);
-            dgvDisplay.DataSource = _dtMenu;
+            DTMenu.Clear();
+            _daMenu.Fill(DTMenu);
+            dgvDisplay.DataSource = DTMenu;
 
             dgvDisplay.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dgvDisplay.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
@@ -311,7 +272,7 @@ namespace BCD_Restaurant_Project.Classes
         }
 
         //Method to validate if the user enters a valid email anywhere in the program
-        public static bool IsValidEmail(string email)
+        public static bool isValidEmail(string email)
         {
             try
             {
@@ -325,7 +286,7 @@ namespace BCD_Restaurant_Project.Classes
             }
         }
 
-        public static void OneTimePasswordGenerator()
+        public static void generateOneTimePassword()
         {
             string newOTP = "DECLARE @password varchar(20) " +
                     "exec group2fa212330.spRandomPassword @len = 10, @output = @password out " +
@@ -336,11 +297,10 @@ namespace BCD_Restaurant_Project.Classes
             _sqlAccountsCommand.ExecuteNonQuery();
         }
 
-
         //method for binding the bank information form
         public static void BankInformation(TextBox tbxName, TextBox tbxEmail, TextBox tbxAccountID, TextBox tbxAccNumber, TextBox tbxRouNumber)
         {
-            //  
+              
             try
             {
                 _cntDBConnection = new SqlConnection(CONNECT_STRING);
@@ -350,35 +310,33 @@ namespace BCD_Restaurant_Project.Classes
                 _sqlAccountsCommand = new SqlCommand(query, _cntDBConnection);
                 _daAccounts = new SqlDataAdapter();
                 _daAccounts.SelectCommand = _sqlAccountsCommand;
-                _dtAccountsTable = new DataTable();
-                _daAccounts.Fill(_dtAccountsTable);
+                DTAccounts = new DataTable();
+                _daAccounts.Fill(DTAccounts);
 
                 //binding the textboxes
-                tbxName.DataBindings.Add("Text", _dtAccountsTable, "Name");
-                tbxEmail.DataBindings.Add("Text", _dtAccountsTable, "Email");
-                tbxAccountID.DataBindings.Add("Text", _dtAccountsTable, "AccountID");
-                tbxAccNumber.DataBindings.Add("Text", _dtAccountsTable, "AccountNumber");
-                tbxRouNumber.DataBindings.Add("Text", _dtAccountsTable, "RoutingNumber");
+                tbxName.DataBindings.Add("Text", DTAccounts, "Name");
+                tbxEmail.DataBindings.Add("Text", DTAccounts, "Email");
+                tbxAccountID.DataBindings.Add("Text", DTAccounts, "AccountID");
+                tbxAccNumber.DataBindings.Add("Text", DTAccounts, "AccountNumber");
+                tbxRouNumber.DataBindings.Add("Text", DTAccounts, "RoutingNumber");
             }
             catch (SqlException ex)
             {
-                if (ex is SqlException)
+                for (int i = 0; i < ex.Errors.Count; i++)
                 {
-                    for (int i = 0; i < ex.Errors.Count; i++)
-                    {
-                        ErrorMessages.Append("Index#" + i + "\n" +
-                            "Message: " + ex.Errors[i].Message + "\n" +
-                            "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
-                            "Source: " + ex.Errors[i].Source + "\n" +
-                            "Procedure: " + ex.Errors[i].Procedure + "\n");
-                    }
-                    MessageBox.Show(ErrorMessages.ToString(), "Error Close Database", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    ErrorMessages.Append("Index#" + i + "\n" +
+                                         "Message: " + ex.Errors[i].Message + "\n" +
+                                         "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
+                                         "Source: " + ex.Errors[i].Source + "\n" +
+                                         "Procedure: " + ex.Errors[i].Procedure + "\n");
                 }
-                else
-                {//handles generic ones here
-                    MessageBox.Show(ex.Message + "Error (PO2)", "Error Close Database", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                MessageBox.Show(ErrorMessages.ToString(), "Error Close Database", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 //MessageBox.Show(ex.StackTrace + "Error (PO2)", "Error Close Database", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error:\n\t" + ex.Message, "ProgOps Error", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
             }
         }
 
@@ -392,38 +350,36 @@ namespace BCD_Restaurant_Project.Classes
                 _sqlAccountsCommand = new SqlCommand(query, _cntDBConnection);
                 _daAccounts = new SqlDataAdapter();
                 _daAccounts.SelectCommand = _sqlAccountsCommand;
-                _dtAccountsTable = new DataTable();
-                _daAccounts.Fill(_dtAccountsTable);
+                DTAccounts = new DataTable();
+                _daAccounts.Fill(DTAccounts);
 
-                tbxAccountID.DataBindings.Add("Text", _dtAccountsTable, "AccountID");
-                tbxEmail.DataBindings.Add("Text", _dtAccountsTable, "Email");
-                tbxUsername.DataBindings.Add("Text", _dtAccountsTable, "Username");
-                tbxName.DataBindings.Add("Text",_dtAccountsTable,"Name");
-                tbxPassword.DataBindings.Add("Text", _dtAccountsTable, "Password");
+                tbxAccountID.DataBindings.Add("Text", DTAccounts, "AccountID");
+                tbxEmail.DataBindings.Add("Text", DTAccounts, "Email");
+                tbxUsername.DataBindings.Add("Text", DTAccounts, "Username");
+                tbxName.DataBindings.Add("Text",DTAccounts,"Name");
+                tbxPassword.DataBindings.Add("Text", DTAccounts, "Password");
 
             }
             catch(SqlException ex)
             {
-                if (ex is SqlException)
+                for (int i = 0; i < ex.Errors.Count; i++)
                 {
-                    for (int i = 0; i < ex.Errors.Count; i++)
-                    {
-                        ErrorMessages.Append("Index#" + i + "\n" +
-                            "Message: " + ex.Errors[i].Message + "\n" +
-                            "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
-                            "Source: " + ex.Errors[i].Source + "\n" +
-                            "Procedure: " + ex.Errors[i].Procedure + "\n");
-                    }
-                    MessageBox.Show(ErrorMessages.ToString(), "Error Close Database", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    ErrorMessages.Append("Index#" + i + "\n" +
+                                         "Message: " + ex.Errors[i].Message + "\n" +
+                                         "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
+                                         "Source: " + ex.Errors[i].Source + "\n" +
+                                         "Procedure: " + ex.Errors[i].Procedure + "\n");
                 }
-                else
-                {//handles generic ones here
-                    MessageBox.Show(ex.Message + "Error (PO2)", "Error Close Database", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                MessageBox.Show(ErrorMessages.ToString(), "Error Close Database", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error:\n\t" + ex.Message, "ProgOps Error", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
             }
         }
 
-        public static void fillDgvWithAccountTable(DataGridView dgvAccounts, TextBox tbxAccountID, TextBox tbxEmail, TextBox tbxUsername, TextBox tbxPassword,
+        public static void bindAccounts(TextBox tbxAccountID, TextBox tbxEmail, TextBox tbxUsername, TextBox tbxPassword,
             TextBox tbxConfirmPassword, TextBox tbxLastName, TextBox tbxFirstName)
         {
 
@@ -434,23 +390,21 @@ namespace BCD_Restaurant_Project.Classes
             _sqlAccountsCommand = new SqlCommand(sqlQuery, _cntDBConnection);
 
             _daAccounts = new SqlDataAdapter(selectCommand: _sqlAccountsCommand);
-            _dtAccountsTable.Clear();
-            _daAccounts.Fill(_dtAccountsTable);
+            DTAccounts.Clear();
+            _daAccounts.Fill(DTAccounts);
 
-            dgvAccounts.DataSource = _dtAccountsTable;
-
-            tbxAccountID.DataBindings.Add("Text", dgvAccounts.DataSource, "AccountID");
-            tbxEmail.DataBindings.Add("Text", dgvAccounts.DataSource, "Email");
-            tbxUsername.DataBindings.Add("Text", dgvAccounts.DataSource, "Username");
-            tbxPassword.DataBindings.Add("Text", dgvAccounts.DataSource, "Password");
-            tbxConfirmPassword.DataBindings.Add("Text", dgvAccounts.DataSource, "Password");
-            tbxLastName.DataBindings.Add("Text", dgvAccounts.DataSource, "Lastname");
-            tbxFirstName.DataBindings.Add("Text", dgvAccounts.DataSource, "Firstname");
+            tbxAccountID.DataBindings.Add("Text", DTAccounts, "AccountID");
+            tbxEmail.DataBindings.Add("Text", DTAccounts, "Email");
+            tbxUsername.DataBindings.Add("Text", DTAccounts, "Username");
+            tbxPassword.DataBindings.Add("Text", DTAccounts, "Password");
+            tbxConfirmPassword.DataBindings.Add("Text", DTAccounts, "Password");
+            tbxLastName.DataBindings.Add("Text", DTAccounts, "Lastname");
+            tbxFirstName.DataBindings.Add("Text", DTAccounts, "Firstname");
 
 
         }
 
-        public static void ModifyMenu(TextBox tbItemName, TextBox tbItemID, TextBox tbDescription, TextBox tbPrice, TextBox tbImage, ComboBox cbCategory,
+        public static void modifyMenu(TextBox tbItemName, TextBox tbItemID, TextBox tbDescription, TextBox tbPrice, TextBox tbImage, ComboBox cbCategory,
             Form form, out CurrencyManager c)
         {
 
@@ -465,14 +419,14 @@ namespace BCD_Restaurant_Project.Classes
                 _sqlMenuCommand = new SqlCommand(query, _cntDBConnection);
                 _daMenu = new SqlDataAdapter();
                 _daMenu.SelectCommand = _sqlMenuCommand;
-                _dtMenu = new DataTable();
-                _daMenu.Fill(_dtMenu);
+                DTMenu = new DataTable();
+                _daMenu.Fill(DTMenu);
                 
-                tbItemName.DataBindings.Add("Text", _dtMenu, "ItemName");
-                tbItemID.DataBindings.Add("Text", _dtMenu, "ItemID");
-                tbDescription.DataBindings.Add("Text", _dtMenu, "ItemDescription");
-                tbPrice.DataBindings.Add("Text", _dtMenu, "Price");
-                tbImage.DataBindings.Add("Text", _dtMenu, "Image");
+                tbItemName.DataBindings.Add("Text", DTMenu, "ItemName");
+                tbItemID.DataBindings.Add("Text", DTMenu, "ItemID");
+                tbDescription.DataBindings.Add("Text", DTMenu, "ItemDescription");
+                tbPrice.DataBindings.Add("Text", DTMenu, "Price");
+                tbImage.DataBindings.Add("Text", DTMenu, "Image");
 
 
                 string categoryName = "SELECT * FROM group2fa212330.Categories";
@@ -492,29 +446,27 @@ namespace BCD_Restaurant_Project.Classes
             }
             catch(SqlException ex)
             {
-                if (ex is SqlException)
+                for (int i = 0; i < ex.Errors.Count; i++)
                 {
-                    for (int i = 0; i < ex.Errors.Count; i++)
-                    {
-                        ErrorMessages.Append("Index#" + i + "\n" +
-                            "Message: " + ex.Errors[i].Message + "\n" +
-                            "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
-                            "Source: " + ex.Errors[i].Source + "\n" +
-                            "Procedure: " + ex.Errors[i].Procedure + "\n");
-                    }
-                    MessageBox.Show(ErrorMessages.ToString(), "Error Close Database", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    ErrorMessages.Append("Index#" + i + "\n" +
+                                         "Message: " + ex.Errors[i].Message + "\n" +
+                                         "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
+                                         "Source: " + ex.Errors[i].Source + "\n" +
+                                         "Procedure: " + ex.Errors[i].Procedure + "\n");
                 }
-                else
-                {//handles generic ones here
-                    MessageBox.Show(ex.Message + "Error (PO2)", "Error Close Database", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                MessageBox.Show(ErrorMessages.ToString(), "Error Close Database", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error:\n\t" + ex.Message, "ProgOps Error", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
             }
 
         }
 
         public static void changeCategory(CurrencyManager currency, ComboBox cbCategory)
         {
-            int index = cbCategory.FindString(_dtMenu.Rows[currency.Position]["CategoryName"].ToString());
+            int index = cbCategory.FindString(DTMenu.Rows[currency.Position]["CategoryName"].ToString());
             cbCategory.SelectedIndex = index;
         }
 
@@ -528,22 +480,20 @@ namespace BCD_Restaurant_Project.Classes
             }
             catch (SqlException ex)
             {
-                if (ex is SqlException)
+                for (int i = 0; i < ex.Errors.Count; i++)
                 {
-                    for (int i = 0; i < ex.Errors.Count; i++)
-                    {
-                        ErrorMessages.Append("Index#" + i + "\n" +
-                            "Message: " + ex.Errors[i].Message + "\n" +
-                            "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
-                            "Source: " + ex.Errors[i].Source + "\n" +
-                            "Procedure: " + ex.Errors[i].Procedure + "\n");
-                    }
-                    MessageBox.Show(ErrorMessages.ToString(), "Error Close Database", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    ErrorMessages.Append("Index#" + i + "\n" +
+                                         "Message: " + ex.Errors[i].Message + "\n" +
+                                         "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
+                                         "Source: " + ex.Errors[i].Source + "\n" +
+                                         "Procedure: " + ex.Errors[i].Procedure + "\n");
                 }
-                else
-                {//handles generic ones here
-                    MessageBox.Show(ex.Message + "Error (PO2)", "Error Close Database", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                MessageBox.Show(ErrorMessages.ToString(), "Error Close Database", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error:\n\t" + ex.Message, "ProgOps Error", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
             }
         }
     }
