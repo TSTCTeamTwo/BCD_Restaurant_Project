@@ -133,13 +133,14 @@ namespace BCD_Restaurant_Project.Classes
             myCart.Clear();
         }
 
+       
+
         public static void buttonCalculate(Button btnCheckout)
         {
-            btnCheckout.Enabled = true;
-            decimal totalPrice = 0;
-            for (int i = 0; i < myCart.Count; i++)
+            decimal totalPrice = 0;       
+            foreach(KeyValuePair<int, MenuItem> price in myCart)
             {
-                totalPrice += myCart[i].TotalPrice;
+                totalPrice += price.Value.TotalPrice;
             }
             btnCheckout.Text = "Checkout   $" + totalPrice.ToString();
         }

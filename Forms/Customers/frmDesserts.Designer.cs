@@ -33,7 +33,6 @@ namespace BCD_Restaurant_Project.Forms
             this.pbxDesserts = new System.Windows.Forms.PictureBox();
             this.lblDescription = new System.Windows.Forms.Label();
             this.btnAddToOrder = new System.Windows.Forms.Button();
-            this.btnCheckout = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDesserts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxDesserts)).BeginInit();
             this.SuspendLayout();
@@ -86,25 +85,11 @@ namespace BCD_Restaurant_Project.Forms
             this.btnAddToOrder.UseVisualStyleBackColor = false;
             this.btnAddToOrder.Click += new System.EventHandler(this.btnAddToOrder_Click);
             // 
-            // btnCheckout
-            // 
-            this.btnCheckout.BackColor = System.Drawing.Color.OrangeRed;
-            this.btnCheckout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCheckout.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCheckout.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnCheckout.Location = new System.Drawing.Point(439, 336);
-            this.btnCheckout.Name = "btnCheckout";
-            this.btnCheckout.Size = new System.Drawing.Size(226, 35);
-            this.btnCheckout.TabIndex = 6;
-            this.btnCheckout.Text = "Checkout   $8.99";
-            this.btnCheckout.UseVisualStyleBackColor = false;
-            // 
             // frmDesserts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1003, 732);
-            this.Controls.Add(this.btnCheckout);
             this.Controls.Add(this.btnAddToOrder);
             this.Controls.Add(this.dgvDesserts);
             this.Controls.Add(this.pbxDesserts);
@@ -127,6 +112,5 @@ namespace BCD_Restaurant_Project.Forms
         private System.Windows.Forms.PictureBox pbxDesserts;
         private System.Windows.Forms.Label lblDescription;
         private System.Windows.Forms.Button btnAddToOrder;
-        private System.Windows.Forms.Button btnCheckout;
     }
 }

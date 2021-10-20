@@ -30,11 +30,13 @@ namespace BCD_Restaurant_Project.Forms
         private void btnClear_Click(object sender, EventArgs e)
         {
             Cart.clearCart(dgvOrder);
+            Cart.buttonCalculate(btnCheckout);
         }
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
             Cart.removeFromCart(dgvOrder);
+            Cart.buttonCalculate(btnCheckout);
             dgvOrder.Rows.Clear();
             
             foreach (KeyValuePair<int, Classes.MenuItem> item in Cart.myCart)
@@ -52,6 +54,8 @@ namespace BCD_Restaurant_Project.Forms
 
         private void frmOrder_Load(object sender, EventArgs e)
         {
+            Cart.buttonCalculate(btnCheckout);
+
             dgvOrder.Rows.Clear();
             dgvOrder.ColumnCount = 4;
             dgvOrder.Columns[0].Name = "Item ID";
@@ -73,6 +77,9 @@ namespace BCD_Restaurant_Project.Forms
 
         }
 
-        
+        private void btnCheckout_Click(object sender, EventArgs e)
+        {
+            ProgOps.finalizeOrder();
+        }
     }
 }

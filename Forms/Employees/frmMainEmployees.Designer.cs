@@ -39,6 +39,7 @@ namespace BCD_Restaurant_Project.Forms.Employees
             this.panel2 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.pnlDisplay = new System.Windows.Forms.Panel();
+            this.btnLogOut = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -71,6 +72,7 @@ namespace BCD_Restaurant_Project.Forms.Employees
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.SteelBlue;
+            this.panel1.Controls.Add(this.btnLogOut);
             this.panel1.Controls.Add(this.btnBankInformation);
             this.panel1.Controls.Add(this.btnPersonal);
             this.panel1.Controls.Add(this.btnPaycheck);
@@ -195,6 +197,26 @@ namespace BCD_Restaurant_Project.Forms.Employees
             this.pnlDisplay.Size = new System.Drawing.Size(944, 574);
             this.pnlDisplay.TabIndex = 17;
             // 
+            // btnLogOut
+            // 
+            this.btnLogOut.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnLogOut.FlatAppearance.BorderSize = 0;
+            this.btnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogOut.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.btnLogOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLogOut.Location = new System.Drawing.Point(0, 436);
+            this.btnLogOut.Margin = new System.Windows.Forms.Padding(4);
+            this.btnLogOut.Name = "btnLogOut";
+            this.btnLogOut.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnLogOut.Size = new System.Drawing.Size(330, 78);
+            this.btnLogOut.TabIndex = 15;
+            this.btnLogOut.Text = "Log Out / Exit";
+            this.btnLogOut.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLogOut.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnLogOut.UseVisualStyleBackColor = true;
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
+            // 
             // frmMainEmployees
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -228,5 +250,6 @@ namespace BCD_Restaurant_Project.Forms.Employees
         private System.Windows.Forms.Button btnPaycheck;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel pnlDisplay;
+        private System.Windows.Forms.Button btnLogOut;
     }
 }

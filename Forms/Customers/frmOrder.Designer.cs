@@ -31,7 +31,7 @@ namespace BCD_Restaurant_Project.Forms
         {
             this.dgvOrder = new System.Windows.Forms.DataGridView();
             this.lblUsername = new System.Windows.Forms.Label();
-            this.btnLogin = new System.Windows.Forms.Button();
+            this.btnCheckout = new System.Windows.Forms.Button();
             this.btnRemove = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrder)).BeginInit();
@@ -39,10 +39,16 @@ namespace BCD_Restaurant_Project.Forms
             // 
             // dgvOrder
             // 
+            this.dgvOrder.AllowUserToAddRows = false;
+            this.dgvOrder.AllowUserToDeleteRows = false;
+            this.dgvOrder.AllowUserToResizeColumns = false;
+            this.dgvOrder.AllowUserToResizeRows = false;
+            this.dgvOrder.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvOrder.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvOrder.Location = new System.Drawing.Point(85, 37);
             this.dgvOrder.Name = "dgvOrder";
-            this.dgvOrder.Size = new System.Drawing.Size(877, 303);
+            this.dgvOrder.Size = new System.Drawing.Size(877, 210);
             this.dgvOrder.TabIndex = 2;
             this.dgvOrder.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOrder_CellContentClick);
             // 
@@ -57,25 +63,26 @@ namespace BCD_Restaurant_Project.Forms
             this.lblUsername.Text = "Your order";
             this.lblUsername.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btnLogin
+            // btnCheckout
             // 
-            this.btnLogin.BackColor = System.Drawing.Color.White;
-            this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogin.Location = new System.Drawing.Point(155, 347);
-            this.btnLogin.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(748, 44);
-            this.btnLogin.TabIndex = 0;
-            this.btnLogin.Text = "Checkout       $18.99";
-            this.btnLogin.UseVisualStyleBackColor = false;
+            this.btnCheckout.BackColor = System.Drawing.Color.White;
+            this.btnCheckout.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCheckout.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCheckout.Location = new System.Drawing.Point(159, 254);
+            this.btnCheckout.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnCheckout.Name = "btnCheckout";
+            this.btnCheckout.Size = new System.Drawing.Size(748, 44);
+            this.btnCheckout.TabIndex = 0;
+            this.btnCheckout.Text = "Checkout       $18.99";
+            this.btnCheckout.UseVisualStyleBackColor = false;
+            this.btnCheckout.Click += new System.EventHandler(this.btnCheckout_Click);
             // 
             // btnRemove
             // 
             this.btnRemove.BackColor = System.Drawing.Color.White;
             this.btnRemove.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnRemove.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRemove.Location = new System.Drawing.Point(530, 399);
+            this.btnRemove.Location = new System.Drawing.Point(534, 306);
             this.btnRemove.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(373, 44);
@@ -89,7 +96,7 @@ namespace BCD_Restaurant_Project.Forms
             this.btnClear.BackColor = System.Drawing.Color.White;
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.Location = new System.Drawing.Point(155, 399);
+            this.btnClear.Location = new System.Drawing.Point(159, 306);
             this.btnClear.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(369, 44);
@@ -107,7 +114,7 @@ namespace BCD_Restaurant_Project.Forms
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.lblUsername);
             this.Controls.Add(this.dgvOrder);
-            this.Controls.Add(this.btnLogin);
+            this.Controls.Add(this.btnCheckout);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmOrder";
             this.Text = "Order";
@@ -120,7 +127,7 @@ namespace BCD_Restaurant_Project.Forms
 
         #endregion
         private System.Windows.Forms.Label lblUsername;
-        private System.Windows.Forms.Button btnLogin;
+        private System.Windows.Forms.Button btnCheckout;
         private System.Windows.Forms.DataGridView dgvOrder;
         private System.Windows.Forms.Button btnRemove;
         private System.Windows.Forms.Button btnClear;
