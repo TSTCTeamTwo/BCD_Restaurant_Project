@@ -40,7 +40,7 @@ namespace BCD_Restaurant_Project.Forms
 
         private void frmLogin_FormClosing(object sender, FormClosingEventArgs e)
         {
-            ProgOps.CloseDatabase();
+            ProgOps.closeDatabase();
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -69,7 +69,7 @@ namespace BCD_Restaurant_Project.Forms
 
                         employee = ProgOps.verifyEmployeeStatus(ProgOps.AccountID);//storing the type of account
 
-                        ProgOps.CloseDatabase();
+                        ProgOps.closeDatabase();
 
                         if (employee == 2)//account is an admin
                         {

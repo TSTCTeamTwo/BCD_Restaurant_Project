@@ -30,7 +30,7 @@ namespace BCD_Restaurant_Project.Forms
 
             if (emailOK)
             {
-                ProgOps.SignUp(tbxFirstname.Text, tbxLastName.Text, tbxUsername.Text, tbxEmail.Text, tbxPassword.Text);
+                ProgOps.insertNewAccount(tbxFirstname.Text, tbxLastName.Text, tbxUsername.Text, tbxEmail.Text, tbxPassword.Text);
                 MessageBox.Show("Sign up was successful.", "SignUp", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Close();
             }
@@ -45,7 +45,7 @@ namespace BCD_Restaurant_Project.Forms
 
         private void frmSignUp_FormClosing(object sender, FormClosingEventArgs e)
         {
-            ProgOps.CloseDatabase();
+            ProgOps.closeDatabase();
         }
     }
 }
