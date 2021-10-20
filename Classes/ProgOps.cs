@@ -3,7 +3,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Text;
 using System.Windows.Forms;
-
+using System.Collections.Generic;
 namespace BCD_Restaurant_Project.Classes
 {
     static class ProgOps
@@ -478,12 +478,19 @@ namespace BCD_Restaurant_Project.Classes
         {
             try
             {
-                string query = "INSERT INTO Orders(AccountID, PaymentID, OrderDate, OrderQty, TotalDue, Tip) VALUES(" + AccountID + ", 2," + DateTime.Now.ToString() + ", 0, 0, 0";
+                
+                string query = "INSERT INTO group2fa212330.Orders(AccountID, PaymentID, OrderDate) VALUES(" + AccountID + ", 8,'" + DateTime.Now.ToString() + "' )";
                 _sqlOrdersCommand = new SqlCommand(query, _cntDBConnection);
                 _sqlOrdersCommand.ExecuteNonQuery();
 
                 //for each item id in cart, add that item with the order id to the order items table with the quantity in cart
-                
+                Cart.OrderID = getNewOrderID();
+                foreach(KeyValuePair<int, MenuItem> items in Cart.myCart)
+                {
+                    query = "INSERT INTO group2fa212330.OrderItems VALUES(" + getNewOrderID() + ", " + items.Key + ", " + items.Value.Quantity + ")";
+                    _sqlOrdersCommand = new SqlCommand(query, _cntDBConnection);
+                    _sqlOrdersCommand.ExecuteNonQuery();
+                }
             }
             catch (SqlException ex)
             {
