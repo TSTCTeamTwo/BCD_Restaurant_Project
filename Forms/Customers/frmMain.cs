@@ -62,6 +62,7 @@ namespace BCD_Restaurant_Project.Forms.Customers
             {
                 this.Hide();
                 new frmLogin().Show();
+                ProgOps.closeDatabase();
             }
             
             

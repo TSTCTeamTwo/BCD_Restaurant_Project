@@ -25,7 +25,7 @@ namespace BCD_Restaurant_Project.Forms
 
         private void frmLogin_Load(object sender, EventArgs e)
         {
-            ProgOps.openDatabase();
+            
             isShowing = false;
             tbxUsername.Focus();
 
@@ -59,17 +59,17 @@ namespace BCD_Restaurant_Project.Forms
             {
                 try
                 {
+                    ProgOps.openDatabase();
                     ProgOps.AccountID = ProgOps.verifyAccountExistence(tbxUsername.Text, tbxPassword.Text);
                     if (ProgOps.AccountID != -1)
                     {
-                        //saving accounts first name and last name to use it later in the application and one time password to send to user if needed
+                        //storing accounts first name and last name to use it later in the application
                         ProgOps.AccountFirstName = ProgOps.DTAccounts.Rows[0]["FirstName"].ToString();
                         ProgOps.AccountLastName = ProgOps.DTAccounts.Rows[0]["LastName"].ToString();
                         ProgOps.AccountID = (int)ProgOps.DTAccounts.Rows[0]["AccountID"];
 
                         employee = ProgOps.verifyEmployeeStatus(ProgOps.AccountID);//storing the type of account
 
-                        ProgOps.closeDatabase();
 
                         if (employee == 2)//account is an admin
                         {

@@ -29,7 +29,6 @@ namespace BCD_Restaurant_Project.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            this.pnlLogin = new System.Windows.Forms.Panel();
             this.rdoPaymentOptionCash = new System.Windows.Forms.RadioButton();
             this.rdoPaymentOptionCheck = new System.Windows.Forms.RadioButton();
             this.rdoPaymentOptionCard = new System.Windows.Forms.RadioButton();
@@ -39,57 +38,35 @@ namespace BCD_Restaurant_Project.Forms
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.tbxUsername = new System.Windows.Forms.TextBox();
+            this.tbxName = new System.Windows.Forms.TextBox();
             this.lblPassword = new System.Windows.Forms.Label();
             this.lblUsername = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnLogin = new System.Windows.Forms.Button();
-            this.pnlLogin.SuspendLayout();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnPay = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // pnlLogin
-            // 
-            this.pnlLogin.BackColor = System.Drawing.Color.BlanchedAlmond;
-            this.pnlLogin.Controls.Add(this.rdoPaymentOptionCash);
-            this.pnlLogin.Controls.Add(this.rdoPaymentOptionCheck);
-            this.pnlLogin.Controls.Add(this.rdoPaymentOptionCard);
-            this.pnlLogin.Controls.Add(this.mskExpirationDate);
-            this.pnlLogin.Controls.Add(this.mskSecurityCode);
-            this.pnlLogin.Controls.Add(this.mskPaymentNumber);
-            this.pnlLogin.Controls.Add(this.label4);
-            this.pnlLogin.Controls.Add(this.label5);
-            this.pnlLogin.Controls.Add(this.label1);
-            this.pnlLogin.Controls.Add(this.tbxUsername);
-            this.pnlLogin.Controls.Add(this.lblPassword);
-            this.pnlLogin.Controls.Add(this.lblUsername);
-            this.pnlLogin.Controls.Add(this.label2);
-            this.pnlLogin.Controls.Add(this.btnLogin);
-            this.pnlLogin.Location = new System.Drawing.Point(44, 39);
-            this.pnlLogin.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.pnlLogin.Name = "pnlLogin";
-            this.pnlLogin.Size = new System.Drawing.Size(462, 390);
-            this.pnlLogin.TabIndex = 6;
             // 
             // rdoPaymentOptionCash
             // 
             this.rdoPaymentOptionCash.AutoSize = true;
-            this.rdoPaymentOptionCash.Location = new System.Drawing.Point(304, 87);
+            this.rdoPaymentOptionCash.Location = new System.Drawing.Point(259, 69);
             this.rdoPaymentOptionCash.Margin = new System.Windows.Forms.Padding(2);
             this.rdoPaymentOptionCash.Name = "rdoPaymentOptionCash";
             this.rdoPaymentOptionCash.Size = new System.Drawing.Size(49, 17);
-            this.rdoPaymentOptionCash.TabIndex = 28;
+            this.rdoPaymentOptionCash.TabIndex = 42;
             this.rdoPaymentOptionCash.TabStop = true;
             this.rdoPaymentOptionCash.Text = "Cash";
             this.rdoPaymentOptionCash.UseVisualStyleBackColor = true;
+            this.rdoPaymentOptionCash.CheckedChanged += new System.EventHandler(this.rdoPaymentOptionCash_CheckedChanged);
             // 
             // rdoPaymentOptionCheck
             // 
             this.rdoPaymentOptionCheck.AutoSize = true;
-            this.rdoPaymentOptionCheck.Location = new System.Drawing.Point(248, 87);
+            this.rdoPaymentOptionCheck.Location = new System.Drawing.Point(203, 69);
             this.rdoPaymentOptionCheck.Margin = new System.Windows.Forms.Padding(2);
             this.rdoPaymentOptionCheck.Name = "rdoPaymentOptionCheck";
             this.rdoPaymentOptionCheck.Size = new System.Drawing.Size(56, 17);
-            this.rdoPaymentOptionCheck.TabIndex = 27;
+            this.rdoPaymentOptionCheck.TabIndex = 41;
             this.rdoPaymentOptionCheck.TabStop = true;
             this.rdoPaymentOptionCheck.Text = "Check";
             this.rdoPaymentOptionCheck.UseVisualStyleBackColor = true;
@@ -97,11 +74,11 @@ namespace BCD_Restaurant_Project.Forms
             // rdoPaymentOptionCard
             // 
             this.rdoPaymentOptionCard.AutoSize = true;
-            this.rdoPaymentOptionCard.Location = new System.Drawing.Point(200, 87);
+            this.rdoPaymentOptionCard.Location = new System.Drawing.Point(155, 69);
             this.rdoPaymentOptionCard.Margin = new System.Windows.Forms.Padding(2);
             this.rdoPaymentOptionCard.Name = "rdoPaymentOptionCard";
             this.rdoPaymentOptionCard.Size = new System.Drawing.Size(47, 17);
-            this.rdoPaymentOptionCard.TabIndex = 26;
+            this.rdoPaymentOptionCard.TabIndex = 40;
             this.rdoPaymentOptionCard.TabStop = true;
             this.rdoPaymentOptionCard.Text = "Card";
             this.rdoPaymentOptionCard.UseVisualStyleBackColor = true;
@@ -109,90 +86,90 @@ namespace BCD_Restaurant_Project.Forms
             // mskExpirationDate
             // 
             this.mskExpirationDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.mskExpirationDate.Location = new System.Drawing.Point(200, 176);
+            this.mskExpirationDate.Location = new System.Drawing.Point(155, 158);
             this.mskExpirationDate.Margin = new System.Windows.Forms.Padding(2);
             this.mskExpirationDate.Mask = "00/00";
             this.mskExpirationDate.Name = "mskExpirationDate";
             this.mskExpirationDate.Size = new System.Drawing.Size(45, 26);
-            this.mskExpirationDate.TabIndex = 25;
+            this.mskExpirationDate.TabIndex = 39;
             // 
             // mskSecurityCode
             // 
             this.mskSecurityCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.mskSecurityCode.Location = new System.Drawing.Point(200, 145);
+            this.mskSecurityCode.Location = new System.Drawing.Point(155, 127);
             this.mskSecurityCode.Margin = new System.Windows.Forms.Padding(2);
             this.mskSecurityCode.Mask = "000";
             this.mskSecurityCode.Name = "mskSecurityCode";
             this.mskSecurityCode.Size = new System.Drawing.Size(36, 26);
-            this.mskSecurityCode.TabIndex = 24;
+            this.mskSecurityCode.TabIndex = 38;
             // 
             // mskPaymentNumber
             // 
             this.mskPaymentNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.mskPaymentNumber.Location = new System.Drawing.Point(200, 111);
+            this.mskPaymentNumber.Location = new System.Drawing.Point(155, 93);
             this.mskPaymentNumber.Margin = new System.Windows.Forms.Padding(2);
             this.mskPaymentNumber.Mask = "0000 0000 0000 0000";
             this.mskPaymentNumber.Name = "mskPaymentNumber";
             this.mskPaymentNumber.Size = new System.Drawing.Size(152, 26);
-            this.mskPaymentNumber.TabIndex = 23;
+            this.mskPaymentNumber.TabIndex = 37;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(65, 184);
+            this.label4.Location = new System.Drawing.Point(20, 166);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(79, 13);
-            this.label4.TabIndex = 20;
+            this.label4.TabIndex = 36;
             this.label4.Text = "Expiration Date";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(65, 148);
+            this.label5.Location = new System.Drawing.Point(20, 130);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(73, 13);
-            this.label5.TabIndex = 19;
+            this.label5.TabIndex = 35;
             this.label5.Text = "Security Code";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(65, 117);
+            this.label1.Location = new System.Drawing.Point(20, 99);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(44, 13);
-            this.label1.TabIndex = 17;
+            this.label1.TabIndex = 34;
             this.label1.Text = "Number";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // tbxUsername
+            // tbxName
             // 
-            this.tbxUsername.BackColor = System.Drawing.Color.White;
-            this.tbxUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxUsername.Location = new System.Drawing.Point(200, 50);
-            this.tbxUsername.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tbxUsername.Name = "tbxUsername";
-            this.tbxUsername.Size = new System.Drawing.Size(199, 26);
-            this.tbxUsername.TabIndex = 15;
+            this.tbxName.BackColor = System.Drawing.Color.White;
+            this.tbxName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxName.Location = new System.Drawing.Point(155, 32);
+            this.tbxName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tbxName.Name = "tbxName";
+            this.tbxName.Size = new System.Drawing.Size(199, 26);
+            this.tbxName.TabIndex = 33;
             // 
             // lblPassword
             // 
             this.lblPassword.AutoSize = true;
-            this.lblPassword.Location = new System.Drawing.Point(65, 89);
+            this.lblPassword.Location = new System.Drawing.Point(20, 71);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(31, 13);
-            this.lblPassword.TabIndex = 14;
+            this.lblPassword.TabIndex = 32;
             this.lblPassword.Text = "Type";
             this.lblPassword.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblUsername
             // 
             this.lblUsername.AutoSize = true;
-            this.lblUsername.Location = new System.Drawing.Point(65, 55);
+            this.lblUsername.Location = new System.Drawing.Point(20, 37);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(77, 13);
-            this.lblUsername.TabIndex = 13;
+            this.lblUsername.TabIndex = 31;
             this.lblUsername.Text = "Name On Card";
             this.lblUsername.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -200,58 +177,85 @@ namespace BCD_Restaurant_Project.Forms
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(185, 26);
+            this.label2.Location = new System.Drawing.Point(140, 8);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(95, 18);
-            this.label2.TabIndex = 6;
+            this.label2.TabIndex = 30;
             this.label2.Text = "Add Payment";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btnLogin
+            // btnAdd
             // 
-            this.btnLogin.BackColor = System.Drawing.Color.White;
-            this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogin.Location = new System.Drawing.Point(132, 219);
-            this.btnLogin.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(199, 44);
-            this.btnLogin.TabIndex = 0;
-            this.btnLogin.Text = "Add Payment";
-            this.btnLogin.UseVisualStyleBackColor = false;
+            this.btnAdd.BackColor = System.Drawing.Color.White;
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.Location = new System.Drawing.Point(87, 201);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(199, 44);
+            this.btnAdd.TabIndex = 29;
+            this.btnAdd.Text = "Add Payment";
+            this.btnAdd.UseVisualStyleBackColor = false;
+            // 
+            // btnPay
+            // 
+            this.btnPay.BackColor = System.Drawing.Color.White;
+            this.btnPay.Enabled = false;
+            this.btnPay.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnPay.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPay.Location = new System.Drawing.Point(87, 253);
+            this.btnPay.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnPay.Name = "btnPay";
+            this.btnPay.Size = new System.Drawing.Size(199, 44);
+            this.btnPay.TabIndex = 43;
+            this.btnPay.Text = "Pay";
+            this.btnPay.UseVisualStyleBackColor = false;
             // 
             // frmPayment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(576, 503);
-            this.Controls.Add(this.pnlLogin);
+            this.ClientSize = new System.Drawing.Size(370, 323);
+            this.Controls.Add(this.btnPay);
+            this.Controls.Add(this.rdoPaymentOptionCash);
+            this.Controls.Add(this.rdoPaymentOptionCheck);
+            this.Controls.Add(this.rdoPaymentOptionCard);
+            this.Controls.Add(this.mskExpirationDate);
+            this.Controls.Add(this.mskSecurityCode);
+            this.Controls.Add(this.mskPaymentNumber);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.tbxName);
+            this.Controls.Add(this.lblPassword);
+            this.Controls.Add(this.lblUsername);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.btnAdd);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmPayment";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmPayment";
-            this.pnlLogin.ResumeLayout(false);
-            this.pnlLogin.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel pnlLogin;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnLogin;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox tbxUsername;
-        private System.Windows.Forms.Label lblPassword;
-        private System.Windows.Forms.Label lblUsername;
-        private System.Windows.Forms.MaskedTextBox mskPaymentNumber;
-        private System.Windows.Forms.MaskedTextBox mskExpirationDate;
-        private System.Windows.Forms.MaskedTextBox mskSecurityCode;
         private System.Windows.Forms.RadioButton rdoPaymentOptionCash;
         private System.Windows.Forms.RadioButton rdoPaymentOptionCheck;
         private System.Windows.Forms.RadioButton rdoPaymentOptionCard;
+        private System.Windows.Forms.MaskedTextBox mskExpirationDate;
+        private System.Windows.Forms.MaskedTextBox mskSecurityCode;
+        private System.Windows.Forms.MaskedTextBox mskPaymentNumber;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox tbxName;
+        private System.Windows.Forms.Label lblPassword;
+        private System.Windows.Forms.Label lblUsername;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button btnPay;
     }
 }

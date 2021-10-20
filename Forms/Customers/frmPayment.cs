@@ -16,5 +16,14 @@ namespace BCD_Restaurant_Project.Forms
         {
             InitializeComponent();
         }
+
+        private void rdoPaymentOptionCash_CheckedChanged(object sender, EventArgs e)
+        {
+            tbxName.Enabled = false;
+            mskExpirationDate.Enabled = false;
+            mskPaymentNumber.Enabled = false;
+            mskSecurityCode.Enabled = false;
+            btnPay.Enabled = true;
+        }
     }
 }
