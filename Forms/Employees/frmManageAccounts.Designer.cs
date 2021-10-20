@@ -340,8 +340,9 @@ namespace BCD_Restaurant_Project.Forms.Employees
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(99, 28);
             this.btnNext.TabIndex = 33;
-            this.btnNext.Text = "&Delete Account";
+            this.btnNext.Text = "&Next";
             this.btnNext.UseVisualStyleBackColor = false;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
             // btnSave
             // 
@@ -368,6 +369,7 @@ namespace BCD_Restaurant_Project.Forms.Employees
             this.btnPrevious.TabIndex = 31;
             this.btnPrevious.Text = "&Previous";
             this.btnPrevious.UseVisualStyleBackColor = false;
+            this.btnPrevious.Click += new System.EventHandler(this.btnPrevious_Click);
             // 
             // frmManageAccounts
             // 

@@ -26,7 +26,7 @@ namespace BCD_Restaurant_Project.Forms
         private void btnLogin_Click(object sender, EventArgs e)
         {
 
-            bool emailOK = ProgOps.IsValidEmail(tbxEmail.Text);
+            bool emailOK = ProgOps.isValidEmail(tbxEmail.Text);
 
             if (emailOK)
             {

@@ -21,7 +21,7 @@ namespace BCD_Restaurant_Project.Forms.Employees
 
         private void frmManageMenu_Load(object sender, EventArgs e)
         {
-            ProgOps.ModifyMenu(tbxName, tbxItemID, tbxDescription, tbxPrice, tbxImagePath, cbxCategories, this, out menuManager);
+            ProgOps.modifyMenu(tbxName, tbxItemID, tbxDescription, tbxPrice, tbxImagePath, cbxCategories, this, out menuManager);
             
         }
 
