@@ -81,7 +81,8 @@ namespace BCD_Restaurant_Project.Forms
         private void btnCheckout_Click(object sender, EventArgs e)
         {
             this.Hide();
-            new frmPayment().Show();
+            //new frmPayment().Show();
+            ProgOps.finalizeOrder();
             
         }
     }
