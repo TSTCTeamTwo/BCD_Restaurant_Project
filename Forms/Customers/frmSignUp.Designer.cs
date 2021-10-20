@@ -42,8 +42,8 @@ namespace BCD_Restaurant_Project.Forms
             this.lblLastName = new System.Windows.Forms.Label();
             this.lblFirstname = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.lnkLblReturn = new System.Windows.Forms.LinkLabel();
             this.btnLogin = new System.Windows.Forms.Button();
+            this.lnkLblReturn = new System.Windows.Forms.LinkLabel();
             this.pnlLogin.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -195,18 +195,6 @@ namespace BCD_Restaurant_Project.Forms
             this.label2.Text = "Sign Up";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lnkLblReturn
-            // 
-            this.lnkLblReturn.AutoSize = true;
-            this.lnkLblReturn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lnkLblReturn.Location = new System.Drawing.Point(193, 290);
-            this.lnkLblReturn.Name = "lnkLblReturn";
-            this.lnkLblReturn.Size = new System.Drawing.Size(52, 18);
-            this.lnkLblReturn.TabIndex = 5;
-            this.lnkLblReturn.TabStop = true;
-            this.lnkLblReturn.Text = "Return";
-            this.lnkLblReturn.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkReturn_LinkClicked);
-            // 
             // btnLogin
             // 
             this.btnLogin.BackColor = System.Drawing.Color.White;
@@ -220,6 +208,18 @@ namespace BCD_Restaurant_Project.Forms
             this.btnLogin.Text = "SIGN UP";
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            // 
+            // lnkLblReturn
+            // 
+            this.lnkLblReturn.AutoSize = true;
+            this.lnkLblReturn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lnkLblReturn.Location = new System.Drawing.Point(193, 290);
+            this.lnkLblReturn.Name = "lnkLblReturn";
+            this.lnkLblReturn.Size = new System.Drawing.Size(52, 18);
+            this.lnkLblReturn.TabIndex = 5;
+            this.lnkLblReturn.TabStop = true;
+            this.lnkLblReturn.Text = "Return";
+            this.lnkLblReturn.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkReturn_LinkClicked);
             // 
             // frmSignUp
             // 
@@ -243,7 +243,6 @@ namespace BCD_Restaurant_Project.Forms
 
         private System.Windows.Forms.Panel pnlLogin;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.LinkLabel lnkLblReturn;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.TextBox tbxLastName;
         private System.Windows.Forms.TextBox tbxFirstname;
@@ -256,5 +255,6 @@ namespace BCD_Restaurant_Project.Forms
         private System.Windows.Forms.TextBox tbxUsername;
         private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.Label lblUsername;
+        private System.Windows.Forms.LinkLabel lnkLblReturn;
     }
 }

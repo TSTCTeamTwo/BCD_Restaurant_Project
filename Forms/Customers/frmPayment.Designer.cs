@@ -43,7 +43,6 @@ namespace BCD_Restaurant_Project.Forms
             this.lblPassword = new System.Windows.Forms.Label();
             this.lblUsername = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.btnLogin = new System.Windows.Forms.Button();
             this.pnlLogin.SuspendLayout();
             this.SuspendLayout();
@@ -64,7 +63,6 @@ namespace BCD_Restaurant_Project.Forms
             this.pnlLogin.Controls.Add(this.lblPassword);
             this.pnlLogin.Controls.Add(this.lblUsername);
             this.pnlLogin.Controls.Add(this.label2);
-            this.pnlLogin.Controls.Add(this.linkLabel1);
             this.pnlLogin.Controls.Add(this.btnLogin);
             this.pnlLogin.Location = new System.Drawing.Point(44, 39);
             this.pnlLogin.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -76,7 +74,7 @@ namespace BCD_Restaurant_Project.Forms
             // 
             this.rdoPaymentOptionCash.AutoSize = true;
             this.rdoPaymentOptionCash.Location = new System.Drawing.Point(304, 87);
-            this.rdoPaymentOptionCash.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rdoPaymentOptionCash.Margin = new System.Windows.Forms.Padding(2);
             this.rdoPaymentOptionCash.Name = "rdoPaymentOptionCash";
             this.rdoPaymentOptionCash.Size = new System.Drawing.Size(49, 17);
             this.rdoPaymentOptionCash.TabIndex = 28;
@@ -88,7 +86,7 @@ namespace BCD_Restaurant_Project.Forms
             // 
             this.rdoPaymentOptionCheck.AutoSize = true;
             this.rdoPaymentOptionCheck.Location = new System.Drawing.Point(248, 87);
-            this.rdoPaymentOptionCheck.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rdoPaymentOptionCheck.Margin = new System.Windows.Forms.Padding(2);
             this.rdoPaymentOptionCheck.Name = "rdoPaymentOptionCheck";
             this.rdoPaymentOptionCheck.Size = new System.Drawing.Size(56, 17);
             this.rdoPaymentOptionCheck.TabIndex = 27;
@@ -100,7 +98,7 @@ namespace BCD_Restaurant_Project.Forms
             // 
             this.rdoPaymentOptionCard.AutoSize = true;
             this.rdoPaymentOptionCard.Location = new System.Drawing.Point(200, 87);
-            this.rdoPaymentOptionCard.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rdoPaymentOptionCard.Margin = new System.Windows.Forms.Padding(2);
             this.rdoPaymentOptionCard.Name = "rdoPaymentOptionCard";
             this.rdoPaymentOptionCard.Size = new System.Drawing.Size(47, 17);
             this.rdoPaymentOptionCard.TabIndex = 26;
@@ -112,7 +110,7 @@ namespace BCD_Restaurant_Project.Forms
             // 
             this.mskExpirationDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.mskExpirationDate.Location = new System.Drawing.Point(200, 176);
-            this.mskExpirationDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.mskExpirationDate.Margin = new System.Windows.Forms.Padding(2);
             this.mskExpirationDate.Mask = "00/00";
             this.mskExpirationDate.Name = "mskExpirationDate";
             this.mskExpirationDate.Size = new System.Drawing.Size(45, 26);
@@ -122,7 +120,7 @@ namespace BCD_Restaurant_Project.Forms
             // 
             this.mskSecurityCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.mskSecurityCode.Location = new System.Drawing.Point(200, 145);
-            this.mskSecurityCode.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.mskSecurityCode.Margin = new System.Windows.Forms.Padding(2);
             this.mskSecurityCode.Mask = "000";
             this.mskSecurityCode.Name = "mskSecurityCode";
             this.mskSecurityCode.Size = new System.Drawing.Size(36, 26);
@@ -132,7 +130,7 @@ namespace BCD_Restaurant_Project.Forms
             // 
             this.mskPaymentNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.mskPaymentNumber.Location = new System.Drawing.Point(200, 111);
-            this.mskPaymentNumber.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.mskPaymentNumber.Margin = new System.Windows.Forms.Padding(2);
             this.mskPaymentNumber.Mask = "0000 0000 0000 0000";
             this.mskPaymentNumber.Name = "mskPaymentNumber";
             this.mskPaymentNumber.Size = new System.Drawing.Size(152, 26);
@@ -209,17 +207,6 @@ namespace BCD_Restaurant_Project.Forms
             this.label2.Text = "Add Payment";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // linkLabel1
-            // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel1.Location = new System.Drawing.Point(176, 294);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(52, 18);
-            this.linkLabel1.TabIndex = 5;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Return";
-            // 
             // btnLogin
             // 
             this.btnLogin.BackColor = System.Drawing.Color.White;
@@ -240,7 +227,7 @@ namespace BCD_Restaurant_Project.Forms
             this.ClientSize = new System.Drawing.Size(576, 503);
             this.Controls.Add(this.pnlLogin);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmPayment";
             this.Text = "frmPayment";
             this.pnlLogin.ResumeLayout(false);
@@ -253,7 +240,6 @@ namespace BCD_Restaurant_Project.Forms
 
         private System.Windows.Forms.Panel pnlLogin;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;

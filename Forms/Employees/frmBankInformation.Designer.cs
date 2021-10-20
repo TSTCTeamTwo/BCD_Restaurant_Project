@@ -35,7 +35,6 @@ namespace BCD_Restaurant_Project.Forms.Employees
             this.tbxRouting = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.lblUsername = new System.Windows.Forms.Label();
-            this.lnkLblReturn = new System.Windows.Forms.LinkLabel();
             this.btnChangeNumbers = new System.Windows.Forms.Button();
             this.tbxAccountID = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -110,17 +109,6 @@ namespace BCD_Restaurant_Project.Forms.Employees
             this.lblUsername.TabIndex = 7;
             this.lblUsername.Text = "Account ID";
             this.lblUsername.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lnkLblReturn
-            // 
-            this.lnkLblReturn.AutoSize = true;
-            this.lnkLblReturn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lnkLblReturn.Location = new System.Drawing.Point(353, 220);
-            this.lnkLblReturn.Name = "lnkLblReturn";
-            this.lnkLblReturn.Size = new System.Drawing.Size(52, 18);
-            this.lnkLblReturn.TabIndex = 5;
-            this.lnkLblReturn.TabStop = true;
-            this.lnkLblReturn.Text = "Return";
             // 
             // btnChangeNumbers
             // 
@@ -204,7 +192,6 @@ namespace BCD_Restaurant_Project.Forms.Employees
             this.Controls.Add(this.label3);
             this.Controls.Add(this.tbxName);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.lnkLblReturn);
             this.Controls.Add(this.tbxAccountID);
             this.Controls.Add(this.btnChangeNumbers);
             this.Name = "frmBankInformation";
@@ -217,7 +204,6 @@ namespace BCD_Restaurant_Project.Forms.Employees
 
         #endregion
         private System.Windows.Forms.Label lblUsername;
-        private System.Windows.Forms.LinkLabel lnkLblReturn;
         private System.Windows.Forms.Button btnChangeNumbers;
         private System.Windows.Forms.TextBox tbxAccountID;
         private System.Windows.Forms.Label label1;
