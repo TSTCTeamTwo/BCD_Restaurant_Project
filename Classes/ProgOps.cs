@@ -38,6 +38,8 @@ namespace BCD_Restaurant_Project.Classes
         private static SqlDataAdapter _daOrderItems = new SqlDataAdapter();
         public static DataTable DTOrderItems { get; } = new DataTable();
 
+        public static DataTable DTPayment { get; private set; } = new DataTable();
+
         private static StringBuilder ErrorMessages { get; } = new StringBuilder();
 
         public static string AccountFirstName { get; set; } = string.Empty;
@@ -479,15 +481,15 @@ namespace BCD_Restaurant_Project.Classes
             try
             {
                 
-                string query = "INSERT INTO group2fa212330.Orders(AccountID, PaymentID, OrderDate) VALUES(" + AccountID + ", 8,'" + DateTime.Now.ToString() + "' )";
+                string query = "INSERT INTO group2fa212330.Orders(AccountID, PaymentID, OrderDate) VALUES(" + AccountID + ","+ DTPayment.Rows[0]["PaymentID"]+ ",'" + DateTime.Now.ToString() + "' )";
                 _sqlOrdersCommand = new SqlCommand(query, _cntDBConnection);
                 _sqlOrdersCommand.ExecuteNonQuery();
 
                 //for each item id in cart, add that item with the order id to the order items table with the quantity in cart
-                Cart.OrderID = getNewOrderID();
-                foreach(KeyValuePair<int, MenuItem> items in Cart.myCart)
+                // Cart.OrderID = getNewOrderID();
+                foreach (KeyValuePair<int, MenuItem> items in Cart.myCart)
                 {
-                    query = "INSERT INTO group2fa212330.OrderItems VALUES(" + getNewOrderID() + ", " + items.Key + ", " + items.Value.Quantity + ")";
+                    query = "INSERT INTO group2fa212330.OrderItems VALUES("+getNewOrderID()+", "  + items.Key + ", " + items.Value.Quantity + ")";
                     _sqlOrdersCommand = new SqlCommand(query, _cntDBConnection);
                     _sqlOrdersCommand.ExecuteNonQuery();
                 }
@@ -506,7 +508,7 @@ namespace BCD_Restaurant_Project.Classes
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error:\n\t" + ex.Message, "ProgOps Error", MessageBoxButtons.OK,
+                MessageBox.Show("Error:\n\t" + ex.Message, "Finalize Order Error", MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
             }
         }
@@ -514,7 +516,7 @@ namespace BCD_Restaurant_Project.Classes
         public static int getNewOrderID()
         {
             int orderID = -1;
-            string query = "SELECT MAX(OrderID) FROM group2fa212330.Orders";
+            string query = "SELECT MAX(OrderID) FROM group2fa212330.Orders AS OrderID";
             _sqlOrdersCommand = new SqlCommand(query, _cntDBConnection);
             _daOrders.SelectCommand = _sqlOrdersCommand;
             DTOrders = new DataTable();
@@ -524,19 +526,20 @@ namespace BCD_Restaurant_Project.Classes
             {
                 orderID = (int)DTOrders.Rows[0]["OrderID"];
             }
-
+            
             _sqlOrdersCommand.Dispose();
             _daOrders.Dispose();
-
             return orderID;
+           
         }
 
         public static void addPayment(string cardNumber, string cardType, string security, MaskedTextBox expiration)
         {
             try
             {
+                
                 string query = "INSERT INT0 Payment(AccountID, Type, CardNumber, CardName, SecurityCode, ExpirationDate) " +
-                    "VALUES("+AccountID.ToString()+", "+cardType+", "+cardNumber+", "+security+", "+expiration.Text.ToString()+" )";
+                    "VALUES("+AccountID+", '"+cardType+"', '"+cardNumber+"', '"+security+"', '"+expiration.Text.ToString()+"' )";
                 SqlCommand _sqlPaymentCommand = new SqlCommand(query, _cntDBConnection);
                 _sqlPaymentCommand.ExecuteNonQuery();
             }
@@ -554,17 +557,50 @@ namespace BCD_Restaurant_Project.Classes
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error:\n\t" + ex.Message, "ProgOps Error", MessageBoxButtons.OK,
+                MessageBox.Show("Error:\n\t" + ex.Message, "Payment Error", MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
             }
         }
 
-        public static void checkPayment()
+        public static bool checkIfPaymentExists()
         {
+            try
+            {
+                string query = "SELECT * FROM group2fa212330.Payment WHERE AccountID = " + AccountID;
+                SqlCommand _sqlPaymentCommand = new SqlCommand(query, _cntDBConnection);
+                SqlDataAdapter _daPayment = new SqlDataAdapter(selectCommand: _sqlPaymentCommand);
+                _daPayment.Fill(DTPayment);
+
+                //if a payment exists return true else return false
+                if (DTPayment.Rows.Count != 0)
+                {
+                    return true;
+                }
+                else
+                    return false;
+                
+            }
+            catch(SqlException ex)
+            {
+                for (int i = 0; i < ex.Errors.Count; i++)
+                {
+                    ErrorMessages.Append("Index#" + i + "\n" +
+                                         "Message: " + ex.Errors[i].Message + "\n" +
+                                         "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
+                                         "Source: " + ex.Errors[i].Source + "\n" +
+                                         "Procedure: " + ex.Errors[i].Procedure + "\n");
+                }
+                MessageBox.Show(ErrorMessages.ToString(), "Error Close Database", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error:\n\t" + ex.Message, "ProgOps Error", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+            return false;
+        }
+
             
         }
 
-
-
-    }
 }

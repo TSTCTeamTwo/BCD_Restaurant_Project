@@ -70,6 +70,7 @@ namespace BCD_Restaurant_Project.Forms
             this.rdoPaymentOptionCheck.TabStop = true;
             this.rdoPaymentOptionCheck.Text = "Check";
             this.rdoPaymentOptionCheck.UseVisualStyleBackColor = true;
+            this.rdoPaymentOptionCheck.CheckedChanged += new System.EventHandler(this.rdoPaymentOptionCheck_CheckedChanged);
             // 
             // rdoPaymentOptionCard
             // 
@@ -82,6 +83,7 @@ namespace BCD_Restaurant_Project.Forms
             this.rdoPaymentOptionCard.TabStop = true;
             this.rdoPaymentOptionCard.Text = "Card";
             this.rdoPaymentOptionCard.UseVisualStyleBackColor = true;
+            this.rdoPaymentOptionCard.CheckedChanged += new System.EventHandler(this.rdoPaymentOptionCard_CheckedChanged);
             // 
             // mskExpirationDate
             // 
@@ -92,6 +94,7 @@ namespace BCD_Restaurant_Project.Forms
             this.mskExpirationDate.Name = "mskExpirationDate";
             this.mskExpirationDate.Size = new System.Drawing.Size(45, 26);
             this.mskExpirationDate.TabIndex = 39;
+            this.mskExpirationDate.Click += new System.EventHandler(this.mskExpirationDate_Click);
             // 
             // mskSecurityCode
             // 
@@ -102,6 +105,7 @@ namespace BCD_Restaurant_Project.Forms
             this.mskSecurityCode.Name = "mskSecurityCode";
             this.mskSecurityCode.Size = new System.Drawing.Size(36, 26);
             this.mskSecurityCode.TabIndex = 38;
+            this.mskSecurityCode.Click += new System.EventHandler(this.mskSecurityCode_Click);
             // 
             // mskPaymentNumber
             // 
@@ -112,6 +116,8 @@ namespace BCD_Restaurant_Project.Forms
             this.mskPaymentNumber.Name = "mskPaymentNumber";
             this.mskPaymentNumber.Size = new System.Drawing.Size(152, 26);
             this.mskPaymentNumber.TabIndex = 37;
+            this.mskPaymentNumber.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.mskPaymentNumber_MaskInputRejected);
+            this.mskPaymentNumber.Click += new System.EventHandler(this.mskPaymentNumber_Click);
             // 
             // label4
             // 
@@ -152,6 +158,7 @@ namespace BCD_Restaurant_Project.Forms
             this.tbxName.Name = "tbxName";
             this.tbxName.Size = new System.Drawing.Size(199, 26);
             this.tbxName.TabIndex = 33;
+            this.tbxName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxName_KeyPress);
             // 
             // lblPassword
             // 
@@ -196,6 +203,7 @@ namespace BCD_Restaurant_Project.Forms
             this.btnAdd.TabIndex = 29;
             this.btnAdd.Text = "Add Payment";
             this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnPay
             // 
@@ -210,6 +218,7 @@ namespace BCD_Restaurant_Project.Forms
             this.btnPay.TabIndex = 43;
             this.btnPay.Text = "Pay";
             this.btnPay.UseVisualStyleBackColor = false;
+            this.btnPay.Click += new System.EventHandler(this.btnPay_Click);
             // 
             // frmPayment
             // 
@@ -236,6 +245,7 @@ namespace BCD_Restaurant_Project.Forms
             this.Name = "frmPayment";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmPayment";
+            this.Load += new System.EventHandler(this.frmPayment_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

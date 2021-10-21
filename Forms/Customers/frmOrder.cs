@@ -80,9 +80,31 @@ namespace BCD_Restaurant_Project.Forms
 
         private void btnCheckout_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            //new frmPayment().Show();
-            ProgOps.finalizeOrder();
+            if(Cart.myCart.Count == 0)
+            {
+                MessageBox.Show("Your cart is empty!", "Cart", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            if (ProgOps.checkIfPaymentExists())
+            {
+                DialogResult result = MessageBox.Show("Would you like to use your previous paying method?", "Payment", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                if(result == DialogResult.No)
+                {
+                    this.Hide();
+                    new frmPayment().Show();
+                }
+                else if(result == DialogResult.Yes)
+                {
+                    ProgOps.finalizeOrder();
+                }
+            }
+            else
+            {
+                this.Hide();
+                new frmPayment().Show();
+            }
+           
             
         }
     }
