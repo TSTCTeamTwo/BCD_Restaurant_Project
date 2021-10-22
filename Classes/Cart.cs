@@ -10,42 +10,40 @@ namespace BCD_Restaurant_Project.Classes
 {
     class Cart
     {
-        
+
         //Dictionary for the primary key of the menuitem, and the values associated with the item
         public static Dictionary<int, MenuItem> myCart = new Dictionary<int, MenuItem>();
 
         // Dictionary for the primary key of the menuitem, and the int is the qty removed
-      
+
 
         //datagridview positions
-        public const int _MENU_ITEMID = 0;
+        public const int _MENU_ITEM_ID = 0;
         public const int _MENU_NAME = 1;
         public const int _MENU_PRICE = 3;
 
-        private static decimal SubTotal { get; set; }
-        private static decimal TaxTotal { get; set; }
-        private static decimal Total { get; set; }
+        private static decimal Tax => Total * (decimal)0.0625;
+
+        //uses a linq expression to calculate sum of a KeyValuePair -> using the values in the KeyValuePair's Value.TotalPrice property
+        private static decimal Total => myCart.Sum(price => price.Value.TotalPrice);
         public static int CustomerID { get; set; } = -1;
-        public static string CustomerFirstName { get; set; } = string.Empty;
-        public static string CustomerLastName { get; set; } = string.Empty;
+        public static string CustFN { get; set; } = string.Empty;
+        public static string CustLN { get; set; } = string.Empty;
         public static int OrderID { get; set; }
 
-       
+
         public static void addToCartFromFood(DataGridView dgvMenu)
         {
             //verify there is a current row selected
             if (dgvMenu.CurrentRow != null)
             {
-                string itemName;
-                decimal price;
-
                 //assigning the variables to respected cell positions using variables declared at the top
-                itemName = dgvMenu.CurrentRow.Cells[_MENU_NAME].Value.ToString();
+                var itemName = dgvMenu.CurrentRow.Cells[_MENU_NAME].Value.ToString();
                 //using substring to ignore the $ sign
-                price = Convert.ToDecimal(dgvMenu.CurrentRow.Cells[_MENU_PRICE].Value.ToString().Substring(1));
-                int itemID = Convert.ToInt32(dgvMenu.CurrentRow.Cells[_MENU_ITEMID].Value);
-                
-                //pass in the itemID if it is found in the cart datagrid
+                var price = Convert.ToDecimal(dgvMenu.CurrentRow.Cells[_MENU_PRICE].Value.ToString().Substring(1));
+                int itemID = Convert.ToInt32(dgvMenu.CurrentRow.Cells[_MENU_ITEM_ID].Value);
+
+                //pass in the itemID if it is found in the cart data grid
                 if (myCart.ContainsKey(itemID))
                 {
                     //add one to the quantity
@@ -55,30 +53,29 @@ namespace BCD_Restaurant_Project.Classes
                 {
                     //if it isn't found it means they haven't ordered yet so pass in 
                     myCart.Add(itemID, new MenuItem(itemName, 1, price));
-                }  
+                }
             }
 
         }
 
         public static void addToCartFromDrinks(DataGridView dgvDrinks)
         {
-            if(dgvDrinks != null)
+            if (dgvDrinks != null)
             {
-                int itemID;
-                decimal price;
-                string itemName;
-
-                itemID = Convert.ToInt32(dgvDrinks.CurrentRow.Cells[_MENU_ITEMID].Value);
-                price = Convert.ToDecimal(dgvDrinks.CurrentRow.Cells[_MENU_PRICE].Value.ToString().Substring(1));
-                itemName = dgvDrinks.CurrentRow.Cells[_MENU_NAME].Value.ToString();
-
-                if (myCart.ContainsKey(itemID))
+                if (dgvDrinks.CurrentRow != null)
                 {
-                    myCart[itemID].Quantity++;
-                }
-                else
-                {
-                    myCart.Add(itemID, new MenuItem(itemName, 1, price));
+                    var itemID = Convert.ToInt32(dgvDrinks.CurrentRow.Cells[_MENU_ITEM_ID].Value);
+                    var price = Convert.ToDecimal(dgvDrinks.CurrentRow.Cells[_MENU_PRICE].Value.ToString().Substring(1));
+                    var itemName = dgvDrinks.CurrentRow.Cells[_MENU_NAME].Value.ToString();
+
+                    if (myCart.ContainsKey(itemID))
+                    {
+                        myCart[itemID].Quantity++;
+                    }
+                    else
+                    {
+                        myCart.Add(itemID, new MenuItem(itemName, 1, price));
+                    }
                 }
             }
         }
@@ -87,44 +84,47 @@ namespace BCD_Restaurant_Project.Classes
         {
             if (dgvDesserts != null)
             {
-                int itemID;
-                decimal price;
-                string itemName;
-
-                itemID = Convert.ToInt32(dgvDesserts.CurrentRow.Cells[_MENU_ITEMID].Value);
-                price = Convert.ToDecimal(dgvDesserts.CurrentRow.Cells[_MENU_PRICE].Value.ToString().Substring(1));
-                itemName = dgvDesserts.CurrentRow.Cells[_MENU_NAME].Value.ToString();
-
-                if (myCart.ContainsKey(itemID))
+                if (dgvDesserts.CurrentRow != null)
                 {
-                    myCart[itemID].Quantity++;
-                }
-                else
-                {
-                    myCart.Add(itemID, new MenuItem(itemName, 1, price));
+                    var itemID = Convert.ToInt32(dgvDesserts.CurrentRow.Cells[_MENU_ITEM_ID].Value);
+                    var price = Convert.ToDecimal(dgvDesserts.CurrentRow.Cells[_MENU_PRICE].Value.ToString().Substring(1));
+                    var itemName = dgvDesserts.CurrentRow.Cells[_MENU_NAME].Value.ToString();
+
+                    if (myCart.ContainsKey(itemID))
+                    {
+                        myCart[itemID].Quantity++;
+                    }
+                    else
+                    {
+                        myCart.Add(itemID, new MenuItem(itemName, 1, price));
+                    }
                 }
             }
         }
 
         public static void removeFromCart(DataGridView dgvItems)
         {
-            if(dgvItems.CurrentRow != null)
+
+            if (dgvItems != null)
             {
-                int itemID = Convert.ToInt32(dgvItems.CurrentRow.Cells[_MENU_ITEMID].Value);
-
-
-                if (myCart.ContainsKey(itemID))
+                if (dgvItems.CurrentRow != null)
                 {
-                    myCart[itemID].Quantity--;
-                    if (myCart[itemID].Quantity == 0)
+                    int itemID = Convert.ToInt32(dgvItems.CurrentRow.Cells[_MENU_ITEM_ID].Value);
+
+                    if (myCart.ContainsKey(itemID))
                     {
-                        dgvItems.Rows.RemoveAt(dgvItems.CurrentRow.Index);
-                        myCart.Remove(itemID);
+                        myCart[itemID].Quantity--;
+                        if (myCart[itemID].Quantity == 0)
+                        {
+                            dgvItems.Rows.RemoveAt(dgvItems.CurrentRow.Index);
+                            myCart.Remove(itemID);
+                        }
+
                     }
 
                 }
-
             }
+
         }
 
         public static void clearCart(DataGridView dgvItems)
@@ -133,34 +133,14 @@ namespace BCD_Restaurant_Project.Classes
             myCart.Clear();
         }
 
-       
+
 
         public static void buttonCalculate(Button btnCheckout)
         {
-            decimal totalPrice = 0;       
-            foreach(KeyValuePair<int, MenuItem> price in myCart)
-            {
-                totalPrice += price.Value.TotalPrice;
-            }
-            btnCheckout.Text = "Checkout   $" + totalPrice.ToString();
+
+            btnCheckout.Text = $@"Checkout  {Total:C}";
+            //btnCheckout.Text = $@"Checkout  {myCart.Sum(price => price.Value.TotalPrice):C}";
         }
 
-        //public static void buttonCalculate(Button btnCheckout, object dgvClick)
-        //{
-        //    decimal totalPrice =0;
-        //    for(int i =0; i<myCart.Count; i++)
-        //    {
-        //        totalPrice += myCart[i].TotalPrice;
-        //    }  
-        //    if (activeButton != null)
-        //    {
-        //        activeButton.Hide();
-        //        activeButton.Dispose();
-        //    }
-        //    activeButton = btnCheckout;
-        //    btnCheckout.BringToFront();
-        //    btnCheckout.Show();
-        //    btnCheckout.Text = "Checkout   $" + totalPrice.ToString();
-        //}
     }
 }
