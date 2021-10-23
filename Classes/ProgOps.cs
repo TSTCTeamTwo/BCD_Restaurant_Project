@@ -386,7 +386,7 @@ namespace BCD_Restaurant_Project.Classes
         }
 
         public static void bindAccounts(TextBox tbxAccountID, TextBox tbxEmail, TextBox tbxUsername, TextBox tbxPassword,
-            TextBox tbxConfirmPassword, TextBox tbxLastName, TextBox tbxFirstName)
+            TextBox tbxConfirmPassword, TextBox tbxLastName, TextBox tbxFirstName, DataGridView dgvDisplay)
         {
 
             // _cntDBConnection = new SqlConnection(CONNECT_STRING);
@@ -398,6 +398,10 @@ namespace BCD_Restaurant_Project.Classes
             _daAccounts = new SqlDataAdapter(selectCommand: _sqlAccountsCommand);
             DTAccounts.Clear();
             _daAccounts.Fill(DTAccounts);
+
+            dgvDisplay.DataSource = DTAccounts;
+            dgvDisplay.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dgvDisplay.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
 
             tbxAccountID.DataBindings.Add("Text", DTAccounts, "AccountID");
             tbxEmail.DataBindings.Add("Text", DTAccounts, "Email");
@@ -411,7 +415,7 @@ namespace BCD_Restaurant_Project.Classes
         }
 
         public static void modifyMenu(TextBox tbItemName, TextBox tbItemID, TextBox tbDescription, TextBox tbPrice, TextBox tbImage, ComboBox cbCategory,
-            Form form, out CurrencyManager c)
+            Form form, out CurrencyManager c, DataGridView dgvDisplay)
         {
 
             c = null;
@@ -427,6 +431,10 @@ namespace BCD_Restaurant_Project.Classes
                 _daMenu.SelectCommand = _sqlMenuCommand;
                 DTMenu = new DataTable();
                 _daMenu.Fill(DTMenu);
+
+                dgvDisplay.DataSource = DTMenu;
+                dgvDisplay.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+                dgvDisplay.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
                 
                 tbItemName.DataBindings.Add("Text", DTMenu, "ItemName");
                 tbItemID.DataBindings.Add("Text", DTMenu, "ItemID");
@@ -448,6 +456,8 @@ namespace BCD_Restaurant_Project.Classes
 
                 //int index = cbCategory.FindString(_dtMenu.Rows[c.Position]["CategoryName"].ToString());
                 //cbCategory.SelectedIndex = index;
+
+               
                 
             }
             catch(SqlException ex)
@@ -481,7 +491,7 @@ namespace BCD_Restaurant_Project.Classes
             try
             {
                 
-                string query = "INSERT INTO group2fa212330.Orders(AccountID, PaymentID, OrderDate) VALUES(" + AccountID + ","+ DTPayment.Rows[0]["PaymentID"]+ ",'" + DateTime.Now.ToString() + "' )";
+                string query = "INSERT INTO group2fa212330.Orders(AccountID, PaymentID, OrderDate) VALUES(" + AccountID + ","+ DTPayment.Rows[0]["PaymentID"]+ ",'" + DateTime.Now.ToString() + "', )";
                 _sqlOrdersCommand = new SqlCommand(query, _cntDBConnection);
                 _sqlOrdersCommand.ExecuteNonQuery();
 
@@ -516,7 +526,7 @@ namespace BCD_Restaurant_Project.Classes
         public static int getNewOrderID()
         {
             int orderID = -1;
-            string query = "SELECT MAX(OrderID) FROM group2fa212330.Orders AS OrderID";
+            string query = "SELECT OrderID FROM group2fa212330.Orders AS OrderID";
             _sqlOrdersCommand = new SqlCommand(query, _cntDBConnection);
             _daOrders.SelectCommand = _sqlOrdersCommand;
             DTOrders = new DataTable();

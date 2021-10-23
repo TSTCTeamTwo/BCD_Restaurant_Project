@@ -27,7 +27,7 @@ namespace BCD_Restaurant_Project.Forms.Employees
         {
             ProgOps.openDatabase();
             ProgOps.bindAccounts(tbxAccountID, tbxEmail, tbxUsername, tbxPassword, tbxConfirmPassword,
-             tbxLastName, tbxFirstName);
+             tbxLastName, tbxFirstName, dgvDisplay);
 
             accountsManager = (CurrencyManager)BindingContext[ProgOps.DTAccounts];
 

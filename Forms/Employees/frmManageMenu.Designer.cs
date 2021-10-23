@@ -46,9 +46,11 @@ namespace BCD_Restaurant_Project.Forms.Employees
             this.tbxItemID = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tbxName = new System.Windows.Forms.TextBox();
-            this.tbxDescription = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.dgvDisplay = new System.Windows.Forms.DataGridView();
+            this.tbxDescription = new System.Windows.Forms.TextBox();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDisplay)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox2
@@ -71,11 +73,11 @@ namespace BCD_Restaurant_Project.Forms.Employees
             this.groupBox2.Controls.Add(this.tbxName);
             this.groupBox2.Controls.Add(this.tbxDescription);
             this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Location = new System.Drawing.Point(23, 20);
+            this.groupBox2.Location = new System.Drawing.Point(11, 20);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox2.Size = new System.Drawing.Size(377, 369);
+            this.groupBox2.Size = new System.Drawing.Size(298, 369);
             this.groupBox2.TabIndex = 21;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Manage Menu Item";
@@ -85,18 +87,19 @@ namespace BCD_Restaurant_Project.Forms.Employees
             this.tbxImagePath.BackColor = System.Drawing.Color.White;
             this.tbxImagePath.Enabled = false;
             this.tbxImagePath.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxImagePath.Location = new System.Drawing.Point(151, 179);
+            this.tbxImagePath.Location = new System.Drawing.Point(85, 177);
             this.tbxImagePath.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbxImagePath.Name = "tbxImagePath";
             this.tbxImagePath.Size = new System.Drawing.Size(199, 26);
             this.tbxImagePath.TabIndex = 31;
+            this.tbxImagePath.TextChanged += new System.EventHandler(this.tbxImagePath_TextChanged);
             // 
             // btnNext
             // 
             this.btnNext.BackColor = System.Drawing.Color.White;
             this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnNext.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNext.Location = new System.Drawing.Point(121, 278);
+            this.btnNext.Location = new System.Drawing.Point(137, 307);
             this.btnNext.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(99, 28);
@@ -107,7 +110,7 @@ namespace BCD_Restaurant_Project.Forms.Employees
             // 
             // btnLoadImage
             // 
-            this.btnLoadImage.Location = new System.Drawing.Point(151, 212);
+            this.btnLoadImage.Location = new System.Drawing.Point(85, 210);
             this.btnLoadImage.Name = "btnLoadImage";
             this.btnLoadImage.Size = new System.Drawing.Size(199, 23);
             this.btnLoadImage.TabIndex = 30;
@@ -119,7 +122,7 @@ namespace BCD_Restaurant_Project.Forms.Employees
             this.btnPrevious.BackColor = System.Drawing.Color.White;
             this.btnPrevious.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnPrevious.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPrevious.Location = new System.Drawing.Point(12, 278);
+            this.btnPrevious.Location = new System.Drawing.Point(28, 307);
             this.btnPrevious.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnPrevious.Name = "btnPrevious";
             this.btnPrevious.Size = new System.Drawing.Size(99, 28);
@@ -131,7 +134,7 @@ namespace BCD_Restaurant_Project.Forms.Employees
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(16, 179);
+            this.label3.Location = new System.Drawing.Point(16, 177);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(36, 13);
             this.label3.TabIndex = 29;
@@ -141,7 +144,7 @@ namespace BCD_Restaurant_Project.Forms.Employees
             // cbxCategories
             // 
             this.cbxCategories.FormattingEnabled = true;
-            this.cbxCategories.Location = new System.Drawing.Point(151, 151);
+            this.cbxCategories.Location = new System.Drawing.Point(85, 150);
             this.cbxCategories.Margin = new System.Windows.Forms.Padding(2);
             this.cbxCategories.Name = "cbxCategories";
             this.cbxCategories.Size = new System.Drawing.Size(199, 21);
@@ -150,7 +153,7 @@ namespace BCD_Restaurant_Project.Forms.Employees
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(16, 154);
+            this.label6.Location = new System.Drawing.Point(16, 153);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(49, 13);
             this.label6.TabIndex = 27;
@@ -161,7 +164,7 @@ namespace BCD_Restaurant_Project.Forms.Employees
             // 
             this.tbxPrice.BackColor = System.Drawing.Color.White;
             this.tbxPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxPrice.Location = new System.Drawing.Point(151, 116);
+            this.tbxPrice.Location = new System.Drawing.Point(85, 118);
             this.tbxPrice.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbxPrice.Name = "tbxPrice";
             this.tbxPrice.Size = new System.Drawing.Size(83, 26);
@@ -170,7 +173,7 @@ namespace BCD_Restaurant_Project.Forms.Employees
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(16, 122);
+            this.label2.Location = new System.Drawing.Point(16, 124);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(31, 13);
             this.label2.TabIndex = 25;
@@ -182,12 +185,12 @@ namespace BCD_Restaurant_Project.Forms.Employees
             this.btnDelete.BackColor = System.Drawing.Color.White;
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Location = new System.Drawing.Point(230, 242);
+            this.btnDelete.Location = new System.Drawing.Point(85, 275);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(99, 28);
             this.btnDelete.TabIndex = 23;
-            this.btnDelete.Text = "&Delete Account";
+            this.btnDelete.Text = "&Delete";
             this.btnDelete.UseVisualStyleBackColor = false;
             // 
             // btnAdd
@@ -195,7 +198,7 @@ namespace BCD_Restaurant_Project.Forms.Employees
             this.btnAdd.BackColor = System.Drawing.Color.White;
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Location = new System.Drawing.Point(121, 242);
+            this.btnAdd.Location = new System.Drawing.Point(137, 239);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(99, 28);
@@ -218,7 +221,7 @@ namespace BCD_Restaurant_Project.Forms.Employees
             this.btnEdit.BackColor = System.Drawing.Color.White;
             this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEdit.Location = new System.Drawing.Point(12, 242);
+            this.btnEdit.Location = new System.Drawing.Point(28, 239);
             this.btnEdit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(99, 28);
@@ -230,7 +233,7 @@ namespace BCD_Restaurant_Project.Forms.Employees
             // 
             this.tbxItemID.BackColor = System.Drawing.Color.White;
             this.tbxItemID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxItemID.Location = new System.Drawing.Point(151, 19);
+            this.tbxItemID.Location = new System.Drawing.Point(85, 19);
             this.tbxItemID.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbxItemID.Name = "tbxItemID";
             this.tbxItemID.Size = new System.Drawing.Size(69, 26);
@@ -250,21 +253,11 @@ namespace BCD_Restaurant_Project.Forms.Employees
             // 
             this.tbxName.BackColor = System.Drawing.Color.White;
             this.tbxName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxName.Location = new System.Drawing.Point(151, 51);
+            this.tbxName.Location = new System.Drawing.Point(85, 51);
             this.tbxName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbxName.Name = "tbxName";
             this.tbxName.Size = new System.Drawing.Size(199, 26);
             this.tbxName.TabIndex = 12;
-            // 
-            // tbxDescription
-            // 
-            this.tbxDescription.BackColor = System.Drawing.Color.White;
-            this.tbxDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxDescription.Location = new System.Drawing.Point(151, 84);
-            this.tbxDescription.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tbxDescription.Name = "tbxDescription";
-            this.tbxDescription.Size = new System.Drawing.Size(199, 26);
-            this.tbxDescription.TabIndex = 16;
             // 
             // label5
             // 
@@ -276,11 +269,36 @@ namespace BCD_Restaurant_Project.Forms.Employees
             this.label5.Text = "Description";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // dgvDisplay
+            // 
+            this.dgvDisplay.AllowUserToAddRows = false;
+            this.dgvDisplay.AllowUserToDeleteRows = false;
+            this.dgvDisplay.AllowUserToResizeColumns = false;
+            this.dgvDisplay.AllowUserToResizeRows = false;
+            this.dgvDisplay.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvDisplay.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDisplay.Location = new System.Drawing.Point(314, 20);
+            this.dgvDisplay.Name = "dgvDisplay";
+            this.dgvDisplay.ReadOnly = true;
+            this.dgvDisplay.Size = new System.Drawing.Size(586, 324);
+            this.dgvDisplay.TabIndex = 22;
+            // 
+            // tbxDescription
+            // 
+            this.tbxDescription.BackColor = System.Drawing.Color.White;
+            this.tbxDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxDescription.Location = new System.Drawing.Point(85, 84);
+            this.tbxDescription.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tbxDescription.Name = "tbxDescription";
+            this.tbxDescription.Size = new System.Drawing.Size(199, 26);
+            this.tbxDescription.TabIndex = 16;
+            // 
             // frmManageMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1047, 512);
+            this.Controls.Add(this.dgvDisplay);
             this.Controls.Add(this.groupBox2);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmManageMenu";
@@ -288,6 +306,7 @@ namespace BCD_Restaurant_Project.Forms.Employees
             this.Load += new System.EventHandler(this.frmManageMenu_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDisplay)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -304,7 +323,6 @@ namespace BCD_Restaurant_Project.Forms.Employees
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbxName;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox tbxDescription;
         private System.Windows.Forms.ComboBox cbxCategories;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnLoadImage;
@@ -312,5 +330,7 @@ namespace BCD_Restaurant_Project.Forms.Employees
         private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.Button btnPrevious;
         private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.DataGridView dgvDisplay;
+        private System.Windows.Forms.TextBox tbxDescription;
     }
 }
