@@ -713,36 +713,6 @@ namespace BCD_Restaurant_Project.Classes
         
         }
 
-        public static void addNewAccount(string name, string description, double price, ComboBox cbCategory)
-        {
-            try
-            {
-                string query = "INSERT INTO group2fa212330.Menu(ItemName, ItemDescription, Price, CategoryID) VALUES('" + name + "', '" + description + "', " + price + ", " + cbCategory.SelectedIndex + 1;
-                _sqlMenuCommand = new SqlCommand(query, _dbConnection);
-                _sqlMenuCommand.ExecuteNonQuery();
-            }
-            catch (SqlException ex)
-            {
-                for (int i = 0; i < ex.Errors.Count; i++)
-                {
-                    ErrorMessages.Append("Index#" + i + "\n" +
-                                         "Message: " + ex.Errors[i].Message + "\n" +
-                                         "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
-                                         "Source: " + ex.Errors[i].Source + "\n" +
-                                         "Procedure: " + ex.Errors[i].Procedure + "\n");
-                }
-
-                MessageBox.Show(ErrorMessages.ToString(), "Error Closing Database", MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error:\n\t" + ex.Message, "ProgOps Error", MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
-            }
-
-        }
-
         public static void updateMenuOnClose()
         {
             try
