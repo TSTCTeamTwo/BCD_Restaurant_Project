@@ -1,23 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace BCD_Restaurant_Project.Classes
 {
-    class Cart
+    static class Cart
     {
 
         //Dictionary for the primary key of the menuitem, and the values associated with the item
         public static Dictionary<int, MenuItem> myCart = new Dictionary<int, MenuItem>();
 
-        // Dictionary for the primary key of the menuitem, and the int is the qty removed
-
-
-        //datagridview positions
+        //DataGridView column positions
         public const int _MENU_ITEM_ID = 0;
         public const int _MENU_NAME = 1;
         public const int _MENU_PRICE = 3;
@@ -26,11 +20,7 @@ namespace BCD_Restaurant_Project.Classes
 
         //uses a linq expression to calculate sum of a KeyValuePair -> using the values in the KeyValuePair's Value.TotalPrice property
         private static decimal Total => myCart.Sum(price => price.Value.TotalPrice);
-        public static int CustomerID { get; set; } = -1;
-        public static string CustFN { get; set; } = string.Empty;
-        public static string CustLN { get; set; } = string.Empty;
         public static int OrderID { get; set; }
-
 
         public static void addToCartFromFood(DataGridView dgvMenu)
         {
@@ -40,7 +30,8 @@ namespace BCD_Restaurant_Project.Classes
                 //assigning the variables to respected cell positions using variables declared at the top
                 var itemName = dgvMenu.CurrentRow.Cells[_MENU_NAME].Value.ToString();
                 //using substring to ignore the $ sign
-                var price = Convert.ToDecimal(dgvMenu.CurrentRow.Cells[_MENU_PRICE].Value.ToString().Substring(1));
+                var price = Convert.ToDecimal(dgvMenu.CurrentRow.Cells[_MENU_PRICE].Value.ToString().Substring(1)
+                    .Trim(' ',',', '$'));
                 int itemID = Convert.ToInt32(dgvMenu.CurrentRow.Cells[_MENU_ITEM_ID].Value);
 
                 //pass in the itemID if it is found in the cart data grid
@@ -135,11 +126,9 @@ namespace BCD_Restaurant_Project.Classes
 
 
 
-        public static void buttonCalculate(Button btnCheckout)
+        public static void fillBtnCheckoutText(Button btnCheckout)
         {
-
             btnCheckout.Text = $@"Checkout  {Total:C}";
-            //btnCheckout.Text = $@"Checkout  {myCart.Sum(price => price.Value.TotalPrice):C}";
         }
 
     }
