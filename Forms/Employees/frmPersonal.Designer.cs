@@ -172,7 +172,7 @@ namespace BCD_Restaurant_Project.Forms.Employees
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1096, 601);
+            this.ClientSize = new System.Drawing.Size(645, 302);
             this.Controls.Add(this.tbxPassword);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblUsername);
