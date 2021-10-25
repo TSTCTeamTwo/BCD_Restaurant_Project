@@ -33,28 +33,41 @@ namespace BCD_Restaurant_Project.Forms
                 try
                 {
                     ProgOps.openDatabase();
-                    //ProgOps.AccountID = ProgOps.verifyAccountExistence(tbxUsername.Text, tbxPassword.Text);
                     int checkPasswordCombination = ProgOps.verifyAccountStatus(tbxUsername.Text, tbxPassword.Text);
                     if (ProgOps.AccountID != -1 && checkPasswordCombination != -1)
                     {
 
-                        int accountType = ProgOps.verifyEmployeeStatus();
+                        switch (checkPasswordCombination)
+                        {
+                            case 0:
+                                lblEmpty.Visible = true;
+                                lblEmpty.Text = "Incorrect username or password.";
+                                break;
+                            case 1:
+                                int accountType = ProgOps.verifyEmployeeStatus();
 
-                        if (accountType == 2) //account is an admin -> which would mean accountType = 2
-                        {
-                            new frmMainManagers().Show();
-                        }
-                        else if (accountType == 1) //account is employee -> which would mean accountType = 1
-                        {
-                            new frmMainEmployees().Show();
-                        }
-                        else //account is regular customer  -> which would mean accountType = 0
-                        {
-                            new frmMain().Show();
+                                if (accountType == 2) //account is an admin -> which would mean accountType = 2
+                                {
+                                    new frmMainManagers().Show();
+                                }
+                                else if (accountType == 1) //account is employee -> which would mean accountType = 1
+                                {
+                                    new frmMainEmployees().Show();
+                                }
+                                else //account is regular customer  -> which would mean accountType = 0
+                                {
+                                    new frmMain().Show();
+                                }
+
+                                lblEmpty.Visible = false;
+                                Hide();
+                                break;
+                            case 2:
+                                lblEmpty.Visible = true;
+                                lblEmpty.Text = "Incorrect username or password.";
+                                break;
                         }
 
-                        lblEmpty.Visible = false;
-                        Hide();
                     }
                     else
                     {
@@ -95,12 +108,21 @@ namespace BCD_Restaurant_Project.Forms
 
         private void frmLogin_Load(object sender, EventArgs e)
         {
-            
+
             showPassword = false;
             tbxUsername.Focus();
 
-            tbxUsername.Text = "rdemeza0";
-            tbxPassword.Text = "59g0GR05";
+            //Testing for customer
+            //tbxUsername.Text = "rdemeza0";
+            //tbxPassword.Text = "59g0GR05";
+
+            //Testing for employee
+            //tbxUsername.Text = "dcoultar4";
+            //tbxPassword.Text = "YSGQDxS";
+
+            //Testing for admin
+            tbxUsername.Text = "sdeerr2";
+            tbxPassword.Text = "xSK0fYE";
 
             btnLogin.Focus();
 
@@ -120,7 +142,7 @@ namespace BCD_Restaurant_Project.Forms
 
         private void pbxPasswordIcon_Click(object sender, EventArgs e)
         {
-            
+
             if (!showPassword)
             {
 

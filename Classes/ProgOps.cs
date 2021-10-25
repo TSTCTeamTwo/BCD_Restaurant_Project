@@ -521,38 +521,6 @@ namespace BCD_Restaurant_Project.Classes
                     MessageBoxIcon.Error);
             }
         }
-        public static int verifyAccountExistence(string username, string password)
-        {
-
-            int accountID = -1; //start with no account
-
-            string query = "select * from group2fa212330.Accounts where username = '" + username +
-                           "' AND password = " +
-                           "'" + password + "' OR OneTimePassword = '" + password + "')";
-
-            _sqlAccountsCommand = new SqlCommand(query, _dbConnection);
-
-            _daAccounts = new SqlDataAdapter(selectCommand: _sqlAccountsCommand);
-
-            DTAccounts = new DataTable();
-            _daAccounts.Fill(DTAccounts);
-
-            if (DTAccounts.Rows.Count > 0) // if results return a row
-            {
-                accountID = (int)DTAccounts.Rows[0][
-                    "AccountID"]; //return row 1 column cell value of column with the name"AccountID"
-
-                if (password == (string)DTAccounts.Rows[0]["OneTimePassword"])
-                {
-                    //TODO - place stored procedure code here
-                    generateOneTimePassword();
-                }
-
-            }
-
-            return accountID;
-
-        }
 
         public static int verifyAccountStatus(string username, string password)
         {

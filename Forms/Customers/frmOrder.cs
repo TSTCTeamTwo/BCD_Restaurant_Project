@@ -31,6 +31,7 @@ namespace BCD_Restaurant_Project.Forms.Customers
                 else if (result == DialogResult.Yes)
                 {
                     ProgOps.finalizeOrder();
+                    dgvOrder.Rows.Clear();
                 }
             }
             else

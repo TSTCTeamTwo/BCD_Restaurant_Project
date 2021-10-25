@@ -30,6 +30,7 @@ namespace BCD_Restaurant_Project.Forms
         private void InitializeComponent()
         {
             this.pnlLogin = new System.Windows.Forms.Panel();
+            this.lblEmpty = new System.Windows.Forms.Label();
             this.pbxPasswordIcon = new System.Windows.Forms.PictureBox();
             this.btnExit = new System.Windows.Forms.Button();
             this.lnkSignUp = new System.Windows.Forms.LinkLabel();
@@ -39,7 +40,6 @@ namespace BCD_Restaurant_Project.Forms
             this.lblPassword = new System.Windows.Forms.Label();
             this.lblUsername = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
-            this.lblEmpty = new System.Windows.Forms.Label();
             this.pnlLogin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxPasswordIcon)).BeginInit();
             this.SuspendLayout();
@@ -57,11 +57,25 @@ namespace BCD_Restaurant_Project.Forms
             this.pnlLogin.Controls.Add(this.lblPassword);
             this.pnlLogin.Controls.Add(this.lblUsername);
             this.pnlLogin.Controls.Add(this.btnLogin);
-            this.pnlLogin.Location = new System.Drawing.Point(12, 25);
+            this.pnlLogin.Location = new System.Drawing.Point(17, 25);
             this.pnlLogin.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnlLogin.Name = "pnlLogin";
             this.pnlLogin.Size = new System.Drawing.Size(412, 249);
             this.pnlLogin.TabIndex = 3;
+            // 
+            // lblEmpty
+            // 
+            this.lblEmpty.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.lblEmpty.AutoSize = true;
+            this.lblEmpty.Enabled = false;
+            this.lblEmpty.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblEmpty.Location = new System.Drawing.Point(83, 7);
+            this.lblEmpty.Name = "lblEmpty";
+            this.lblEmpty.Size = new System.Drawing.Size(247, 17);
+            this.lblEmpty.TabIndex = 9;
+            this.lblEmpty.Text = "Please enter username and password";
+            this.lblEmpty.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblEmpty.Visible = false;
             // 
             // pbxPasswordIcon
             // 
@@ -165,19 +179,6 @@ namespace BCD_Restaurant_Project.Forms
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
-            // 
-            // lblEmpty
-            // 
-            this.lblEmpty.AutoSize = true;
-            this.lblEmpty.Enabled = false;
-            this.lblEmpty.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblEmpty.Location = new System.Drawing.Point(92, 7);
-            this.lblEmpty.Name = "lblEmpty";
-            this.lblEmpty.Size = new System.Drawing.Size(247, 17);
-            this.lblEmpty.TabIndex = 9;
-            this.lblEmpty.Text = "Please enter username and password";
-            this.lblEmpty.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblEmpty.Visible = false;
             // 
             // frmLogin
             // 

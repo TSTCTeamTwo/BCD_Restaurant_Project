@@ -152,7 +152,7 @@ namespace BCD_Restaurant_Project.Forms.Employees
 
         private void setTitle()
         {
-            Text = "Account - Record " + (accountsManager.Position + 1) + " of " + accountsManager.Count + " Record: "
+            lblAccounts.Text = "Account - Record " + (accountsManager.Position + 1) + " of " + accountsManager.Count + " Records: "
                 + tbxLastName.Text + ", " + tbxFirstName.Text;
         }
 
