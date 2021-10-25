@@ -2,7 +2,6 @@
 using System.Net.Mail;
 using System.Net;
 using System.Windows.Forms;
-using System.Net.Http;
 using BCD_Restaurant_Project.Classes;
 namespace BCD_Restaurant_Project.Forms.Customers
 {

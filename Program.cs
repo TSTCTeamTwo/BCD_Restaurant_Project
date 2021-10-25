@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using BCD_Restaurant_Project.Forms;
-using BCD_Restaurant_Project.Forms.Customers;
-using BCD_Restaurant_Project.Forms.Employees;
+
 namespace BCD_Restaurant_Project
 {
     static class Program
