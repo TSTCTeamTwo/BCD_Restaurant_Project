@@ -129,18 +129,18 @@ namespace BCD_Restaurant_Project.Classes
 
         public static void bindAccounts(TextBox tbxAccountID, TextBox tbxEmail, TextBox tbxUsername,
             TextBox tbxPassword,
-            TextBox tbxConfirmPassword, TextBox tbxLastName, TextBox tbxFirstName)
+            TextBox tbxConfirmPassword, TextBox tbxLastName, TextBox tbxFirstName, Form form, out CurrencyManager accountsManager)
         {
-
-            // _cntDBConnection = new SqlConnection(CONNECT_STRING);
 
             string sqlQuery = "SELECT * from group2fa212330.Accounts";
 
             _sqlAccountsCommand = new SqlCommand(sqlQuery, _dbConnection);
 
-            _daAccounts = new SqlDataAdapter(selectCommand: _sqlAccountsCommand);
+            _daAccounts = new SqlDataAdapter(_sqlAccountsCommand);
             DTAccounts.Clear();
             _daAccounts.Fill(DTAccounts);
+
+            accountsManager = (CurrencyManager)form.BindingContext[DTAccounts];
 
             tbxAccountID.DataBindings.Add("Text", DTAccounts, "AccountID");
             tbxEmail.DataBindings.Add("Text", DTAccounts, "Email");
@@ -149,7 +149,6 @@ namespace BCD_Restaurant_Project.Classes
             tbxConfirmPassword.DataBindings.Add("Text", DTAccounts, "Password");
             tbxLastName.DataBindings.Add("Text", DTAccounts, "Lastname");
             tbxFirstName.DataBindings.Add("Text", DTAccounts, "Firstname");
-
 
         }
 
