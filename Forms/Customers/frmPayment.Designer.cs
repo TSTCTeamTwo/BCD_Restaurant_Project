@@ -1,5 +1,5 @@
 ﻿
-namespace BCD_Restaurant_Project.Forms
+namespace BCD_Restaurant_Project.Forms.Customers
 {
     partial class frmPayment
     {
@@ -29,7 +29,6 @@ namespace BCD_Restaurant_Project.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            this.rdoPaymentOptionCash = new System.Windows.Forms.RadioButton();
             this.rdoPaymentOptionCheck = new System.Windows.Forms.RadioButton();
             this.rdoPaymentOptionCard = new System.Windows.Forms.RadioButton();
             this.mskExpirationDate = new System.Windows.Forms.MaskedTextBox();
@@ -43,21 +42,8 @@ namespace BCD_Restaurant_Project.Forms
             this.lblUsername = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.btnPay = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // rdoPaymentOptionCash
-            // 
-            this.rdoPaymentOptionCash.AutoSize = true;
-            this.rdoPaymentOptionCash.Location = new System.Drawing.Point(259, 69);
-            this.rdoPaymentOptionCash.Margin = new System.Windows.Forms.Padding(2);
-            this.rdoPaymentOptionCash.Name = "rdoPaymentOptionCash";
-            this.rdoPaymentOptionCash.Size = new System.Drawing.Size(49, 17);
-            this.rdoPaymentOptionCash.TabIndex = 42;
-            this.rdoPaymentOptionCash.TabStop = true;
-            this.rdoPaymentOptionCash.Text = "Cash";
-            this.rdoPaymentOptionCash.UseVisualStyleBackColor = true;
-            this.rdoPaymentOptionCash.CheckedChanged += new System.EventHandler(this.rdoPaymentOptionCash_CheckedChanged);
             // 
             // rdoPaymentOptionCheck
             // 
@@ -205,28 +191,25 @@ namespace BCD_Restaurant_Project.Forms
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // btnPay
+            // btnCancel
             // 
-            this.btnPay.BackColor = System.Drawing.Color.White;
-            this.btnPay.Enabled = false;
-            this.btnPay.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnPay.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPay.Location = new System.Drawing.Point(87, 253);
-            this.btnPay.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnPay.Name = "btnPay";
-            this.btnPay.Size = new System.Drawing.Size(199, 44);
-            this.btnPay.TabIndex = 43;
-            this.btnPay.Text = "Pay";
-            this.btnPay.UseVisualStyleBackColor = false;
-            this.btnPay.Click += new System.EventHandler(this.btnPay_Click);
+            this.btnCancel.BackColor = System.Drawing.Color.White;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.Location = new System.Drawing.Point(87, 253);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(199, 44);
+            this.btnCancel.TabIndex = 42;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = false;
             // 
             // frmPayment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(370, 323);
-            this.Controls.Add(this.btnPay);
-            this.Controls.Add(this.rdoPaymentOptionCash);
+            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.rdoPaymentOptionCheck);
             this.Controls.Add(this.rdoPaymentOptionCard);
             this.Controls.Add(this.mskExpirationDate);
@@ -252,7 +235,6 @@ namespace BCD_Restaurant_Project.Forms
         }
 
         #endregion
-        private System.Windows.Forms.RadioButton rdoPaymentOptionCash;
         private System.Windows.Forms.RadioButton rdoPaymentOptionCheck;
         private System.Windows.Forms.RadioButton rdoPaymentOptionCard;
         private System.Windows.Forms.MaskedTextBox mskExpirationDate;
@@ -266,6 +248,6 @@ namespace BCD_Restaurant_Project.Forms
         private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Button btnPay;
+        private System.Windows.Forms.Button btnCancel;
     }
 }
