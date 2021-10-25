@@ -446,11 +446,12 @@ namespace BCD_Restaurant_Project.Classes
         //Method to validate if the user enters a valid email anywhere in the program
         public static bool isValidEmail(string email)
         {
+            openDatabase();
             try
             {
                 //using mail namespace to validate the email being passed in
-                var addr = new System.Net.Mail.MailAddress(email);
-                return addr.Address == email;
+                var address = new System.Net.Mail.MailAddress(email);
+                return address.Address == email;
             }
             catch
             {

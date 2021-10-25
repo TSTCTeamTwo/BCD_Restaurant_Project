@@ -16,7 +16,7 @@ namespace BCD_Restaurant_Project.Forms.Employees
         private string myState;
         private void frmManageMenu_Load(object sender, EventArgs e)
         {
-            ProgOps.modifyMenu(tbxName, tbxItemID, tbxDescription, tbxPrice, tbxImagePath, cbxCategories, this, out menuManager, dgvDisplay);
+            ProgOps.modifyMenu(tbxName, tbxItemID, tbxDescription, tbxPrice, tbxImagePath, cbxCategories, this, out menuManager);
 
 
             //byte[] image = System.Text.Encoding.UTF8.GetBytes(tbxImagePath.Text);

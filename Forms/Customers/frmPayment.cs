@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace BCD_Restaurant_Project.Forms
+namespace BCD_Restaurant_Project.Forms.Customers
 {
     public partial class frmPayment : Form
     {
@@ -16,7 +16,6 @@ namespace BCD_Restaurant_Project.Forms
             mskExpirationDate.Enabled = false;
             mskPaymentNumber.Enabled = false;
             mskSecurityCode.Enabled = false;
-            btnPay.Enabled = true;
 
             tbxName.Text = string.Empty;
             mskExpirationDate.Text = string.Empty;
@@ -69,7 +68,7 @@ namespace BCD_Restaurant_Project.Forms
             mskExpirationDate.Enabled = true;
             mskPaymentNumber.Enabled = true;
             mskSecurityCode.Enabled = true;
-            btnPay.Enabled = true;
+            btnCancel.Enabled = true;
         }
 
         private void rdoPaymentOptionCard_CheckedChanged(object sender, EventArgs e)
@@ -78,7 +77,7 @@ namespace BCD_Restaurant_Project.Forms
             mskExpirationDate.Enabled = true;
             mskPaymentNumber.Enabled = true;
             mskSecurityCode.Enabled = true;
-            btnPay.Enabled = true;
+            btnCancel.Enabled = true;
         }
     }
 }
