@@ -81,23 +81,11 @@
     <Compile Include="Forms\Customers\frmForgot.Designer.cs">
       <DependentUpon>frmForgot.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Employees\frmBanking.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Employees\frmBanking.Designer.cs">
-      <DependentUpon>frmBanking.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\Employees\frmPaycheck.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Employees\frmPaycheck.Designer.cs">
       <DependentUpon>frmPaycheck.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Employees\frmPersonalInfo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Employees\frmPersonalInfo.Designer.cs">
-      <DependentUpon>frmPersonalInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmLogin.cs">
       <SubType>Form</SubType>
@@ -187,9 +175,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Customers\frmOrder.resx">
       <DependentUpon>frmOrder.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Employees\frmBanking.resx">
-      <DependentUpon>frmBanking.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Employees\frmPaycheck.resx">
       <DependentUpon>frmPaycheck.cs</DependentUpon>

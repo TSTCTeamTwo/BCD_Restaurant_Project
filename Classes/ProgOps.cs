@@ -47,6 +47,75 @@ namespace BCD_Restaurant_Project.Classes
         public static string OTP { get; set; } = string.Empty;
         private static StringBuilder ErrorMessages { get; } = new StringBuilder();
 
+        public static void openDatabase()
+        {
+            try
+            {
+                _dbConnection = new SqlConnection(CONNECT_STRING);
+                _dbConnection.Open();
+            }
+            catch (SqlException exception)
+            {
+                for (int i = 0; i < exception.Errors.Count; i++)
+                {
+                    ErrorMessages.Append("Index #" + i + "\n" + "Message: " + exception.Errors[i].Message + "\n" +
+                                         "LineNumber: " + exception.Errors[i].LineNumber + "\n" + "Source: " +
+                                         exception.Errors[i].Source + "\n" +
+                                         "Procedure: " + exception.Errors[i].Procedure + "\n");
+                }
+
+                MessageBox.Show(ErrorMessages.ToString(), "Error Disposing Publisher", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error:\n\t" + ex.Message, "Error Opening Database", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+        }
+
+        public static void closeDatabase()
+        {
+            try
+            {
+                _dbConnection.Close();
+
+                _dbConnection.Dispose();
+                _daAccounts.Dispose();
+                _daEmployees.Dispose();
+                _daCategory.Dispose();
+                _daMenu.Dispose();
+                _daOrderItems.Dispose();
+                _daOrders.Dispose();
+                DTCategories.Dispose();
+                DTMenu.Dispose();
+                DTOrders.Dispose();
+                DTOrderItems.Dispose();
+                DTAccounts.Dispose();
+                DTEmployees.Dispose();
+
+            }
+            catch (SqlException ex)
+            {
+                for (int i = 0; i < ex.Errors.Count; i++)
+                {
+                    ErrorMessages.Append("Index#" + i + "\n" +
+                                         "Message: " + ex.Errors[i].Message + "\n" +
+                                         "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
+                                         "Source: " + ex.Errors[i].Source + "\n" +
+                                         "Procedure: " + ex.Errors[i].Procedure + "\n");
+                }
+
+                MessageBox.Show(ErrorMessages.ToString(), "Error Close Database", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error:\n\t" + ex.Message, "Error Opening Database", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+        }
+        
         public static void addPayment(string cardNumber, string cardType, string security, MaskedTextBox expiration)
         {
             try
@@ -196,48 +265,6 @@ namespace BCD_Restaurant_Project.Classes
             }
 
             return false;
-        }
-
-        public static void closeDatabase()
-        {
-            try
-            {
-                _dbConnection.Close();
-
-                _dbConnection.Dispose();
-                _daAccounts.Dispose();
-                _daEmployees.Dispose();
-                _daCategory.Dispose();
-                _daMenu.Dispose();
-                _daOrderItems.Dispose();
-                _daOrders.Dispose();
-                DTCategories.Dispose();
-                DTMenu.Dispose();
-                DTOrders.Dispose();
-                DTOrderItems.Dispose();
-                DTAccounts.Dispose();
-                DTEmployees.Dispose();
-
-            }
-            catch (SqlException ex)
-            {
-                for (int i = 0; i < ex.Errors.Count; i++)
-                {
-                    ErrorMessages.Append("Index#" + i + "\n" +
-                                         "Message: " + ex.Errors[i].Message + "\n" +
-                                         "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
-                                         "Source: " + ex.Errors[i].Source + "\n" +
-                                         "Procedure: " + ex.Errors[i].Procedure + "\n");
-                }
-
-                MessageBox.Show(ErrorMessages.ToString(), "Error Close Database", MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error:\n\t" + ex.Message, "Error Opening Database", MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
-            }
         }
 
         //displaying the specific items wherever the user is in the form
@@ -433,7 +460,7 @@ namespace BCD_Restaurant_Project.Classes
 
         public static void modifyMenu(TextBox tbItemName, TextBox tbItemID, TextBox tbDescription, TextBox tbPrice,
             TextBox tbImage, ComboBox cbCategory,
-            Form form, out CurrencyManager c)
+            Form form, out CurrencyManager c, DataGridView dgvDisplay)
         {
 
             c = null;
@@ -454,6 +481,10 @@ namespace BCD_Restaurant_Project.Classes
                 _daMenu.SelectCommand = _sqlMenuCommand;
                 DTMenu = new DataTable();
                 _daMenu.Fill(DTMenu);
+
+                dgvDisplay.DataSource = DTMenu;
+                dgvDisplay.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+                dgvDisplay.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
 
                 tbItemName.DataBindings.Add("Text", DTMenu, "ItemName");
                 tbItemID.DataBindings.Add("Text", DTMenu, "ItemID");
@@ -495,32 +526,7 @@ namespace BCD_Restaurant_Project.Classes
 
         }
 
-        public static void openDatabase()
-        {
-            try
-            {
-                _dbConnection = new SqlConnection(CONNECT_STRING);
-                _dbConnection.Open();
-            }
-            catch (SqlException exception)
-            {
-                for (int i = 0; i < exception.Errors.Count; i++)
-                {
-                    ErrorMessages.Append("Index #" + i + "\n" + "Message: " + exception.Errors[i].Message + "\n" +
-                                         "LineNumber: " + exception.Errors[i].LineNumber + "\n" + "Source: " +
-                                         exception.Errors[i].Source + "\n" +
-                                         "Procedure: " + exception.Errors[i].Procedure + "\n");
-                }
-
-                MessageBox.Show(ErrorMessages.ToString(), "Error Disposing Publisher", MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error:\n\t" + ex.Message, "Error Opening Database", MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
-            }
-        }
+        
 
         public static int verifyAccountStatus(string username, string password)
         {
@@ -674,6 +680,94 @@ namespace BCD_Restaurant_Project.Classes
 
             //returning OTP to send VIA email
             return result;
+        }
+
+        public static void addNewMenuItem(string name, string description, double price, ComboBox cbCategory)
+        {
+            try
+            {
+                string query = "INSERT INTO group2fa212330.Menu(ItemName, ItemDescription, Price, CategoryID) VALUES('" + name + "', '" + description + "', " + price + ", " + cbCategory.SelectedIndex+1;
+                _sqlMenuCommand = new SqlCommand(query, _dbConnection);
+                _sqlMenuCommand.ExecuteNonQuery();
+            }
+            catch(SqlException ex)
+            {
+                for (int i = 0; i < ex.Errors.Count; i++)
+                {
+                    ErrorMessages.Append("Index#" + i + "\n" +
+                                         "Message: " + ex.Errors[i].Message + "\n" +
+                                         "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
+                                         "Source: " + ex.Errors[i].Source + "\n" +
+                                         "Procedure: " + ex.Errors[i].Procedure + "\n");
+                }
+
+                MessageBox.Show(ErrorMessages.ToString(), "Error Closing Database", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error:\n\t" + ex.Message, "ProgOps Error", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+        
+        }
+
+        public static void addNewAccount(string name, string description, double price, ComboBox cbCategory)
+        {
+            try
+            {
+                string query = "INSERT INTO group2fa212330.Menu(ItemName, ItemDescription, Price, CategoryID) VALUES('" + name + "', '" + description + "', " + price + ", " + cbCategory.SelectedIndex + 1;
+                _sqlMenuCommand = new SqlCommand(query, _dbConnection);
+                _sqlMenuCommand.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                for (int i = 0; i < ex.Errors.Count; i++)
+                {
+                    ErrorMessages.Append("Index#" + i + "\n" +
+                                         "Message: " + ex.Errors[i].Message + "\n" +
+                                         "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
+                                         "Source: " + ex.Errors[i].Source + "\n" +
+                                         "Procedure: " + ex.Errors[i].Procedure + "\n");
+                }
+
+                MessageBox.Show(ErrorMessages.ToString(), "Error Closing Database", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error:\n\t" + ex.Message, "ProgOps Error", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+
+        }
+
+        public static void updateMenuOnClose()
+        {
+            try
+            {
+                SqlCommandBuilder menuAdapterCommands = new SqlCommandBuilder(_daMenu);
+                _daMenu.Update(DTMenu);
+            }
+            catch (SqlException ex)
+            {
+                if (ex is SqlException)
+                {//handles more specific SqlException here.
+                    for (int i = 0; i < ex.Errors.Count; i++)
+                    {
+                        ErrorMessages.Append("Index #" + i + "\n" +
+                            "Message: " + ex.Errors[i].Message + "\n" +
+                            "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
+                            "Source: " + ex.Errors[i].Source + "\n" +
+                            "Procedure: " + ex.Errors[i].Procedure + "\n");
+                    }
+                    MessageBox.Show(ErrorMessages.ToString(), "Error on UpdateOnClose", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {//handles generic ones here
+                    MessageBox.Show(ex.Message, "Error on UpdateOnClose", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }
