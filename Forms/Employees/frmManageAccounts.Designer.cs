@@ -55,7 +55,9 @@ namespace BCD_Restaurant_Project.Forms.Employees
             this.btnNext = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnPrevious = new System.Windows.Forms.Button();
+            this.dgvDisplay = new System.Windows.Forms.DataGridView();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDisplay)).BeginInit();
             this.SuspendLayout();
             // 
             // tbxDesignateAccountAsEmployee
@@ -77,7 +79,7 @@ namespace BCD_Restaurant_Project.Forms.Employees
             this.groupBox3.Controls.Add(this.tbxEmployeeID);
             this.groupBox3.Controls.Add(this.cbxMakeAccountAdmin);
             this.groupBox3.Controls.Add(this.btnDeleteEmployeeAccount);
-            this.groupBox3.Location = new System.Drawing.Point(423, 43);
+            this.groupBox3.Location = new System.Drawing.Point(407, 300);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
@@ -203,7 +205,7 @@ namespace BCD_Restaurant_Project.Forms.Employees
             // lblUsername
             // 
             this.lblUsername.AutoSize = true;
-            this.lblUsername.Location = new System.Drawing.Point(46, 9);
+            this.lblUsername.Location = new System.Drawing.Point(46, 17);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(61, 13);
             this.lblUsername.TabIndex = 7;
@@ -359,11 +361,26 @@ namespace BCD_Restaurant_Project.Forms.Employees
             this.btnPrevious.UseVisualStyleBackColor = false;
             this.btnPrevious.Click += new System.EventHandler(this.btnPrevious_Click);
             // 
+            // dgvDisplay
+            // 
+            this.dgvDisplay.AllowUserToAddRows = false;
+            this.dgvDisplay.AllowUserToDeleteRows = false;
+            this.dgvDisplay.AllowUserToResizeColumns = false;
+            this.dgvDisplay.AllowUserToResizeRows = false;
+            this.dgvDisplay.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvDisplay.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDisplay.Location = new System.Drawing.Point(395, 12);
+            this.dgvDisplay.Name = "dgvDisplay";
+            this.dgvDisplay.ReadOnly = true;
+            this.dgvDisplay.Size = new System.Drawing.Size(475, 261);
+            this.dgvDisplay.TabIndex = 34;
+            // 
             // frmManageAccounts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1131, 828);
+            this.Controls.Add(this.dgvDisplay);
             this.Controls.Add(this.btnNext);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnPrevious);
@@ -392,6 +409,7 @@ namespace BCD_Restaurant_Project.Forms.Employees
             this.Load += new System.EventHandler(this.frmManageAccounts_Load);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDisplay)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -424,5 +442,6 @@ namespace BCD_Restaurant_Project.Forms.Employees
         private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnPrevious;
+        private System.Windows.Forms.DataGridView dgvDisplay;
     }
 }
