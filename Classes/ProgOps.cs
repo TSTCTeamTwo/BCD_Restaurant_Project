@@ -360,7 +360,8 @@ namespace BCD_Restaurant_Project.Classes
             _sqlAccountsCommand.ExecuteNonQuery();
         }
 
-        public static void getNewOrderID()
+        public static void bindAccounts(TextBox tbxAccountID, TextBox tbxEmail, TextBox tbxUsername, TextBox tbxPassword,
+            TextBox tbxConfirmPassword, TextBox tbxLastName, TextBox tbxFirstName)
         {
 
             string query = "SELECT MAX(OrderID) AS OrderID FROM group2fa212330.Orders";
@@ -388,23 +389,13 @@ namespace BCD_Restaurant_Project.Classes
                     "INSERT INTO group2fa212330.Accounts(FirstName, LastName, Username, Email, Password, isEmployee, OneTimePassword) VALUES(@FName, @LName, @UName, @Email, @Password, 0, 1)";
                 _sqlAccountsCommand = new SqlCommand(query, _dbConnection);
 
-                _sqlAccountsCommand.Parameters.AddWithValue("@FName", fName);
-                _sqlAccountsCommand.Parameters.AddWithValue("@LName", lName);
-                _sqlAccountsCommand.Parameters.AddWithValue("@UName", username);
-                _sqlAccountsCommand.Parameters.AddWithValue("@Email", email);
-                _sqlAccountsCommand.Parameters.AddWithValue("@Password", password);
-                _sqlAccountsCommand.ExecuteNonQuery();
-            }
-            catch (SqlException ex)
-            {
-                for (int i = 0; i < ex.Errors.Count; i++)
-                {
-                    ErrorMessages.Append("Index#" + i + "\n" +
-                                         "Message: " + ex.Errors[i].Message + "\n" +
-                                         "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
-                                         "Source: " + ex.Errors[i].Source + "\n" +
-                                         "Procedure: " + ex.Errors[i].Procedure + "\n");
-                }
+            tbxAccountID.DataBindings.Add("Text", DTAccounts, "AccountID");
+            tbxEmail.DataBindings.Add("Text", DTAccounts, "Email");
+            tbxUsername.DataBindings.Add("Text", DTAccounts, "Username");
+            tbxPassword.DataBindings.Add("Text", DTAccounts, "Password");
+            tbxConfirmPassword.DataBindings.Add("Text", DTAccounts, "Password");
+            tbxLastName.DataBindings.Add("Text", DTAccounts, "Lastname");
+            tbxFirstName.DataBindings.Add("Text", DTAccounts, "Firstname");
 
                 MessageBox.Show(ErrorMessages.ToString(), "Error Close Database", MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
@@ -431,8 +422,7 @@ namespace BCD_Restaurant_Project.Classes
             }
         }
 
-        public static void modifyMenu(TextBox tbItemName, TextBox tbItemID, TextBox tbDescription, TextBox tbPrice,
-            TextBox tbImage, ComboBox cbCategory,
+        public static void modifyMenu(TextBox tbItemName, TextBox tbItemID, TextBox tbDescription, TextBox tbPrice, TextBox tbImage, ComboBox cbCategory,
             Form form, out CurrencyManager c)
         {
 
@@ -454,7 +444,7 @@ namespace BCD_Restaurant_Project.Classes
                 _daMenu.SelectCommand = _sqlMenuCommand;
                 DTMenu = new DataTable();
                 _daMenu.Fill(DTMenu);
-
+                
                 tbItemName.DataBindings.Add("Text", DTMenu, "ItemName");
                 tbItemID.DataBindings.Add("Text", DTMenu, "ItemID");
                 tbDescription.DataBindings.Add("Text", DTMenu, "ItemDescription");
@@ -472,6 +462,9 @@ namespace BCD_Restaurant_Project.Classes
 
                 c = (CurrencyManager)form.BindingContext[ProgOps.DTMenu];
 
+                //int index = cbCategory.FindString(_dtMenu.Rows[c.Position]["CategoryName"].ToString());
+                //cbCategory.SelectedIndex = index;
+                
             }
             catch (SqlException ex)
             {
@@ -499,8 +492,19 @@ namespace BCD_Restaurant_Project.Classes
         {
             try
             {
-                _dbConnection = new SqlConnection(CONNECT_STRING);
-                _dbConnection.Open();
+                
+                string query = "INSERT INTO group2fa212330.Orders(AccountID, PaymentID, OrderDate) VALUES(" + AccountID + ","+ DTPayment.Rows[0]["PaymentID"]+ ",'" + DateTime.Now.ToString() + "' )";
+                _sqlOrdersCommand = new SqlCommand(query, _cntDBConnection);
+                _sqlOrdersCommand.ExecuteNonQuery();
+
+                //for each item id in cart, add that item with the order id to the order items table with the quantity in cart
+                // Cart.OrderID = getNewOrderID();
+                foreach (KeyValuePair<int, MenuItem> items in Cart.myCart)
+                {
+                    query = "INSERT INTO group2fa212330.OrderItems VALUES("+getNewOrderID()+", "  + items.Key + ", " + items.Value.Quantity + ")";
+                    _sqlOrdersCommand = new SqlCommand(query, _cntDBConnection);
+                    _sqlOrdersCommand.ExecuteNonQuery();
+                }
             }
             catch (SqlException exception)
             {
@@ -537,10 +541,14 @@ namespace BCD_Restaurant_Project.Classes
             DTAccounts = new DataTable();
             _daAccounts.Fill(DTAccounts);
 
-            if (DTAccounts.Rows.Count > 0) // if results return a row
-            {
-                accountID = (int)DTAccounts.Rows[0][
-                    "AccountID"]; //return row 1 column cell value of column with the name"AccountID"
+        public static int getNewOrderID()
+        {
+            int orderID = -1;
+            string query = "SELECT MAX(OrderID) FROM group2fa212330.Orders AS OrderID";
+            _sqlOrdersCommand = new SqlCommand(query, _cntDBConnection);
+            _daOrders.SelectCommand = _sqlOrdersCommand;
+            DTOrders = new DataTable();
+            _daOrders.Fill(DTOrders);
 
                 if (password == (string)DTAccounts.Rows[0]["OneTimePassword"])
                 {
