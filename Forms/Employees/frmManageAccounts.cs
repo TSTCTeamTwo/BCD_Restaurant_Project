@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Net.NetworkInformation;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using BCD_Restaurant_Project.Classes;
@@ -27,113 +21,109 @@ namespace BCD_Restaurant_Project.Forms.Employees
         {
             ProgOps.openDatabase();
             ProgOps.bindAccounts(tbxAccountID, tbxEmail, tbxUsername, tbxPassword, tbxConfirmPassword,
-             tbxLastName, tbxFirstName, dgvDisplay);
-
-            accountsManager = (CurrencyManager)BindingContext[ProgOps.DTAccounts];
+             tbxLastName, tbxFirstName, this, out accountsManager);
 
             SetState("View");
+            setTitle();
 
         }
 
-        private void SetState(string view)
+        private void SetState(string appState)
         {
-            //myState = appState;
-            //switch (appState)
-            //{
-            //    case "View":
-            //        btnPrevious.Focus();
-            //        //COLOR
-            //        tbxEmployeeID.BackColor = Color.White;
-            //        tbxEmployeeID.ForeColor = Color.Black;
-            //        //READONLY
-            //        tbxEmployeeID.ReadOnly = true;
-            //        tbxLastName.ReadOnly = true;
-            //        tbxFirstName.ReadOnly = true;
-            //        tbxExtension.ReadOnly = true;
-            //        //ENABLED - BUTTONS
-            //        btnPrevious.Enabled = true;
-            //        btnNext.Enabled = true;
-            //        btnAddNew.Enabled = true;
-            //        btnSave.Enabled = false;
-            //        btnCancel.Enabled = false;
-            //        btnEdit.Enabled = true;
-            //        btnDelete.Enabled = true;
-            //        btnPrevious.Focus();
-            //        break;
 
-            //    case "Add New":
-            //        //COLOR
-            //        tbxEmployeeID.BackColor = Color.Red;
-            //        tbxEmployeeID.ForeColor = Color.Black;
-            //        //READONLY
-            //        tbxEmployeeID.ReadOnly = true;
-            //        tbxLastName.ReadOnly = false;
-            //        tbxFirstName.ReadOnly = false;
-            //        tbxExtension.ReadOnly = false;
-            //        //ENABLED - BUTTONS
-            //        btnPrevious.Enabled = false;
-            //        btnNext.Enabled = false;
-            //        btnAddNew.Enabled = false;
-            //        btnSave.Enabled = true;
-            //        btnCancel.Enabled = true;
-            //        btnEdit.Enabled = false;
-            //        btnDelete.Enabled = false;
-            //        tbxLastName.Focus();
-            //        break;
+            myState = appState;
+            switch (appState)
+            {
+                case "View":
+                    btnPrevious.Focus();
+                    //COLOR
+                    tbxEmployeeID.BackColor = Color.White;
+                    tbxEmployeeID.ForeColor = Color.Black;
+                    //READONLY
+                    tbxEmployeeID.ReadOnly = true;
+                    tbxEmail.ReadOnly = true;
+                    tbxUsername.ReadOnly = true;
+                    tbxPassword.ReadOnly = true;
+                    tbxConfirmPassword.ReadOnly = true;
+                    tbxLastName.ReadOnly = true;
+                    tbxFirstName.ReadOnly = true;
+                    //ENABLED - BUTTONS
+                    btnPrevious.Enabled = true;
+                    btnNext.Enabled = true;
+                    btnAdd.Enabled = true;
+                    btnSave.Enabled = false;
+                    btnDelete.Enabled = false;
+                    btnEdit.Enabled = true;
+                    btnDelete.Enabled = true;
+                    btnSave.Enabled = false;
+                    btnPrevious.Focus();
+                    btnEdit.Text = "Edit";
+                    break;
 
-            //    case "Edit":
-            //        //COLOR
-            //        tbxEmployeeID.BackColor = Color.Red;
-            //        tbxEmployeeID.ForeColor = Color.Black;
-            //        //READONLY
-            //        tbxEmployeeID.ReadOnly = true;
-            //        tbxLastName.ReadOnly = false;
-            //        tbxFirstName.ReadOnly = false;
-            //        tbxExtension.ReadOnly = false;
-            //        //ENABLED - BUTTONS
-            //        btnPrevious.Enabled = false;
-            //        btnNext.Enabled = false;
-            //        btnAddNew.Enabled = false;
-            //        btnSave.Enabled = true;
-            //        btnCancel.Enabled = true;
-            //        btnEdit.Enabled = false;
-            //        btnDelete.Enabled = true;
-            //        tbxLastName.Focus();
-            //        break;
+                case "Add":
+                    //COLOR
+                    tbxAccountID.BackColor = Color.Red;
+                    tbxAccountID.ForeColor = Color.Black;
+                    //READONLY
+                    tbxEmployeeID.ReadOnly = false;
+                    tbxEmail.ReadOnly = false;
+                    tbxUsername.ReadOnly = false;
+                    tbxPassword.ReadOnly = false;
+                    tbxConfirmPassword.ReadOnly = false;
+                    tbxLastName.ReadOnly = false;
+                    tbxFirstName.ReadOnly = false;
+                    //ENABLED - BUTTONS
+                    btnPrevious.Enabled = false;
+                    btnNext.Enabled = false;
+                    btnAdd.Enabled = false;
+                    btnSave.Enabled = true;
+                    btnDelete.Enabled = false;
+                    btnEdit.Enabled = true;
+                    btnEdit.Text = "Cancel";
+                    btnDelete.Enabled = false;
+                    btnSave.Enabled = false;
+                    tbxLastName.Focus();
+                    break;
 
-            //    default: // Add or Edit if not View
-            //        //tbxEmployeeID.BackColor = Color.Red;
-            //        //tbxEmployeeID.ForeColor = Color.White;
-            //        //tbxEmployeeID.ReadOnly = true;
-            //        //tbxLastName.ReadOnly = false;
-            //        //tbxFirstName.ReadOnly = false;
-            //        //tbxExtension.ReadOnly = false;
-            //        //tbxEmployeeID.Enabled = true;
-            //        //tbxLastName.Enabled = true;
-            //        //tbxFirstName.Enabled = true;
-            //        //tbxExtension.Enabled = true;
-            //        //btnPrevious.Enabled = false;
-            //        //btnNext.Enabled = false;
-            //        //btnAddNew.Enabled = false;
-            //        //btnSave.Enabled = true;
-            //        //btnCancel.Enabled = true;
-            //        //btnEdit.Enabled = false;
-            //        //btnDelete.Enabled = false;
+                case "Edit":
+                    //COLOR
+                    tbxAccountID.BackColor = Color.Red;
+                    tbxAccountID.ForeColor = Color.Black;
+                    //READONLY
+                    tbxEmployeeID.ReadOnly = false;
+                    tbxEmail.ReadOnly = false;
+                    tbxUsername.ReadOnly = false;
+                    tbxPassword.ReadOnly = false;
+                    tbxConfirmPassword.ReadOnly = false;
+                    tbxLastName.ReadOnly = false;
+                    tbxFirstName.ReadOnly = false;
+                    //ENABLED - BUTTONS
 
-            //        //modify the color of the AccountID tbx
-            //        tbxAccountID.BackColor = Color.Red;
-            //        tbxAccountID.ForeColor = Color.White;
+                    btnPrevious.Enabled = false;
+                    btnNext.Enabled = false;
+                    btnAdd.Enabled = false;
+                    btnSave.Enabled = true;
+                    btnDelete.Enabled = false;
+                    btnEdit.Enabled = true;
+                    btnEdit.Text = "Cancel";
+                    tbxLastName.Focus();
+                    break;
 
-            //        foreach (var tbxCurrent in Controls.OfType<TextBox>())
-            //        {
-            //            tbxCurrent.Enabled = true;
-            //            tbxCurrent.ReadOnly = true;
-            //        }
+                default:
 
-                    
+                    //modify the color of the AccountID tbx
+                    tbxAccountID.BackColor = Color.White;
+                    tbxAccountID.ForeColor = Color.Black;
 
-            //        break;
-            //}
+                    foreach (var tbxCurrent in Controls.OfType<TextBox>())
+                    {
+                        tbxCurrent.ReadOnly = true;
+                    }
+
+                    btnEdit.Text = "Edit";
+
+                    break;
+            }
         }
 
         private void btnNext_Click(object sender, EventArgs e)
@@ -144,7 +134,7 @@ namespace BCD_Restaurant_Project.Forms.Employees
             else
             {
                 accountsManager.Position++;
-                //SetText();
+                setTitle();
             }
         }
 
@@ -156,8 +146,14 @@ namespace BCD_Restaurant_Project.Forms.Employees
             else
             {
                 accountsManager.Position--;
-                //SetText();
+                setTitle();
             }
+        }
+
+        private void setTitle()
+        {
+            Text = "Account - Record " + (accountsManager.Position + 1) + " of " + accountsManager.Count + " Record: "
+                + tbxLastName.Text + ", " + tbxFirstName.Text;
         }
 
     }

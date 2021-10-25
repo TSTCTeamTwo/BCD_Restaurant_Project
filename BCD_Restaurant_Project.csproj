@@ -81,6 +81,24 @@
     <Compile Include="Forms\Customers\frmForgot.Designer.cs">
       <DependentUpon>frmForgot.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Employees\frmBanking.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Employees\frmBanking.Designer.cs">
+      <DependentUpon>frmBanking.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Employees\frmPaycheck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Employees\frmPaycheck.Designer.cs">
+      <DependentUpon>frmPaycheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Employees\frmPersonalInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Employees\frmPersonalInfo.Designer.cs">
+      <DependentUpon>frmPersonalInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -170,6 +188,12 @@
     <EmbeddedResource Include="Forms\Customers\frmOrder.resx">
       <DependentUpon>frmOrder.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Employees\frmBanking.resx">
+      <DependentUpon>frmBanking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Employees\frmPaycheck.resx">
+      <DependentUpon>frmPaycheck.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -213,6 +237,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="Group2_ProgressReport_1.pdf" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -238,5 +263,15 @@
   <ItemGroup>
     <None Include="Resources\pressToShow.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include=".gitattributes" />
+    <Content Include=".gitignore" />
+    <Content Include="Resources\download.jpg" />
+    <Content Include="Resources\OIP %281%29.jpg" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
