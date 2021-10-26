@@ -42,7 +42,7 @@ namespace BCD_Restaurant_Project.Forms
             this.btnAddToOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddToOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddToOrder.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnAddToOrder.Location = new System.Drawing.Point(350, 278);
+            this.btnAddToOrder.Location = new System.Drawing.Point(12, 280);
             this.btnAddToOrder.Name = "btnAddToOrder";
             this.btnAddToOrder.Size = new System.Drawing.Size(116, 35);
             this.btnAddToOrder.TabIndex = 4;
