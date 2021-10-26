@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
-
+using BCD_Restaurant_Project.Classes;
 namespace BCD_Restaurant_Project.Forms.Customers
 {
     public partial class frmPayment : Form
@@ -25,12 +25,16 @@ namespace BCD_Restaurant_Project.Forms.Customers
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void btnPay_Click(object sender, EventArgs e)
-        {
-
+            
+            if (rdoPaymentOptionCard.Checked)
+            {
+                ProgOps.addPayment(mskPaymentNumber.Text, "Credit",tbxName.Text ,mskSecurityCode.Text, mskExpirationDate);
+            }
+            else if (rdoPaymentOptiondebit.Checked)
+            {
+                ProgOps.addPayment(mskPaymentNumber.Text, "Debit", tbxName.Text,mskSecurityCode.Text, mskExpirationDate);
+            }
+            
         }
 
         private void frmPayment_Load(object sender, EventArgs e)
@@ -83,6 +87,11 @@ namespace BCD_Restaurant_Project.Forms.Customers
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Hide();
+        }
+
+        private void mskExpirationDate_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
         }
     }
 }
