@@ -29,7 +29,7 @@ namespace BCD_Restaurant_Project.Forms.Customers
         /// </summary>
         private void InitializeComponent()
         {
-            this.rdoPaymentOptionCheck = new System.Windows.Forms.RadioButton();
+            this.rdoPaymentOptiondebit = new System.Windows.Forms.RadioButton();
             this.rdoPaymentOptionCard = new System.Windows.Forms.RadioButton();
             this.mskExpirationDate = new System.Windows.Forms.MaskedTextBox();
             this.mskSecurityCode = new System.Windows.Forms.MaskedTextBox();
@@ -45,18 +45,18 @@ namespace BCD_Restaurant_Project.Forms.Customers
             this.btnCancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // rdoPaymentOptionCheck
+            // rdoPaymentOptiondebit
             // 
-            this.rdoPaymentOptionCheck.AutoSize = true;
-            this.rdoPaymentOptionCheck.Location = new System.Drawing.Point(203, 69);
-            this.rdoPaymentOptionCheck.Margin = new System.Windows.Forms.Padding(2);
-            this.rdoPaymentOptionCheck.Name = "rdoPaymentOptionCheck";
-            this.rdoPaymentOptionCheck.Size = new System.Drawing.Size(56, 17);
-            this.rdoPaymentOptionCheck.TabIndex = 41;
-            this.rdoPaymentOptionCheck.TabStop = true;
-            this.rdoPaymentOptionCheck.Text = "Check";
-            this.rdoPaymentOptionCheck.UseVisualStyleBackColor = true;
-            this.rdoPaymentOptionCheck.CheckedChanged += new System.EventHandler(this.rdoPaymentOptionCheck_CheckedChanged);
+            this.rdoPaymentOptiondebit.AutoSize = true;
+            this.rdoPaymentOptiondebit.Location = new System.Drawing.Point(203, 69);
+            this.rdoPaymentOptiondebit.Margin = new System.Windows.Forms.Padding(2);
+            this.rdoPaymentOptiondebit.Name = "rdoPaymentOptiondebit";
+            this.rdoPaymentOptiondebit.Size = new System.Drawing.Size(50, 17);
+            this.rdoPaymentOptiondebit.TabIndex = 41;
+            this.rdoPaymentOptiondebit.TabStop = true;
+            this.rdoPaymentOptiondebit.Text = "Debit";
+            this.rdoPaymentOptiondebit.UseVisualStyleBackColor = true;
+            this.rdoPaymentOptiondebit.CheckedChanged += new System.EventHandler(this.rdoPaymentOptionCheck_CheckedChanged);
             // 
             // rdoPaymentOptionCard
             // 
@@ -64,10 +64,10 @@ namespace BCD_Restaurant_Project.Forms.Customers
             this.rdoPaymentOptionCard.Location = new System.Drawing.Point(155, 69);
             this.rdoPaymentOptionCard.Margin = new System.Windows.Forms.Padding(2);
             this.rdoPaymentOptionCard.Name = "rdoPaymentOptionCard";
-            this.rdoPaymentOptionCard.Size = new System.Drawing.Size(47, 17);
+            this.rdoPaymentOptionCard.Size = new System.Drawing.Size(52, 17);
             this.rdoPaymentOptionCard.TabIndex = 40;
             this.rdoPaymentOptionCard.TabStop = true;
-            this.rdoPaymentOptionCard.Text = "Card";
+            this.rdoPaymentOptionCard.Text = "Credit";
             this.rdoPaymentOptionCard.UseVisualStyleBackColor = true;
             this.rdoPaymentOptionCard.CheckedChanged += new System.EventHandler(this.rdoPaymentOptionCard_CheckedChanged);
             // 
@@ -80,6 +80,7 @@ namespace BCD_Restaurant_Project.Forms.Customers
             this.mskExpirationDate.Name = "mskExpirationDate";
             this.mskExpirationDate.Size = new System.Drawing.Size(45, 26);
             this.mskExpirationDate.TabIndex = 39;
+            this.mskExpirationDate.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.mskExpirationDate_MaskInputRejected);
             this.mskExpirationDate.Click += new System.EventHandler(this.mskExpirationDate_Click);
             // 
             // mskSecurityCode
@@ -98,9 +99,9 @@ namespace BCD_Restaurant_Project.Forms.Customers
             this.mskPaymentNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.mskPaymentNumber.Location = new System.Drawing.Point(155, 93);
             this.mskPaymentNumber.Margin = new System.Windows.Forms.Padding(2);
-            this.mskPaymentNumber.Mask = "0000 0000 0000 0000";
+            this.mskPaymentNumber.Mask = "0000000000000000";
             this.mskPaymentNumber.Name = "mskPaymentNumber";
-            this.mskPaymentNumber.Size = new System.Drawing.Size(152, 26);
+            this.mskPaymentNumber.Size = new System.Drawing.Size(151, 26);
             this.mskPaymentNumber.TabIndex = 37;
             this.mskPaymentNumber.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.mskPaymentNumber_MaskInputRejected);
             this.mskPaymentNumber.Click += new System.EventHandler(this.mskPaymentNumber_Click);
@@ -211,7 +212,7 @@ namespace BCD_Restaurant_Project.Forms.Customers
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(370, 323);
             this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.rdoPaymentOptionCheck);
+            this.Controls.Add(this.rdoPaymentOptiondebit);
             this.Controls.Add(this.rdoPaymentOptionCard);
             this.Controls.Add(this.mskExpirationDate);
             this.Controls.Add(this.mskSecurityCode);
@@ -236,7 +237,7 @@ namespace BCD_Restaurant_Project.Forms.Customers
         }
 
         #endregion
-        private System.Windows.Forms.RadioButton rdoPaymentOptionCheck;
+        private System.Windows.Forms.RadioButton rdoPaymentOptiondebit;
         private System.Windows.Forms.RadioButton rdoPaymentOptionCard;
         private System.Windows.Forms.MaskedTextBox mskExpirationDate;
         private System.Windows.Forms.MaskedTextBox mskSecurityCode;

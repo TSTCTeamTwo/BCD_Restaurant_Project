@@ -116,14 +116,15 @@ namespace BCD_Restaurant_Project.Classes
             }
         }
         
-        public static void addPayment(string cardNumber, string cardType, string security, MaskedTextBox expiration)
+        public static void addPayment(string cardNumber, string cardType, string cardName,string security, MaskedTextBox expiration)
         {
             try
             {
+                MessageBox.Show(cardName+ cardType+ security+ cardNumber+expiration.Text);
                 //Query to insert payment option for the current account
                 string query =
-                    "INSERT INT0 Payment(AccountID, Type, CardNumber, CardName, SecurityCode, ExpirationDate) " +
-                    "VALUES(" + AccountID + ", '" + cardType + "', '" + cardNumber + "', '" + security + "', '" +
+                    "INSERT INTO group2fa212330.Payment(AccountID, Type, CardNumber, CardName, SecurityCode, ExpirationDate) " +
+                    "VALUES(" + AccountID + ", '" + cardType + "', '" + cardNumber + "', '"+cardName+"', '" + security + "', '" +
                     expiration.Text.ToString() + "' )";
                 SqlCommand _sqlPaymentCommand = new SqlCommand(query, _dbConnection);
                 _sqlPaymentCommand.ExecuteNonQuery();
