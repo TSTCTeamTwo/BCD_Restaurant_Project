@@ -128,7 +128,7 @@ namespace BCD_Restaurant_Project.Classes
 
         public static void fillBtnCheckoutText(Button btnCheckout)
         {
-            btnCheckout.Text = $"Checkout  {Total:C}";
+            btnCheckout.Text = $"Checkout  {Total+Tax:C}";
         }
 
     }
