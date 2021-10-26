@@ -19,7 +19,7 @@ namespace BCD_Restaurant_Project.Forms.Customers
 
         private void btnLogin_Click_1(object sender, EventArgs e)
         {
-            
+
             if (tbxEmail.Text.Equals(""))
             {
                 MessageBox.Show("Enter an email", "Reset Password", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -41,26 +41,28 @@ namespace BCD_Restaurant_Project.Forms.Customers
                     using (MailMessage mail = new MailMessage())
                     {
                         mail.From = new MailAddress("tstcteamtwo@gmail.com");
-                        mail.To.Add("baviles599@gmail.com");
-                        mail.Subject = "Hello World";
-                        mail.Body = "<h1>" + otp + "</h1>";
+                        mail.To.Add(tbxEmail.Text);
+                        mail.Subject = "Password Reset Request";
+                        mail.Body =
+                            "<h2> Thank you for visiting Brayan and " +
+                            "D'Angelo's Restaurant. You have requested the one time password for your account. You may find your " +
+                            "password below:</h2><blockquote><h3> Password: " + otp + "</h3></blockquote>";
                         mail.IsBodyHtml = true;
-                        //mail.Attachments.Add(new Attachment("C:\\file.zip"));
 
                         using (SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587))
                         {
-                            smtp.Credentials = new NetworkCredential("tstcteamtwo@gmail.com", "igy7685(*&%");
                             smtp.EnableSsl = true;
+                            smtp.UseDefaultCredentials = false;
+                            smtp.Credentials = new NetworkCredential("tstcteamtwo@gmail.com", "%3WZaH6M*ti4O8XnfZjWBGhkUooN9O");
+                            smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
                             smtp.Send(mail);
                         }
                     }
-                    MessageBox.Show("Email has been sent", "Reset Password", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Email has been sent", "Reset Password", MessageBoxButtons.OK, MessageBoxIcon.None);
                 }
-                
-               
+
             }
-            
-            
+
         }
 
         private void frmForgot_Load(object sender, EventArgs e)

@@ -44,7 +44,7 @@ namespace BCD_Restaurant_Project.Forms
             this.dgvDesserts.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDesserts.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvDesserts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDesserts.Location = new System.Drawing.Point(75, 27);
+            this.dgvDesserts.Location = new System.Drawing.Point(12, 11);
             this.dgvDesserts.Name = "dgvDesserts";
             this.dgvDesserts.ReadOnly = true;
             this.dgvDesserts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -55,19 +55,18 @@ namespace BCD_Restaurant_Project.Forms
             // pbxDesserts
             // 
             this.pbxDesserts.Image = global::BCD_Restaurant_Project.Properties.Resources.download;
-            this.pbxDesserts.Location = new System.Drawing.Point(674, 27);
+            this.pbxDesserts.Location = new System.Drawing.Point(611, 11);
             this.pbxDesserts.Name = "pbxDesserts";
-            this.pbxDesserts.Size = new System.Drawing.Size(214, 287);
+            this.pbxDesserts.Size = new System.Drawing.Size(214, 303);
             this.pbxDesserts.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbxDesserts.TabIndex = 1;
             this.pbxDesserts.TabStop = false;
             // 
             // lblDescription
             // 
-            this.lblDescription.AutoSize = true;
-            this.lblDescription.Location = new System.Drawing.Point(674, 317);
+            this.lblDescription.Location = new System.Drawing.Point(608, 317);
             this.lblDescription.Name = "lblDescription";
-            this.lblDescription.Size = new System.Drawing.Size(116, 39);
+            this.lblDescription.Size = new System.Drawing.Size(217, 39);
             this.lblDescription.TabIndex = 2;
             this.lblDescription.Text = "Description Description\r\nDescription Description\r\nDescription Description";
             // 
@@ -77,7 +76,7 @@ namespace BCD_Restaurant_Project.Forms
             this.btnAddToOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddToOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddToOrder.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnAddToOrder.Location = new System.Drawing.Point(75, 336);
+            this.btnAddToOrder.Location = new System.Drawing.Point(238, 321);
             this.btnAddToOrder.Name = "btnAddToOrder";
             this.btnAddToOrder.Size = new System.Drawing.Size(116, 35);
             this.btnAddToOrder.TabIndex = 4;
@@ -89,7 +88,7 @@ namespace BCD_Restaurant_Project.Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1003, 732);
+            this.ClientSize = new System.Drawing.Size(838, 374);
             this.Controls.Add(this.btnAddToOrder);
             this.Controls.Add(this.dgvDesserts);
             this.Controls.Add(this.pbxDesserts);
@@ -102,7 +101,6 @@ namespace BCD_Restaurant_Project.Forms
             ((System.ComponentModel.ISupportInitialize)(this.dgvDesserts)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxDesserts)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

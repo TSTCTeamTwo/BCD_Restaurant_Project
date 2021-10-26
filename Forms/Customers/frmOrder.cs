@@ -25,7 +25,7 @@ namespace BCD_Restaurant_Project.Forms.Customers
                 DialogResult result = MessageBox.Show("Would you like to use your previous paying method?", "Payment", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                 if (result == DialogResult.No)
                 {
-                    this.Hide();
+                    Hide();
                     new frmPayment().Show();
                 }
                 else if (result == DialogResult.Yes)
@@ -36,7 +36,7 @@ namespace BCD_Restaurant_Project.Forms.Customers
             }
             else
             {
-                this.Hide();
+                Hide();
                 new frmPayment().Show();
             }
 
