@@ -19,5 +19,10 @@ namespace BCD_Restaurant_Project.Forms
         {
             Cart.addToCartFromFood(dgvFood);
         }
+
+        private void dgvFood_SelectionChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
