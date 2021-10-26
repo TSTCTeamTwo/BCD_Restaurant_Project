@@ -19,14 +19,19 @@ namespace BCD_Restaurant_Project.Forms.Customers
 
         private void btnLogin_Click_1(object sender, EventArgs e)
         {
-            bool emailOK = ProgOps.isValidEmail(tbxEmail.Text);
+            
             if (tbxEmail.Text.Equals(""))
             {
                 MessageBox.Show("Enter an email", "Reset Password", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
             }
-            else if(emailOK == false)
+
+            bool emailOK = ProgOps.isValidEmail(tbxEmail.Text);
+
+            if (!emailOK)
             {
                 MessageBox.Show("Enter a valid email address", "Reset Password", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
             }
             else
             {

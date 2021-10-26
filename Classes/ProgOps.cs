@@ -569,16 +569,20 @@ namespace BCD_Restaurant_Project.Classes
                         return 0; //wrong combination...
                     }
 
-                    if (password == (string)DTAccounts.Rows[0]["password"])
+                    else if (password == (string)DTAccounts.Rows[0]["password"])
                     {
                         return 1; //correct combination... nothing special -> open normal form
                     }
 
-                    return 2; //otp combination... special case -> need to reset password
-
+                    else if (password == (string)DTAccounts.Rows[0]["onetimepassword"])
+                    {
+                        return 2; //otp combination... special case -> need to reset password
+                    }
+                    
                 }
+                else
+                    return -1; //no correct combination -> need to create account combination
 
-                return -1; //no correct combination -> need to create account combination
 
             }
             catch (SqlException ex)
