@@ -49,7 +49,7 @@ namespace BCD_Restaurant_Project.Forms
                                 if (accountType == 2) //account is an admin -> which would mean accountType = 2
                                 {
 
-                                    
+
                                     DialogResult result = MessageBox.Show("Login As Admin? Yes for Admin, No for Customer", "Login", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                                     if (result == DialogResult.Yes)
                                     {
@@ -59,7 +59,7 @@ namespace BCD_Restaurant_Project.Forms
                                     {
                                         new frmMain().Show();
                                     }
-                                    
+
                                 }
                                 else if (accountType == 1) //account is employee -> which would mean accountType = 1
                                 {
@@ -117,7 +117,7 @@ namespace BCD_Restaurant_Project.Forms
                                 {
                                     new frmMain().Show();
                                 }
-                                
+
                                 lblEmpty.Visible = false;
                                 Hide();
                                 break;
@@ -176,8 +176,8 @@ namespace BCD_Restaurant_Project.Forms
             //tbxPassword.Text = "YSGQDxS";
 
             //Testing for admin
-            tbxUsername.Text = "sdeerr2";
-            tbxPassword.Text = "xSK0fYE";
+            //tbxUsername.Text = "sdeerr2";
+            //tbxPassword.Text = "xSK0fYE";
 
             btnLogin.Focus();
 

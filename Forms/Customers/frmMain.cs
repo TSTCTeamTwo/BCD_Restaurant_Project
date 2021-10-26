@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Drawing;
+using System.Web.UI.WebControls;
 using System.Windows.Forms;
+
 using BCD_Restaurant_Project.Classes;
 
 namespace BCD_Restaurant_Project.Forms.Customers
@@ -26,8 +29,9 @@ namespace BCD_Restaurant_Project.Forms.Customers
             activeForm = childForm;
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
-            childForm.Dock = DockStyle.Fill;
-            this.pnlDisplay.Controls.Add(childForm);
+            //childForm.Dock = DockStyle.Fill;
+            childForm.Location = new Point(((pnlDisplay.ClientSize.Width - childForm.Width)) / 2, (pnlDisplay.ClientSize.Height - childForm.Height) / 2);
+            pnlDisplay.Controls.Add(childForm);
             childForm.BringToFront();
             childForm.Show();
             RandomColor.setFormColors(childForm);
@@ -56,16 +60,16 @@ namespace BCD_Restaurant_Project.Forms.Customers
 
         private void btnLogOut_Click(object sender, EventArgs e)
         {
-            
+
             DialogResult result = MessageBox.Show("Confirm log out. ", "Log Out", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
-            if(result == DialogResult.Yes)
+            if (result == DialogResult.Yes)
             {
                 this.Hide();
                 new frmLogin().Show();
                 ProgOps.closeDatabase();
             }
-            
-            
+
+
         }
 
         private void btnDashboard_Click(object sender, EventArgs e)

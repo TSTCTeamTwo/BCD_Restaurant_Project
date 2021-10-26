@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using BCD_Restaurant_Project.Forms;
+using BCD_Restaurant_Project.Forms.Customers;
 
 namespace BCD_Restaurant_Project
 {
@@ -14,8 +15,8 @@ namespace BCD_Restaurant_Project
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmMainManagers());
-            
+            Application.Run(new frmMain());
+
         }
     }
 }

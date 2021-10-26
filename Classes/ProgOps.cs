@@ -1,16 +1,18 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Windows.Forms;
-using System.Collections.Generic;
+
+using CrystalDecisions.CrystalReports.Engine;
 
 namespace BCD_Restaurant_Project.Classes
 {
     static class ProgOps
     {
-        private const string CONNECT_STRING =
-            "Server=cstnt.tstc.edu;Database= inew2330fa21;User Id =group2fa212330;password=2547268";
+        private const string CONNECT_STRING = "Server=cstnt.tstc.edu;Database= inew2330fa21;User Id =group2fa212330;password=2547268";
 
         private static SqlConnection _dbConnection = new SqlConnection(CONNECT_STRING);
 
@@ -44,7 +46,6 @@ namespace BCD_Restaurant_Project.Classes
         public static string AccountFN { get; set; } = string.Empty;
         public static int AccountID { get; set; } = 0;
         public static string AccountLN { get; set; } = string.Empty;
-        public static string OTP { get; set; } = string.Empty;
         private static StringBuilder ErrorMessages { get; } = new StringBuilder();
 
         public static void openDatabase()
@@ -115,16 +116,16 @@ namespace BCD_Restaurant_Project.Classes
                     MessageBoxIcon.Error);
             }
         }
-        
-        public static void addPayment(string cardNumber, string cardType, string cardName,string security, MaskedTextBox expiration)
+
+        public static void addPayment(string cardNumber, string cardType, string cardName, string security, MaskedTextBox expiration)
         {
             try
             {
-                MessageBox.Show(cardName+ cardType+ security+ cardNumber+expiration.Text);
+                MessageBox.Show(cardName + cardType + security + cardNumber + expiration.Text);
                 //Query to insert payment option for the current account
                 string query =
                     "INSERT INTO group2fa212330.Payment(AccountID, Type, CardNumber, CardName, SecurityCode, ExpirationDate) " +
-                    "VALUES(" + AccountID + ", '" + cardType + "', '" + cardNumber + "', '"+cardName+"', '" + security + "', '" +
+                    "VALUES(" + AccountID + ", '" + cardType + "', '" + cardNumber + "', '" + cardName + "', '" + security + "', '" +
                     expiration.Text.ToString() + "' )";
                 SqlCommand _sqlPaymentCommand = new SqlCommand(query, _dbConnection);
                 _sqlPaymentCommand.ExecuteNonQuery();
@@ -528,7 +529,7 @@ namespace BCD_Restaurant_Project.Classes
 
         }
 
-        
+
 
         public static int verifyAccountStatus(string username, string password)
         {
@@ -578,7 +579,7 @@ namespace BCD_Restaurant_Project.Classes
                     {
                         return 2; //otp combination... special case -> need to reset password
                     }
-                    
+
                 }
                 else
                     return -1; //no correct combination -> need to create account combination
@@ -638,7 +639,7 @@ namespace BCD_Restaurant_Project.Classes
             return 0; //customer
 
         }
-        //Returning the one time password of the user with the email that is provided, can't use get because 
+        //Returning the one time password of the user with the email that is provided, can't use get because
         //user hasn't been found
         public static string verifyOneTimePassword(string email)
         {
@@ -692,11 +693,11 @@ namespace BCD_Restaurant_Project.Classes
         {
             try
             {
-                string query = "INSERT INTO group2fa212330.Menu(ItemName, ItemDescription, Price, CategoryID) VALUES('" + name + "', '" + description + "', " + price + ", " + cbCategory.SelectedIndex+1;
+                string query = "INSERT INTO group2fa212330.Menu(ItemName, ItemDescription, Price, CategoryID) VALUES('" + name + "', '" + description + "', " + price + ", " + cbCategory.SelectedIndex + 1;
                 _sqlMenuCommand = new SqlCommand(query, _dbConnection);
                 _sqlMenuCommand.ExecuteNonQuery();
             }
-            catch(SqlException ex)
+            catch (SqlException ex)
             {
                 for (int i = 0; i < ex.Errors.Count; i++)
                 {
@@ -715,7 +716,7 @@ namespace BCD_Restaurant_Project.Classes
                 MessageBox.Show("Error:\n\t" + ex.Message, "ProgOps Error", MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
             }
-        
+
         }
 
         public static void updateMenuOnClose()
@@ -745,5 +746,44 @@ namespace BCD_Restaurant_Project.Classes
                 }
             }
         }
+
+
+        //public static GroupBox fillGroupBoxWithSides()
+        //{
+
+        //    GroupBox gbxSides = new GroupBox();
+        //    List<string>
+
+        //    try
+        //    {
+
+
+        //    }
+        //    catch (SqlException ex)
+        //    {
+        //        for (int i = 0; i < ex.Errors.Count; i++)
+        //        {
+        //            ErrorMessages.Append("Index#" + i + "\n" +
+        //                                 "Message: " + ex.Errors[i].Message + "\n" +
+        //                                 "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
+        //                                 "Source: " + ex.Errors[i].Source + "\n" +
+        //                                 "Procedure: " + ex.Errors[i].Procedure + "\n");
+        //        }
+
+        //        MessageBox.Show(ErrorMessages.ToString(), "Error Closing Database", MessageBoxButtons.OK,
+        //            MessageBoxIcon.Error);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show("Error:\n\t" + ex.Message, "ProgOps Error", MessageBoxButtons.OK,
+        //            MessageBoxIcon.Error);
+        //    }
+
+
+        //    return gbxSides;
+
+
+        //}
+
     }
 }

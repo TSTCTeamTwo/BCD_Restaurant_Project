@@ -47,7 +47,7 @@ namespace BCD_Restaurant_Project.Forms.Customers
             this.label1.Location = new System.Drawing.Point(67, 105);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(245, 20);
-            this.label1.TabIndex = 0;
+            this.label1.TabIndex = 1;
             this.label1.Text = "Enter Email to recover password: ";
             // 
             // textBox1
@@ -55,7 +55,7 @@ namespace BCD_Restaurant_Project.Forms.Customers
             this.textBox1.Location = new System.Drawing.Point(71, 142);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(241, 20);
-            this.textBox1.TabIndex = 1;
+            this.textBox1.TabIndex = 2;
             // 
             // pnlLogin
             // 
@@ -69,7 +69,7 @@ namespace BCD_Restaurant_Project.Forms.Customers
             this.pnlLogin.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnlLogin.Name = "pnlLogin";
             this.pnlLogin.Size = new System.Drawing.Size(412, 249);
-            this.pnlLogin.TabIndex = 4;
+            this.pnlLogin.TabIndex = 0;
             // 
             // label2
             // 
@@ -78,7 +78,7 @@ namespace BCD_Restaurant_Project.Forms.Customers
             this.label2.Location = new System.Drawing.Point(157, 47);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(99, 18);
-            this.label2.TabIndex = 6;
+            this.label2.TabIndex = 0;
             this.label2.Text = "Set password";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -89,7 +89,7 @@ namespace BCD_Restaurant_Project.Forms.Customers
             this.lnkLblSignIn.Location = new System.Drawing.Point(153, 184);
             this.lnkLblSignIn.Name = "lnkLblSignIn";
             this.lnkLblSignIn.Size = new System.Drawing.Size(107, 18);
-            this.lnkLblSignIn.TabIndex = 5;
+            this.lnkLblSignIn.TabIndex = 4;
             this.lnkLblSignIn.TabStop = true;
             this.lnkLblSignIn.Text = "Back to Sign in";
             this.lnkLblSignIn.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkLblSignIn_LinkClicked);
@@ -102,7 +102,7 @@ namespace BCD_Restaurant_Project.Forms.Customers
             this.tbxEmail.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbxEmail.Name = "tbxEmail";
             this.tbxEmail.Size = new System.Drawing.Size(199, 26);
-            this.tbxEmail.TabIndex = 3;
+            this.tbxEmail.TabIndex = 2;
             // 
             // lblUsername
             // 
@@ -124,7 +124,7 @@ namespace BCD_Restaurant_Project.Forms.Customers
             this.btnLogin.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(199, 44);
-            this.btnLogin.TabIndex = 0;
+            this.btnLogin.TabIndex = 3;
             this.btnLogin.Text = "RESET VIA EMAIL";
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click_1);
@@ -135,6 +135,7 @@ namespace BCD_Restaurant_Project.Forms.Customers
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.CancelButton = this.lnkLblSignIn;
             this.ClientSize = new System.Drawing.Size(436, 380);
             this.ControlBox = false;
             this.Controls.Add(this.pnlLogin);
