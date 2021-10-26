@@ -29,21 +29,12 @@ namespace BCD_Restaurant_Project.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblDescription = new System.Windows.Forms.Label();
             this.pbxShakes = new System.Windows.Forms.PictureBox();
             this.dgvDrinks = new System.Windows.Forms.DataGridView();
             this.btnAddToOrder = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbxShakes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDrinks)).BeginInit();
             this.SuspendLayout();
-            // 
-            // lblDescription
-            // 
-            this.lblDescription.Location = new System.Drawing.Point(608, 318);
-            this.lblDescription.Name = "lblDescription";
-            this.lblDescription.Size = new System.Drawing.Size(217, 39);
-            this.lblDescription.TabIndex = 2;
-            this.lblDescription.Text = "Description Description\r\nDescription Description\r\nDescription Description";
             // 
             // pbxShakes
             // 
@@ -75,7 +66,7 @@ namespace BCD_Restaurant_Project.Forms
             this.btnAddToOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddToOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddToOrder.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnAddToOrder.Location = new System.Drawing.Point(250, 322);
+            this.btnAddToOrder.Location = new System.Drawing.Point(12, 321);
             this.btnAddToOrder.Name = "btnAddToOrder";
             this.btnAddToOrder.Size = new System.Drawing.Size(116, 35);
             this.btnAddToOrder.TabIndex = 6;
@@ -91,7 +82,6 @@ namespace BCD_Restaurant_Project.Forms
             this.Controls.Add(this.btnAddToOrder);
             this.Controls.Add(this.dgvDrinks);
             this.Controls.Add(this.pbxShakes);
-            this.Controls.Add(this.lblDescription);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmDrinks";
             this.Text = "Drinks";
@@ -103,7 +93,6 @@ namespace BCD_Restaurant_Project.Forms
         }
 
         #endregion
-        private System.Windows.Forms.Label lblDescription;
         private System.Windows.Forms.PictureBox pbxShakes;
         private System.Windows.Forms.DataGridView dgvDrinks;
         private System.Windows.Forms.Button btnAddToOrder;

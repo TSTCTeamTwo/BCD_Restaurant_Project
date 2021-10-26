@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
+using System.IO;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Windows.Forms;
@@ -747,11 +749,21 @@ namespace BCD_Restaurant_Project.Classes
             }
         }
 
-        public static void updatePicInPbx()
+        public static void updatePicInPbx(int image, PictureBox pbxImage)
         {
             try
             {
+                string query = "SELECT Image FROM group2fa212330.Images as I INNER JOIN group2fa212330.Menu as M ON I.ImageID = M.ImageID WHERE ItemID = " + image;
+                SqlCommand _sqlImageCommand = new SqlCommand(query, _dbConnection);
+                SqlDataAdapter _daImage = new SqlDataAdapter(_sqlImageCommand);
+                DataTable _dtImage = new DataTable();
+                _daImage.Fill(_dtImage);
 
+                Byte[] imageP = (Byte[])_dtImage.Rows[0]["image"];
+
+                MemoryStream memoryStream = new MemoryStream(imageP);
+
+                pbxImage.Image = Image.FromStream(memoryStream);
             }
             catch (SqlException ex)
             {

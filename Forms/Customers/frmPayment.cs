@@ -35,6 +35,7 @@ namespace BCD_Restaurant_Project.Forms.Customers
                 ProgOps.addPayment(mskPaymentNumber.Text, "Debit", tbxName.Text,mskSecurityCode.Text, mskExpirationDate);
             }
             
+            
         }
 
         private void frmPayment_Load(object sender, EventArgs e)

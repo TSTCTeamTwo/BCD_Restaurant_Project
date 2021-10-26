@@ -22,7 +22,7 @@ namespace BCD_Restaurant_Project.Forms
 
         private void dgvFood_SelectionChanged(object sender, EventArgs e)
         {
-
+            ProgOps.updatePicInPbx((Int32)dgvFood.CurrentRow.Cells[0].Value, pbxFood);
         }
     }
 }
