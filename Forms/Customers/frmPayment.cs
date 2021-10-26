@@ -79,5 +79,10 @@ namespace BCD_Restaurant_Project.Forms.Customers
             mskSecurityCode.Enabled = true;
             btnCancel.Enabled = true;
         }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
     }
 }
