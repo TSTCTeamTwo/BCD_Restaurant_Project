@@ -16,10 +16,10 @@ namespace BCD_Restaurant_Project.Classes
         public const int _MENU_NAME = 1;
         public const int _MENU_PRICE = 3;
 
-        private static decimal Tax => Total * (decimal)0.0625;
+        public static decimal Tax => Total * (decimal)0.0625;
 
         //uses a linq expression to calculate sum of a KeyValuePair -> using the values in the KeyValuePair's Value.TotalPrice property
-        private static decimal Total => myCart.Sum(price => price.Value.TotalPrice);
+        public static decimal Total => myCart.Sum(price => price.Value.TotalPrice);
         public static int OrderID { get; set; }
 
         public static void addToCartFromFood(DataGridView dgvMenu)

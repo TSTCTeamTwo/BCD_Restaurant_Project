@@ -32,6 +32,10 @@ namespace BCD_Restaurant_Project.Forms.Customers
                 {
                     ProgOps.finalizeOrder();
                     dgvOrder.Rows.Clear();
+                    btnCheckout.Text = "Checkout   $0.00";
+                    lblTotal.Text = string.Empty;
+                    lblSubtotal.Text = string.Empty;
+                    lblTax.Text = string.Empty;
                 }
             }
             else
@@ -76,6 +80,7 @@ namespace BCD_Restaurant_Project.Forms.Customers
         private void frmOrder_Load(object sender, EventArgs e)
         {
             Cart.fillBtnCheckoutText(btnCheckout);
+            
 
             dgvOrder.Rows.Clear();
             dgvOrder.ColumnCount = 4;
@@ -94,6 +99,12 @@ namespace BCD_Restaurant_Project.Forms.Customers
                 dgvOrder.Rows[row].Cells[3].Value = item.Value.Quantity;
 
             }
+
+            //subtotal, total and tax
+            lblSubtotal.Text = Cart.Total.ToString("c");
+            lblTax.Text = Cart.Tax.ToString("c");
+            lblTotal.Text = (Cart.Total + Cart.Tax).ToString("c");
+
 
         }
 
