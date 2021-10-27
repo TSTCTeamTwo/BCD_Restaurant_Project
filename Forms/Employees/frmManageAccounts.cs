@@ -21,31 +21,29 @@ namespace BCD_Restaurant_Project.Forms.Employees
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            setState("Edit");
+            if (btnEdit.Text == "Edit")
+                setState("Edit");
+            else
+            {
+                setState("View");
+                accountsManager.CancelCurrentEdit();
+            }
+                
         }
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-            if (accountsManager.Position == accountsManager.Count - 1)
-            {
-            }
-            else
-            {
+            
                 accountsManager.Position++;
                 setTitle();
-            }
+            
         }
 
         private void btnPrevious_Click(object sender, EventArgs e)
         {
-            if (accountsManager.Position == 0)
-            {
-            }
-            else
-            {
                 accountsManager.Position--;
                 setTitle();
-            }
+            
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -63,6 +61,7 @@ namespace BCD_Restaurant_Project.Forms.Employees
             {
                 case "Add":
                     addAccount(txt);
+                    accountsManager.EndCurrentEdit();
                     break;
                 case "Edit":
                     updateAccount(txt);
@@ -222,6 +221,7 @@ namespace BCD_Restaurant_Project.Forms.Employees
                 tbxFirstName.Text
             };
             deleteAccount(txt);
+            accountsManager.RemoveAt(accountsManager.Position);
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
