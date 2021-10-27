@@ -1,22 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
-using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Windows.Forms;
-
-using CrystalDecisions.CrystalReports.Engine;
 
 namespace BCD_Restaurant_Project.Classes
 {
     static class ProgOps
     {
         private const string CONNECT_STRING = "Server=cstnt.tstc.edu;Database= inew2330fa21;User Id =group2fa212330;password=2547268";
-
-        private static SqlConnection _dbConnection = new SqlConnection(CONNECT_STRING);
 
         //data adapters for the tables in our database
         private static SqlDataAdapter _daAccounts = new SqlDataAdapter();
@@ -25,7 +19,7 @@ namespace BCD_Restaurant_Project.Classes
         private static SqlDataAdapter _daMenu = new SqlDataAdapter();
         private static SqlDataAdapter _daOrderItems = new SqlDataAdapter();
         private static SqlDataAdapter _daOrders = new SqlDataAdapter();
-
+        private static SqlConnection _dbConnection = new SqlConnection(CONNECT_STRING);
         //command objects for the tables in our database
         private static SqlCommand _sqlAccountsCommand = new SqlCommand();
         private static SqlCommand _sqlCategoryCommand = new SqlCommand();
@@ -33,70 +27,27 @@ namespace BCD_Restaurant_Project.Classes
         private static SqlCommand _sqlMenuCommand = new SqlCommand();
         private static SqlCommand _sqlOrderItemsCommand = new SqlCommand();
         private static SqlCommand _sqlOrdersCommand = new SqlCommand();
+        //Properties for the application
+        public static string AccountFN { get; set; } = string.Empty;
+        public static int AccountID { get; set; } = 0;
 
+        public static string AccountLN { get; set; } = string.Empty;
         //Datatables to hold result sets for the application
         public static DataTable DTAccounts { get; private set; } = new DataTable();
         public static DataTable DTCategories { get; private set; } = new DataTable();
         public static DataTable DTEmployees { get; private set; } = new DataTable();
         public static DataTable DTMenu { get; private set; } = new DataTable();
         public static DataTable DTOrderItems { get; private set; } = new DataTable();
-
         public static DataTable DTOrders { get; private set; } = new DataTable();
         public static DataTable DTPayment { get; private set; } = new DataTable();
-
-        //Properties for the application
-        public static string AccountFN { get; set; } = string.Empty;
-        public static int AccountID { get; set; } = 0;
-        public static string AccountLN { get; set; } = string.Empty;
         private static StringBuilder ErrorMessages { get; } = new StringBuilder();
-
-        public static void openDatabase()
+        public static void addNewMenuItem(string name, string description, double price, ComboBox cbCategory)
         {
             try
             {
-                _dbConnection = new SqlConnection(CONNECT_STRING);
-                _dbConnection.Open();
-            }
-            catch (SqlException exception)
-            {
-                for (int i = 0; i < exception.Errors.Count; i++)
-                {
-                    ErrorMessages.Append("Index #" + i + "\n" + "Message: " + exception.Errors[i].Message + "\n" +
-                                         "LineNumber: " + exception.Errors[i].LineNumber + "\n" + "Source: " +
-                                         exception.Errors[i].Source + "\n" +
-                                         "Procedure: " + exception.Errors[i].Procedure + "\n");
-                }
-
-                MessageBox.Show(ErrorMessages.ToString(), "Error Disposing Publisher", MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error:\n\t" + ex.Message, "Error Opening Database", MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
-            }
-        }
-
-        public static void closeDatabase()
-        {
-            try
-            {
-                _dbConnection.Close();
-
-                _dbConnection.Dispose();
-                _daAccounts.Dispose();
-                _daEmployees.Dispose();
-                _daCategory.Dispose();
-                _daMenu.Dispose();
-                _daOrderItems.Dispose();
-                _daOrders.Dispose();
-                DTCategories.Dispose();
-                DTMenu.Dispose();
-                DTOrders.Dispose();
-                DTOrderItems.Dispose();
-                DTAccounts.Dispose();
-                DTEmployees.Dispose();
-
+                string query = "INSERT INTO group2fa212330.Menu(ItemName, ItemDescription, Price, CategoryID) VALUES('" + name + "', '" + description + "', " + price + ", " + cbCategory.SelectedIndex + 1;
+                _sqlMenuCommand = new SqlCommand(query, _dbConnection);
+                _sqlMenuCommand.ExecuteNonQuery();
             }
             catch (SqlException ex)
             {
@@ -109,16 +60,16 @@ namespace BCD_Restaurant_Project.Classes
                                          "Procedure: " + ex.Errors[i].Procedure + "\n");
                 }
 
-                MessageBox.Show(ErrorMessages.ToString(), "Error Close Database", MessageBoxButtons.OK,
+                MessageBox.Show(ErrorMessages.ToString(), "Error Closing Database", MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error:\n\t" + ex.Message, "Error Opening Database", MessageBoxButtons.OK,
+                MessageBox.Show("Error:\n\t" + ex.Message, "ProgOps Error", MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
             }
-        }
 
+        }
         public static void addPayment(string cardNumber, string cardType, string cardName, string security, MaskedTextBox expiration)
         {
             try
@@ -152,7 +103,6 @@ namespace BCD_Restaurant_Project.Classes
                     MessageBoxIcon.Error);
             }
         }
-
         //method for binding the bank information form
         public static void bankInformation(TextBox tbxName, TextBox tbxEmail, TextBox tbxAccountID,
             TextBox tbxAccNumber, TextBox tbxRouNumber)
@@ -199,7 +149,6 @@ namespace BCD_Restaurant_Project.Classes
                     MessageBoxIcon.Error);
             }
         }
-
         public static void bindAccounts(TextBox tbxAccountID, TextBox tbxEmail, TextBox tbxUsername,
             TextBox tbxPassword,
             TextBox tbxConfirmPassword, TextBox tbxLastName, TextBox tbxFirstName, Form form, out CurrencyManager accountsManager)
@@ -224,28 +173,29 @@ namespace BCD_Restaurant_Project.Classes
             tbxFirstName.DataBindings.Add("Text", DTAccounts, "Firstname");
 
         }
-
         public static void changeCategory(CurrencyManager currency, ComboBox cbCategory)
         {
             cbCategory.SelectedIndex = cbCategory.FindString(DTMenu.Rows[currency.Position]["CategoryName"].ToString());
         }
-
-        public static bool scanForPaymentOption()
+        public static void closeDatabase()
         {
             try
             {
-                string query = "SELECT * FROM group2fa212330.Payment WHERE AccountID = " + AccountID;
-                SqlCommand _sqlPaymentCommand = new SqlCommand(query, _dbConnection);
-                SqlDataAdapter _daPayment = new SqlDataAdapter(_sqlPaymentCommand);
-                _daPayment.Fill(DTPayment);
+                _dbConnection.Close();
 
-                //if a payment exists return true else return false
-                if (DTPayment.Rows.Count != 0)
-                {
-                    return true;
-                }
-
-                return false;
+                _dbConnection.Dispose();
+                _daAccounts.Dispose();
+                _daEmployees.Dispose();
+                _daCategory.Dispose();
+                _daMenu.Dispose();
+                _daOrderItems.Dispose();
+                _daOrders.Dispose();
+                DTCategories.Dispose();
+                DTMenu.Dispose();
+                DTOrders.Dispose();
+                DTOrderItems.Dispose();
+                DTAccounts.Dispose();
+                DTEmployees.Dispose();
 
             }
             catch (SqlException ex)
@@ -264,13 +214,10 @@ namespace BCD_Restaurant_Project.Classes
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error:\n\t" + ex.Message, "ProgOps Error", MessageBoxButtons.OK,
+                MessageBox.Show("Error:\n\t" + ex.Message, "Error Opening Database", MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
             }
-
-            return false;
         }
-
         //displaying the specific items wherever the user is in the form
         public static void displayMenuItems(DataGridView dgvDisplay, int categoryId)
         {
@@ -289,7 +236,6 @@ namespace BCD_Restaurant_Project.Classes
             dgvDisplay.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
 
         }
-
         public static void fillInPersonalInformation(TextBox tbxAccountID, TextBox tbxEmail, TextBox tbxUsername,
             TextBox tbxName, TextBox tbxPassword)
         {
@@ -332,7 +278,6 @@ namespace BCD_Restaurant_Project.Classes
                     MessageBoxIcon.Error);
             }
         }
-
         public static void finalizeOrder()
         {
             try
@@ -379,7 +324,6 @@ namespace BCD_Restaurant_Project.Classes
                     MessageBoxIcon.Error);
             }
         }
-
         public static void generateOneTimePassword()
         {
             string newOTP = "DECLARE @password varchar(20) " +
@@ -390,7 +334,6 @@ namespace BCD_Restaurant_Project.Classes
             _sqlAccountsCommand = new SqlCommand(newOTP, _dbConnection);
             _sqlAccountsCommand.ExecuteNonQuery();
         }
-
         public static void getNewOrderID()
         {
 
@@ -409,7 +352,6 @@ namespace BCD_Restaurant_Project.Classes
             _daOrders.Dispose();
 
         }
-
         //method for the user to sign up and add the information onto the database
         public static void insertNewAccount(string fName, string lName, string username, string email, string password)
         {
@@ -446,7 +388,6 @@ namespace BCD_Restaurant_Project.Classes
                     MessageBoxIcon.Error);
             }
         }
-
         //Method to validate if the user enters a valid email anywhere in the program
         public static bool isValidEmail(string email)
         {
@@ -462,7 +403,6 @@ namespace BCD_Restaurant_Project.Classes
                 return false;
             }
         }
-
         public static void modifyMenu(TextBox tbItemName, TextBox tbItemID, TextBox tbDescription, TextBox tbPrice,
             TextBox tbImage, ComboBox cbCategory,
             Form form, out CurrencyManager c, DataGridView dgvDisplay)
@@ -530,9 +470,135 @@ namespace BCD_Restaurant_Project.Classes
             }
 
         }
+        public static void openDatabase()
+        {
+            try
+            {
+                _dbConnection = new SqlConnection(CONNECT_STRING);
+                _dbConnection.Open();
+            }
+            catch (SqlException exception)
+            {
+                for (int i = 0; i < exception.Errors.Count; i++)
+                {
+                    ErrorMessages.Append("Index #" + i + "\n" + "Message: " + exception.Errors[i].Message + "\n" +
+                                         "LineNumber: " + exception.Errors[i].LineNumber + "\n" + "Source: " +
+                                         exception.Errors[i].Source + "\n" +
+                                         "Procedure: " + exception.Errors[i].Procedure + "\n");
+                }
 
+                MessageBox.Show(ErrorMessages.ToString(), "Error Disposing Publisher", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error:\n\t" + ex.Message, "Error Opening Database", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+        }
+        public static bool scanForPaymentOption()
+        {
+            try
+            {
+                string query = "SELECT * FROM group2fa212330.Payment WHERE AccountID = " + AccountID;
+                SqlCommand _sqlPaymentCommand = new SqlCommand(query, _dbConnection);
+                SqlDataAdapter _daPayment = new SqlDataAdapter(_sqlPaymentCommand);
+                _daPayment.Fill(DTPayment);
 
+                //if a payment exists return true else return false
+                if (DTPayment.Rows.Count != 0)
+                {
+                    return true;
+                }
 
+                return false;
+
+            }
+            catch (SqlException ex)
+            {
+                for (int i = 0; i < ex.Errors.Count; i++)
+                {
+                    ErrorMessages.Append("Index#" + i + "\n" +
+                                         "Message: " + ex.Errors[i].Message + "\n" +
+                                         "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
+                                         "Source: " + ex.Errors[i].Source + "\n" +
+                                         "Procedure: " + ex.Errors[i].Procedure + "\n");
+                }
+
+                MessageBox.Show(ErrorMessages.ToString(), "Error Close Database", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error:\n\t" + ex.Message, "ProgOps Error", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+
+            return false;
+        }
+        public static void updateMenuOnClose()
+        {
+            try
+            {
+                SqlCommandBuilder menuAdapterCommands = new SqlCommandBuilder(_daMenu);
+                _daMenu.Update(DTMenu);
+            }
+            catch (SqlException ex)
+            {
+                if (ex is SqlException)
+                {//handles more specific SqlException here.
+                    for (int i = 0; i < ex.Errors.Count; i++)
+                    {
+                        ErrorMessages.Append("Index #" + i + "\n" +
+                            "Message: " + ex.Errors[i].Message + "\n" +
+                            "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
+                            "Source: " + ex.Errors[i].Source + "\n" +
+                            "Procedure: " + ex.Errors[i].Procedure + "\n");
+                    }
+                    MessageBox.Show(ErrorMessages.ToString(), "Error on UpdateOnClose", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {//handles generic ones here
+                    MessageBox.Show(ex.Message, "Error on UpdateOnClose", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+        public static void updatePicInPbx(int image, PictureBox pbxImage)
+        {
+            try
+            {
+                string query = "SELECT Image FROM group2fa212330.Images as I INNER JOIN group2fa212330.Menu as M ON I.ImageID = M.ImageID WHERE ItemID = " + image;
+                SqlCommand _sqlImageCommand = new SqlCommand(query, _dbConnection);
+                SqlDataAdapter _daImage = new SqlDataAdapter(_sqlImageCommand);
+                DataTable _dtImage = new DataTable();
+                _daImage.Fill(_dtImage);
+
+                Byte[] imageP = (Byte[])_dtImage.Rows[0]["image"];
+
+                MemoryStream memoryStream = new MemoryStream(imageP);
+
+                pbxImage.Image = Image.FromStream(memoryStream);
+            }
+            catch (SqlException ex)
+            {
+                for (int i = 0; i < ex.Errors.Count; i++)
+                {
+                    ErrorMessages.Append("Index#" + i + "\n" +
+                                         "Message: " + ex.Errors[i].Message + "\n" +
+                                         "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
+                                         "Source: " + ex.Errors[i].Source + "\n" +
+                                         "Procedure: " + ex.Errors[i].Procedure + "\n");
+                }
+
+                MessageBox.Show(ErrorMessages.ToString(), "Error Closing Database", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error:\n\t" + ex.Message, "ProgOps Error", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+        }
         public static int verifyAccountStatus(string username, string password)
         {
 
@@ -605,7 +671,6 @@ namespace BCD_Restaurant_Project.Classes
 
             return -1;
         }
-
         public static int verifyEmployeeStatus()
         {
 
@@ -691,79 +756,20 @@ namespace BCD_Restaurant_Project.Classes
             return result;
         }
 
-        public static void addNewMenuItem(string name, string description, double price, ComboBox cbCategory)
+
+        public static void updateAccount(string[] text)
         {
             try
             {
-                string query = "INSERT INTO group2fa212330.Menu(ItemName, ItemDescription, Price, CategoryID) VALUES('" + name + "', '" + description + "', " + price + ", " + cbCategory.SelectedIndex + 1;
-                _sqlMenuCommand = new SqlCommand(query, _dbConnection);
-                _sqlMenuCommand.ExecuteNonQuery();
-            }
-            catch (SqlException ex)
-            {
-                for (int i = 0; i < ex.Errors.Count; i++)
-                {
-                    ErrorMessages.Append("Index#" + i + "\n" +
-                                         "Message: " + ex.Errors[i].Message + "\n" +
-                                         "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
-                                         "Source: " + ex.Errors[i].Source + "\n" +
-                                         "Procedure: " + ex.Errors[i].Procedure + "\n");
-                }
+                string query =
+                    $"UPDATE group2fa212330.Accounts " +
+                    "SET Email = '" + text[1] + "', Username = '" + text[2] + "', Password = '" + text[3] + "', " +
+                    "LastName = '" + text[4] + "', FirstName = '" + text[5] + "' " +
+                    "WHERE AccountID = " + Convert.ToInt32(text[0]) + "";
 
-                MessageBox.Show(ErrorMessages.ToString(), "Error Closing Database", MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error:\n\t" + ex.Message, "ProgOps Error", MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
-            }
+                SqlCommand _sqlDdlCommand = new SqlCommand(query, _dbConnection);
+                _sqlDdlCommand.ExecuteNonQuery();
 
-        }
-
-        public static void updateMenuOnClose()
-        {
-            try
-            {
-                SqlCommandBuilder menuAdapterCommands = new SqlCommandBuilder(_daMenu);
-                _daMenu.Update(DTMenu);
-            }
-            catch (SqlException ex)
-            {
-                if (ex is SqlException)
-                {//handles more specific SqlException here.
-                    for (int i = 0; i < ex.Errors.Count; i++)
-                    {
-                        ErrorMessages.Append("Index #" + i + "\n" +
-                            "Message: " + ex.Errors[i].Message + "\n" +
-                            "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
-                            "Source: " + ex.Errors[i].Source + "\n" +
-                            "Procedure: " + ex.Errors[i].Procedure + "\n");
-                    }
-                    MessageBox.Show(ErrorMessages.ToString(), "Error on UpdateOnClose", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
-                {//handles generic ones here
-                    MessageBox.Show(ex.Message, "Error on UpdateOnClose", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-        }
-
-        public static void updatePicInPbx(int image, PictureBox pbxImage)
-        {
-            try
-            {
-                string query = "SELECT Image FROM group2fa212330.Images as I INNER JOIN group2fa212330.Menu as M ON I.ImageID = M.ImageID WHERE ItemID = " + image;
-                SqlCommand _sqlImageCommand = new SqlCommand(query, _dbConnection);
-                SqlDataAdapter _daImage = new SqlDataAdapter(_sqlImageCommand);
-                DataTable _dtImage = new DataTable();
-                _daImage.Fill(_dtImage);
-
-                Byte[] imageP = (Byte[])_dtImage.Rows[0]["image"];
-
-                MemoryStream memoryStream = new MemoryStream(imageP);
-
-                pbxImage.Image = Image.FromStream(memoryStream);
             }
             catch (SqlException ex)
             {
@@ -786,43 +792,71 @@ namespace BCD_Restaurant_Project.Classes
             }
         }
 
+        public static void addAccount(string[] text)
+        {
+            try
+            {
+                string query =
+                    $"insert into group2fa212330.Accounts (Email, OneTimePassword, Username, Password, LastName, FirstName, IsEmployee) VALUES " +
+                    $"('{text[1]}','fads34','{text[2]}','{text[3]}','{text[4]}','{text[5]}',0)";
 
-        //public static GroupBox fillGroupBoxWithSides()
-        //{
+                SqlCommand _sqlDdlCommand = new SqlCommand(query, _dbConnection);
+                _sqlDdlCommand.ExecuteNonQuery();
 
-        //    GroupBox gbxSides = new GroupBox();
-        //    List<string>
+            }
+            catch (SqlException ex)
+            {
+                for (int i = 0; i < ex.Errors.Count; i++)
+                {
+                    ErrorMessages.Append("Index#" + i + "\n" +
+                                         "Message: " + ex.Errors[i].Message + "\n" +
+                                         "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
+                                         "Source: " + ex.Errors[i].Source + "\n" +
+                                         "Procedure: " + ex.Errors[i].Procedure + "\n");
+                }
 
-        //    try
-        //    {
+                MessageBox.Show(ErrorMessages.ToString(), "Error Closing Database", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error:\n\t" + ex.Message, "ProgOps Error", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+        }
+
+        public static void deleteAccount(string[] text)
+        {
+            try
+            {
+                string query = $"DELETE FROM group2fa212330.Accounts WHERE AccountID = {text[0]}";
+
+                SqlCommand _sqlDdlCommand = new SqlCommand(query, _dbConnection);
+                _sqlDdlCommand.ExecuteNonQuery();
+
+            }
+            catch (SqlException ex)
+            {
+                for (int i = 0; i < ex.Errors.Count; i++)
+                {
+                    ErrorMessages.Append("Index#" + i + "\n" +
+                                         "Message: " + ex.Errors[i].Message + "\n" +
+                                         "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
+                                         "Source: " + ex.Errors[i].Source + "\n" +
+                                         "Procedure: " + ex.Errors[i].Procedure + "\n");
+                }
+
+                MessageBox.Show(ErrorMessages.ToString(), "Error Closing Database", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error:\n\t" + ex.Message, "ProgOps Error", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
 
 
-        //    }
-        //    catch (SqlException ex)
-        //    {
-        //        for (int i = 0; i < ex.Errors.Count; i++)
-        //        {
-        //            ErrorMessages.Append("Index#" + i + "\n" +
-        //                                 "Message: " + ex.Errors[i].Message + "\n" +
-        //                                 "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
-        //                                 "Source: " + ex.Errors[i].Source + "\n" +
-        //                                 "Procedure: " + ex.Errors[i].Procedure + "\n");
-        //        }
-
-        //        MessageBox.Show(ErrorMessages.ToString(), "Error Closing Database", MessageBoxButtons.OK,
-        //            MessageBoxIcon.Error);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show("Error:\n\t" + ex.Message, "ProgOps Error", MessageBoxButtons.OK,
-        //            MessageBoxIcon.Error);
-        //    }
-
-
-        //    return gbxSides;
-
-
-        //}
+        }
 
     }
 }

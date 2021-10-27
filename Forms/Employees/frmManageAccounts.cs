@@ -5,6 +5,8 @@ using System.Windows.Forms;
 
 using BCD_Restaurant_Project.Classes;
 
+using static BCD_Restaurant_Project.Classes.ProgOps;
+
 namespace BCD_Restaurant_Project.Forms.Employees
 {
     public partial class frmManageAccounts : Form
@@ -17,18 +19,70 @@ namespace BCD_Restaurant_Project.Forms.Employees
             InitializeComponent();
         }
 
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            setState("Edit");
+        }
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            if (accountsManager.Position == accountsManager.Count - 1)
+            {
+            }
+            else
+            {
+                accountsManager.Position++;
+                setTitle();
+            }
+        }
+
+        private void btnPrevious_Click(object sender, EventArgs e)
+        {
+            if (accountsManager.Position == 0)
+            {
+            }
+            else
+            {
+                accountsManager.Position--;
+                setTitle();
+            }
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            string[] txt = {
+                tbxAccountID.Text,
+                tbxEmail.Text,
+                tbxUsername.Text,
+                tbxPassword.Text,
+                tbxLastName.Text,
+                tbxFirstName.Text
+            };
+
+            switch (myState)
+            {
+                case "Add":
+                    addAccount(txt);
+                    break;
+                case "Edit":
+                    updateAccount(txt);
+                    break;
+            }
+            setTitle();
+        }
+
         private void frmManageAccounts_Load(object sender, EventArgs e)
         {
             ProgOps.openDatabase();
             ProgOps.bindAccounts(tbxAccountID, tbxEmail, tbxUsername, tbxPassword, tbxConfirmPassword,
              tbxLastName, tbxFirstName, this, out accountsManager);
 
-            SetState("View");
+            setState("View");
             setTitle();
 
         }
 
-        private void SetState(string appState)
+        private void setState(string appState)
         {
 
             myState = appState;
@@ -58,6 +112,7 @@ namespace BCD_Restaurant_Project.Forms.Employees
                     btnSave.Enabled = false;
                     btnPrevious.Focus();
                     btnEdit.Text = "Edit";
+                    setTitle();
                     break;
 
                 case "Add":
@@ -78,11 +133,27 @@ namespace BCD_Restaurant_Project.Forms.Employees
                     btnAdd.Enabled = false;
                     btnSave.Enabled = true;
                     btnDelete.Enabled = false;
-                    btnEdit.Enabled = true;
+                    btnEdit.Enabled = false;
                     btnEdit.Text = "Cancel";
-                    btnDelete.Enabled = false;
-                    btnSave.Enabled = false;
-                    tbxLastName.Focus();
+
+                    tbxEmployeeID.Enabled = true;
+                    tbxEmail.Enabled = true;
+                    tbxUsername.Enabled = true;
+                    tbxPassword.Enabled = true;
+                    tbxConfirmPassword.Enabled = true;
+                    tbxLastName.Enabled = true;
+                    tbxFirstName.Enabled = true;
+
+                    tbxAccountID.Text = string.Empty;
+                    tbxEmployeeID.Text = string.Empty;
+                    tbxEmail.Text = string.Empty;
+                    tbxUsername.Text = string.Empty;
+                    tbxPassword.Text = string.Empty;
+                    tbxConfirmPassword.Text = string.Empty;
+                    tbxLastName.Text = string.Empty;
+                    tbxFirstName.Text = string.Empty;
+
+                    tbxEmail.Focus();
                     break;
 
                 case "Edit":
@@ -97,6 +168,15 @@ namespace BCD_Restaurant_Project.Forms.Employees
                     tbxConfirmPassword.ReadOnly = false;
                     tbxLastName.ReadOnly = false;
                     tbxFirstName.ReadOnly = false;
+
+                    tbxEmployeeID.Enabled = true;
+                    tbxEmail.Enabled = true;
+                    tbxUsername.Enabled = true;
+                    tbxPassword.Enabled = true;
+                    tbxConfirmPassword.Enabled = true;
+                    tbxLastName.Enabled = true;
+                    tbxFirstName.Enabled = true;
+
                     //ENABLED - BUTTONS
 
                     btnPrevious.Enabled = false;
@@ -125,36 +205,28 @@ namespace BCD_Restaurant_Project.Forms.Employees
                     break;
             }
         }
-
-        private void btnNext_Click(object sender, EventArgs e)
-        {
-            if (accountsManager.Position == accountsManager.Count - 1)
-            {
-            }
-            else
-            {
-                accountsManager.Position++;
-                setTitle();
-            }
-        }
-
-        private void btnPrevious_Click(object sender, EventArgs e)
-        {
-            if (accountsManager.Position == 0)
-            {
-            }
-            else
-            {
-                accountsManager.Position--;
-                setTitle();
-            }
-        }
-
         private void setTitle()
         {
             lblAccounts.Text = "Account - Record " + (accountsManager.Position + 1) + " of " + accountsManager.Count + " Records: "
                 + tbxLastName.Text + ", " + tbxFirstName.Text;
         }
 
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            string[] txt = {
+                tbxAccountID.Text,
+                tbxEmail.Text,
+                tbxUsername.Text,
+                tbxPassword.Text,
+                tbxLastName.Text,
+                tbxFirstName.Text
+            };
+            deleteAccount(txt);
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            setState("Add");
+        }
     }
 }
