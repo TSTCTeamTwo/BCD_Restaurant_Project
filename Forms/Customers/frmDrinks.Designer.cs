@@ -59,6 +59,7 @@ namespace BCD_Restaurant_Project.Forms
             this.dgvDrinks.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDrinks.Size = new System.Drawing.Size(593, 303);
             this.dgvDrinks.TabIndex = 0;
+            this.dgvDrinks.SelectionChanged += new System.EventHandler(this.dgvDrinks_SelectionChanged);
             // 
             // btnAddToOrder
             // 

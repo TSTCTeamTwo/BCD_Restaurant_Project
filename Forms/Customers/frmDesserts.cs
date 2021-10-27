@@ -24,5 +24,10 @@ namespace BCD_Restaurant_Project.Forms
         {
             Cart.addToCartFromDesserts(dgvDesserts);
         }
+
+        private void dgvDesserts_SelectionChanged(object sender, EventArgs e)
+        {
+            ProgOps.updatePicInPbx((Int32)dgvDesserts.CurrentRow.Cells[0].Value, pbxDesserts);
+        }
     }
 }

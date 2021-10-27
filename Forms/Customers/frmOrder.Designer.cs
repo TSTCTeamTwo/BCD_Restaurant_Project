@@ -38,7 +38,7 @@ namespace BCD_Restaurant_Project.Forms.Customers
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbxTip = new System.Windows.Forms.TextBox();
             this.lblSubtotal = new System.Windows.Forms.Label();
             this.lblTax = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
@@ -58,7 +58,6 @@ namespace BCD_Restaurant_Project.Forms.Customers
             this.dgvOrder.Name = "dgvOrder";
             this.dgvOrder.Size = new System.Drawing.Size(877, 210);
             this.dgvOrder.TabIndex = 2;
-            this.dgvOrder.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOrder_CellContentClick);
             // 
             // lblUsername
             // 
@@ -153,13 +152,15 @@ namespace BCD_Restaurant_Project.Forms.Customers
             this.label4.TabIndex = 8;
             this.label4.Text = "Enter Tip:";
             // 
-            // textBox1
+            // tbxTip
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(555, 273);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 29);
-            this.textBox1.TabIndex = 9;
+            this.tbxTip.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxTip.Location = new System.Drawing.Point(555, 273);
+            this.tbxTip.Name = "tbxTip";
+            this.tbxTip.Size = new System.Drawing.Size(100, 29);
+            this.tbxTip.TabIndex = 9;
+            this.tbxTip.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbxTip_KeyDown);
+            this.tbxTip.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tbxTip_KeyUp);
             // 
             // lblSubtotal
             // 
@@ -200,7 +201,7 @@ namespace BCD_Restaurant_Project.Forms.Customers
             this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.lblTax);
             this.Controls.Add(this.lblSubtotal);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tbxTip);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -231,7 +232,7 @@ namespace BCD_Restaurant_Project.Forms.Customers
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbxTip;
         private System.Windows.Forms.Label lblSubtotal;
         private System.Windows.Forms.Label lblTax;
         private System.Windows.Forms.Label lblTotal;
