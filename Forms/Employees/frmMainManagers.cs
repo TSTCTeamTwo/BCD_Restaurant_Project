@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using BCD_Restaurant_Project.Forms.Employees;
+using BCD_Restaurant_Project.Classes;
 namespace BCD_Restaurant_Project.Forms
 {
     public partial class frmMainManagers : Form
@@ -33,7 +34,7 @@ namespace BCD_Restaurant_Project.Forms
 
         private void frmMainManagers_Load(object sender, EventArgs e)
         {
-
+            ProgOps.openDatabase();
         }
         private void OpenChildForm(Form childForm, object btnSender)
         {
@@ -61,6 +62,11 @@ namespace BCD_Restaurant_Project.Forms
                 this.Hide();
                 new frmLogin().Show();
             }
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

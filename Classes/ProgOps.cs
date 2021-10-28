@@ -30,7 +30,7 @@ namespace BCD_Restaurant_Project.Classes
         //Properties for the application
         public static string AccountFN { get; set; } = string.Empty;
         public static int AccountID { get; set; } = 0;
-
+        public static string Email { get; set; } = string.Empty;
         public static string AccountLN { get; set; } = string.Empty;
         //Datatables to hold result sets for the application
         public static DataTable DTAccounts { get; private set; } = new DataTable();
@@ -151,7 +151,7 @@ namespace BCD_Restaurant_Project.Classes
         }
         public static void bindAccounts(TextBox tbxAccountID, TextBox tbxEmail, TextBox tbxUsername,
             TextBox tbxPassword,
-            TextBox tbxConfirmPassword, TextBox tbxLastName, TextBox tbxFirstName, Form form, out CurrencyManager accountsManager)
+            TextBox tbxLastName, TextBox tbxFirstName, Form form, out CurrencyManager accountsManager)
         {
 
             string sqlQuery = "SELECT * from group2fa212330.Accounts";
@@ -168,7 +168,6 @@ namespace BCD_Restaurant_Project.Classes
             tbxEmail.DataBindings.Add("Text", DTAccounts, "Email");
             tbxUsername.DataBindings.Add("Text", DTAccounts, "Username");
             tbxPassword.DataBindings.Add("Text", DTAccounts, "Password");
-            tbxConfirmPassword.DataBindings.Add("Text", DTAccounts, "Password");
             tbxLastName.DataBindings.Add("Text", DTAccounts, "Lastname");
             tbxFirstName.DataBindings.Add("Text", DTAccounts, "Firstname");
 
@@ -327,14 +326,26 @@ namespace BCD_Restaurant_Project.Classes
                     MessageBoxIcon.Error);
             }
         }
-        public static void generateOneTimePassword()
+        public static void generatePassword(int argument, string newUserPassword = null)
         {
-            string newOTP = "DECLARE @password varchar(20) " +
+            string password = string.Empty;
+
+            switch (argument)
+            {
+                case 1://replaces old password with new password
+                    password = $"UPDATE group2fa212330.Accounts SET Password = {newUserPassword}, OneTimePassword = NULL WHERE AccountID = {AccountID}";
+                    break;
+                case 2://generates new one time password
+                    password = "DECLARE @password varchar(20) " +
                             "exec group2fa212330.spRandomPassword @len = 10, @output = @password out " +
                             "UPDATE group2fa212330.Accounts " +
                             "SET OneTimePassword = @password " +
-                            "WHERE AccountID = " + AccountID;
-            _sqlAccountsCommand = new SqlCommand(newOTP, _dbConnection);
+                            $"WHERE Email = {Email}";
+                    break;
+                default:
+                    break;
+            }
+            _sqlAccountsCommand = new SqlCommand(password, _dbConnection);
             _sqlAccountsCommand.ExecuteNonQuery();
         }
         public static void getNewOrderID()
@@ -646,10 +657,11 @@ namespace BCD_Restaurant_Project.Classes
                         return 1; //correct combination... nothing special -> open normal form
                     }
 
-                    else if (password == (string)DTAccounts.Rows[0]["onetimepassword"])
+                    else if (password == (string)DTAccounts.Rows[0]["onetimepassword"] && DTAccounts.Rows[0]["onetimepassword"] != null)
                     {
                         return 2; //otp combination... special case -> need to reset password
                     }
+
 
                 }
                 else
@@ -726,6 +738,7 @@ namespace BCD_Restaurant_Project.Classes
                 //if the account exists
                 if (DTAccounts.Rows.Count != 0)
                 {
+                    generatePassword(2);
                     //store the one time password to return in the forgot form
                     result = (string)DTAccounts.Rows[0]["OneTimePassword"];
                 }
@@ -758,7 +771,6 @@ namespace BCD_Restaurant_Project.Classes
             //returning OTP to send VIA email
             return result;
         }
-
 
         public static void updateAccount(string[] text)
         {
@@ -887,6 +899,13 @@ namespace BCD_Restaurant_Project.Classes
                 MessageBox.Show("Error:\n\t" + ex.Message, "ProgOps Error", MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
             }
+        }
+
+        public static void deactivateAccount(int accountID)
+        {
+            string query = "UPDATE group2fa212330.Accounts SET isActive = 0 WHERE AccountID =" + accountID;
+            _sqlAccountsCommand = new SqlCommand(query, _dbConnection);
+            _sqlAccountsCommand.ExecuteNonQuery();
         }
 
     }
