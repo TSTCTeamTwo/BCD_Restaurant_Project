@@ -21,13 +21,8 @@ namespace BCD_Restaurant_Project.Forms.Employees
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            if (btnEdit.Text == "Edit")
-                setState("Edit");
-            else
-            {
-                setState("View");
-                accountsManager.CancelCurrentEdit();
-            }
+
+            setState("Edit");
                 
         }
 
@@ -57,26 +52,15 @@ namespace BCD_Restaurant_Project.Forms.Employees
                 tbxFirstName.Text
             };
 
-            switch (myState)
-            {
-                case "Add":
-                   // addAccount(txt);
-                    accountsManager.EndCurrentEdit();
-                    break;
-                case "Edit":
-                   // updateAccount(txt);
-                    break;
-                case "View":
-                    break;
-            }
-            setTitle();
+            accountsManager.EndCurrentEdit();
             ProgOps.commandAccount();
+            setTitle();
+            setState("View");
         }
 
         private void frmManageAccounts_Load(object sender, EventArgs e)
         {
-            ProgOps.openDatabase();
-            ProgOps.bindAccounts(tbxAccountID, tbxEmail, tbxUsername, tbxPassword, tbxConfirmPassword,
+            ProgOps.bindAccounts(tbxAccountID, tbxEmail, tbxUsername, tbxPassword,
              tbxLastName, tbxFirstName, this, out accountsManager);
 
             setState("View");
@@ -93,38 +77,45 @@ namespace BCD_Restaurant_Project.Forms.Employees
                 case "View":
                     btnPrevious.Focus();
                     //COLOR
-                    tbxEmployeeID.BackColor = Color.White;
-                    tbxEmployeeID.ForeColor = Color.Black;
-                    //READONLY
-                    tbxEmployeeID.ReadOnly = true;
-                    tbxEmail.ReadOnly = true;
-                    tbxUsername.ReadOnly = true;
-                    tbxPassword.ReadOnly = true;
-                    tbxConfirmPassword.ReadOnly = true;
-                    tbxLastName.ReadOnly = true;
-                    tbxFirstName.ReadOnly = true;
+                    tbxAccountID.BackColor = Color.White;
+                    tbxAccountID.ForeColor = Color.Black;
+                    //READONLY all text boxes
+                    foreach (var tbxCurrent in Controls.OfType<TextBox>())
+                    {
+                        tbxCurrent.ReadOnly = true;
+                        tbxCurrent.Enabled = false;
+                    }
                     //ENABLED - BUTTONS
                     btnPrevious.Enabled = true;
                     btnNext.Enabled = true;
                     btnAdd.Enabled = true;
                     btnSave.Enabled = false;
-                    btnDelete.Enabled = false;
                     btnEdit.Enabled = true;
                     btnDelete.Enabled = true;
-                    btnSave.Enabled = false;
                     btnPrevious.Focus();
                     setTitle();
                     break;
                 default:
                     //modify the color of the AccountID tbx
-                    tbxAccountID.BackColor = Color.White;
+                    tbxAccountID.BackColor = Color.Red;
                     tbxAccountID.ForeColor = Color.Black;
-
+                    tbxAccountID.ReadOnly = true;
+                    tbxAccountID.Enabled = false;
+                    //ENABLE ALL TEXTBOXES
                     foreach (var tbxCurrent in Controls.OfType<TextBox>())
                     {
-                        tbxCurrent.ReadOnly = true;
-                    }
+                        tbxCurrent.ReadOnly = false;
+                        tbxCurrent.Enabled = true;
 
+                    }
+                    //ENABLE - BUTTONS
+                    btnSave.Enabled = true;
+                    btnPrevious.Enabled = false;
+                    btnNext.Enabled = false;
+                    btnAdd.Enabled = false;
+                    btnCancel.Enabled = true;
+                    btnDelete.Enabled = false;
+                    btnEdit.Enabled = false;
                     break;
             }
         }
@@ -144,20 +135,21 @@ namespace BCD_Restaurant_Project.Forms.Employees
                 tbxLastName.Text,
                 tbxFirstName.Text
             };
-            //deleteAccount(txt);
-            accountsManager.RemoveAt(accountsManager.Position);
-            ProgOps.commandAccount();
+            ProgOps.deactivateAccount(int.Parse(tbxAccountID.Text));
             setTitle();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
             setState("Add");
+            accountsManager.AddNew();
+            tbxAccountID.Enabled = false;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-
+            setState("View");
+            accountsManager.CancelCurrentEdit();
         }
     }
 }
