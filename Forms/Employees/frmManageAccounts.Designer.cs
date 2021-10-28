@@ -187,6 +187,7 @@ namespace BCD_Restaurant_Project.Forms.Employees
             this.btnDelete.TabIndex = 23;
             this.btnDelete.Text = "&Delete Account";
             this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnAdd
             // 
@@ -200,6 +201,7 @@ namespace BCD_Restaurant_Project.Forms.Employees
             this.btnAdd.TabIndex = 22;
             this.btnAdd.Text = "&Add";
             this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // lblUsername
             // 
@@ -223,6 +225,7 @@ namespace BCD_Restaurant_Project.Forms.Employees
             this.btnEdit.TabIndex = 20;
             this.btnEdit.Text = "&Edit";
             this.btnEdit.UseVisualStyleBackColor = false;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // tbxAccountID
             // 
@@ -345,6 +348,7 @@ namespace BCD_Restaurant_Project.Forms.Employees
             this.btnSave.TabIndex = 32;
             this.btnSave.Text = "&Save";
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnPrevious
             // 

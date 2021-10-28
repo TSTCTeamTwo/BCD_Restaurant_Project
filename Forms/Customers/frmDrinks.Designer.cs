@@ -29,6 +29,7 @@ namespace BCD_Restaurant_Project.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pbxShakes = new System.Windows.Forms.PictureBox();
             this.dgvDrinks = new System.Windows.Forms.DataGridView();
             this.btnAddToOrder = new System.Windows.Forms.Button();
@@ -50,14 +51,23 @@ namespace BCD_Restaurant_Project.Forms
             // 
             this.dgvDrinks.AllowUserToAddRows = false;
             this.dgvDrinks.AllowUserToDeleteRows = false;
-            this.dgvDrinks.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvDrinks.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvDrinks.AllowUserToResizeColumns = false;
+            this.dgvDrinks.AllowUserToResizeRows = false;
             this.dgvDrinks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDrinks.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvDrinks.Location = new System.Drawing.Point(12, 12);
+            this.dgvDrinks.MultiSelect = false;
             this.dgvDrinks.Name = "dgvDrinks";
             this.dgvDrinks.ReadOnly = true;
+            this.dgvDrinks.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDrinks.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvDrinks.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDrinks.Size = new System.Drawing.Size(593, 303);
+            this.dgvDrinks.ShowCellErrors = false;
+            this.dgvDrinks.ShowCellToolTips = false;
+            this.dgvDrinks.ShowEditingIcon = false;
+            this.dgvDrinks.ShowRowErrors = false;
+            this.dgvDrinks.Size = new System.Drawing.Size(593, 367);
             this.dgvDrinks.TabIndex = 0;
             this.dgvDrinks.SelectionChanged += new System.EventHandler(this.dgvDrinks_SelectionChanged);
             // 
@@ -67,7 +77,7 @@ namespace BCD_Restaurant_Project.Forms
             this.btnAddToOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddToOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddToOrder.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnAddToOrder.Location = new System.Drawing.Point(12, 321);
+            this.btnAddToOrder.Location = new System.Drawing.Point(611, 321);
             this.btnAddToOrder.Name = "btnAddToOrder";
             this.btnAddToOrder.Size = new System.Drawing.Size(116, 35);
             this.btnAddToOrder.TabIndex = 6;

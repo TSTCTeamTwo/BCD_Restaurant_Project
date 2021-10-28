@@ -28,9 +28,6 @@ namespace BCD_Restaurant_Project.Forms
             Cart.addToCartFromDrinks(dgvDrinks);
         }
 
-        private void dgvDrinks_SelectionChanged(object sender, EventArgs e)
-        {
-            ProgOps.updatePicInPbx((Int32)dgvDrinks.CurrentRow.Cells[0].Value, pbxShakes);
-        }
+
     }
 }
