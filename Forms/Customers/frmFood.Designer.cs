@@ -52,7 +52,7 @@ namespace BCD_Restaurant_Project.Forms
             // 
             // pbxFood
             // 
-            this.pbxFood.Image = global::BCD_Restaurant_Project.Properties.Resources.Hamburgers_got_their_name_from_Hamburg_Germany__1024x768;
+            this.pbxFood.Image = global::BCD_Restaurant_Project.Properties.Resources.P;
             this.pbxFood.Location = new System.Drawing.Point(814, 12);
             this.pbxFood.Name = "pbxFood";
             this.pbxFood.Size = new System.Drawing.Size(214, 218);

@@ -83,43 +83,7 @@ namespace BCD_Restaurant_Project.Forms
                                 Hide();
                                 break;
                             case 2:
-                                accountType = ProgOps.verifyEmployeeStatus();
-
-                                if (accountType == 2) //account is an admin -> which would mean accountType = 2
-                                {
-
-
-                                    DialogResult result = MessageBox.Show("Login As Admin? Yes for Admin, No for Customer", "Login", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-                                    if (result == DialogResult.Yes)
-                                    {
-                                        new frmMainManagers().Show();
-                                    }
-                                    else
-                                    {
-                                        new frmMain().Show();
-                                    }
-
-                                }
-                                else if (accountType == 1) //account is employee -> which would mean accountType = 1
-                                {
-                                    DialogResult result = MessageBox.Show("Login As Employee? Yes for Employee, No for Customer", "Login",
-                                        MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-                                    if (result == DialogResult.Yes)
-                                    {
-                                        new frmMainEmployees().Show();
-                                    }
-                                    else
-                                    {
-                                        new frmMain().Show();
-                                    }
-                                }
-                                else //account is regular customer  -> which would mean accountType = 0
-                                {
-                                    new frmMain().Show();
-                                }
-
-                                lblEmpty.Visible = false;
-                                Hide();
+                                new frmNewPassword().Show();
                                 break;
                         }
 

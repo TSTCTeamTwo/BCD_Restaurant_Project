@@ -73,16 +73,6 @@ namespace BCD_Restaurant_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Hamburgers_got_their_name_from_Hamburg_Germany__1024x768 {
-            get {
-                object obj = ResourceManager.GetObject("Hamburgers-got-their-name-from-Hamburg-Germany.-1024x768", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap OIP__1_ {
             get {
                 object obj = ResourceManager.GetObject("OIP (1)", resourceCulture);
