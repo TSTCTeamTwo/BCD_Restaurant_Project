@@ -60,14 +60,17 @@ namespace BCD_Restaurant_Project.Forms.Employees
             switch (myState)
             {
                 case "Add":
-                    addAccount(txt);
+                   // addAccount(txt);
                     accountsManager.EndCurrentEdit();
                     break;
                 case "Edit":
-                    updateAccount(txt);
+                   // updateAccount(txt);
+                    break;
+                case "View":
                     break;
             }
             setTitle();
+            ProgOps.commandAccount();
         }
 
         private void frmManageAccounts_Load(object sender, EventArgs e)
@@ -220,8 +223,9 @@ namespace BCD_Restaurant_Project.Forms.Employees
                 tbxLastName.Text,
                 tbxFirstName.Text
             };
-            deleteAccount(txt);
+            //deleteAccount(txt);
             accountsManager.RemoveAt(accountsManager.Position);
+            ProgOps.commandAccount();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)

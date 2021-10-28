@@ -858,5 +858,33 @@ namespace BCD_Restaurant_Project.Classes
 
         }
 
+        public static void commandAccount()
+        {
+            try
+            {
+                SqlCommandBuilder update = new SqlCommandBuilder(_daAccounts);
+                _daAccounts.Update(DTAccounts);
+            }
+            catch (SqlException ex)
+            {
+                for (int i = 0; i < ex.Errors.Count; i++)
+                {
+                    ErrorMessages.Append("Index#" + i + "\n" +
+                                         "Message: " + ex.Errors[i].Message + "\n" +
+                                         "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
+                                         "Source: " + ex.Errors[i].Source + "\n" +
+                                         "Procedure: " + ex.Errors[i].Procedure + "\n");
+                }
+
+                MessageBox.Show(ErrorMessages.ToString(), "Error Closing Database", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error:\n\t" + ex.Message, "ProgOps Error", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+        }
+
     }
 }
