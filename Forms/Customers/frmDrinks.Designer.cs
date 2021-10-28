@@ -69,6 +69,7 @@ namespace BCD_Restaurant_Project.Forms
             this.dgvDrinks.ShowRowErrors = false;
             this.dgvDrinks.Size = new System.Drawing.Size(593, 367);
             this.dgvDrinks.TabIndex = 0;
+            this.dgvDrinks.SelectionChanged += new System.EventHandler(this.dgvDrinks_SelectionChanged);
             // 
             // btnAddToOrder
             // 

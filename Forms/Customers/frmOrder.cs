@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+
 using BCD_Restaurant_Project.Classes;
 
 namespace BCD_Restaurant_Project.Forms.Customers
@@ -44,7 +45,6 @@ namespace BCD_Restaurant_Project.Forms.Customers
                 new frmPayment().Show();
             }
 
-
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -70,17 +70,14 @@ namespace BCD_Restaurant_Project.Forms.Customers
 
             }
 
-        }
-
-        private void dgvOrder_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
+            fillLabels();
 
         }
 
         private void frmOrder_Load(object sender, EventArgs e)
         {
             Cart.fillBtnCheckoutText(btnCheckout);
-            
+
 
             dgvOrder.Rows.Clear();
             dgvOrder.ColumnCount = 4;
@@ -101,14 +98,35 @@ namespace BCD_Restaurant_Project.Forms.Customers
             }
 
             //subtotal, total and tax
-            lblSubtotal.Text = Cart.Total.ToString("c");
-            lblTax.Text = Cart.Tax.ToString("c");
-            lblTotal.Text = (Cart.Total + Cart.Tax).ToString("c");
+            fillLabels();
 
 
         }
 
-        private void pnlLogin_Paint(object sender, PaintEventArgs e)
+        private void tbxTip_KeyUp(object sender, KeyEventArgs e)
+        {
+            lblTotal.Text = string.Empty;
+            Cart.Tip = 0;
+
+            if (tbxTip.Text != "")
+            {
+                Cart.Tip = Convert.ToDecimal(tbxTip.Text);
+            }
+
+            fillLabels();
+
+        }
+
+
+        private void fillLabels()
+        {
+            lblSubtotal.Text = Cart.SubTotal.ToString("c");
+            lblTax.Text = Cart.Tax.ToString("c");
+            lblTotal.Text = Cart.Total.ToString("C");
+            btnCheckout.Text = $"Checkout  {Cart.Total:C}";
+        }
+
+        private void tbxTip_KeyDown(object sender, KeyEventArgs e)
         {
 
         }
