@@ -333,7 +333,7 @@ namespace BCD_Restaurant_Project.Classes
             switch (argument)
             {
                 case 1://replaces old password with new password
-                    password = $"UPDATE group2fa212330.Accounts SET Password = {newUserPassword}, OneTimePassword = NULL WHERE AccountID = {AccountID}";
+                    password = $"UPDATE group2fa212330.Accounts SET Password = '{newUserPassword}', OneTimePassword = NULL WHERE AccountID = {AccountID}";
                     break;
                 case 2://generates new one time password
                     password = "DECLARE @password varchar(20) " +

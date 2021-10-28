@@ -159,6 +159,12 @@
     <Compile Include="Forms\Employees\frmPersonal.Designer.cs">
       <DependentUpon>frmPersonal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmNewPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmNewPassword.Designer.cs">
+      <DependentUpon>frmNewPassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\Customers\frmDesserts.resx">
@@ -212,6 +218,9 @@
     <EmbeddedResource Include="Forms\Employees\frmPersonal.resx">
       <DependentUpon>frmPersonal.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmNewPassword.resx">
+      <DependentUpon>frmNewPassword.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -238,9 +247,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\pressToHide.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Hamburgers-got-their-name-from-Hamburg-Germany.-1024x768.jpg" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\P.jpg" />
