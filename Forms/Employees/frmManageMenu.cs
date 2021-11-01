@@ -82,7 +82,7 @@ namespace BCD_Restaurant_Project.Forms.Employees
 
         private void frmManageMenu_Load(object sender, EventArgs e)
         {
-            ProgOps.modifyMenu(tbxName, tbxItemID, tbxDescription, tbxPrice, tbxImagePath, cbxCategories, this, out menuManager, dgvDisplay);
+            ProgOps.modifyMenu(tbxName, tbxItemID, tbxDescription, tbxPrice, cbxCategories, this, out menuManager, dgvDisplay);
 
 
             //byte[] image = System.Text.Encoding.UTF8.GetBytes(tbxImagePath.Text);
@@ -147,7 +147,7 @@ namespace BCD_Restaurant_Project.Forms.Employees
 
         private void btnLoadImage_Click(object sender, EventArgs e)
         {
-            ProgOps.changeMenuItemImage(tbxItemID.Text):
+            ProgOps.changeMenuItemImage(tbxItemID.Text);
         }
     }
 }
