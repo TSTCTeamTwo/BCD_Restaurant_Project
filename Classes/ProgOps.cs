@@ -329,24 +329,46 @@ namespace BCD_Restaurant_Project.Classes
         public static void generatePassword(int argument, string newUserPassword = null)
         {
             string password = string.Empty;
-
-            switch (argument)
+            try
             {
-                case 1://replaces old password with new password
-                    password = $"UPDATE group2fa212330.Accounts SET Password = '{newUserPassword}', OneTimePassword = NULL WHERE AccountID = {AccountID}";
-                    break;
-                case 2://generates new one time password
-                    password = "DECLARE @password varchar(20) " +
-                            "exec group2fa212330.spRandomPassword @len = 10, @output = @password out " +
-                            "UPDATE group2fa212330.Accounts " +
-                            "SET OneTimePassword = @password " +
-                            $"WHERE Email = {Email}";
-                    break;
-                default:
-                    break;
+                switch (argument)
+                {
+                    case 1://replaces old password with new password
+                        password = $"UPDATE group2fa212330.Accounts SET Password = '{newUserPassword}', OneTimePassword = NULL WHERE AccountID = {AccountID}";
+                        break;
+                    case 2://generates new one time password
+                        password = "DECLARE @password varchar(20) " +
+                                "exec group2fa212330.spRandomPassword @len = 10, @output = @password out " +
+                                "UPDATE group2fa212330.Accounts " +
+                                "SET OneTimePassword = @password " +
+                                $"WHERE Email = '{Email}'";
+                        break;
+                    default:
+                        break;
+                }
+                _sqlAccountsCommand = new SqlCommand(password, _dbConnection);
+                _sqlAccountsCommand.ExecuteNonQuery();
             }
-            _sqlAccountsCommand = new SqlCommand(password, _dbConnection);
-            _sqlAccountsCommand.ExecuteNonQuery();
+            catch (SqlException ex)
+            {
+                for (int i = 0; i < ex.Errors.Count; i++)
+                {
+                    ErrorMessages.Append("Index#" + i + "\n" +
+                                         "Message: " + ex.Errors[i].Message + "\n" +
+                                         "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
+                                         "Source: " + ex.Errors[i].Source + "\n" +
+                                         "Procedure: " + ex.Errors[i].Procedure + "\n");
+                }
+
+                MessageBox.Show(ErrorMessages.ToString(), "Error Closing Database", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error:\n\t" + ex.Message, "ProgOps Error", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+
         }
         public static void getNewOrderID()
         {
@@ -638,29 +660,46 @@ namespace BCD_Restaurant_Project.Classes
                 DTAccounts = new DataTable();
                 _daAccounts.Fill(DTAccounts);
 
-                if (DTAccounts.Rows.Count == 1) // if there is a unique username
+                if (DTAccounts.Rows.Count != 0) // if there is a unique username
                 {
                     AccountID = (int)DTAccounts.Rows[0]["accountid"]; //return row 1 column cell value of column with the name"accountid"
 
                     //storing accounts first name and last name to use it later in the application
                     AccountFN = DTAccounts.Rows[0]["firstname"].ToString();
                     AccountLN = DTAccounts.Rows[0]["lastname"].ToString();
-
-                    //so if password doesn't equal password AND password does not equal one time password
-                    if (password != (string)DTAccounts.Rows[0]["password"] && password != (string)DTAccounts.Rows[0]["onetimepassword"])
+                    if(DTAccounts.Rows[0]["onetimepassword"] == System.DBNull.Value)
                     {
-                        return 0; //wrong combination...
+                        //so if password doesn't equal password AND password does not equal one time password
+                        if (password != (string)DTAccounts.Rows[0]["password"])
+                        {
+                            return 0; //wrong combination...
+                        }
+                        else if(password == (string)DTAccounts.Rows[0]["password"])
+                        {
+                            return 1; //correct combination... nothing special -> open normal form
+                        }
                     }
-
-                    else if (password == (string)DTAccounts.Rows[0]["password"])
+                    else
                     {
-                        return 1; //correct combination... nothing special -> open normal form
-                    }
+                        MessageBox.Show(password);
+                        //so if password doesn't equal password AND password does not equal one time password
+                        if (password != (string)DTAccounts.Rows[0]["password"] && password != (string)DTAccounts.Rows[0]["onetimepassword"])
+                        {
+                            MessageBox.Show((string)DTAccounts.Rows[0]["password"] + " " + password + " " + (string)DTAccounts.Rows[0]["onetimepassword"]);
+                            return 0; //wrong combination...
+                        }
 
-                    else if (password == (string)DTAccounts.Rows[0]["onetimepassword"] && DTAccounts.Rows[0]["onetimepassword"] != null)
-                    {
-                        return 2; //otp combination... special case -> need to reset password
+                        else if (password == (string)DTAccounts.Rows[0]["password"])
+                        {
+                            return 1; //correct combination... nothing special -> open normal form
+                        }
+
+                        else if (password == (string)DTAccounts.Rows[0]["onetimepassword"] || DTAccounts.Rows[0]["onetimepassword"] != null)
+                        {
+                            return 2; //otp combination... special case -> need to reset password
+                        }
                     }
+                    
 
 
                 }
@@ -725,20 +764,29 @@ namespace BCD_Restaurant_Project.Classes
         //user hasn't been found
         public static string verifyOneTimePassword(string email)
         {
+            Email = email;
             string result = string.Empty;
             try
             {
                 //returning the accounts information that matches the email entered in the tbxForgot
-                string query = "SELECT OneTimePassword FROM group2fa212330.Accounts WHERE EMAIL =  '" + email + "'";
+                string query = "SELECT OneTimePassword FROM group2fa212330.Accounts WHERE EMAIL =  '" + Email + "'";
                 _sqlAccountsCommand = new SqlCommand(query, _dbConnection);
                 _daAccounts.SelectCommand = _sqlAccountsCommand;
                 DTAccounts = new DataTable();
                 _daAccounts.Fill(DTAccounts);
+                
 
                 //if the account exists
                 if (DTAccounts.Rows.Count != 0)
                 {
-                    generatePassword(2);
+                    if (DTAccounts.Rows[0]["OneTimePassword"] == System.DBNull.Value)
+                    {
+                        generatePassword(2);
+                        _sqlAccountsCommand = new SqlCommand(query, _dbConnection);
+                        _daAccounts.SelectCommand = _sqlAccountsCommand;
+                        DTAccounts = new DataTable();
+                        _daAccounts.Fill(DTAccounts);
+                    } 
                     //store the one time password to return in the forgot form
                     result = (string)DTAccounts.Rows[0]["OneTimePassword"];
                 }
