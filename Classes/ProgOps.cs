@@ -495,16 +495,52 @@ namespace BCD_Restaurant_Project.Classes
         {
             try
             {
-                string query =
-                    "INSERT INTO group2fa212330.Accounts(FirstName, LastName, Username, Email, Password, isEmployee, OneTimePassword) VALUES(@FName, @LName, @UName, @Email, @Password, 0, 1)";
-                _sqlAccountsCommand = new SqlCommand(query, _dbConnection);
+                bool emailOK = false, usernameOK= false;
+                string check = $"SELECT * FROM group2fa212330.Accounts where email = '{email}'";
+                _sqlAccountsCommand = new SqlCommand(check, _dbConnection);
+                _daAccounts.SelectCommand = _sqlAccountsCommand;
+                _daAccounts.Fill(DTAccounts);
+                if (DTAccounts.Rows.Count > 0)
+                {
+                    MessageBox.Show("Email is already associated with another account", "Sign Up", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    _daAccounts.Dispose();
+                    _sqlAccountsCommand.Dispose();
+                    DTAccounts.Clear();
+                    emailOK = false;
+                }
+                else
+                    emailOK = true;
 
-                _sqlAccountsCommand.Parameters.AddWithValue("@FName", fName);
-                _sqlAccountsCommand.Parameters.AddWithValue("@LName", lName);
-                _sqlAccountsCommand.Parameters.AddWithValue("@UName", username);
-                _sqlAccountsCommand.Parameters.AddWithValue("@Email", email);
-                _sqlAccountsCommand.Parameters.AddWithValue("@Password", password);
-                _sqlAccountsCommand.ExecuteNonQuery();
+                string check2 = $"SELECT * FROM group2fa212330.Accounts where username = '{username}'";
+                _sqlAccountsCommand = new SqlCommand(check2, _dbConnection);
+                _daAccounts.SelectCommand = _sqlAccountsCommand;
+                _daAccounts.Fill(DTAccounts);
+                if (DTAccounts.Rows.Count > 0)
+                {
+                    MessageBox.Show("Username is already taken", "Sign Up", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    _daAccounts.Dispose();
+                    _sqlAccountsCommand.Dispose();
+                    DTAccounts.Clear();
+                    usernameOK = false;
+                }
+                else
+                    usernameOK = true;
+
+                if (emailOK && usernameOK)
+                {
+                    string query ="INSERT INTO group2fa212330.Accounts(FirstName, LastName, Username, Email, Password, isEmployee, OneTimePassword) VALUES(@FName, @LName, @UName, @Email, @Password, 0, 1)";
+                    _sqlAccountsCommand = new SqlCommand(query, _dbConnection);
+
+                    _sqlAccountsCommand.Parameters.AddWithValue("@FName", fName);
+                    _sqlAccountsCommand.Parameters.AddWithValue("@LName", lName);
+                    _sqlAccountsCommand.Parameters.AddWithValue("@UName", username);
+                    _sqlAccountsCommand.Parameters.AddWithValue("@Email", email);
+                    _sqlAccountsCommand.Parameters.AddWithValue("@Password", password);
+                    _sqlAccountsCommand.ExecuteNonQuery();
+                    MessageBox.Show("Sign up was successful.", "SignUp", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                   
+                }
+                
             }
             catch (SqlException ex)
             {
@@ -795,48 +831,54 @@ namespace BCD_Restaurant_Project.Classes
                 DTAccounts = new DataTable();
                 _daAccounts.Fill(DTAccounts);
 
+                
+
                 if (DTAccounts.Rows.Count != 0) // if there is a unique username
                 {
-                    AccountID = (int)DTAccounts.Rows[0]["accountid"]; //return row 1 column cell value of column with the name"accountid"
-
-                    //storing accounts first name and last name to use it later in the application
-                    AccountFN = DTAccounts.Rows[0]["firstname"].ToString();
-                    AccountLN = DTAccounts.Rows[0]["lastname"].ToString();
-                    if(DTAccounts.Rows[0]["onetimepassword"] == System.DBNull.Value)
+                    if (Convert.ToInt32(DTAccounts.Rows[0]["isActive"]) == 0)
                     {
-                        //so if password doesn't equal password AND password does not equal one time password
-                        if (password != (string)DTAccounts.Rows[0]["password"])
-                        {
-                            return 0; //wrong combination...
-                        }
-                        else if(password == (string)DTAccounts.Rows[0]["password"])
-                        {
-                            return 1; //correct combination... nothing special -> open normal form
-                        }
+                        MessageBox.Show("Your account is deactivated! Please contact tstcteamtwo@gmail.com to get this fixed thank you.", "Login", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                     else
                     {
-                        MessageBox.Show(password);
-                        //so if password doesn't equal password AND password does not equal one time password
-                        if (password != (string)DTAccounts.Rows[0]["password"] && password != (string)DTAccounts.Rows[0]["onetimepassword"])
-                        {
-                            MessageBox.Show((string)DTAccounts.Rows[0]["password"] + " " + password + " " + (string)DTAccounts.Rows[0]["onetimepassword"]);
-                            return 0; //wrong combination...
-                        }
+                        AccountID = (int)DTAccounts.Rows[0]["accountid"]; //return row 1 column cell value of column with the name"accountid"
 
-                        else if (password == (string)DTAccounts.Rows[0]["password"])
+                        //storing accounts first name and last name to use it later in the application
+                        AccountFN = DTAccounts.Rows[0]["firstname"].ToString();
+                        AccountLN = DTAccounts.Rows[0]["lastname"].ToString();
+                        if (DTAccounts.Rows[0]["onetimepassword"] == System.DBNull.Value)
                         {
-                            return 1; //correct combination... nothing special -> open normal form
+                            //so if password doesn't equal password AND password does not equal one time password
+                            if (password != (string)DTAccounts.Rows[0]["password"])
+                            {
+                                return 0; //wrong combination...
+                            }
+                            else if (password == (string)DTAccounts.Rows[0]["password"])
+                            {
+                                return 1; //correct combination... nothing special -> open normal form
+                            }
                         }
-
-                        else if (password == (string)DTAccounts.Rows[0]["onetimepassword"] || DTAccounts.Rows[0]["onetimepassword"] != null)
+                        else
                         {
-                            return 2; //otp combination... special case -> need to reset password
+                            //so if password doesn't equal password AND password does not equal one time password
+                            if (password != (string)DTAccounts.Rows[0]["password"] && password != (string)DTAccounts.Rows[0]["onetimepassword"])
+                            {
+                                MessageBox.Show((string)DTAccounts.Rows[0]["password"] + " " + password + " " + (string)DTAccounts.Rows[0]["onetimepassword"]);
+                                return 0; //wrong combination...
+                            }
+
+                            else if (password == (string)DTAccounts.Rows[0]["password"])
+                            {
+                                return 1; //correct combination... nothing special -> open normal form
+                            }
+
+                            else if (password == (string)DTAccounts.Rows[0]["onetimepassword"] || DTAccounts.Rows[0]["onetimepassword"] != null)
+                            {
+                                return 2; //otp combination... special case -> need to reset password
+                            }
                         }
                     }
-                    
-
-
+                                       
                 }
                 else
                     return -1; //no correct combination -> need to create account combination
@@ -990,5 +1032,6 @@ namespace BCD_Restaurant_Project.Classes
                     MessageBoxIcon.Error);
             }
         }
+
     }
 }
