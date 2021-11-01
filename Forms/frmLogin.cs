@@ -36,7 +36,7 @@ namespace BCD_Restaurant_Project.Forms
                     int checkPasswordCombination = ProgOps.verifyAccountStatus(tbxUsername.Text, tbxPassword.Text);
                     if (ProgOps.AccountID != -1 && checkPasswordCombination != -1)
                     {
-
+                        MessageBox.Show(checkPasswordCombination.ToString());
                         switch (checkPasswordCombination)
                         {
                             case 0:
@@ -149,14 +149,18 @@ namespace BCD_Restaurant_Project.Forms
 
         private void lnkForgot_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            ProgOps.closeDatabase();
             frmForgot form = new frmForgot();
             form.Show();
         }
 
         private void lnkSignUp_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+
+            ProgOps.closeDatabase();
             frmSignUp sign = new frmSignUp();
             sign.Show();
+            
         }
 
         private void pbxPasswordIcon_Click(object sender, EventArgs e)
