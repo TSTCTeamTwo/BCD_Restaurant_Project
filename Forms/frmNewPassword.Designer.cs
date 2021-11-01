@@ -30,25 +30,19 @@ namespace BCD_Restaurant_Project.Forms
         private void InitializeComponent()
         {
             this.pnlLogin = new System.Windows.Forms.Panel();
+            this.lnkReturn = new System.Windows.Forms.LinkLabel();
             this.lblNoMatch = new System.Windows.Forms.Label();
             this.tbxConfirm = new System.Windows.Forms.TextBox();
             this.tbxPassword = new System.Windows.Forms.TextBox();
             this.lblPassword = new System.Windows.Forms.Label();
             this.lblUsername = new System.Windows.Forms.Label();
             this.btnConfirm = new System.Windows.Forms.Button();
-            this.lnkReturn = new System.Windows.Forms.LinkLabel();
-            this.pbxPassword = new System.Windows.Forms.PictureBox();
-            this.pbxConfirm = new System.Windows.Forms.PictureBox();
             this.pnlLogin.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbxPassword)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbxConfirm)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlLogin
             // 
             this.pnlLogin.BackColor = System.Drawing.Color.BlanchedAlmond;
-            this.pnlLogin.Controls.Add(this.pbxConfirm);
-            this.pnlLogin.Controls.Add(this.pbxPassword);
             this.pnlLogin.Controls.Add(this.lnkReturn);
             this.pnlLogin.Controls.Add(this.lblNoMatch);
             this.pnlLogin.Controls.Add(this.tbxConfirm);
@@ -62,6 +56,17 @@ namespace BCD_Restaurant_Project.Forms
             this.pnlLogin.Size = new System.Drawing.Size(412, 249);
             this.pnlLogin.TabIndex = 4;
             this.pnlLogin.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlLogin_Paint);
+            // 
+            // lnkReturn
+            // 
+            this.lnkReturn.AutoSize = true;
+            this.lnkReturn.Location = new System.Drawing.Point(147, 206);
+            this.lnkReturn.Name = "lnkReturn";
+            this.lnkReturn.Size = new System.Drawing.Size(84, 13);
+            this.lnkReturn.TabIndex = 10;
+            this.lnkReturn.TabStop = true;
+            this.lnkReturn.Text = "Return To Login";
+            this.lnkReturn.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkReturn_LinkClicked);
             // 
             // lblNoMatch
             // 
@@ -132,41 +137,9 @@ namespace BCD_Restaurant_Project.Forms
             this.btnConfirm.UseVisualStyleBackColor = false;
             this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
-            // lnkReturn
-            // 
-            this.lnkReturn.AutoSize = true;
-            this.lnkReturn.Location = new System.Drawing.Point(147, 206);
-            this.lnkReturn.Name = "lnkReturn";
-            this.lnkReturn.Size = new System.Drawing.Size(84, 13);
-            this.lnkReturn.TabIndex = 10;
-            this.lnkReturn.TabStop = true;
-            this.lnkReturn.Text = "Return To Login";
-            this.lnkReturn.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkReturn_LinkClicked);
-            // 
-            // pbxPassword
-            // 
-            this.pbxPassword.BackColor = System.Drawing.Color.Transparent;
-            this.pbxPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbxPassword.Location = new System.Drawing.Point(349, 23);
-            this.pbxPassword.Name = "pbxPassword";
-            this.pbxPassword.Size = new System.Drawing.Size(24, 26);
-            this.pbxPassword.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbxPassword.TabIndex = 11;
-            this.pbxPassword.TabStop = false;
-            // 
-            // pbxConfirm
-            // 
-            this.pbxConfirm.BackColor = System.Drawing.Color.Transparent;
-            this.pbxConfirm.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbxConfirm.Location = new System.Drawing.Point(349, 73);
-            this.pbxConfirm.Name = "pbxConfirm";
-            this.pbxConfirm.Size = new System.Drawing.Size(24, 26);
-            this.pbxConfirm.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbxConfirm.TabIndex = 12;
-            this.pbxConfirm.TabStop = false;
-            // 
             // frmNewPassword
             // 
+            this.AcceptButton = this.btnConfirm;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
@@ -176,8 +149,6 @@ namespace BCD_Restaurant_Project.Forms
             this.Text = "Password Reset";
             this.pnlLogin.ResumeLayout(false);
             this.pnlLogin.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbxPassword)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbxConfirm)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -192,7 +163,5 @@ namespace BCD_Restaurant_Project.Forms
         private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.Button btnConfirm;
         private System.Windows.Forms.LinkLabel lnkReturn;
-        private System.Windows.Forms.PictureBox pbxConfirm;
-        private System.Windows.Forms.PictureBox pbxPassword;
     }
 }
