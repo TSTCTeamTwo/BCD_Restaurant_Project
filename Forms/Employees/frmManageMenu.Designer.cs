@@ -30,7 +30,6 @@ namespace BCD_Restaurant_Project.Forms.Employees
         private void InitializeComponent()
         {
             this.dgvDisplay = new System.Windows.Forms.DataGridView();
-            this.tbxImagePath = new System.Windows.Forms.TextBox();
             this.btnNext = new System.Windows.Forms.Button();
             this.btnLoadImage = new System.Windows.Forms.Button();
             this.btnPrevious = new System.Windows.Forms.Button();
@@ -67,17 +66,6 @@ namespace BCD_Restaurant_Project.Forms.Employees
             this.dgvDisplay.Size = new System.Drawing.Size(586, 324);
             this.dgvDisplay.TabIndex = 22;
             // 
-            // tbxImagePath
-            // 
-            this.tbxImagePath.BackColor = System.Drawing.Color.White;
-            this.tbxImagePath.Enabled = false;
-            this.tbxImagePath.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxImagePath.Location = new System.Drawing.Point(74, 197);
-            this.tbxImagePath.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tbxImagePath.Name = "tbxImagePath";
-            this.tbxImagePath.Size = new System.Drawing.Size(199, 26);
-            this.tbxImagePath.TabIndex = 49;
-            // 
             // btnNext
             // 
             this.btnNext.BackColor = System.Drawing.Color.White;
@@ -94,12 +82,13 @@ namespace BCD_Restaurant_Project.Forms.Employees
             // 
             // btnLoadImage
             // 
-            this.btnLoadImage.Location = new System.Drawing.Point(74, 230);
+            this.btnLoadImage.Location = new System.Drawing.Point(73, 197);
             this.btnLoadImage.Name = "btnLoadImage";
             this.btnLoadImage.Size = new System.Drawing.Size(199, 23);
             this.btnLoadImage.TabIndex = 48;
-            this.btnLoadImage.Text = "New Image";
+            this.btnLoadImage.Text = "Change Image";
             this.btnLoadImage.UseVisualStyleBackColor = true;
+            this.btnLoadImage.Click += new System.EventHandler(this.btnLoadImage_Click);
             // 
             // btnPrevious
             // 
@@ -287,7 +276,6 @@ namespace BCD_Restaurant_Project.Forms.Employees
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1047, 512);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.tbxImagePath);
             this.Controls.Add(this.btnNext);
             this.Controls.Add(this.btnLoadImage);
             this.Controls.Add(this.btnPrevious);
@@ -319,7 +307,6 @@ namespace BCD_Restaurant_Project.Forms.Employees
 
         #endregion
         private System.Windows.Forms.DataGridView dgvDisplay;
-        private System.Windows.Forms.TextBox tbxImagePath;
         private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.Button btnLoadImage;
         private System.Windows.Forms.Button btnPrevious;
