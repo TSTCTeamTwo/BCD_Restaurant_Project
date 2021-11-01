@@ -19,26 +19,53 @@ namespace BCD_Restaurant_Project.Forms.Employees
             InitializeComponent();
         }
 
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            setState("Add");
+            accountsManager.AddNew();
+            tbxAccountID.Enabled = false;
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            setState("View");
+            accountsManager.CancelCurrentEdit();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            string[] txt = {
+                tbxAccountID.Text,
+                tbxEmail.Text,
+                tbxUsername.Text,
+                tbxPassword.Text,
+                tbxLastName.Text,
+                tbxFirstName.Text
+            };
+            ProgOps.deactivateAccount(int.Parse(tbxAccountID.Text));
+            setTitle();
+        }
+
         private void btnEdit_Click(object sender, EventArgs e)
         {
 
             setState("Edit");
-                
+
         }
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-            
+
                 accountsManager.Position++;
                 setTitle();
-            
+
         }
 
         private void btnPrevious_Click(object sender, EventArgs e)
         {
                 accountsManager.Position--;
                 setTitle();
-            
+
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -106,7 +133,6 @@ namespace BCD_Restaurant_Project.Forms.Employees
                     {
                         tbxCurrent.ReadOnly = false;
                         tbxCurrent.Enabled = true;
-
                     }
                     //ENABLE - BUTTONS
                     btnSave.Enabled = true;
@@ -123,33 +149,6 @@ namespace BCD_Restaurant_Project.Forms.Employees
         {
             lblAccounts.Text = "Account - Record " + (accountsManager.Position + 1) + " of " + accountsManager.Count + " Records: "
                 + tbxLastName.Text + ", " + tbxFirstName.Text;
-        }
-
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-            string[] txt = {
-                tbxAccountID.Text,
-                tbxEmail.Text,
-                tbxUsername.Text,
-                tbxPassword.Text,
-                tbxLastName.Text,
-                tbxFirstName.Text
-            };
-            ProgOps.deactivateAccount(int.Parse(tbxAccountID.Text));
-            setTitle();
-        }
-
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            setState("Add");
-            accountsManager.AddNew();
-            tbxAccountID.Enabled = false;
-        }
-
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            setState("View");
-            accountsManager.CancelCurrentEdit();
         }
     }
 }
