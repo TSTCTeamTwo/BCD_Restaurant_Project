@@ -58,6 +58,6 @@ namespace BCD_Restaurant_Project.Forms
 
         #endregion
 
-        private CrystalDecisions.Windows.Forms.CrystalReportViewer crvReceiptViewer;
+        public CrystalDecisions.Windows.Forms.CrystalReportViewer crvReceiptViewer;
     }
 }
