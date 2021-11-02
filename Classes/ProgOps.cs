@@ -12,7 +12,6 @@ namespace BCD_Restaurant_Project.Classes
     {
         private const string CONNECT_STRING = "Server=cstnt.tstc.edu;Database= inew2330fa21;User Id =group2fa212330;password=2547268";
 
-        //data adapters for the tables in our database
         private static SqlDataAdapter _daAccounts = new SqlDataAdapter();
         private static SqlDataAdapter _daCategory = new SqlDataAdapter();
         private static SqlDataAdapter _daEmployees = new SqlDataAdapter();
@@ -20,28 +19,30 @@ namespace BCD_Restaurant_Project.Classes
         private static SqlDataAdapter _daOrderItems = new SqlDataAdapter();
         private static SqlDataAdapter _daOrders = new SqlDataAdapter();
         private static SqlConnection _dbConnection = new SqlConnection(CONNECT_STRING);
-        //command objects for the tables in our database
+
+
         private static SqlCommand _sqlAccountsCommand = new SqlCommand();
         private static SqlCommand _sqlCategoryCommand = new SqlCommand();
         private static SqlCommand _sqlEmployeesCommand = new SqlCommand();
         private static SqlCommand _sqlMenuCommand = new SqlCommand();
         private static SqlCommand _sqlOrderItemsCommand = new SqlCommand();
         private static SqlCommand _sqlOrdersCommand = new SqlCommand();
-        //Properties for the application
-        public static string AccountFN { get; set; } = string.Empty;
-        public static int AccountID { get; set; } = 0;
-        public static string AccountLN { get; set; } = string.Empty;
-        //Datatables to hold result sets for the application
-        public static DataTable DTAccounts { get; private set; } = new DataTable();
 
+        public static DataTable DTAccounts { get; private set; } = new DataTable();
         public static DataTable DTCategories { get; private set; } = new DataTable();
         public static DataTable DTEmployees { get; private set; } = new DataTable();
         public static DataTable DTMenu { get; private set; } = new DataTable();
         public static DataTable DTOrderItems { get; private set; } = new DataTable();
         public static DataTable DTOrders { get; private set; } = new DataTable();
         public static DataTable DTPayment { get; private set; } = new DataTable();
-        public static string Email { get; set; } = string.Empty;
         private static StringBuilder ErrorMessages { get; } = new StringBuilder();
+
+        public static string AccountFN { get; set; } = string.Empty;
+        public static int AccountID { get; set; } = 0;
+        public static string AccountLN { get; set; } = string.Empty;
+        public static string Email { get; set; } = string.Empty;
+
+
         public static void addAccount(string[] text)
         {
             try
@@ -104,6 +105,7 @@ namespace BCD_Restaurant_Project.Classes
             }
 
         }
+
         public static void addPayment(string cardNumber, string cardType, string cardName, string security, MaskedTextBox expiration)
         {
             try
@@ -137,7 +139,7 @@ namespace BCD_Restaurant_Project.Classes
                     MessageBoxIcon.Error);
             }
         }
-        //method for binding the bank information form
+
         public static void bankInformation(TextBox tbxName, TextBox tbxEmail, TextBox tbxAccountID,
             TextBox tbxAccNumber, TextBox tbxRouNumber)
         {
@@ -183,6 +185,7 @@ namespace BCD_Restaurant_Project.Classes
                     MessageBoxIcon.Error);
             }
         }
+
         public static void bindAccounts(TextBox tbxAccountID, TextBox tbxEmail, TextBox tbxUsername,
             TextBox tbxPassword,
             TextBox tbxLastName, TextBox tbxFirstName, Form form, out CurrencyManager accountsManager)
@@ -206,10 +209,48 @@ namespace BCD_Restaurant_Project.Classes
             tbxFirstName.DataBindings.Add("Text", DTAccounts, "Firstname");
 
         }
+
         public static void changeCategory(CurrencyManager currency, ComboBox cbCategory)
         {
             cbCategory.SelectedIndex = cbCategory.FindString(DTMenu.Rows[currency.Position]["CategoryName"].ToString());
         }
+
+        public static void changeMenuItemImage(string text)
+        {
+            OpenFileDialog ofdImage = new OpenFileDialog();
+
+            ofdImage.InitialDirectory = Directory.GetCurrentDirectory();
+
+            ofdImage.ValidateNames = true;
+            ofdImage.AddExtension = false;
+            ofdImage.Filter = "PNG File|*.png|JPEG File|*.jpg";
+            ofdImage.Title = "Image to Upload";
+
+            if (ofdImage.ShowDialog() == DialogResult.OK)
+            {
+                byte[] image = File.ReadAllBytes(ofdImage.FileName);
+            }
+
+            try
+            {
+                string insertQuery = $"UPDATE group2fa212330.Images WHERE ";
+            }
+            catch (SqlException ex)
+            {
+                for (int i = 0; i < ex.Errors.Count; i++)
+                {
+                    ErrorMessages.Append("Index#" + i + "\n" +
+                                         "Message: " + ex.Errors[i].Message + "\n" +
+                                         "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
+                                         "Source: " + ex.Errors[i].Source + "\n" +
+                                         "Procedure: " + ex.Errors[i].Procedure + "\n");
+                }
+
+                MessageBox.Show(ErrorMessages.ToString(), "Error Closing Database", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+        }
+
         public static void closeDatabase()
         {
             try
@@ -251,6 +292,7 @@ namespace BCD_Restaurant_Project.Classes
                     MessageBoxIcon.Error);
             }
         }
+
         public static void commandAccount()
         {
             try
@@ -319,7 +361,6 @@ namespace BCD_Restaurant_Project.Classes
 
         }
 
-        //displaying the specific items wherever the user is in the form
         public static void displayMenuItems(DataGridView dgvDisplay, int categoryId)
         {
             //   _cntDBConnection = new SqlConnection(CONNECT_STRING);
@@ -340,6 +381,7 @@ namespace BCD_Restaurant_Project.Classes
             dgvDisplay.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
 
         }
+
         public static void fillInPersonalInformation(TextBox tbxAccountID, TextBox tbxEmail, TextBox tbxUsername,
             TextBox tbxName, TextBox tbxPassword)
         {
@@ -382,6 +424,7 @@ namespace BCD_Restaurant_Project.Classes
                     MessageBoxIcon.Error);
             }
         }
+
         public static void finalizeOrder()
         {
             try
@@ -428,6 +471,7 @@ namespace BCD_Restaurant_Project.Classes
                     MessageBoxIcon.Error);
             }
         }
+
         public static void generatePassword(int argument, string newUserPassword = null)
         {
             string password = string.Empty;
@@ -472,6 +516,7 @@ namespace BCD_Restaurant_Project.Classes
             }
 
         }
+
         public static void getNewOrderID()
         {
 
@@ -490,7 +535,7 @@ namespace BCD_Restaurant_Project.Classes
             _daOrders.Dispose();
 
         }
-        //method for the user to sign up and add the information onto the database
+
         public static void insertNewAccount(string fName, string lName, string username, string email, string password)
         {
             try
@@ -526,7 +571,7 @@ namespace BCD_Restaurant_Project.Classes
                     MessageBoxIcon.Error);
             }
         }
-        //Method to validate if the user enters a valid email anywhere in the program
+
         public static bool isValidEmail(string email)
         {
             openDatabase();
@@ -541,6 +586,7 @@ namespace BCD_Restaurant_Project.Classes
                 return false;
             }
         }
+
         public static void modifyMenu(TextBox tbItemName, TextBox tbItemID, TextBox tbDescription, TextBox tbPrice, ComboBox cbCategory,
             Form form, out CurrencyManager c, DataGridView dgvDisplay)
         {
@@ -606,6 +652,7 @@ namespace BCD_Restaurant_Project.Classes
             }
 
         }
+
         public static void openDatabase()
         {
             try
@@ -632,6 +679,7 @@ namespace BCD_Restaurant_Project.Classes
                     MessageBoxIcon.Error);
             }
         }
+
         public static bool scanForPaymentOption()
         {
             try
@@ -672,6 +720,7 @@ namespace BCD_Restaurant_Project.Classes
 
             return false;
         }
+
         public static void updateAccount(string[] text)
         {
             try
@@ -734,6 +783,7 @@ namespace BCD_Restaurant_Project.Classes
                 }
             }
         }
+
         public static void updatePicInPbx(int image, PictureBox pbxImage)
         {
             try
@@ -770,6 +820,7 @@ namespace BCD_Restaurant_Project.Classes
                     MessageBoxIcon.Error);
             }
         }
+
         public static int verifyAccountStatus(string username, string password)
         {
 
@@ -802,25 +853,28 @@ namespace BCD_Restaurant_Project.Classes
                     //storing accounts first name and last name to use it later in the application
                     AccountFN = DTAccounts.Rows[0]["firstname"].ToString();
                     AccountLN = DTAccounts.Rows[0]["lastname"].ToString();
-                    if(DTAccounts.Rows[0]["onetimepassword"] == System.DBNull.Value)
+                    if (DTAccounts.Rows[0]["onetimepassword"] == System.DBNull.Value)
                     {
                         //so if password doesn't equal password AND password does not equal one time password
                         if (password != (string)DTAccounts.Rows[0]["password"])
                         {
                             return 0; //wrong combination...
                         }
-                        else if(password == (string)DTAccounts.Rows[0]["password"])
+                        else if (password == (string)DTAccounts.Rows[0]["password"])
                         {
                             return 1; //correct combination... nothing special -> open normal form
                         }
                     }
                     else
                     {
-                        MessageBox.Show(password);
+                        MessageBox.Show(
+                            $"Text:\t\t{password}\n" +
+                            $"Password:\t{(string)DTAccounts.Rows[0]["password"]}\n" +
+                            $"OTP:\t\t{(string)DTAccounts.Rows[0]["onetimepassword"]}");
                         //so if password doesn't equal password AND password does not equal one time password
                         if (password != (string)DTAccounts.Rows[0]["password"] && password != (string)DTAccounts.Rows[0]["onetimepassword"])
                         {
-                            MessageBox.Show((string)DTAccounts.Rows[0]["password"] + " " + password + " " + (string)DTAccounts.Rows[0]["onetimepassword"]);
+
                             return 0; //wrong combination...
                         }
 
@@ -834,14 +888,12 @@ namespace BCD_Restaurant_Project.Classes
                             return 2; //otp combination... special case -> need to reset password
                         }
                     }
-                    
-
 
                 }
                 else
+                {
                     return -1; //no correct combination -> need to create account combination
-
-
+                }
             }
             catch (SqlException ex)
             {
@@ -860,6 +912,7 @@ namespace BCD_Restaurant_Project.Classes
 
             return -1;
         }
+
         public static int verifyEmployeeStatus()
         {
 
@@ -895,8 +948,7 @@ namespace BCD_Restaurant_Project.Classes
             return 0; //customer
 
         }
-        //Returning the one time password of the user with the email that is provided, can't use get because
-        //user hasn't been found
+
         public static string verifyOneTimePassword(string email)
         {
             Email = email;
@@ -909,7 +961,7 @@ namespace BCD_Restaurant_Project.Classes
                 _daAccounts.SelectCommand = _sqlAccountsCommand;
                 DTAccounts = new DataTable();
                 _daAccounts.Fill(DTAccounts);
-                
+
 
                 //if the account exists
                 if (DTAccounts.Rows.Count != 0)
@@ -921,7 +973,7 @@ namespace BCD_Restaurant_Project.Classes
                         _daAccounts.SelectCommand = _sqlAccountsCommand;
                         DTAccounts = new DataTable();
                         _daAccounts.Fill(DTAccounts);
-                    } 
+                    }
                     //store the one time password to return in the forgot form
                     result = (string)DTAccounts.Rows[0]["OneTimePassword"];
                 }
@@ -953,42 +1005,6 @@ namespace BCD_Restaurant_Project.Classes
 
             //returning OTP to send VIA email
             return result;
-        }
-
-        public static void changeMenuItemImage(string text)
-        {
-            OpenFileDialog ofdImage = new OpenFileDialog();
-
-            ofdImage.InitialDirectory = Directory.GetCurrentDirectory();
-
-            ofdImage.ValidateNames = true;
-            ofdImage.AddExtension = false;
-            ofdImage.Filter = "PNG File|*.png|JPEG File|*.jpg";
-            ofdImage.Title = "Image to Upload";
-
-            if (ofdImage.ShowDialog() == DialogResult.OK)
-            {
-                byte[] image = File.ReadAllBytes(ofdImage.FileName);
-            }
-
-            try
-            {
-                string insertQuery = $"UPDATE group2fa212330.Images WHERE ";
-            }
-            catch (SqlException ex)
-            {
-                for (int i = 0; i < ex.Errors.Count; i++)
-                {
-                    ErrorMessages.Append("Index#" + i + "\n" +
-                                         "Message: " + ex.Errors[i].Message + "\n" +
-                                         "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
-                                         "Source: " + ex.Errors[i].Source + "\n" +
-                                         "Procedure: " + ex.Errors[i].Procedure + "\n");
-                }
-
-                MessageBox.Show(ErrorMessages.ToString(), "Error Closing Database", MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
-            }
         }
     }
 }
