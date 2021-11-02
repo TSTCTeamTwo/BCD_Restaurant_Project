@@ -24,8 +24,7 @@ namespace BCD_Restaurant_Project.Forms
             if (emailOK)
             {
                 ProgOps.insertNewAccount(tbxFirstname.Text, tbxLastName.Text, tbxUsername.Text, tbxEmail.Text, tbxPassword.Text);
-                MessageBox.Show("Sign up was successful.", "SignUp", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Close();
+                
             }
             else
             {

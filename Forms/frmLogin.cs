@@ -36,7 +36,6 @@ namespace BCD_Restaurant_Project.Forms
                     int checkPasswordCombination = ProgOps.verifyAccountStatus(tbxUsername.Text, tbxPassword.Text);
                     if (ProgOps.AccountID != -1 && checkPasswordCombination != -1)
                     {
-                        MessageBox.Show(checkPasswordCombination.ToString());
                         switch (checkPasswordCombination)
                         {
                             case 0:
