@@ -94,5 +94,10 @@ namespace BCD_Restaurant_Project.Forms.Customers
         {
 
         }
+
+        private void tbxName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

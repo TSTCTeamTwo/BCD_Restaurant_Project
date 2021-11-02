@@ -145,6 +145,7 @@ namespace BCD_Restaurant_Project.Forms.Customers
             this.tbxName.Name = "tbxName";
             this.tbxName.Size = new System.Drawing.Size(199, 26);
             this.tbxName.TabIndex = 33;
+            this.tbxName.TextChanged += new System.EventHandler(this.tbxName_TextChanged);
             this.tbxName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxName_KeyPress);
             // 
             // lblPassword

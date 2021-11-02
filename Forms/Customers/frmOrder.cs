@@ -8,6 +8,7 @@ namespace BCD_Restaurant_Project.Forms.Customers
 {
     public partial class frmOrder : Form
     {
+        
         public frmOrder()
         {
             InitializeComponent();
@@ -76,6 +77,11 @@ namespace BCD_Restaurant_Project.Forms.Customers
 
         private void frmOrder_Load(object sender, EventArgs e)
         {
+            if (Cart.myCart.Count == 0)
+            {
+                tbxTip.Enabled = false;
+            }
+
             Cart.fillBtnCheckoutText(btnCheckout);
 
 
@@ -107,10 +113,9 @@ namespace BCD_Restaurant_Project.Forms.Customers
         {
             lblTotal.Text = string.Empty;
             Cart.Tip = 0;
-
-            if (tbxTip.Text != "")
+            if (!string.IsNullOrEmpty(tbxTip.Text))
             {
-                Cart.Tip = Convert.ToDecimal(tbxTip.Text);
+                Cart.Tip = decimal.Parse(tbxTip.Text);
             }
 
             fillLabels();
@@ -123,12 +128,30 @@ namespace BCD_Restaurant_Project.Forms.Customers
             lblSubtotal.Text = Cart.SubTotal.ToString("c");
             lblTax.Text = Cart.Tax.ToString("c");
             lblTotal.Text = Cart.Total.ToString("C");
+            lblTip.Text = Cart.Tip.ToString("c");
             btnCheckout.Text = $"Checkout  {Cart.Total:C}";
         }
 
         private void tbxTip_KeyDown(object sender, KeyEventArgs e)
         {
 
+        }
+
+        private void tbxTip_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= '0') && (e.KeyChar <= '9') || (int)e.KeyChar == 8)
+            {
+                e.Handled = false;
+            }
+            else if((int)e.KeyChar == 13)
+            {
+                tbxTip.Focus();
+            }
+            else
+            {
+                e.Handled = true;
+            }
+            
         }
     }
 }
