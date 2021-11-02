@@ -70,11 +70,6 @@ namespace BCD_Restaurant_Project.Forms.Employees
 
         }
 
-        private void dgvMenu_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void frmManageMenu_FormClosing(object sender, FormClosingEventArgs e)
         {
 

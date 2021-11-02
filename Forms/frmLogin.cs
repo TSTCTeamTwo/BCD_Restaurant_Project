@@ -159,7 +159,7 @@ namespace BCD_Restaurant_Project.Forms
             ProgOps.closeDatabase();
             frmSignUp sign = new frmSignUp();
             sign.Show();
-            
+
         }
 
         private void pbxPasswordIcon_Click(object sender, EventArgs e)

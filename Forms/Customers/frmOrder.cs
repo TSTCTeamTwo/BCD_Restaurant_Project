@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 
+
+using CrystalDecisions.CrystalReports.Engine;
+using CrystalDecisions.Shared;
+
 using BCD_Restaurant_Project.Classes;
 
 namespace BCD_Restaurant_Project.Forms.Customers
@@ -37,6 +41,25 @@ namespace BCD_Restaurant_Project.Forms.Customers
                     lblTotal.Text = string.Empty;
                     lblSubtotal.Text = string.Empty;
                     lblTax.Text = string.Empty;
+
+
+                    frmReceipt receipt = new frmReceipt();
+                    //create an object of the report
+                    Reports.crptReceipt crptReceipt = new Reports.crptReceipt();
+                    crptReceipt.Load(@"Reports\crptReceipt.rpt");
+
+                    MessageBox.Show(Cart.OrderID.ToString(), "Title", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    crptReceipt.SetParameterValue("OrderID", Cart.OrderID);
+
+                    //set the database logon for the report
+                    crptReceipt.SetDatabaseLogon("group2fa212330", "2547268");
+                    //create an object of the frmViewer so we can use vrmViewer
+                    //set to null first to clear the viewer
+                    receipt.crvReceiptViewer.ReportSource = null;
+                    //Then set the crvViewer to the report object
+                    receipt.crvReceiptViewer.ReportSource = crptReceipt;
+                    receipt.crvReceiptViewer.Refresh();
+                    receipt.ShowDialog(); //opens an instance of the form now
                 }
             }
             else

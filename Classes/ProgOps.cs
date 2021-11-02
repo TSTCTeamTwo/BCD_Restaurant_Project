@@ -210,6 +210,42 @@ namespace BCD_Restaurant_Project.Classes
         {
             cbCategory.SelectedIndex = cbCategory.FindString(DTMenu.Rows[currency.Position]["CategoryName"].ToString());
         }
+        public static void changeMenuItemImage(string text)
+        {
+            OpenFileDialog ofdImage = new OpenFileDialog();
+
+            ofdImage.InitialDirectory = Directory.GetCurrentDirectory();
+
+            ofdImage.ValidateNames = true;
+            ofdImage.AddExtension = false;
+            ofdImage.Filter = "PNG File|*.png|JPEG File|*.jpg";
+            ofdImage.Title = "Image to Upload";
+
+            if (ofdImage.ShowDialog() == DialogResult.OK)
+            {
+                byte[] image = File.ReadAllBytes(ofdImage.FileName);
+            }
+
+            try
+            {
+                string insertQuery = $"UPDATE group2fa212330.Images WHERE ";
+            }
+            catch (SqlException ex)
+            {
+                for (int i = 0; i < ex.Errors.Count; i++)
+                {
+                    ErrorMessages.Append("Index#" + i + "\n" +
+                                         "Message: " + ex.Errors[i].Message + "\n" +
+                                         "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
+                                         "Source: " + ex.Errors[i].Source + "\n" +
+                                         "Procedure: " + ex.Errors[i].Procedure + "\n");
+                }
+
+                MessageBox.Show(ErrorMessages.ToString(), "Error Closing Database", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+        }
+
         public static void closeDatabase()
         {
             try
@@ -278,7 +314,6 @@ namespace BCD_Restaurant_Project.Classes
                     MessageBoxIcon.Error);
             }
         }
-
         public static void deactivateAccount(int accountID)
         {
             string query = "UPDATE group2fa212330.Accounts SET isActive = 0 WHERE AccountID =" + accountID;
@@ -495,40 +530,13 @@ namespace BCD_Restaurant_Project.Classes
         {
             try
             {
-                bool emailOK = false, usernameOK= false;
-                string check = $"SELECT * FROM group2fa212330.Accounts where email = '{email}'";
-                _sqlAccountsCommand = new SqlCommand(check, _dbConnection);
-                _daAccounts.SelectCommand = _sqlAccountsCommand;
-                _daAccounts.Fill(DTAccounts);
-                if (DTAccounts.Rows.Count > 0)
-                {
-                    MessageBox.Show("Email is already associated with another account", "Sign Up", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    _daAccounts.Dispose();
-                    _sqlAccountsCommand.Dispose();
-                    DTAccounts.Clear();
-                    emailOK = false;
-                }
-                else
-                    emailOK = true;
-
-                string check2 = $"SELECT * FROM group2fa212330.Accounts where username = '{username}'";
-                _sqlAccountsCommand = new SqlCommand(check2, _dbConnection);
-                _daAccounts.SelectCommand = _sqlAccountsCommand;
-                _daAccounts.Fill(DTAccounts);
-                if (DTAccounts.Rows.Count > 0)
-                {
-                    MessageBox.Show("Username is already taken", "Sign Up", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    _daAccounts.Dispose();
-                    _sqlAccountsCommand.Dispose();
-                    DTAccounts.Clear();
-                    usernameOK = false;
-                }
-                else
-                    usernameOK = true;
+                var emailOK = returnStatus(email);
+                var usernameOK = returnStatus(username, 1);
 
                 if (emailOK && usernameOK)
                 {
-                    string query ="INSERT INTO group2fa212330.Accounts(FirstName, LastName, Username, Email, Password, isEmployee, OneTimePassword) VALUES(@FName, @LName, @UName, @Email, @Password, 0, 1)";
+                    string query = "INSERT INTO group2fa212330.Accounts(FirstName, LastName, Username, Email, Password, isEmployee, OneTimePassword) " +
+                                  "VALUES(@FName, @LName, @UName, @Email, @Password, 0, 1)";
                     _sqlAccountsCommand = new SqlCommand(query, _dbConnection);
 
                     _sqlAccountsCommand.Parameters.AddWithValue("@FName", fName);
@@ -538,9 +546,9 @@ namespace BCD_Restaurant_Project.Classes
                     _sqlAccountsCommand.Parameters.AddWithValue("@Password", password);
                     _sqlAccountsCommand.ExecuteNonQuery();
                     MessageBox.Show("Sign up was successful.", "SignUp", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                   
+
                 }
-                
+
             }
             catch (SqlException ex)
             {
@@ -562,6 +570,46 @@ namespace BCD_Restaurant_Project.Classes
                     MessageBoxIcon.Error);
             }
         }
+        private static bool returnStatus(string variable, int type = 0)
+        {
+            string addition = "";
+            string error = "";
+            switch (type)
+            {
+                case 0:
+                    addition = $"email = '{variable}'";
+                    error = "Email is already associated with another account";
+                    break;
+                case 1:
+                    addition = $"username = '{variable}'";
+                    error = "Username is already taken";
+                    break;
+            }
+
+
+            string query = $"SELECT * FROM group2fa212330.Accounts where {addition}";
+            _sqlAccountsCommand = new SqlCommand(query, _dbConnection);
+            _daAccounts.SelectCommand = _sqlAccountsCommand;
+            _daAccounts.Fill(DTAccounts);
+            if (DTAccounts.Rows.Count > 0)
+            {
+
+                MessageBox.Show(error, "Sign Up", MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+                _daAccounts.Dispose();
+                _sqlAccountsCommand.Dispose();
+                DTAccounts.Clear();
+                return false;
+            }
+
+            _daAccounts.Dispose();
+            _sqlAccountsCommand.Dispose();
+            DTAccounts.Clear();
+
+            return true;
+
+        }
+
         //Method to validate if the user enters a valid email anywhere in the program
         public static bool isValidEmail(string email)
         {
@@ -831,7 +879,7 @@ namespace BCD_Restaurant_Project.Classes
                 DTAccounts = new DataTable();
                 _daAccounts.Fill(DTAccounts);
 
-                
+
 
                 if (DTAccounts.Rows.Count != 0) // if there is a unique username
                 {
@@ -878,7 +926,7 @@ namespace BCD_Restaurant_Project.Classes
                             }
                         }
                     }
-                                       
+
                 }
                 else
                     return -1; //no correct combination -> need to create account combination
@@ -951,7 +999,7 @@ namespace BCD_Restaurant_Project.Classes
                 _daAccounts.SelectCommand = _sqlAccountsCommand;
                 DTAccounts = new DataTable();
                 _daAccounts.Fill(DTAccounts);
-                
+
 
                 //if the account exists
                 if (DTAccounts.Rows.Count != 0)
@@ -963,7 +1011,7 @@ namespace BCD_Restaurant_Project.Classes
                         _daAccounts.SelectCommand = _sqlAccountsCommand;
                         DTAccounts = new DataTable();
                         _daAccounts.Fill(DTAccounts);
-                    } 
+                    }
                     //store the one time password to return in the forgot form
                     result = (string)DTAccounts.Rows[0]["OneTimePassword"];
                 }
@@ -996,42 +1044,5 @@ namespace BCD_Restaurant_Project.Classes
             //returning OTP to send VIA email
             return result;
         }
-
-        public static void changeMenuItemImage(string text)
-        {
-            OpenFileDialog ofdImage = new OpenFileDialog();
-
-            ofdImage.InitialDirectory = Directory.GetCurrentDirectory();
-
-            ofdImage.ValidateNames = true;
-            ofdImage.AddExtension = false;
-            ofdImage.Filter = "PNG File|*.png|JPEG File|*.jpg";
-            ofdImage.Title = "Image to Upload";
-
-            if (ofdImage.ShowDialog() == DialogResult.OK)
-            {
-                byte[] image = File.ReadAllBytes(ofdImage.FileName);
-            }
-
-            try
-            {
-                string insertQuery = $"UPDATE group2fa212330.Images WHERE ";
-            }
-            catch (SqlException ex)
-            {
-                for (int i = 0; i < ex.Errors.Count; i++)
-                {
-                    ErrorMessages.Append("Index#" + i + "\n" +
-                                         "Message: " + ex.Errors[i].Message + "\n" +
-                                         "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
-                                         "Source: " + ex.Errors[i].Source + "\n" +
-                                         "Procedure: " + ex.Errors[i].Procedure + "\n");
-                }
-
-                MessageBox.Show(ErrorMessages.ToString(), "Error Closing Database", MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
-            }
-        }
-
     }
 }
