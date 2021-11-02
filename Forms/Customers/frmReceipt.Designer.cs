@@ -35,22 +35,25 @@ namespace BCD_Restaurant_Project.Forms
             // crvReceiptViewer
             // 
             this.crvReceiptViewer.ActiveViewIndex = -1;
-            this.crvReceiptViewer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.crvReceiptViewer.Cursor = System.Windows.Forms.Cursors.Default;
             this.crvReceiptViewer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.crvReceiptViewer.Location = new System.Drawing.Point(0, 0);
             this.crvReceiptViewer.Name = "crvReceiptViewer";
-            this.crvReceiptViewer.Size = new System.Drawing.Size(800, 450);
+            this.crvReceiptViewer.Size = new System.Drawing.Size(1176, 769);
             this.crvReceiptViewer.TabIndex = 0;
+            this.crvReceiptViewer.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
+            this.crvReceiptViewer.Load += new System.EventHandler(this.crvReceiptViewer_Load);
+            this.crvReceiptViewer.MouseDown += new System.Windows.Forms.MouseEventHandler(this.crvReceiptViewer_MouseDown);
             // 
             // frmReceipt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1176, 769);
             this.Controls.Add(this.crvReceiptViewer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmReceipt";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmReceipt";
             this.ResumeLayout(false);
 
