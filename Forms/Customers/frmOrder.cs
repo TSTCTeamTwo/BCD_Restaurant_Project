@@ -37,7 +37,7 @@ namespace BCD_Restaurant_Project.Forms.Customers
                 }
                 else if (result == DialogResult.Yes)
                 {
-                    ProgOps.finalizeOrder();
+                    ProgOps.finalizeOrder(Cart.Tip);
                     dgvOrder.Rows.Clear();
                     btnCheckout.Text = "Checkout   $0.00";
                     lblTotal.Text = string.Empty;

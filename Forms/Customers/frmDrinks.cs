@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using BCD_Restaurant_Project.Classes;
+using System.Windows.Forms.Layout;
 namespace BCD_Restaurant_Project.Forms
 {
     public partial class frmDrinks : Form
@@ -14,6 +15,7 @@ namespace BCD_Restaurant_Project.Forms
         private void frmDrinks_Load(object sender, EventArgs e)
         {
             ProgOps.displayMenuItems(dgvDrinks, 4);
+            
         }
 
 
@@ -28,6 +30,9 @@ namespace BCD_Restaurant_Project.Forms
             Cart.addToCartFromDrinks(dgvDrinks);
         }
 
-
+        private void dgvDrinks_SelectionChanged(object sender, EventArgs e)
+        {
+            ProgOps.updatePicInPbx((Int32)dgvDrinks.CurrentRow.Cells[0].Value, pbxShakes);
+        }
     }
 }
