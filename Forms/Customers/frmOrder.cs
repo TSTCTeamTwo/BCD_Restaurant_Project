@@ -20,6 +20,7 @@ namespace BCD_Restaurant_Project.Forms.Customers
 
         private void btnCheckout_Click(object sender, EventArgs e)
         {
+            MessageBox.Show(Cart.Tip.ToString());
             if (Cart.myCart.Count == 0)
             {
                 MessageBox.Show("Your cart is empty!", "Cart", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -42,14 +43,15 @@ namespace BCD_Restaurant_Project.Forms.Customers
                     lblTotal.Text = string.Empty;
                     lblSubtotal.Text = string.Empty;
                     lblTax.Text = string.Empty;
-
+                    lblTip.Text = string.Empty;
+                    tbxTip.Text = string.Empty;
 
                     frmReceipt receipt = new frmReceipt();
                     //create an object of the report
                     Reports.crptReceipt crptReceipt = new Reports.crptReceipt();
                     crptReceipt.Load(@"Reports\crptReceipt.rpt");
 
-                    MessageBox.Show(Cart.OrderID.ToString(), "Title", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                   
                     crptReceipt.SetParameterValue("OrderID", Cart.OrderID);
 
                     //set the database logon for the report
