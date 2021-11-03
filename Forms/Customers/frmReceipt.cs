@@ -21,7 +21,7 @@ namespace BCD_Restaurant_Project.Forms
             {
                 // Release the mouse capture started by the mouse down.
                 crvReceiptViewer.Capture = false; //select control
-
+                Capture = false;
                 // Create and send a WM_NCLBUTTONDOWN message.
                 const int WM_NCLBUTTONDOWN = 0x00A1;
                 const int HTCAPTION = 2;
