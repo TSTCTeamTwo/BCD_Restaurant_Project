@@ -35,6 +35,7 @@ namespace BCD_Restaurant_Project.Forms
             // crvReceiptViewer
             // 
             this.crvReceiptViewer.ActiveViewIndex = -1;
+            this.crvReceiptViewer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.crvReceiptViewer.Cursor = System.Windows.Forms.Cursors.Default;
             this.crvReceiptViewer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.crvReceiptViewer.Location = new System.Drawing.Point(0, 0);
@@ -55,6 +56,7 @@ namespace BCD_Restaurant_Project.Forms
             this.Name = "frmReceipt";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmReceipt";
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.frmReceipt_MouseDown);
             this.ResumeLayout(false);
 
         }

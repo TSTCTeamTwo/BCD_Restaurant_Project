@@ -417,14 +417,14 @@ namespace BCD_Restaurant_Project.Classes
                     MessageBoxIcon.Error);
             }
         }
-        public static void finalizeOrder()
+        public static void finalizeOrder(decimal tip)
         {
             try
             {
 
                 //1. Insert an empty order record with the accountid, paymentid, and orderdate
                 string query = "INSERT INTO group2fa212330.Orders(AccountID, PaymentID, OrderDate, Tip) " +
-                               "VALUES(" + AccountID + "," + DTPayment.Rows[0]["PaymentID"] + ",'" + DateTime.Now +"',"+  +")";
+                               "VALUES(" + AccountID + "," + DTPayment.Rows[0]["PaymentID"] + ",'" + DateTime.Now +"',"+ tip +")";
                 _sqlOrdersCommand = new SqlCommand(query, _dbConnection);
                 _sqlOrdersCommand.ExecuteNonQuery();
 
