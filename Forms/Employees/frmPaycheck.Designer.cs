@@ -31,7 +31,7 @@ namespace BCD_Restaurant_Project.Forms.Employees
         {
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblSalaryType = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.lblWeeklyHoursWorked = new System.Windows.Forms.Label();
             this.lblHourlyRate = new System.Windows.Forms.Label();
@@ -70,16 +70,16 @@ namespace BCD_Restaurant_Project.Forms.Employees
             this.label2.Text = "Employee Name:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label3
+            // lblSalaryType
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(59, 175);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(97, 20);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Hourly Rate:";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblSalaryType.AutoSize = true;
+            this.lblSalaryType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSalaryType.Location = new System.Drawing.Point(59, 175);
+            this.lblSalaryType.Name = "lblSalaryType";
+            this.lblSalaryType.Size = new System.Drawing.Size(97, 20);
+            this.lblSalaryType.TabIndex = 2;
+            this.lblSalaryType.Text = "Hourly Rate:";
+            this.lblSalaryType.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label4
             // 
@@ -253,7 +253,7 @@ namespace BCD_Restaurant_Project.Forms.Employees
             this.Controls.Add(this.lblEmployeeName);
             this.Controls.Add(this.lblEmployeeID);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.lblSalaryType);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "frmPaycheck";
@@ -268,7 +268,7 @@ namespace BCD_Restaurant_Project.Forms.Employees
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblSalaryType;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblWeeklyHoursWorked;
         private System.Windows.Forms.Label lblHourlyRate;

@@ -13,7 +13,9 @@ namespace BCD_Restaurant_Project.Forms.Employees {
             InitializeComponent();
         }
 
-        private void btnPaycheck_Click(object sender, EventArgs e) { }
+        private void btnPaycheck_Click(object sender, EventArgs e) {
+            OpenChildForm(new frmPaycheck(), sender);
+        }
 
         private void btnPersonal_Click(object sender, EventArgs e) {
             OpenChildForm(new frmPersonal(), sender);
