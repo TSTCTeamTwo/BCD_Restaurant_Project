@@ -293,6 +293,8 @@ namespace BCD_Restaurant_Project.Classes
             {
                 SqlCommandBuilder update = new SqlCommandBuilder(_daAccounts);
                 _daAccounts.Update(DTAccounts);
+                _daAccounts.Dispose();
+                DTAccounts.Dispose();
             }
             catch (SqlException ex)
             {

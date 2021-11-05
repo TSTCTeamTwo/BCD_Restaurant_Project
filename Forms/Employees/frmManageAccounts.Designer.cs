@@ -55,6 +55,8 @@ namespace BCD_Restaurant_Project.Forms.Employees
             this.btnPrevious = new System.Windows.Forms.Button();
             this.lblAccounts = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.btnLast = new System.Windows.Forms.Button();
+            this.btnFirst = new System.Windows.Forms.Button();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -361,11 +363,39 @@ namespace BCD_Restaurant_Project.Forms.Employees
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
+            // btnLast
+            // 
+            this.btnLast.BackColor = System.Drawing.Color.White;
+            this.btnLast.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLast.Location = new System.Drawing.Point(272, 362);
+            this.btnLast.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnLast.Name = "btnLast";
+            this.btnLast.Size = new System.Drawing.Size(96, 28);
+            this.btnLast.TabIndex = 22;
+            this.btnLast.Text = "&Last";
+            this.btnLast.UseVisualStyleBackColor = false;
+            this.btnLast.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnFirst
+            // 
+            this.btnFirst.BackColor = System.Drawing.Color.White;
+            this.btnFirst.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFirst.Location = new System.Drawing.Point(41, 362);
+            this.btnFirst.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnFirst.Name = "btnFirst";
+            this.btnFirst.Size = new System.Drawing.Size(96, 28);
+            this.btnFirst.TabIndex = 23;
+            this.btnFirst.Text = "&First";
+            this.btnFirst.UseVisualStyleBackColor = false;
+            this.btnFirst.Click += new System.EventHandler(this.btnFirst_Click);
+            // 
             // frmManageAccounts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1131, 495);
+            this.Controls.Add(this.btnFirst);
+            this.Controls.Add(this.btnLast);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.lblAccounts);
             this.Controls.Add(this.btnNext);
@@ -426,5 +456,7 @@ namespace BCD_Restaurant_Project.Forms.Employees
         private System.Windows.Forms.Button btnPrevious;
         private System.Windows.Forms.Label lblAccounts;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Button btnLast;
+        private System.Windows.Forms.Button btnFirst;
     }
 }

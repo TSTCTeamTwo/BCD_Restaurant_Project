@@ -150,6 +150,16 @@ namespace BCD_Restaurant_Project.Forms.Employees
             lblAccounts.Text = "Account - Record " + (accountsManager.Position + 1) + " of " + accountsManager.Count + " Records: "
                 + tbxLastName.Text + ", " + tbxFirstName.Text;
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            accountsManager.Position = accountsManager.Count-1;
+        }
+
+        private void btnFirst_Click(object sender, EventArgs e)
+        {
+            accountsManager.Position = 0;
+        }
     }
 }
 
