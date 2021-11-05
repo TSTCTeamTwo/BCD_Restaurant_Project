@@ -109,7 +109,7 @@ namespace BCD_Restaurant_Project.Forms {
 
             //Testing for admin
             tbxUsername.Text = "sdeerr";
-            tbxPassword.Text = "password";
+            tbxPassword.Text = "hola";
 
             btnLogin.Focus();
         }
