@@ -1,55 +1,46 @@
-﻿using System;
+﻿#region
+
+using System;
 using System.Windows.Forms;
 
-namespace BCD_Restaurant_Project.Forms.Employees
-{
-    public partial class frmMainEmployees : Form
-    {
+#endregion
+
+namespace BCD_Restaurant_Project.Forms.Employees {
+    public partial class frmMainEmployees : Form {
         private Form activeForm;
-        public frmMainEmployees()
-        {
+
+        public frmMainEmployees() {
             InitializeComponent();
         }
 
-        private void btnPaycheck_Click(object sender, EventArgs e)
-        {
-            
+        private void btnPaycheck_Click(object sender, EventArgs e) { }
+
+        private void btnPersonal_Click(object sender, EventArgs e) {
+            OpenChildForm(new frmPersonal(), sender);
         }
 
-        private void btnPersonal_Click(object sender, EventArgs e)
-        {
-            
-            OpenChildForm(new frmPersonal(), sender);
-           
-        }
-        private void btnBankInformation_Click(object sender, EventArgs e)
-        {
+        private void btnBankInformation_Click(object sender, EventArgs e) {
             OpenChildForm(new frmBankInformation(), sender);
         }
 
-
-        private void OpenChildForm(Form childForm, object btnSender)
-        {
+        private void OpenChildForm(Form childForm, object btnSender) {
             if (activeForm != null)
-            {
                 activeForm.Close();
-            }
             activeForm = childForm;
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
             childForm.Dock = DockStyle.Fill;
-            this.pnlDisplay.Controls.Add(childForm);
+            pnlDisplay.Controls.Add(childForm);
             childForm.BringToFront();
             childForm.Show();
             lblTitle.Text = childForm.Text;
         }
 
-        private void btnLogOut_Click(object sender, EventArgs e)
-        {
-            DialogResult result = MessageBox.Show("Confirm log out. ", "Log Out", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
-            {
-                this.Hide();
+        private void btnLogOut_Click(object sender, EventArgs e) {
+            DialogResult result = MessageBox.Show("Confirm log out. ", "Log Out", MessageBoxButtons.YesNoCancel,
+                                                  MessageBoxIcon.Question);
+            if (result == DialogResult.Yes) {
+                Hide();
                 new frmLogin().Show();
             }
         }

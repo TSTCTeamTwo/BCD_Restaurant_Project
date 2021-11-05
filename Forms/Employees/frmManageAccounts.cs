@@ -1,130 +1,100 @@
-﻿using System;
+﻿#region
+
+using System;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-
 using BCD_Restaurant_Project.Classes;
-
 using static BCD_Restaurant_Project.Classes.ProgOps;
 
-namespace BCD_Restaurant_Project.Forms.Employees
-{
-    public partial class frmManageAccounts : Form
-    {
-        private CurrencyManager accountsManager = null;
+#endregion
+
+namespace BCD_Restaurant_Project.Forms.Employees {
+    public partial class frmManageAccounts : Form {
+        private CurrencyManager accountsManager;
+
+        private CurrencyManager employeesManager;
         private string myState;
 
-        public frmManageAccounts()
-        {
+        public frmManageAccounts() {
             InitializeComponent();
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
+        private void btnAdd_Click(object sender, EventArgs e) {
             setState("Add");
             accountsManager.AddNew();
             tbxAccountID.Enabled = false;
-            
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
+        private void btnCancel_Click(object sender, EventArgs e) {
             setState("View");
             accountsManager.CancelCurrentEdit();
         }
 
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
+        private void btnDelete_Click(object sender, EventArgs e) {
             string[] txt = {
-                tbxAccountID.Text,
-                tbxEmail.Text,
-                tbxUsername.Text,
-                tbxPassword.Text,
-                tbxLastName.Text,
-                tbxFirstName.Text
-            };
-            ProgOps.deactivateAccount(int.Parse(tbxAccountID.Text));
-            setTitle();
+                               tbxAccountID.Text, tbxEmail.Text, tbxUsername.Text, tbxPassword.Text, tbxLastName.Text,
+                               tbxFirstName.Text
+                           };
+            deactivateAccount(int.Parse(tbxAccountID.Text));
+            setTitleAndEmployees();
         }
 
-        private void btnEdit_Click(object sender, EventArgs e)
-        {
-
+        private void btnEdit_Click(object sender, EventArgs e) {
             setState("Edit");
-
         }
 
-        private void btnNext_Click(object sender, EventArgs e)
-        {
-
-                accountsManager.Position++;
-                setTitle();
-
+        private void btnNext_Click(object sender, EventArgs e) {
+            accountsManager.Position++;
+            setTitleAndEmployees();
+            if (!string.IsNullOrEmpty(tbxAccountID.Text)) {
+                bindEmployees(dgvEmployees, tbxAccountID.Text);
+            }
         }
 
-        private void btnPrevious_Click(object sender, EventArgs e)
-        {
-                accountsManager.Position--;
-                setTitle();
-
+        private void btnPrevious_Click(object sender, EventArgs e) {
+            accountsManager.Position--;
+            setTitleAndEmployees();
+            if (!string.IsNullOrEmpty(tbxAccountID.Text)) {
+                bindEmployees(dgvEmployees, tbxAccountID.Text);
+            }
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
-        {
+        private void btnSave_Click(object sender, EventArgs e) {
             string[] txt = {
-                tbxAccountID.Text,
-                tbxEmail.Text,
-                tbxUsername.Text,
-                tbxPassword.Text,
-                tbxLastName.Text,
-                tbxFirstName.Text
-            };
+                               tbxAccountID.Text, tbxEmail.Text, tbxUsername.Text, tbxPassword.Text, tbxLastName.Text,
+                               tbxFirstName.Text
+                           };
 
-            tbxAccountID.DataBindings.Clear();
-            tbxEmail.DataBindings.Clear();
-            tbxUsername.DataBindings.Clear();
-            tbxPassword.DataBindings.Clear();
-            tbxLastName.DataBindings.Clear();
-            tbxFirstName.DataBindings.Clear();
-
-            ProgOps.commandAccount();
             accountsManager.EndCurrentEdit();
-            ProgOps.bindAccounts(tbxAccountID, tbxEmail, tbxUsername, tbxPassword,
-            tbxLastName, tbxFirstName, this, out accountsManager);
-            setTitle();
+            commandAccount();
+            accountsManager.Refresh();
+            setTitleAndEmployees();
             setState("View");
-            
         }
 
-        
-
-        private void frmManageAccounts_Load(object sender, EventArgs e)
-        {
-            ProgOps.bindAccounts(tbxAccountID, tbxEmail, tbxUsername, tbxPassword,
-             tbxLastName, tbxFirstName, this, out accountsManager);
+        private void frmManageAccounts_Load(object sender, EventArgs e) {
+            bindAccounts(tbxAccountID, tbxEmail, tbxUsername, tbxPassword, tbxLastName, tbxFirstName, this,
+                         out accountsManager);
 
             setState("View");
-            setTitle();
-
+            setTitleAndEmployees();
         }
 
-        private void setState(string appState)
-        {
-
+        private void setState(string appState) {
             myState = appState;
-            switch (appState)
-            {
+            switch (appState) {
                 case "View":
                     btnPrevious.Focus();
                     //COLOR
                     tbxAccountID.BackColor = Color.White;
                     tbxAccountID.ForeColor = Color.Black;
                     //READONLY all text boxes
-                    foreach (var tbxCurrent in Controls.OfType<TextBox>())
-                    {
+                    foreach (TextBox tbxCurrent in Controls.OfType<TextBox>()) {
                         tbxCurrent.ReadOnly = true;
                         tbxCurrent.Enabled = false;
                     }
+
                     //ENABLED - BUTTONS
                     btnPrevious.Enabled = true;
                     btnNext.Enabled = true;
@@ -132,10 +102,8 @@ namespace BCD_Restaurant_Project.Forms.Employees
                     btnSave.Enabled = false;
                     btnEdit.Enabled = true;
                     btnDelete.Enabled = true;
-                    btnLast.Enabled = true;
-                    btnFirst.Enabled = true;
                     btnPrevious.Focus();
-                    setTitle();
+                    setTitleAndEmployees();
                     break;
                 default:
                     //modify the color of the AccountID tbx
@@ -144,11 +112,11 @@ namespace BCD_Restaurant_Project.Forms.Employees
                     tbxAccountID.ReadOnly = true;
                     tbxAccountID.Enabled = false;
                     //ENABLE ALL TEXTBOXES
-                    foreach (var tbxCurrent in Controls.OfType<TextBox>())
-                    {
+                    foreach (TextBox tbxCurrent in Controls.OfType<TextBox>()) {
                         tbxCurrent.ReadOnly = false;
                         tbxCurrent.Enabled = true;
                     }
+
                     //ENABLE - BUTTONS
                     btnSave.Enabled = true;
                     btnPrevious.Enabled = false;
@@ -157,32 +125,18 @@ namespace BCD_Restaurant_Project.Forms.Employees
                     btnCancel.Enabled = true;
                     btnDelete.Enabled = false;
                     btnEdit.Enabled = false;
-                    btnLast.Enabled = false;
-                    btnFirst.Enabled = false;
                     break;
             }
         }
-        private void setTitle()
-        {
-            lblAccounts.Text = "Account - Record " + (accountsManager.Position + 1) + " of " + accountsManager.Count + " Records: "
-                + tbxLastName.Text + ", " + tbxFirstName.Text;
-        }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            accountsManager.Position = accountsManager.Count-1;
+        private void setTitleAndEmployees() {
+            lblAccounts.Text = "Account - Record " + (accountsManager.Position + 1) + " of " + accountsManager.Count +
+                               " Records: " + tbxLastName.Text + ", " + tbxFirstName.Text;
 
-            setTitle();
-        }
 
-        private void btnFirst_Click(object sender, EventArgs e)
-        {
-            accountsManager.Position = 0;
-            setTitle();
         }
     }
 }
-
 
 //case "Add":
 //    //COLOR

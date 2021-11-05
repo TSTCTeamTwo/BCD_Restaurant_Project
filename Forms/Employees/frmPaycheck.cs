@@ -1,20 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿#region Imports
 
-namespace BCD_Restaurant_Project.Forms.Employees
-{
-    public partial class frmPaycheck : Form
-    {
-        public frmPaycheck()
-        {
+using System.Windows.Forms;
+using BCD_Restaurant_Project.Classes;
+
+#endregion
+
+namespace BCD_Restaurant_Project.Forms.Employees {
+    public partial class frmPaycheck : Form {
+        public frmPaycheck() {
             InitializeComponent();
+        }
+
+        private void frmPaycheck_Load(object sender, System.EventArgs e) {
+            ProgOps.showPaycheck(lblEmployeeID, lblEmployeeName, lblHourlyRate, lblWeeklyHoursWorked,
+                                 lblGrossPay, lblSocialSecurityWithheld, lblFICAWithheld, lblNetPay);
         }
     }
 }
