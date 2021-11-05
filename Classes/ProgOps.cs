@@ -201,14 +201,13 @@ namespace BCD_Restaurant_Project.Classes {
             TextBox tbxFirstName, Form form, out CurrencyManager accountsManager
         ) {
             string sqlQuery = "SELECT * from group2fa212330.Accounts";
-
             _sqlAccountsCommand = new SqlCommand(sqlQuery, _dbConnection);
 
             _daAccounts = new SqlDataAdapter(_sqlAccountsCommand);
             DTAccounts.Clear();
             _daAccounts.Fill(DTAccounts);
 
-            accountsManager = (CurrencyManager)form.BindingContext[DTAccounts];
+            
 
             tbxAccountID.DataBindings.Add("Text", DTAccounts, "AccountID");
             tbxEmail.DataBindings.Add("Text", DTAccounts, "Email");
@@ -216,6 +215,7 @@ namespace BCD_Restaurant_Project.Classes {
             tbxPassword.DataBindings.Add("Text", DTAccounts, "Password");
             tbxLastName.DataBindings.Add("Text", DTAccounts, "Lastname");
             tbxFirstName.DataBindings.Add("Text", DTAccounts, "Firstname");
+
         }
 
         public static void changeCategory(CurrencyManager currency, ComboBox cbCategory) {
@@ -279,12 +279,15 @@ namespace BCD_Restaurant_Project.Classes {
                                 MessageBoxIcon.Error);
             }
         }
-
-        public static void commandAccount() {
-            try {
+        public static void commandAccount()
+        {
+            try
+            {
                 SqlCommandBuilder update = new SqlCommandBuilder(_daAccounts);
                 _daAccounts.Update(DTAccounts);
-            } catch (SqlException ex) {
+            }
+            catch (SqlException ex)
+            {
                 for (int i = 0; i < ex.Errors.Count; i++)
                     ErrorMessages.Append("Index#" + i + "\n" + "Message: " + ex.Errors[i].Message + "\n" +
                                          "LineNumber: " + ex.Errors[i].LineNumber + "\n" + "Source: " +
@@ -487,8 +490,8 @@ namespace BCD_Restaurant_Project.Classes {
                 MessageBox.Show("Error:\n\t" + ex.Message, "ProgOps Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        private static bool returnStatus(string variable, int type = 0) {
+        private static bool returnStatus(string variable, int type = 0)
+        {
             string addition = "";
             string error = "";
             switch (type) {
@@ -742,10 +745,9 @@ namespace BCD_Restaurant_Project.Classes {
                                 return 1; //correct combination... nothing special -> open normal form
                         } else {
                             //so if password doesn't equal password AND password does not equal one time password
-                            if ((password != (string)DTAccounts.Rows[0]["password"]) &&
-                                (password != (string)DTAccounts.Rows[0]["onetimepassword"])) {
-                                MessageBox.Show((string)DTAccounts.Rows[0]["password"] + " " + password + " " +
-                                                (string)DTAccounts.Rows[0]["onetimepassword"]);
+                            if (password != (string)DTAccounts.Rows[0]["password"] && password != (string)DTAccounts.Rows[0]["onetimepassword"])
+                            {
+                                MessageBox.Show((string)DTAccounts.Rows[0]["password"] + " " + password + " " + (string)DTAccounts.Rows[0]["onetimepassword"]);
                                 return 0; //wrong combination...
                             }
 
