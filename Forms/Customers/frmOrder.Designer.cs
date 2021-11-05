@@ -55,9 +55,16 @@ namespace BCD_Restaurant_Project.Forms.Customers
             this.dgvOrder.AllowUserToResizeRows = false;
             this.dgvOrder.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvOrder.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvOrder.BackgroundColor = System.Drawing.Color.White;
             this.dgvOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvOrder.Location = new System.Drawing.Point(16, 32);
+            this.dgvOrder.Location = new System.Drawing.Point(16, 37);
             this.dgvOrder.Name = "dgvOrder";
+            this.dgvOrder.RowHeadersVisible = false;
+            this.dgvOrder.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvOrder.ShowCellErrors = false;
+            this.dgvOrder.ShowCellToolTips = false;
+            this.dgvOrder.ShowEditingIcon = false;
+            this.dgvOrder.ShowRowErrors = false;
             this.dgvOrder.Size = new System.Drawing.Size(877, 210);
             this.dgvOrder.TabIndex = 2;
             // 
@@ -65,7 +72,7 @@ namespace BCD_Restaurant_Project.Forms.Customers
             // 
             this.lblUsername.AutoSize = true;
             this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsername.Location = new System.Drawing.Point(412, 9);
+            this.lblUsername.Location = new System.Drawing.Point(412, 14);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(84, 20);
             this.lblUsername.TabIndex = 1;
@@ -77,7 +84,7 @@ namespace BCD_Restaurant_Project.Forms.Customers
             this.btnCheckout.BackColor = System.Drawing.Color.White;
             this.btnCheckout.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCheckout.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCheckout.Location = new System.Drawing.Point(66, 379);
+            this.btnCheckout.Location = new System.Drawing.Point(80, 384);
             this.btnCheckout.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnCheckout.Name = "btnCheckout";
             this.btnCheckout.Size = new System.Drawing.Size(748, 44);
@@ -91,7 +98,7 @@ namespace BCD_Restaurant_Project.Forms.Customers
             this.btnRemove.BackColor = System.Drawing.Color.White;
             this.btnRemove.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnRemove.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRemove.Location = new System.Drawing.Point(441, 431);
+            this.btnRemove.Location = new System.Drawing.Point(455, 436);
             this.btnRemove.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(373, 44);
@@ -105,7 +112,7 @@ namespace BCD_Restaurant_Project.Forms.Customers
             this.btnClear.BackColor = System.Drawing.Color.White;
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.Location = new System.Drawing.Point(66, 431);
+            this.btnClear.Location = new System.Drawing.Point(80, 436);
             this.btnClear.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(369, 44);
@@ -118,7 +125,7 @@ namespace BCD_Restaurant_Project.Forms.Customers
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(266, 244);
+            this.label1.Location = new System.Drawing.Point(250, 249);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(82, 24);
             this.label1.TabIndex = 5;
@@ -128,7 +135,7 @@ namespace BCD_Restaurant_Project.Forms.Customers
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(301, 275);
+            this.label2.Location = new System.Drawing.Point(285, 280);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(47, 24);
             this.label2.TabIndex = 6;
@@ -138,7 +145,7 @@ namespace BCD_Restaurant_Project.Forms.Customers
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(292, 344);
+            this.label3.Location = new System.Drawing.Point(276, 349);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(56, 24);
             this.label3.TabIndex = 7;
@@ -148,7 +155,7 @@ namespace BCD_Restaurant_Project.Forms.Customers
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(477, 272);
+            this.label4.Location = new System.Drawing.Point(461, 277);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(92, 24);
             this.label4.TabIndex = 8;
@@ -157,7 +164,7 @@ namespace BCD_Restaurant_Project.Forms.Customers
             // tbxTip
             // 
             this.tbxTip.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxTip.Location = new System.Drawing.Point(575, 270);
+            this.tbxTip.Location = new System.Drawing.Point(559, 275);
             this.tbxTip.MaxLength = 10;
             this.tbxTip.Name = "tbxTip";
             this.tbxTip.Size = new System.Drawing.Size(100, 29);
@@ -168,9 +175,9 @@ namespace BCD_Restaurant_Project.Forms.Customers
             // 
             // lblSubtotal
             // 
-            this.lblSubtotal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblSubtotal.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblSubtotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSubtotal.Location = new System.Drawing.Point(354, 245);
+            this.lblSubtotal.Location = new System.Drawing.Point(338, 250);
             this.lblSubtotal.Name = "lblSubtotal";
             this.lblSubtotal.Size = new System.Drawing.Size(95, 23);
             this.lblSubtotal.TabIndex = 10;
@@ -178,9 +185,9 @@ namespace BCD_Restaurant_Project.Forms.Customers
             // 
             // lblTax
             // 
-            this.lblTax.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblTax.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblTax.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTax.Location = new System.Drawing.Point(354, 276);
+            this.lblTax.Location = new System.Drawing.Point(338, 281);
             this.lblTax.Name = "lblTax";
             this.lblTax.Size = new System.Drawing.Size(95, 23);
             this.lblTax.TabIndex = 11;
@@ -188,9 +195,9 @@ namespace BCD_Restaurant_Project.Forms.Customers
             // 
             // lblTotal
             // 
-            this.lblTotal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblTotal.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotal.Location = new System.Drawing.Point(354, 345);
+            this.lblTotal.Location = new System.Drawing.Point(338, 350);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(95, 23);
             this.lblTotal.TabIndex = 12;
@@ -198,9 +205,9 @@ namespace BCD_Restaurant_Project.Forms.Customers
             // 
             // lblTip
             // 
-            this.lblTip.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblTip.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblTip.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTip.Location = new System.Drawing.Point(354, 309);
+            this.lblTip.Location = new System.Drawing.Point(338, 314);
             this.lblTip.Name = "lblTip";
             this.lblTip.Size = new System.Drawing.Size(95, 23);
             this.lblTip.TabIndex = 14;
@@ -210,7 +217,7 @@ namespace BCD_Restaurant_Project.Forms.Customers
             // 
             this.lblTipDisplay.AutoSize = true;
             this.lblTipDisplay.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTipDisplay.Location = new System.Drawing.Point(301, 309);
+            this.lblTipDisplay.Location = new System.Drawing.Point(285, 314);
             this.lblTipDisplay.Name = "lblTipDisplay";
             this.lblTipDisplay.Size = new System.Drawing.Size(42, 24);
             this.lblTipDisplay.TabIndex = 13;
@@ -222,6 +229,7 @@ namespace BCD_Restaurant_Project.Forms.Customers
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(908, 494);
             this.Controls.Add(this.lblTip);
             this.Controls.Add(this.lblTipDisplay);

@@ -1,28 +1,27 @@
-﻿using System;
+﻿#region
+
+using System;
 using System.Windows.Forms;
 using BCD_Restaurant_Project.Classes;
-namespace BCD_Restaurant_Project.Forms
-{
-    public partial class frmFood : Form
-    {
-        public frmFood()
-        {
+
+#endregion
+
+namespace BCD_Restaurant_Project.Forms.Customers {
+    public partial class frmFood : Form {
+        public frmFood() {
             InitializeComponent();
         }
 
-        private void frmFood_Load(object sender, EventArgs e)
-        {
+        private void frmFood_Load(object sender, EventArgs e) {
             ProgOps.displayMenuItems(dgvFood, 1);
         }
 
-        private void btnAddToOrder_Click(object sender, EventArgs e)
-        {
+        private void btnAddToOrder_Click(object sender, EventArgs e) {
             Cart.addToCartFromFood(dgvFood);
         }
 
-        private void dgvFood_SelectionChanged(object sender, EventArgs e)
-        {
-            ProgOps.updatePicInPbx((Int32)dgvFood.CurrentRow.Cells[0].Value, pbxFood);
+        private void dgvFood_SelectionChanged(object sender, EventArgs e) {
+            ProgOps.updatePicInPbx((int)dgvFood.CurrentRow.Cells[0].Value, pbxFood);
         }
     }
 }

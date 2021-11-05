@@ -1,24 +1,20 @@
-﻿using System;
+﻿#region
+
+using System;
 using System.Windows.Forms;
 
-namespace BCD_Restaurant_Project.Forms
-{
-    public partial class frmReceipt : Form
-    {
-        public frmReceipt()
-        {
+#endregion
+
+namespace BCD_Restaurant_Project.Forms.Customers {
+    public partial class frmReceipt : Form {
+        public frmReceipt() {
             InitializeComponent();
         }
 
-        private void crvReceiptViewer_Load(object sender, System.EventArgs e)
-        {
+        private void crvReceiptViewer_Load(object sender, EventArgs e) { }
 
-        }
-
-        private void crvReceiptViewer_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
+        private void crvReceiptViewer_MouseDown(object sender, MouseEventArgs e) {
+            if (e.Button == MouseButtons.Left) {
                 // Release the mouse capture started by the mouse down.
                 crvReceiptViewer.Capture = false; //select control
                 Capture = false;
@@ -30,10 +26,8 @@ namespace BCD_Restaurant_Project.Forms
             }
         }
 
-        private void frmReceipt_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
+        private void frmReceipt_MouseDown(object sender, MouseEventArgs e) {
+            if (e.Button == MouseButtons.Left) {
                 // Release the mouse capture started by the mouse down.
                 crvReceiptViewer.Capture = false; //select control
                 Capture = false;
