@@ -68,5 +68,10 @@ namespace BCD_Restaurant_Project.Forms
         {
 
         }
+
+        private void pnlDisplay_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

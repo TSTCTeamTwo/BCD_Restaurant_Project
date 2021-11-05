@@ -24,6 +24,7 @@ namespace BCD_Restaurant_Project.Forms.Employees
             setState("Add");
             accountsManager.AddNew();
             tbxAccountID.Enabled = false;
+            
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -79,11 +80,23 @@ namespace BCD_Restaurant_Project.Forms.Employees
                 tbxFirstName.Text
             };
 
-            accountsManager.EndCurrentEdit();
+            tbxAccountID.DataBindings.Clear();
+            tbxEmail.DataBindings.Clear();
+            tbxUsername.DataBindings.Clear();
+            tbxPassword.DataBindings.Clear();
+            tbxLastName.DataBindings.Clear();
+            tbxFirstName.DataBindings.Clear();
+
             ProgOps.commandAccount();
+            accountsManager.EndCurrentEdit();
+            ProgOps.bindAccounts(tbxAccountID, tbxEmail, tbxUsername, tbxPassword,
+            tbxLastName, tbxFirstName, this, out accountsManager);
             setTitle();
             setState("View");
+            
         }
+
+        
 
         private void frmManageAccounts_Load(object sender, EventArgs e)
         {
@@ -119,6 +132,8 @@ namespace BCD_Restaurant_Project.Forms.Employees
                     btnSave.Enabled = false;
                     btnEdit.Enabled = true;
                     btnDelete.Enabled = true;
+                    btnLast.Enabled = true;
+                    btnFirst.Enabled = true;
                     btnPrevious.Focus();
                     setTitle();
                     break;
@@ -142,6 +157,8 @@ namespace BCD_Restaurant_Project.Forms.Employees
                     btnCancel.Enabled = true;
                     btnDelete.Enabled = false;
                     btnEdit.Enabled = false;
+                    btnLast.Enabled = false;
+                    btnFirst.Enabled = false;
                     break;
             }
         }
@@ -154,11 +171,14 @@ namespace BCD_Restaurant_Project.Forms.Employees
         private void button1_Click(object sender, EventArgs e)
         {
             accountsManager.Position = accountsManager.Count-1;
+
+            setTitle();
         }
 
         private void btnFirst_Click(object sender, EventArgs e)
         {
             accountsManager.Position = 0;
+            setTitle();
         }
     }
 }

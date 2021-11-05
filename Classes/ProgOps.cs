@@ -189,14 +189,13 @@ namespace BCD_Restaurant_Project.Classes
         {
 
             string sqlQuery = "SELECT * from group2fa212330.Accounts";
-
             _sqlAccountsCommand = new SqlCommand(sqlQuery, _dbConnection);
 
             _daAccounts = new SqlDataAdapter(_sqlAccountsCommand);
             DTAccounts.Clear();
             _daAccounts.Fill(DTAccounts);
 
-            accountsManager = (CurrencyManager)form.BindingContext[DTAccounts];
+            
 
             tbxAccountID.DataBindings.Add("Text", DTAccounts, "AccountID");
             tbxEmail.DataBindings.Add("Text", DTAccounts, "Email");
@@ -205,6 +204,11 @@ namespace BCD_Restaurant_Project.Classes
             tbxLastName.DataBindings.Add("Text", DTAccounts, "Lastname");
             tbxFirstName.DataBindings.Add("Text", DTAccounts, "Firstname");
 
+            accountsManager = (CurrencyManager)form.BindingContext[DTAccounts];
+
+           
+           
+           
         }
         public static void changeCategory(CurrencyManager currency, ComboBox cbCategory)
         {
@@ -291,10 +295,10 @@ namespace BCD_Restaurant_Project.Classes
         {
             try
             {
+               
                 SqlCommandBuilder update = new SqlCommandBuilder(_daAccounts);
                 _daAccounts.Update(DTAccounts);
-                _daAccounts.Dispose();
-                DTAccounts.Dispose();
+                
             }
             catch (SqlException ex)
             {
@@ -571,7 +575,7 @@ namespace BCD_Restaurant_Project.Classes
                     MessageBoxIcon.Error);
             }
         }
-        private static bool returnStatus(string variable, int type = 0)
+        public static bool returnStatus(string variable, int type = 0)
         {
             string addition = "";
             string error = "";
@@ -912,7 +916,7 @@ namespace BCD_Restaurant_Project.Classes
                             //so if password doesn't equal password AND password does not equal one time password
                             if (password != (string)DTAccounts.Rows[0]["password"] && password != (string)DTAccounts.Rows[0]["onetimepassword"])
                             {
-                                MessageBox.Show((string)DTAccounts.Rows[0]["password"] + " " + password + " " + (string)DTAccounts.Rows[0]["onetimepassword"]);
+                                //MessageBox.Show((string)DTAccounts.Rows[0]["password"] + " " + password + " " + (string)DTAccounts.Rows[0]["onetimepassword"]);
                                 return 0; //wrong combination...
                             }
 
