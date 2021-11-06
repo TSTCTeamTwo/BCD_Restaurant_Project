@@ -31,10 +31,7 @@ namespace BCD_Restaurant_Project.Forms.Employees {
         }
 
         private void btnEdit_Click(object sender, EventArgs e) {
-            if (btnEdit.Text == "Edit")
-                SetState("Edit");
-            else
-                SetState("View");
+            SetState("Edit");
         }
 
         private void btnNext_Click(object sender, EventArgs e) {
@@ -60,7 +57,7 @@ namespace BCD_Restaurant_Project.Forms.Employees {
         private void frmManageMenu_Load(object sender, EventArgs e) {
             ProgOps.modifyMenu(tbxName, tbxItemID, tbxDescription, tbxPrice, cbxCategories, this, out menuManager,
                                dgvDisplay);
-
+            SetState("View");
             //byte[] image = System.Text.Encoding.UTF8.GetBytes(tbxImagePath.Text);
 
             //string str = System.Text.Encoding.UTF8.GetString(image, 0, image.Length);
@@ -88,6 +85,10 @@ namespace BCD_Restaurant_Project.Forms.Employees {
                     btnAdd.Enabled = true;
                     btnEdit.Enabled = true;
                     btnDelete.Enabled = true;
+                    btnLoadImage.Enabled = false;
+                    btnFirst.Enabled = true;
+                    btnLast.Enabled = true;
+                    btnSave.Enabled = false;
                     btnEdit.Text = "Edit";
                     break;
 
@@ -102,13 +103,15 @@ namespace BCD_Restaurant_Project.Forms.Employees {
                     }
 
                     //ENABLED - BUTTONS
+                    btnFirst.Enabled = false;
+                    btnLast.Enabled = false;
                     btnPrevious.Enabled = false;
                     btnNext.Enabled = false;
                     btnAdd.Enabled = false;
                     btnSave.Enabled = true;
                     btnDelete.Enabled = false;
-                    btnEdit.Enabled = true;
-                    btnEdit.Text = "Cancel";
+                    btnEdit.Enabled = false;
+                    btnLoadImage.Enabled = true;
                     tbxName.Focus();
                     break;
             }
@@ -120,6 +123,27 @@ namespace BCD_Restaurant_Project.Forms.Employees {
 
         private void btnLoadImage_Click(object sender, EventArgs e) {
             ProgOps.changeMenuItemImage(int.Parse(tbxItemID.Text));
+        }
+
+        private void btnLast_Click(object sender, EventArgs e)
+        {
+            menuManager.Position = menuManager.Count - 1;
+        }
+
+        private void btnFirst_Click(object sender, EventArgs e)
+        {
+            menuManager.Position = 0;
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            SetState("View");
+            menuManager.CancelCurrentEdit();
+        }
+
+        private void btnLast_Click_1(object sender, EventArgs e)
+        {
+            menuManager.Position = menuManager.Count-1;
         }
     }
 }

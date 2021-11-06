@@ -46,7 +46,7 @@ namespace BCD_Restaurant_Project.Forms.Employees {
         }
 
         private void btnLogOut_Click(object sender, EventArgs e) {
-            DialogResult result = MessageBox.Show("Confirm log out. ", "Log Out", MessageBoxButtons.YesNoCancel,
+            DialogResult result = MessageBox.Show("Confirm log out. ", "Log Out", MessageBoxButtons.YesNo,
                                                   MessageBoxIcon.Question);
             if (result == DialogResult.Yes) {
                 Hide();
