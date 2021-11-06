@@ -119,7 +119,7 @@ namespace BCD_Restaurant_Project.Forms.Employees {
         }
 
         private void btnLoadImage_Click(object sender, EventArgs e) {
-            ProgOps.changeMenuItemImage(tbxItemID.Text);
+            ProgOps.changeMenuItemImage(int.Parse(tbxItemID.Text));
         }
     }
 }

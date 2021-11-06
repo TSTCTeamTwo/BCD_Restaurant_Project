@@ -22,6 +22,7 @@ namespace BCD_Restaurant_Project.Classes {
         private static readonly SqlDataAdapter _daCategory = new SqlDataAdapter();
         private static SqlDataAdapter _daEmployees = new SqlDataAdapter();
         private static SqlDataAdapter _daMenu = new SqlDataAdapter();
+        private static SqlDataAdapter _daImage = new SqlDataAdapter();
         private static readonly SqlDataAdapter _daOrderItems = new SqlDataAdapter();
         private static readonly SqlDataAdapter _daOrders = new SqlDataAdapter();
 
@@ -33,6 +34,7 @@ namespace BCD_Restaurant_Project.Classes {
         private static SqlCommand _sqlEmployeesCommand = new SqlCommand();
         private static SqlCommand _sqlMenuCommand = new SqlCommand();
         private static SqlCommand _sqlOrderItemsCommand = new SqlCommand();
+        private static SqlCommand _sqlImageCommand = new SqlCommand();
 
         private static SqlCommand _sqlOrdersCommand = new SqlCommand();
 
@@ -53,6 +55,11 @@ namespace BCD_Restaurant_Project.Classes {
         } = string.Empty;
 
         //Datatables to hold result sets for the application
+        public static DataTable DTImage
+        {
+            get;
+            private set;
+        } = new DataTable();
         public static DataTable DTAccounts {
             get;
             private set;
@@ -196,10 +203,9 @@ namespace BCD_Restaurant_Project.Classes {
             }
         }
 
-        public static void bindAccounts(
-            TextBox tbxAccountID, TextBox tbxEmail, TextBox tbxUsername, TextBox tbxPassword, TextBox tbxLastName,
-            TextBox tbxFirstName, Form form, out CurrencyManager accountsManager
-        ) {
+        public static void bindAccounts(TextBox tbxAccountID, TextBox tbxEmail, TextBox tbxUsername, TextBox tbxPassword, TextBox tbxLastName,
+            TextBox tbxFirstName, Form form, out CurrencyManager accountsManager) 
+        {
             string sqlQuery = "SELECT * from group2fa212330.Accounts";
             _sqlAccountsCommand = new SqlCommand(sqlQuery, _dbConnection);
 
@@ -216,13 +222,14 @@ namespace BCD_Restaurant_Project.Classes {
             tbxLastName.DataBindings.Add("Text", DTAccounts, "Lastname");
             tbxFirstName.DataBindings.Add("Text", DTAccounts, "Firstname");
 
+            accountsManager = (CurrencyManager)form.BindingContext[DTAccounts];
         }
 
         public static void changeCategory(CurrencyManager currency, ComboBox cbCategory) {
             cbCategory.SelectedIndex = cbCategory.FindString(DTMenu.Rows[currency.Position]["CategoryName"].ToString());
         }
 
-        public static void changeMenuItemImage(string text) {
+        public static void changeMenuItemImage(int itemID) {
             OpenFileDialog ofdImage = new OpenFileDialog();
 
             ofdImage.InitialDirectory = Directory.GetCurrentDirectory();
@@ -234,10 +241,23 @@ namespace BCD_Restaurant_Project.Classes {
 
             if (ofdImage.ShowDialog() == DialogResult.OK) {
                 byte[] image = File.ReadAllBytes(ofdImage.FileName);
-            }
+            
 
             try {
-                string insertQuery = "UPDATE group2fa212330.Images WHERE ";
+                int imageID =0;
+                string retrieveItem = "SELECT ImageID FROM group2fa212330.Menu WHERE ItemID = " + itemID;
+                _sqlImageCommand = new SqlCommand(retrieveItem);
+                _daImage.SelectCommand = _sqlImageCommand;
+                _daImage.Fill(DTImage);
+                if(DTImage.Rows.Count != 0)
+                {
+                    imageID = (int)DTImage.Rows[0]["ImageID"];
+                }
+
+                string insertQuery = "UPDATE group2fa212330.Images SET Image = @Image WHERE ImageID = "+imageID;
+                _sqlImageCommand = new SqlCommand(insertQuery);
+                SqlParameter imageParam = _sqlImageCommand.Parameters.AddWithValue("@Image", image);
+                
             } catch (SqlException ex) {
                 for (int i = 0; i < ex.Errors.Count; i++)
                     ErrorMessages.Append("Index#" + i + "\n" + "Message: " + ex.Errors[i].Message + "\n" +
@@ -246,6 +266,7 @@ namespace BCD_Restaurant_Project.Classes {
 
                 MessageBox.Show(ErrorMessages.ToString(), "Error Closing Database", MessageBoxButtons.OK,
                                 MessageBoxIcon.Error);
+            }
             }
         }
 

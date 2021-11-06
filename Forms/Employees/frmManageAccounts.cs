@@ -135,6 +135,16 @@ namespace BCD_Restaurant_Project.Forms.Employees {
 
 
         }
+
+        private void btnLast_Click(object sender, EventArgs e)
+        {
+            accountsManager.Position = accountsManager.Count - 1;
+        }
+
+        private void btnFirst_Click(object sender, EventArgs e)
+        {
+            accountsManager.Position = 0;
+        }
     }
 }
 
