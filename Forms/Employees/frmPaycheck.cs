@@ -13,7 +13,7 @@ namespace BCD_Restaurant_Project.Forms.Employees {
 
         private void frmPaycheck_Load(object sender, System.EventArgs e) {
             ProgOps.showPaycheck(lblEmployeeID, lblEmployeeName, lblHourlyRate, lblWeeklyHoursWorked,
-                                 lblGrossPay, lblSocialSecurityWithheld, lblFICAWithheld, lblNetPay);
+                                 lblGrossPay, lblSocialSecurityWithheld, lblFICAWithheld, lblNetPay, lblSalaryType);
         }
     }
 }
