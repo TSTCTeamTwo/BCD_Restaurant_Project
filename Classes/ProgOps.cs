@@ -276,9 +276,10 @@ namespace BCD_Restaurant_Project.Classes
 
             ofdImage.ValidateNames = true;
             ofdImage.AddExtension = false;
-            ofdImage.Filter = "PNG File|*.png|JPEG File|*.jpg";
+           // ofdImage.Filter = "PNG File|*.png|JPEG File|*.jpg";
             ofdImage.Title = "Image to Upload";
-
+            
+            
             if (ofdImage.ShowDialog() == DialogResult.OK)
             {
                 byte[] image = File.ReadAllBytes(ofdImage.FileName);
@@ -288,8 +289,8 @@ namespace BCD_Restaurant_Project.Classes
                 {
                     int imageID = 0;
                     string retrieveItem = "SELECT ImageID FROM group2fa212330.Menu WHERE ItemID = " + itemID;
-                    _sqlImageCommand = new SqlCommand(retrieveItem);
-                    _daImage.SelectCommand = _sqlImageCommand;
+                    _sqlImageCommand = new SqlCommand(retrieveItem, _dbConnection);
+                    _daImage = new SqlDataAdapter(_sqlImageCommand);
                     _daImage.Fill(DTImage);
                     if (DTImage.Rows.Count != 0)
                     {
@@ -297,9 +298,9 @@ namespace BCD_Restaurant_Project.Classes
                     }
 
                     string insertQuery = "UPDATE group2fa212330.Images SET Image = @Image WHERE ImageID = " + imageID;
-                    _sqlImageCommand = new SqlCommand(insertQuery);
+                    _sqlImageCommand = new SqlCommand(insertQuery, _dbConnection);
                     SqlParameter imageParam = _sqlImageCommand.Parameters.AddWithValue("@Image", image);
-
+                    _sqlImageCommand.ExecuteNonQuery();
                 }
                 catch (SqlException ex)
                 {
@@ -406,7 +407,7 @@ namespace BCD_Restaurant_Project.Classes
         }
 
         //displaying the specific items wherever the user is in the form
-        public static void displayMenuItems(DataGridView dgvDisplay, int categoryId)
+        public static void displayMenuItems(DataGridView dgvDisplay, int categoryId, int drinksID = -1)
         {
             //   _cntDBConnection = new SqlConnection(CONNECT_STRING);
             //string query =
@@ -414,7 +415,7 @@ namespace BCD_Restaurant_Project.Classes
             //    categoryId;
             string query
                 = "SELECT ItemID, ItemName AS 'Item', ItemDescription AS 'Description', FORMAT(Price, 'C') AS Price, Image FROM group2fa212330.Menu INNER JOIN group2fa212330.Images ON Menu.ImageID = Images.ImageID WHERE CategoryID = " +
-                  categoryId;
+                  categoryId+" OR CategoryID ="+drinksID;
             _sqlMenuCommand = new SqlCommand(query, _dbConnection);
             _daMenu.SelectCommand = _sqlMenuCommand;
             dgvDisplay.Rows.Clear();

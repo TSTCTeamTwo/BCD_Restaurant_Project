@@ -13,7 +13,7 @@ namespace BCD_Restaurant_Project.Forms.Customers {
         }
 
         private void frmDrinks_Load(object sender, EventArgs e) {
-            ProgOps.displayMenuItems(dgvDrinks, 4);
+            ProgOps.displayMenuItems(dgvDrinks, 4, 2);
         }
 
         private void btnReturnToDrinks_Click(object sender, EventArgs e) { }
