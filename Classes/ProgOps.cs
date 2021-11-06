@@ -10,8 +10,6 @@ using System.Net.Mail;
 using System.Text;
 using System.Windows.Forms;
 
-using CrystalDecisions.Shared.Json;
-
 #endregion
 
 namespace BCD_Restaurant_Project.Classes {
@@ -24,6 +22,7 @@ namespace BCD_Restaurant_Project.Classes {
         private static readonly SqlDataAdapter _daCategory = new SqlDataAdapter();
         private static SqlDataAdapter _daEmployees = new SqlDataAdapter();
         private static SqlDataAdapter _daMenu = new SqlDataAdapter();
+        private static SqlDataAdapter _daImage = new SqlDataAdapter();
         private static readonly SqlDataAdapter _daOrderItems = new SqlDataAdapter();
         private static readonly SqlDataAdapter _daOrders = new SqlDataAdapter();
 
@@ -34,6 +33,8 @@ namespace BCD_Restaurant_Project.Classes {
         private static SqlCommand _sqlCategoryCommand = new SqlCommand();
         private static SqlCommand _sqlEmployeesCommand = new SqlCommand();
         private static SqlCommand _sqlMenuCommand = new SqlCommand();
+        private static SqlCommand _sqlOrderItemsCommand = new SqlCommand();
+        private static SqlCommand _sqlImageCommand = new SqlCommand();
 
         private static SqlCommand _sqlOrdersCommand = new SqlCommand();
 
@@ -53,12 +54,12 @@ namespace BCD_Restaurant_Project.Classes {
             set;
         } = string.Empty;
 
-        public static int EmployeeID {
-            get;
-            set;
-        } = -1;
-
         //Datatables to hold result sets for the application
+        public static DataTable DTImage
+        {
+            get;
+            private set;
+        } = new DataTable();
         public static DataTable DTAccounts {
             get;
             private set;
@@ -202,19 +203,17 @@ namespace BCD_Restaurant_Project.Classes {
             }
         }
 
-        public static void bindAccounts(
-            TextBox tbxAccountID, TextBox tbxEmail, TextBox tbxUsername, TextBox tbxPassword, TextBox tbxLastName,
-            TextBox tbxFirstName, Form form, out CurrencyManager accountsManager
-        ) {
+        public static void bindAccounts(TextBox tbxAccountID, TextBox tbxEmail, TextBox tbxUsername, TextBox tbxPassword, TextBox tbxLastName,
+            TextBox tbxFirstName, Form form, out CurrencyManager accountsManager) 
+        {
             string sqlQuery = "SELECT * from group2fa212330.Accounts";
-
             _sqlAccountsCommand = new SqlCommand(sqlQuery, _dbConnection);
 
             _daAccounts = new SqlDataAdapter(_sqlAccountsCommand);
             DTAccounts.Clear();
             _daAccounts.Fill(DTAccounts);
 
-            accountsManager = (CurrencyManager)form.BindingContext[DTAccounts];
+            
 
             tbxAccountID.DataBindings.Add("Text", DTAccounts, "AccountID");
             tbxEmail.DataBindings.Add("Text", DTAccounts, "Email");
@@ -222,13 +221,15 @@ namespace BCD_Restaurant_Project.Classes {
             tbxPassword.DataBindings.Add("Text", DTAccounts, "Password");
             tbxLastName.DataBindings.Add("Text", DTAccounts, "Lastname");
             tbxFirstName.DataBindings.Add("Text", DTAccounts, "Firstname");
+
+            accountsManager = (CurrencyManager)form.BindingContext[DTAccounts];
         }
 
         public static void changeCategory(CurrencyManager currency, ComboBox cbCategory) {
             cbCategory.SelectedIndex = cbCategory.FindString(DTMenu.Rows[currency.Position]["CategoryName"].ToString());
         }
 
-        public static void changeMenuItemImage(string text) {
+        public static void changeMenuItemImage(int itemID) {
             OpenFileDialog ofdImage = new OpenFileDialog();
 
             ofdImage.InitialDirectory = Directory.GetCurrentDirectory();
@@ -240,10 +241,23 @@ namespace BCD_Restaurant_Project.Classes {
 
             if (ofdImage.ShowDialog() == DialogResult.OK) {
                 byte[] image = File.ReadAllBytes(ofdImage.FileName);
-            }
+            
 
             try {
-                string insertQuery = "UPDATE group2fa212330.Images WHERE ";
+                int imageID =0;
+                string retrieveItem = "SELECT ImageID FROM group2fa212330.Menu WHERE ItemID = " + itemID;
+                _sqlImageCommand = new SqlCommand(retrieveItem);
+                _daImage.SelectCommand = _sqlImageCommand;
+                _daImage.Fill(DTImage);
+                if(DTImage.Rows.Count != 0)
+                {
+                    imageID = (int)DTImage.Rows[0]["ImageID"];
+                }
+
+                string insertQuery = "UPDATE group2fa212330.Images SET Image = @Image WHERE ImageID = "+imageID;
+                _sqlImageCommand = new SqlCommand(insertQuery);
+                SqlParameter imageParam = _sqlImageCommand.Parameters.AddWithValue("@Image", image);
+                
             } catch (SqlException ex) {
                 for (int i = 0; i < ex.Errors.Count; i++)
                     ErrorMessages.Append("Index#" + i + "\n" + "Message: " + ex.Errors[i].Message + "\n" +
@@ -252,6 +266,7 @@ namespace BCD_Restaurant_Project.Classes {
 
                 MessageBox.Show(ErrorMessages.ToString(), "Error Closing Database", MessageBoxButtons.OK,
                                 MessageBoxIcon.Error);
+            }
             }
         }
 
@@ -285,12 +300,15 @@ namespace BCD_Restaurant_Project.Classes {
                                 MessageBoxIcon.Error);
             }
         }
-
-        public static void commandAccount() {
-            try {
+        public static void commandAccount()
+        {
+            try
+            {
                 SqlCommandBuilder update = new SqlCommandBuilder(_daAccounts);
                 _daAccounts.Update(DTAccounts);
-            } catch (SqlException ex) {
+            }
+            catch (SqlException ex)
+            {
                 for (int i = 0; i < ex.Errors.Count; i++)
                     ErrorMessages.Append("Index#" + i + "\n" + "Message: " + ex.Errors[i].Message + "\n" +
                                          "LineNumber: " + ex.Errors[i].LineNumber + "\n" + "Source: " +
@@ -493,8 +511,8 @@ namespace BCD_Restaurant_Project.Classes {
                 MessageBox.Show("Error:\n\t" + ex.Message, "ProgOps Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        private static bool returnStatus(string variable, int type = 0) {
+        private static bool returnStatus(string variable, int type = 0)
+        {
             string addition = "";
             string error = "";
             switch (type) {
@@ -748,10 +766,9 @@ namespace BCD_Restaurant_Project.Classes {
                                 return 1; //correct combination... nothing special -> open normal form
                         } else {
                             //so if password doesn't equal password AND password does not equal one time password
-                            if ((password != (string)DTAccounts.Rows[0]["password"]) &&
-                                (password != (string)DTAccounts.Rows[0]["onetimepassword"])) {
-                                MessageBox.Show((string)DTAccounts.Rows[0]["password"] + " " + password + " " +
-                                                (string)DTAccounts.Rows[0]["onetimepassword"]);
+                            if (password != (string)DTAccounts.Rows[0]["password"] && password != (string)DTAccounts.Rows[0]["onetimepassword"])
+                            {
+                                MessageBox.Show((string)DTAccounts.Rows[0]["password"] + " " + password + " " + (string)DTAccounts.Rows[0]["onetimepassword"]);
                                 return 0; //wrong combination...
                             }
 
@@ -799,14 +816,12 @@ namespace BCD_Restaurant_Project.Classes {
 
             if (DTEmployees.Rows.Count > 0) // if results return a row
             {
-                EmployeeID = (int)DTEmployees.Rows[0]["EmployeeID"];
                 if ((bool)DTEmployees.Rows[0]["IsAdmin"])
                     return 2; // admin
 
                 return 1; //employee
             }
 
-            EmployeeID = -1;
             return 0; //customer
         }
 
@@ -864,7 +879,7 @@ namespace BCD_Restaurant_Project.Classes {
                 _sqlEmployeesCommand = new SqlCommand(query, _dbConnection);
                 _daEmployees.SelectCommand = _sqlEmployeesCommand;
 
-                // MessageBox.Show("cleared datagridview ", "Title", MessageBoxButtons.OK, MessageBoxIcon.Information);
+               // MessageBox.Show("cleared datagridview ", "Title", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 //if (DTMenu.) {
                 //    DTMenu.Clear();
 
@@ -891,52 +906,15 @@ namespace BCD_Restaurant_Project.Classes {
 
         public static void showPaycheck(
             Label lblEmployeeId, Label lblEmployeeName, Label lblHourlyRate, Label lblWeeklyHoursWorked,
-            Label lblGrossPay, Label lblSocialSecurityWithheld, Label lblFicaWithheld, Label lblNetPay, Label lblSalaryType
+            Label lblGrossPay, Label lblSocialSecurityWithheld, Label lblFicaWithheld, Label lblNetPay
         ) {
             try {
-                string salaryType = "";
-                string query = $"SELECT IIF(HourlyPay IS NULL, 1, 0) AS RESULT FROM group2fa212330.Paycheck where EmployeeID = {EmployeeID} order by PaycheckID desc";
 
-                _sqlEmployeesCommand = new SqlCommand(query, _dbConnection);
-
-                _daEmployees = new SqlDataAdapter();
-
-                _daEmployees.SelectCommand = _sqlEmployeesCommand;
-
-                DTEmployees = new DataTable();
-                _daEmployees.Fill(DTEmployees);
-
-                if ((int)DTEmployees.Rows[0]["RESULT"] == 1) {
-                    query
-                        = $"SELECT TOP 1 e.EmployeeID AS 'EmployeeID', CONCAT( a.LastName,', ', a.FirstName) AS 'EmployeeName', p.SalaryPay AS SalaryPay, p.WeeklyPaid AS WeeklyPaid, p.HoursWorked AS HoursWorked, (p.WeeklyPaid - (p.SocialSecurityTax + p.FICA + p.Retirement)) AS 'GrossPay', p.SocialSecurityTax AS SocialSecurityTax, p.FICA AS FICA, p.NetPay AS NetPay FROM group2fa212330.Paycheck p INNER JOIN  group2fa212330.Employees e ON p.EmployeeID = e.EmployeeID INNER JOIN  group2fa212330.Accounts a On E.AccountID = A.AccountID WHERE e.EmployeeID = {EmployeeID} order by p.PaycheckID DESC";
-                    salaryType = "Salary Pay";
-                } else {
-                    query
-                        = $"SELECT TOP 1 e.EmployeeID AS 'EmployeeID', CONCAT( a.LastName,', ', a.FirstName) AS 'EmployeeName', p.HourlyPay AS SalaryPay, p.WeeklyPaid AS WeeklyPaid, p.HoursWorked AS HoursWorked, (p.WeeklyPaid - (p.SocialSecurityTax + p.FICA + p.Retirement)) AS 'GrossPay', p.SocialSecurityTax AS SocialSecurityTax, p.FICA AS FICA, p.NetPay AS NetPay FROM group2fa212330.Paycheck p INNER JOIN  group2fa212330.Employees e ON p.EmployeeID = e.EmployeeID INNER JOIN  group2fa212330.Accounts a On E.AccountID = A.AccountID WHERE e.EmployeeID = {EmployeeID} order by p.PaycheckID DESC";
-
-                    salaryType = "Hourly Pay";
-                }
-
-                _sqlEmployeesCommand = new SqlCommand(query, _dbConnection);
-
-                _daEmployees = new SqlDataAdapter();
-
-                _daEmployees.SelectCommand = _sqlEmployeesCommand;
-
-                DTEmployees = new DataTable();
-                _daEmployees.Fill(DTEmployees);
-
-                lblEmployeeId.Text = DTEmployees.Rows[0]["EmployeeID"].ToString();
-                lblEmployeeName.Text = DTEmployees.Rows[0]["EmployeeName"].ToString();
-                lblSalaryType.Text = salaryType;
-                lblHourlyRate.Text = DTEmployees.Rows[0]["SalaryPay"].ToString();
-                lblWeeklyHoursWorked.Text = DTEmployees.Rows[0]["HoursWorked"].ToString();
-                lblGrossPay.Text = DTEmployees.Rows[0]["GrossPay"].ToString();
-                lblSocialSecurityWithheld.Text = DTEmployees.Rows[0]["SocialSecurityTax"].ToString();
-                lblFicaWithheld.Text = DTEmployees.Rows[0]["FICA"].ToString();
-                lblNetPay.Text = DTEmployees.Rows[0]["NetPAy"].ToString();
-
-
+                string query = "SELECT " +
+                               "ItemID, ItemName, ItemDescription, FORMAT(Price, 'C') AS Price, Image, CategoryName " +
+                               "FROM group2fa212330.Menu AS M " + "   INNER JOIN group2fa212330.Images AS I " +
+                               "       ON M.ImageID = I.ImageID " + "   INNER JOIN group2fa212330.Categories C " +
+                               "       on M.CategoryID = C.CategoryID";
 
 
             } catch (SqlException exception) {

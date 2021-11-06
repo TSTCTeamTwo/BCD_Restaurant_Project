@@ -251,7 +251,7 @@ namespace BCD_Restaurant_Project.Forms.Employees
             this.pnlDisplay.Name = "pnlDisplay";
             this.pnlDisplay.Size = new System.Drawing.Size(1317, 562);
             this.pnlDisplay.TabIndex = 23;
-            this.pnlDisplay.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlDisplay_Paint);
+          //  this.pnlDisplay.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlDisplay_Paint);
             // 
             // label1
             // 
