@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using BCD_Restaurant_Project.Forms;
+using BCD_Restaurant_Project.Forms.Login;
 
 namespace BCD_Restaurant_Project {
     internal static class Program {

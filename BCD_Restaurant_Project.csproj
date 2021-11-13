@@ -57,112 +57,112 @@
     <Compile Include="Classes\Cart.cs" />
     <Compile Include="Classes\ProgOps.cs" />
     <Compile Include="Classes\RandomColor.cs" />
-    <Compile Include="Forms\Customers\frmDesserts.cs">
+    <Compile Include="Forms\Customers\Menu\frmDesserts.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Customers\frmDesserts.Designer.cs">
+    <Compile Include="Forms\Customers\Menu\frmDesserts.Designer.cs">
       <DependentUpon>frmDesserts.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Customers\frmDrinks.cs">
+    <Compile Include="Forms\Customers\Menu\frmDrinks.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Customers\frmDrinks.Designer.cs">
+    <Compile Include="Forms\Customers\Menu\frmDrinks.Designer.cs">
       <DependentUpon>frmDrinks.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Customers\frmFood.cs">
+    <Compile Include="Forms\Customers\Menu\frmFood.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Customers\frmFood.Designer.cs">
+    <Compile Include="Forms\Customers\Menu\frmFood.Designer.cs">
       <DependentUpon>frmFood.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Customers\frmForgot.cs">
+    <Compile Include="Forms\Login\frmForgot.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Customers\frmForgot.Designer.cs">
+    <Compile Include="Forms\Login\frmForgot.Designer.cs">
       <DependentUpon>frmForgot.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Employees\frmPaycheck.cs">
+    <Compile Include="Forms\Employees\Regular\frmPaycheck.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Employees\frmPaycheck.Designer.cs">
+    <Compile Include="Forms\Employees\Regular\frmPaycheck.Designer.cs">
       <DependentUpon>frmPaycheck.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmLogin.cs">
+    <Compile Include="Forms\Login\frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmLogin.Designer.cs">
+    <Compile Include="Forms\Login\frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Customers\frmMain.cs">
+    <Compile Include="Forms\Main\frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Customers\frmMain.Designer.cs">
+    <Compile Include="Forms\Main\frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Employees\frmBankInformation.cs">
+    <Compile Include="Forms\Employees\Regular\frmBankInformation.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Employees\frmBankInformation.Designer.cs">
+    <Compile Include="Forms\Employees\Regular\frmBankInformation.Designer.cs">
       <DependentUpon>frmBankInformation.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Employees\frmMainEmployees.cs">
+    <Compile Include="Forms\Main\frmMainEmployees.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Employees\frmMainEmployees.Designer.cs">
+    <Compile Include="Forms\Main\frmMainEmployees.Designer.cs">
       <DependentUpon>frmMainEmployees.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Employees\frmMainManagers.cs">
+    <Compile Include="Forms\Main\frmMainManagers.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Employees\frmMainManagers.Designer.cs">
+    <Compile Include="Forms\Main\frmMainManagers.Designer.cs">
       <DependentUpon>frmMainManagers.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Customers\frmOrder.cs">
+    <Compile Include="Forms\Customers\Order\frmOrder.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Customers\frmOrder.Designer.cs">
+    <Compile Include="Forms\Customers\Order\frmOrder.Designer.cs">
       <DependentUpon>frmOrder.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Customers\frmPayment.cs">
+    <Compile Include="Forms\Customers\Order\frmPayment.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Customers\frmPayment.Designer.cs">
+    <Compile Include="Forms\Customers\Order\frmPayment.Designer.cs">
       <DependentUpon>frmPayment.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Customers\frmReceipt.cs">
+    <Compile Include="Forms\Customers\Order\frmReceipt.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Customers\frmReceipt.Designer.cs">
+    <Compile Include="Forms\Customers\Order\frmReceipt.Designer.cs">
       <DependentUpon>frmReceipt.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Customers\frmSignUp.cs">
+    <Compile Include="Forms\Login\frmSignUp.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Customers\frmSignUp.Designer.cs">
+    <Compile Include="Forms\Login\frmSignUp.Designer.cs">
       <DependentUpon>frmSignUp.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Employees\frmManageAccounts.cs">
+    <Compile Include="Forms\Employees\Administrator\frmManageAccounts.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Employees\frmManageAccounts.Designer.cs">
+    <Compile Include="Forms\Employees\Administrator\frmManageAccounts.Designer.cs">
       <DependentUpon>frmManageAccounts.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Employees\frmManageMenu.cs">
+    <Compile Include="Forms\Employees\Administrator\frmManageMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Employees\frmManageMenu.Designer.cs">
+    <Compile Include="Forms\Employees\Administrator\frmManageMenu.Designer.cs">
       <DependentUpon>frmManageMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Employees\frmPersonal.cs">
+    <Compile Include="Forms\Employees\Regular\frmPersonal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Employees\frmPersonal.Designer.cs">
+    <Compile Include="Forms\Employees\Regular\frmPersonal.Designer.cs">
       <DependentUpon>frmPersonal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmNewPassword.cs">
+    <Compile Include="Forms\Login\frmNewPassword.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmNewPassword.Designer.cs">
+    <Compile Include="Forms\Login\frmNewPassword.Designer.cs">
       <DependentUpon>frmNewPassword.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -173,58 +173,58 @@
       <DependentUpon>crptReceipt.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <EmbeddedResource Include="Forms\Customers\frmDesserts.resx">
+    <EmbeddedResource Include="Forms\Customers\Menu\frmDesserts.resx">
       <DependentUpon>frmDesserts.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Customers\frmDrinks.resx">
+    <EmbeddedResource Include="Forms\Customers\Menu\frmDrinks.resx">
       <DependentUpon>frmDrinks.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Customers\frmFood.resx">
+    <EmbeddedResource Include="Forms\Customers\Menu\frmFood.resx">
       <DependentUpon>frmFood.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Customers\frmForgot.resx">
+    <EmbeddedResource Include="Forms\Login\frmForgot.resx">
       <DependentUpon>frmForgot.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Customers\frmOrder.resx">
+    <EmbeddedResource Include="Forms\Customers\Order\frmOrder.resx">
       <DependentUpon>frmOrder.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Employees\frmPaycheck.resx">
+    <EmbeddedResource Include="Forms\Employees\Regular\frmPaycheck.resx">
       <DependentUpon>frmPaycheck.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmLogin.resx">
+    <EmbeddedResource Include="Forms\Login\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Customers\frmMain.resx">
+    <EmbeddedResource Include="Forms\Main\frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Employees\frmBankInformation.resx">
+    <EmbeddedResource Include="Forms\Employees\Regular\frmBankInformation.resx">
       <DependentUpon>frmBankInformation.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Employees\frmMainEmployees.resx">
+    <EmbeddedResource Include="Forms\Main\frmMainEmployees.resx">
       <DependentUpon>frmMainEmployees.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Employees\frmMainManagers.resx">
+    <EmbeddedResource Include="Forms\Main\frmMainManagers.resx">
       <DependentUpon>frmMainManagers.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Customers\frmPayment.resx">
+    <EmbeddedResource Include="Forms\Customers\Order\frmPayment.resx">
       <DependentUpon>frmPayment.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Customers\frmReceipt.resx">
+    <EmbeddedResource Include="Forms\Customers\Order\frmReceipt.resx">
       <DependentUpon>frmReceipt.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Customers\frmSignUp.resx">
+    <EmbeddedResource Include="Forms\Login\frmSignUp.resx">
       <DependentUpon>frmSignUp.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Employees\frmManageAccounts.resx">
+    <EmbeddedResource Include="Forms\Employees\Administrator\frmManageAccounts.resx">
       <DependentUpon>frmManageAccounts.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Employees\frmManageMenu.resx">
+    <EmbeddedResource Include="Forms\Employees\Administrator\frmManageMenu.resx">
       <DependentUpon>frmManageMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Employees\frmPersonal.resx">
+    <EmbeddedResource Include="Forms\Employees\Regular\frmPersonal.resx">
       <DependentUpon>frmPersonal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmNewPassword.resx">
+    <EmbeddedResource Include="Forms\Login\frmNewPassword.resx">
       <DependentUpon>frmNewPassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -241,7 +241,9 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crptReceipt.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="Group2_ProgressReport_1.pdf" />
+    <None Include="Reports\Group2_ProgressReport_1.pdf" />
+    <None Include="Reports\Group2_ProgressReport_2.pdf" />
+    <None Include="Reports\Group2_ProgressReport_4.pdf" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -256,6 +258,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Reports\Group2_Progress_Report_3.pdf" />
     <None Include="Resources\pressToHide.png" />
   </ItemGroup>
   <ItemGroup>
@@ -270,6 +273,12 @@
   <ItemGroup>
     <Content Include=".gitattributes" />
     <Content Include=".gitignore" />
+    <Content Include="Queries\firstDraft.sql" />
+    <Content Include="Queries\firstFinalEdit.sql" />
+    <Content Include="Queries\insertion.sql" />
+    <Content Include="Queries\receipt.sql" />
+    <Content Include="Queries\trigger.sql" />
+    <Content Include="Queries\testing.sql" />
     <Content Include="Resources\download.jpg" />
     <Content Include="Resources\OIP %281%29.jpg" />
   </ItemGroup>
