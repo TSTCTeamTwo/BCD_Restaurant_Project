@@ -90,6 +90,7 @@ namespace BCD_Restaurant_Project.Forms.Customers.Menu
             this.dgvDrinks.ShowRowErrors = false;
             this.dgvDrinks.Size = new System.Drawing.Size(793, 478);
             this.dgvDrinks.TabIndex = 5;
+            this.dgvDrinks.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDrinks_CellContentClick);
             this.dgvDrinks.SelectionChanged += new System.EventHandler(this.dgvDrinks_SelectionChanged);
             // 
             // pbxDrinks

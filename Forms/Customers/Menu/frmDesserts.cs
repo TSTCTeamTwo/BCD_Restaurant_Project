@@ -26,8 +26,14 @@ namespace BCD_Restaurant_Project.Forms.Customers.Menu {
         }
 
         private void dgvDesserts_SelectionChanged(object sender, EventArgs e) {
-            if (dgvDesserts.CurrentRow != null) {
-                pbxDesserts.Image = setImage((int)dgvDesserts.CurrentRow.Cells[0].Value);
+            
+        }
+
+        private void dgvDesserts_SelectionChanged_1(object sender, EventArgs e)
+        {
+            if (dgvDesserts.CurrentRow != null)
+            {
+                pbxDesserts.Image = setImage((int)dgvDesserts.CurrentRow.Cells[4].Value);
             }
         }
     }
