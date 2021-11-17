@@ -100,6 +100,7 @@ namespace BCD_Restaurant_Project.Forms.Customers.Menu
             this.dgvFood.ShowRowErrors = false;
             this.dgvFood.Size = new System.Drawing.Size(793, 478);
             this.dgvFood.TabIndex = 0;
+            this.dgvFood.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFood_CellContentClick);
             this.dgvFood.SelectionChanged += new System.EventHandler(this.dgvFood_SelectionChanged);
             // 
             // frmFood

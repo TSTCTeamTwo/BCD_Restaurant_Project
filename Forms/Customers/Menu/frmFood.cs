@@ -31,5 +31,9 @@ namespace BCD_Restaurant_Project.Forms.Customers.Menu {
             }
         }
 
+        private void dgvFood_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

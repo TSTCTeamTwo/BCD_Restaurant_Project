@@ -291,8 +291,8 @@ namespace BCD_Restaurant_Project.Classes {
             _daMenu.Fill(DTMenu);
             dgvDisplay.DataSource = DTMenu;
 
-            //dgvDisplay.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            //dgvDisplay.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            dgvDisplay.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dgvDisplay.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
         }
 
         //displaying the specific items wherever the user is in the form
