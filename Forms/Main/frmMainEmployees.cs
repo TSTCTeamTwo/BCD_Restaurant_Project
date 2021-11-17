@@ -49,5 +49,12 @@ namespace BCD_Restaurant_Project.Forms.Main {
                 new frmLogin().Show();
             }
         }
+
+        private void button1_Click(object sender, EventArgs e) {
+            if (activeForm != null)
+                activeForm.Close();
+
+            lblTitle.Text = "Dashboard";
+        }
     }
 }

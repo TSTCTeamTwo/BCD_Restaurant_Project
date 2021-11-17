@@ -19,7 +19,7 @@ namespace BCD_Restaurant_Project.Forms.Employees.Regular {
         }
 
         private void frmBankInformation_Load(object sender, EventArgs e) {
-            ProgOps.bankInformation(tbxName, tbxEmail, tbxAccountID, tbxAccount, tbxRouting);
+            ProgOps.populateBanking(tbxName, tbxEmail, tbxAccountID, tbxAccount, tbxRouting);
         }
 
         private void tbxAccount_KeyPress(object sender, KeyPressEventArgs e) {

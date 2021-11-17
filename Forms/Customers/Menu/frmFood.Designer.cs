@@ -29,6 +29,7 @@ namespace BCD_Restaurant_Project.Forms.Customers.Menu
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnAddToOrder = new System.Windows.Forms.Button();
             this.pbxFood = new System.Windows.Forms.PictureBox();
             this.dgvFood = new System.Windows.Forms.DataGridView();
@@ -42,7 +43,7 @@ namespace BCD_Restaurant_Project.Forms.Customers.Menu
             this.btnAddToOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddToOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddToOrder.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnAddToOrder.Location = new System.Drawing.Point(12, 280);
+            this.btnAddToOrder.Location = new System.Drawing.Point(12, 496);
             this.btnAddToOrder.Name = "btnAddToOrder";
             this.btnAddToOrder.Size = new System.Drawing.Size(116, 35);
             this.btnAddToOrder.TabIndex = 4;
@@ -53,7 +54,7 @@ namespace BCD_Restaurant_Project.Forms.Customers.Menu
             // pbxFood
             // 
             this.pbxFood.Image = global::BCD_Restaurant_Project.Properties.Resources.P;
-            this.pbxFood.Location = new System.Drawing.Point(814, 12);
+            this.pbxFood.Location = new System.Drawing.Point(814, 110);
             this.pbxFood.Name = "pbxFood";
             this.pbxFood.Size = new System.Drawing.Size(214, 218);
             this.pbxFood.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -75,6 +76,14 @@ namespace BCD_Restaurant_Project.Forms.Customers.Menu
             this.dgvFood.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgvFood.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFood.Cursor = System.Windows.Forms.Cursors.Hand;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvFood.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgvFood.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvFood.GridColor = System.Drawing.Color.Black;
             this.dgvFood.Location = new System.Drawing.Point(12, 12);
@@ -82,12 +91,14 @@ namespace BCD_Restaurant_Project.Forms.Customers.Menu
             this.dgvFood.Name = "dgvFood";
             this.dgvFood.ReadOnly = true;
             this.dgvFood.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvFood.RowHeadersVisible = false;
             this.dgvFood.RowHeadersWidth = 51;
             this.dgvFood.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvFood.ShowCellErrors = false;
+            this.dgvFood.ShowCellToolTips = false;
             this.dgvFood.ShowEditingIcon = false;
             this.dgvFood.ShowRowErrors = false;
-            this.dgvFood.Size = new System.Drawing.Size(793, 260);
+            this.dgvFood.Size = new System.Drawing.Size(793, 478);
             this.dgvFood.TabIndex = 0;
             this.dgvFood.SelectionChanged += new System.EventHandler(this.dgvFood_SelectionChanged);
             // 
@@ -95,11 +106,10 @@ namespace BCD_Restaurant_Project.Forms.Customers.Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1056, 327);
+            this.ClientSize = new System.Drawing.Size(1056, 543);
             this.Controls.Add(this.btnAddToOrder);
             this.Controls.Add(this.dgvFood);
             this.Controls.Add(this.pbxFood);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmFood";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

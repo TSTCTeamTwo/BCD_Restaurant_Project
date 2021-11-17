@@ -43,11 +43,19 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator {
             setState("Edit");
         }
 
+        private void btnFirst_Click(object sender, EventArgs e) {
+            accountsManager.Position = 0;
+        }
+
+        private void btnLast_Click(object sender, EventArgs e) {
+            accountsManager.Position = accountsManager.Count - 1;
+        }
+
         private void btnNext_Click(object sender, EventArgs e) {
             accountsManager.Position++;
             setTitleAndEmployees();
             if (!string.IsNullOrEmpty(tbxAccountID.Text)) {
-                bindEmployees(dgvEmployees, tbxAccountID.Text);
+                populateEmployees(dgvEmployees, tbxAccountID.Text);
             }
         }
 
@@ -55,7 +63,7 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator {
             accountsManager.Position--;
             setTitleAndEmployees();
             if (!string.IsNullOrEmpty(tbxAccountID.Text)) {
-                bindEmployees(dgvEmployees, tbxAccountID.Text);
+                populateEmployees(dgvEmployees, tbxAccountID.Text);
             }
         }
 
@@ -73,7 +81,7 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator {
         }
 
         private void frmManageAccounts_Load(object sender, EventArgs e) {
-            bindAccounts(tbxAccountID, tbxEmail, tbxUsername, tbxPassword, tbxLastName, tbxFirstName, this,
+            populateAccounts(tbxAccountID, tbxEmail, tbxUsername, tbxPassword, tbxLastName, tbxFirstName, this,
                          out accountsManager);
 
             setState("View");
@@ -134,89 +142,5 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator {
 
 
         }
-
-        private void btnLast_Click(object sender, EventArgs e)
-        {
-            accountsManager.Position = accountsManager.Count - 1;
-        }
-
-        private void btnFirst_Click(object sender, EventArgs e)
-        {
-            accountsManager.Position = 0;
-        }
     }
 }
-
-//case "Add":
-//    //COLOR
-//    tbxAccountID.BackColor = Color.Red;
-//    tbxAccountID.ForeColor = Color.Black;
-//    //READONLY
-//    tbxEmployeeID.ReadOnly = false;
-//    tbxEmail.ReadOnly = false;
-//    tbxUsername.ReadOnly = false;
-//    tbxPassword.ReadOnly = false;
-//    tbxConfirmPassword.ReadOnly = false;
-//    tbxLastName.ReadOnly = false;
-//    tbxFirstName.ReadOnly = false;
-//    //ENABLED - BUTTONS
-//    btnPrevious.Enabled = false;
-//    btnNext.Enabled = false;
-//    btnAdd.Enabled = false;
-//    btnSave.Enabled = true;
-//    btnDelete.Enabled = false;
-//    btnEdit.Enabled = false;
-//    btnEdit.Text = "Cancel";
-
-//    tbxEmployeeID.Enabled = true;
-//    tbxEmail.Enabled = true;
-//    tbxUsername.Enabled = true;
-//    tbxPassword.Enabled = true;
-//    tbxConfirmPassword.Enabled = true;
-//    tbxLastName.Enabled = true;
-//    tbxFirstName.Enabled = true;
-
-//    tbxAccountID.Text = string.Empty;
-//    tbxEmployeeID.Text = string.Empty;
-//    tbxEmail.Text = string.Empty;
-//    tbxUsername.Text = string.Empty;
-//    tbxPassword.Text = string.Empty;
-//    tbxConfirmPassword.Text = string.Empty;
-//    tbxLastName.Text = string.Empty;
-//    tbxFirstName.Text = string.Empty;
-
-//    tbxEmail.Focus();
-//    break;
-
-//case "Edit":
-//    //COLOR
-//    tbxAccountID.BackColor = Color.Red;
-//    tbxAccountID.ForeColor = Color.Black;
-//    //READONLY
-//    tbxEmployeeID.ReadOnly = false;
-//    tbxEmail.ReadOnly = false;
-//    tbxUsername.ReadOnly = false;
-//    tbxPassword.ReadOnly = false;
-//    tbxConfirmPassword.ReadOnly = false;
-//    tbxLastName.ReadOnly = false;
-//    tbxFirstName.ReadOnly = false;
-
-//    tbxEmployeeID.Enabled = true;
-//    tbxEmail.Enabled = true;
-//    tbxUsername.Enabled = true;
-//    tbxPassword.Enabled = true;
-//    tbxConfirmPassword.Enabled = true;
-//    tbxLastName.Enabled = true;
-//    tbxFirstName.Enabled = true;
-
-//    //ENABLED - BUTTONS
-
-//    btnPrevious.Enabled = false;
-//    btnNext.Enabled = false;
-//    btnAdd.Enabled = false;
-//    btnSave.Enabled = true;
-//    btnDelete.Enabled = false;
-//    btnEdit.Enabled = true;
-//    btnEdit.Text = "Cancel";
-//    tbxLastName.Focus();
-//    break;
