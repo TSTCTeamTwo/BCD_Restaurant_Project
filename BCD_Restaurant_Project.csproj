@@ -280,6 +280,7 @@
     <Content Include="Queries\trigger.sql" />
     <Content Include="Queries\testing.sql" />
     <Content Include="Resources\download.jpg" />
+    <Content Include="Resources\noImage.png" />
     <Content Include="Resources\OIP %281%29.jpg" />
   </ItemGroup>
   <ItemGroup />

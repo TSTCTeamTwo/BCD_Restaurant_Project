@@ -251,7 +251,6 @@ namespace BCD_Restaurant_Project.Forms.Main
             this.pnlDisplay.Name = "pnlDisplay";
             this.pnlDisplay.Size = new System.Drawing.Size(1317, 562);
             this.pnlDisplay.TabIndex = 23;
-          //  this.pnlDisplay.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlDisplay_Paint);
             // 
             // label1
             // 
@@ -290,6 +289,7 @@ namespace BCD_Restaurant_Project.Forms.Main
             this.Name = "frmMainManagers";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Manage Employees";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMainManagers_FormClosing);
             this.Load += new System.EventHandler(this.frmMainManagers_Load);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();

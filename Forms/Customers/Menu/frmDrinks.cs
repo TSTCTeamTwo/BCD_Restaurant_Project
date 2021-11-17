@@ -3,6 +3,7 @@
 using System;
 using System.Windows.Forms;
 using BCD_Restaurant_Project.Classes;
+using static BCD_Restaurant_Project.Classes.ProgOps;
 
 #endregion
 
@@ -13,17 +14,18 @@ namespace BCD_Restaurant_Project.Forms.Customers.Menu {
         }
 
         private void frmDrinks_Load(object sender, EventArgs e) {
-            ProgOps.displayMenuItems(dgvDrinks, 4, 2);
+            displayMenuItems(dgvDrinks, CurrentForm.DRINKS);
+            dgvDrinks.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
         }
-
-        private void btnReturnToDrinks_Click(object sender, EventArgs e) { }
 
         private void btnAddToOrder_Click(object sender, EventArgs e) {
             Cart.addToCartFromDrinks(dgvDrinks);
         }
 
         private void dgvDrinks_SelectionChanged(object sender, EventArgs e) {
-            ProgOps.updatePicInPbx((int)dgvDrinks.CurrentRow.Cells[0].Value, pbxShakes);
+            if (dgvDrinks.CurrentRow != null) {
+                //pbxDrinks.Image = setImage((int)dgvDrinks.CurrentRow.Cells[4].Value);
+            }
         }
     }
 }

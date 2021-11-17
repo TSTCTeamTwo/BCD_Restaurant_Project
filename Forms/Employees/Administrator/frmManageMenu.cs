@@ -20,7 +20,12 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator {
 
         private void btnAdd_Click(object sender, EventArgs e) {
             menuManager.AddNew();
-            SetState("Add");
+            setState("Add");
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e) {
+            setState("View");
+            menuManager.CancelCurrentEdit();
         }
 
         private void btnDelete_Click(object sender, EventArgs e) {
@@ -31,33 +36,45 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator {
         }
 
         private void btnEdit_Click(object sender, EventArgs e) {
-            SetState("Edit");
+            setState("Edit");
+        }
+
+        private void btnFirst_Click(object sender, EventArgs e) {
+            menuManager.Position = 0;
+        }
+
+        private void btnLast_Click(object sender, EventArgs e) {
+            menuManager.Position = menuManager.Count - 1;
+        }
+
+        private void btnLoadImage_Click(object sender, EventArgs e) {
+            ProgOps.changeMenuItemImage(int.Parse(tbxItemID.Text));
         }
 
         private void btnNext_Click(object sender, EventArgs e) {
             menuManager.Position++;
-            SetText();
-            ProgOps.changeCategory(menuManager, cbxCategories);
+            setText();
+            ProgOps.changeCategoryAndImage(menuManager, cbxCategories, pbxImageBox);
         }
 
         private void btnPrevious_Click(object sender, EventArgs e) {
             menuManager.Position--;
-            SetText();
-            ProgOps.changeCategory(menuManager, cbxCategories);
+            setText();
+            ProgOps.changeCategoryAndImage(menuManager, cbxCategories, pbxImageBox);
         }
 
         private void btnSave_Click(object sender, EventArgs e) {
             menuManager.EndCurrentEdit();
             ProgOps.updateMenuOnClose();
-            SetState("View");
+            setState("View");
         }
 
         private void frmManageMenu_FormClosing(object sender, FormClosingEventArgs e) { }
 
         private void frmManageMenu_Load(object sender, EventArgs e) {
             ProgOps.modifyMenu(tbxName, tbxItemID, tbxDescription, tbxPrice, cbxCategories, this, out menuManager,
-                               dgvDisplay);
-            SetState("View");
+                               dgvDisplay, pbxImageBox);
+            setState("View");
             //byte[] image = System.Text.Encoding.UTF8.GetBytes(tbxImagePath.Text);
 
             //string str = System.Text.Encoding.UTF8.GetString(image, 0, image.Length);
@@ -65,7 +82,7 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator {
             //tbxImagePath.Text = str.ToString();
         }
 
-        private void SetState(string appState) {
+        private void setState(string appState) {
             myState = appState;
             switch (appState) {
                 case "View":
@@ -117,33 +134,8 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator {
             }
         }
 
-        private void SetText() {
+        private void setText() {
             Text = "Menu - Record" + (menuManager.Position + 1) + " of" + menuManager.Count + " Records";
-        }
-
-        private void btnLoadImage_Click(object sender, EventArgs e) {
-            ProgOps.changeMenuItemImage(int.Parse(tbxItemID.Text));
-        }
-
-        private void btnLast_Click(object sender, EventArgs e)
-        {
-            menuManager.Position = menuManager.Count - 1;
-        }
-
-        private void btnFirst_Click(object sender, EventArgs e)
-        {
-            menuManager.Position = 0;
-        }
-
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            SetState("View");
-            menuManager.CancelCurrentEdit();
-        }
-
-        private void btnLast_Click_1(object sender, EventArgs e)
-        {
-            menuManager.Position = menuManager.Count-1;
         }
     }
 }

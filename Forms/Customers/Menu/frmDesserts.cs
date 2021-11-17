@@ -2,7 +2,10 @@
 
 using System;
 using System.Windows.Forms;
+
 using BCD_Restaurant_Project.Classes;
+
+using static BCD_Restaurant_Project.Classes.ProgOps;
 
 #endregion
 
@@ -13,7 +16,7 @@ namespace BCD_Restaurant_Project.Forms.Customers.Menu {
         }
 
         private void frmDesserts_Load(object sender, EventArgs e) {
-            ProgOps.displayMenuItems(dgvDesserts, 3);
+            displayMenuItems(dgvDesserts, CurrentForm.DESSERTS);
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e) { }
@@ -23,7 +26,9 @@ namespace BCD_Restaurant_Project.Forms.Customers.Menu {
         }
 
         private void dgvDesserts_SelectionChanged(object sender, EventArgs e) {
-            ProgOps.updatePicInPbx((int)dgvDesserts.CurrentRow.Cells[0].Value, pbxDesserts);
+            if (dgvDesserts.CurrentRow != null) {
+                pbxDesserts.Image = setImage((int)dgvDesserts.CurrentRow.Cells[0].Value);
+            }
         }
     }
 }
