@@ -392,7 +392,7 @@ namespace BCD_Restaurant_Project.Classes {
             }
         }
 
-        public static void updateAccountRouting(string newAccount = null, string newRouting = null)
+        public static void updateAccountRouting(string newAccount, string newRouting)
         {
             string numbers = string.Empty;
             try
