@@ -51,12 +51,20 @@ namespace BCD_Restaurant_Project.Forms.Employees.Regular {
         {
             if (tbxAccount.Text != string.Empty && tbxRouting.Text != string.Empty)
             {
-                ProgOps.updateAccountRouting(tbxAccount.Text, tbxRouting.Text);
-                tbxAccount.Enabled = false;
-                tbxRouting.Enabled = false;
-                btnChangeNumbers.Enabled = true;
-                btnConfirmNewDeposit.Enabled = false;
-                MessageBox.Show("Account and Routing changed", "Banking Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (tbxRouting.Text.Length != 9 || tbxAccount.Text.Length != 17)
+                {
+                    MessageBox.Show("Account or Routing is too short", "Banking Information", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    ProgOps.updateAccountRouting(tbxAccount.Text, tbxRouting.Text);
+                    tbxAccount.Enabled = false;
+                    tbxRouting.Enabled = false;
+                    btnChangeNumbers.Enabled = true;
+                    btnConfirmNewDeposit.Enabled = false;
+                    MessageBox.Show("Account and Routing changed", "Banking Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+               
             }
             else
             {
