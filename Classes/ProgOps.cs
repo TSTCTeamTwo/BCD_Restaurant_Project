@@ -392,6 +392,31 @@ namespace BCD_Restaurant_Project.Classes {
             }
         }
 
+        public static void updateAccountRouting(string newAccount = null, string newRouting = null)
+        {
+            string numbers = string.Empty;
+            try
+            {
+                numbers = $"UPDATE group2fa212330.Employees SET RoutingNumber = '{newRouting}', AccountNumber = {newAccount} WHERE AccountID = {AccountID}";
+                _sqlAccountsCommand = new SqlCommand(numbers, _dbConnection);
+                _sqlAccountsCommand.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                for (int i = 0; i < ex.Errors.Count; i++)
+                    ErrorMessages.Append("Index#" + i + "\n" + "Message: " + ex.Errors[i].Message + "\n" +
+                                         "LineNumber: " + ex.Errors[i].LineNumber + "\n" + "Source: " +
+                                         ex.Errors[i].Source + "\n" + "Procedure: " + ex.Errors[i].Procedure + "\n");
+
+                MessageBox.Show(ErrorMessages.ToString(), "Error Closing Database", MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error:\n\t" + ex.Message, "ProgOps Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         public static void getNewOrderID() {
             string query = "SELECT MAX(OrderID) AS OrderID FROM group2fa212330.Orders";
             _sqlOrdersCommand = new SqlCommand(query, _dbConnection);

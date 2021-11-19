@@ -46,6 +46,7 @@ namespace BCD_Restaurant_Project.Forms.Employees.Regular
             // btnConfirmNewDeposit
             // 
             this.btnConfirmNewDeposit.BackColor = System.Drawing.Color.White;
+            this.btnConfirmNewDeposit.Enabled = false;
             this.btnConfirmNewDeposit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnConfirmNewDeposit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConfirmNewDeposit.Location = new System.Drawing.Point(109, 281);
@@ -55,6 +56,7 @@ namespace BCD_Restaurant_Project.Forms.Employees.Regular
             this.btnConfirmNewDeposit.TabIndex = 25;
             this.btnConfirmNewDeposit.Text = "C&onfirm New Deposit";
             this.btnConfirmNewDeposit.UseVisualStyleBackColor = false;
+            this.btnConfirmNewDeposit.Click += new System.EventHandler(this.btnConfirmNewDeposit_Click);
             // 
             // label2
             // 
@@ -73,6 +75,7 @@ namespace BCD_Restaurant_Project.Forms.Employees.Regular
             this.tbxAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxAccount.Location = new System.Drawing.Point(162, 187);
             this.tbxAccount.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tbxAccount.MaxLength = 17;
             this.tbxAccount.Name = "tbxAccount";
             this.tbxAccount.Size = new System.Drawing.Size(199, 26);
             this.tbxAccount.TabIndex = 24;
@@ -85,6 +88,7 @@ namespace BCD_Restaurant_Project.Forms.Employees.Regular
             this.tbxRouting.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxRouting.Location = new System.Drawing.Point(162, 153);
             this.tbxRouting.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tbxRouting.MaxLength = 9;
             this.tbxRouting.Name = "tbxRouting";
             this.tbxRouting.Size = new System.Drawing.Size(199, 26);
             this.tbxRouting.TabIndex = 22;
