@@ -9,6 +9,7 @@ using System.IO;
 using System.Net.Mail;
 using System.Text;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 using static BCD_Restaurant_Project.Classes.ProgOps.CurrentForm;
 
@@ -366,8 +367,7 @@ namespace BCD_Restaurant_Project.Classes {
             try {
                 switch (argument) {
                     case 1: //replaces old password with new password
-                        password
-                            = $"UPDATE group2fa212330.Accounts SET Password = '{newUserPassword}', OneTimePassword = NULL WHERE AccountID = {AccountID}";
+                        password = $"UPDATE group2fa212330.Accounts SET Password = '{newUserPassword}', OneTimePassword = NULL WHERE AccountID = {AccountID}";
                         break;
                     case 2: //generates new one time password
                         password = "DECLARE @password varchar(20) " +
@@ -687,15 +687,40 @@ namespace BCD_Restaurant_Project.Classes {
         }
 
         public static void showPaycheck(
-            Label lblEmployeeId, Label lblEmployeeName, Label lblHourlyRate, Label lblWeeklyHoursWorked,
-            Label lblGrossPay, Label lblSocialSecurityWithheld, Label lblFicaWithheld, Label lblNetPay
+            Label lblEmployeeId, Label lblEmployeeName, Label lblSalaryType, Label lblHourlyRate, Label lblWeeklyHoursWorked,
+            Label lblGrossPay, Label lblSocialSecurityWithheld, Label lblFicaWithheld, Label lblRetirement, Label lblNetPay
         ) {
             try {
-                string query = "SELECT " +
-                               "ItemID, ItemName, ItemDescription, FORMAT(Price, 'C') AS Price, Image, CategoryName " +
-                               "FROM group2fa212330.Menu AS M " + "   INNER JOIN group2fa212330.Images AS I " +
-                               "       ON M.ImageID = I.ImageID " + "   INNER JOIN group2fa212330.Categories C " +
-                               "       on M.CategoryID = C.CategoryID";
+                string query
+                    = "select TOP 1 e.EmployeeID AS EmployeeID,  CONCAT(a.LastName, ', ', a.FirstName) AS FullName, " +
+                      "CASE when SalaryPay is not null then 1 when SalaryPay is null then 0 END AS SalaryType, " +
+                      "CASE WHEN HourlyPay IS NULL THEN 0 WHEN SalaryPay IS NULL THEN HourlyPay END AS HourlyRate, " +
+                      "CASE WHEN HoursWorked IS NULL THEN 0 WHEN HoursWorked > 0 THEN HoursWorked END AS HoursWorked, " +
+                      "WeeklyPaid AS GrossPay, SocialSecurityTax, FICA, Retirement, NetPay " +
+                      "FROM group2fa212330.Accounts a INNER JOIN group2fa212330.Employees e on a.AccountID = e.AccountID " +
+                      $"INNER JOIN group2fa212330.Paycheck p on e.EmployeeID = p.EmployeeID WHERE a.AccountID = {AccountID} ORDER BY P.PaycheckID desc";
+
+                SqlCommand _sqlPaycheckCommand = new SqlCommand(query, _dbConnection);
+                SqlDataAdapter _daPaycheck = new SqlDataAdapter();
+                _daPaycheck.SelectCommand = _sqlPaycheckCommand;
+                DataTable DTPaycheck = new DataTable();
+                _daPaycheck.Fill(DTPaycheck);
+
+                if (DTPaycheck.Rows.Count != 0) {
+                    lblEmployeeId.DataBindings.Add("Text", DTPaycheck, "EmployeeID");
+                    lblEmployeeName.DataBindings.Add("Text", DTPaycheck, "FullName");
+                    lblSalaryType.Text = (int)DTPaycheck.Rows[0]["SalaryType"] == 1 ? "Salary Pay:" : "Hourly Rate:";
+
+                    lblHourlyRate.DataBindings.Add("Text", DTPaycheck, "HourlyRate");
+                    lblWeeklyHoursWorked.DataBindings.Add("Text", DTPaycheck, "HoursWorked");
+                    lblGrossPay.DataBindings.Add("Text", DTPaycheck, "GrossPay");
+                    lblSocialSecurityWithheld.DataBindings.Add("Text", DTPaycheck, "SocialSecurityTax");
+                    lblFicaWithheld.DataBindings.Add("Text", DTPaycheck, "FICA");
+                    lblRetirement.DataBindings.Add("Text", DTPaycheck, "Retirement");
+                    lblNetPay.DataBindings.Add("Text", DTPaycheck, "NetPay");
+                }
+
+
             } catch (SqlException exception) {
                 for (int i = 0; i < exception.Errors.Count; i++)
                     ErrorMessages.Append("Index#" + i + "\n" + "Message: " + exception.Errors[i].Message + "\n" +
@@ -796,8 +821,6 @@ namespace BCD_Restaurant_Project.Classes {
                             //so if password doesn't equal password AND password does not equal one time password
                             if (password != (string)DTAccounts.Rows[0]["password"] &&
                                 password != (string)DTAccounts.Rows[0]["onetimepassword"]) {
-                                MessageBox.Show((string)DTAccounts.Rows[0]["password"] + " " + password + " " +
-                                                (string)DTAccounts.Rows[0]["onetimepassword"]);
                                 return 0; //wrong combination...
                             }
 
