@@ -6,8 +6,6 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using BCD_Restaurant_Project.Classes;
-using BCD_Restaurant_Project.Forms.Customers;
-using BCD_Restaurant_Project.Forms.Employees;
 using BCD_Restaurant_Project.Forms.Main;
 using BCD_Restaurant_Project.Properties;
 
@@ -15,7 +13,7 @@ using BCD_Restaurant_Project.Properties;
 
 namespace BCD_Restaurant_Project.Forms.Login {
     public partial class frmLogin : Form {
-        private static readonly StringBuilder _errorMessages = new StringBuilder();
+        private static StringBuilder _errorMessages = new StringBuilder();
         private bool showPassword;
 
         public frmLogin() {
@@ -102,15 +100,15 @@ namespace BCD_Restaurant_Project.Forms.Login {
 
             //Testing for customer
             //tbxUsername.Text = "rdemeza0";
-            //tbxPassword.Text = "59g0GR05";
+            //tbxPassword.Text = "password";
 
             //Testing for employee
-            //tbxUsername.Text = "dcoultar4";
-            //tbxPassword.Text = "YSGQDxS";
+            tbxUsername.Text = "dcoultar";
+            tbxPassword.Text = "password";
 
             //Testing for admin
-            tbxUsername.Text = "sdeerr";
-            tbxPassword.Text = "hola";
+            //tbxUsername.Text = "sdeerr";
+            //tbxPassword.Text = "hola";
 
             btnLogin.Focus();
         }

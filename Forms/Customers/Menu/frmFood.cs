@@ -16,7 +16,7 @@ namespace BCD_Restaurant_Project.Forms.Customers.Menu {
         }
 
         private void frmFood_Load(object sender, EventArgs e) {
-            displayMenuItems(dgvFood, CurrentForm.SIDES);
+            displayMenuItems(dgvFood);
             dgvFood.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
             pbxFood.Image = setImage();
         }

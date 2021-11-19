@@ -44,7 +44,7 @@ namespace BCD_Restaurant_Project.Forms.Login {
                                 "password below:</h2><blockquote><h3> Password: " + otp + "</h3></blockquote>";
                     mail.IsBodyHtml = true;
 
-                    using (SmtpClient smtp = new SmtpClient("smtp.gmail.com", 25)) {
+                    using (SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587)) {
                         smtp.EnableSsl = true;
                         smtp.UseDefaultCredentials = false;
                         smtp.Credentials = new NetworkCredential("tstcteamtwo@gmail.com", "%3WZaH6M*ti4O8XnfZjWBGhkUooN9O");
@@ -52,7 +52,7 @@ namespace BCD_Restaurant_Project.Forms.Login {
                         smtp.Send(mail);
                     }
                 }
-
+                Close();
                 MessageBox.Show("Email has been sent", "Reset Password", MessageBoxButtons.OK, MessageBoxIcon.None);
             }
         }

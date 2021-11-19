@@ -30,7 +30,6 @@ namespace BCD_Restaurant_Project.Forms.Login
         private void InitializeComponent()
         {
             this.pnlLogin = new System.Windows.Forms.Panel();
-            this.lnkReturn = new System.Windows.Forms.LinkLabel();
             this.lblNoMatch = new System.Windows.Forms.Label();
             this.tbxConfirm = new System.Windows.Forms.TextBox();
             this.tbxPassword = new System.Windows.Forms.TextBox();
@@ -43,30 +42,17 @@ namespace BCD_Restaurant_Project.Forms.Login
             // pnlLogin
             // 
             this.pnlLogin.BackColor = System.Drawing.Color.BlanchedAlmond;
-            this.pnlLogin.Controls.Add(this.lnkReturn);
             this.pnlLogin.Controls.Add(this.lblNoMatch);
             this.pnlLogin.Controls.Add(this.tbxConfirm);
             this.pnlLogin.Controls.Add(this.tbxPassword);
             this.pnlLogin.Controls.Add(this.lblPassword);
             this.pnlLogin.Controls.Add(this.lblUsername);
             this.pnlLogin.Controls.Add(this.btnConfirm);
-            this.pnlLogin.Location = new System.Drawing.Point(43, 26);
+            this.pnlLogin.Location = new System.Drawing.Point(194, 101);
             this.pnlLogin.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnlLogin.Name = "pnlLogin";
             this.pnlLogin.Size = new System.Drawing.Size(412, 249);
             this.pnlLogin.TabIndex = 4;
-            this.pnlLogin.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlLogin_Paint);
-            // 
-            // lnkReturn
-            // 
-            this.lnkReturn.AutoSize = true;
-            this.lnkReturn.Location = new System.Drawing.Point(147, 206);
-            this.lnkReturn.Name = "lnkReturn";
-            this.lnkReturn.Size = new System.Drawing.Size(84, 13);
-            this.lnkReturn.TabIndex = 10;
-            this.lnkReturn.TabStop = true;
-            this.lnkReturn.Text = "Return To Login";
-            this.lnkReturn.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkReturn_LinkClicked);
             // 
             // lblNoMatch
             // 
@@ -143,6 +129,7 @@ namespace BCD_Restaurant_Project.Forms.Login
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ControlBox = false;
             this.Controls.Add(this.pnlLogin);
             this.Name = "frmNewPassword";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -162,6 +149,5 @@ namespace BCD_Restaurant_Project.Forms.Login
         private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.Button btnConfirm;
-        private System.Windows.Forms.LinkLabel lnkReturn;
     }
 }
