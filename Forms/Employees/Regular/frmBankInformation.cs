@@ -16,6 +16,9 @@ namespace BCD_Restaurant_Project.Forms.Employees.Regular {
         private void btnChangeNumbers_Click(object sender, EventArgs e) {
             tbxAccount.Enabled = true;
             tbxRouting.Enabled = true;
+
+            btnChangeNumbers.Enabled = false;
+            btnConfirmNewDeposit.Enabled = true;
         }
 
         private void frmBankInformation_Load(object sender, EventArgs e) {
@@ -42,6 +45,24 @@ namespace BCD_Restaurant_Project.Forms.Employees.Regular {
                 e.Handled = true;
                 SystemSounds.Beep.Play();
             }
+        }
+
+        private void btnConfirmNewDeposit_Click(object sender, EventArgs e)
+        {
+            if (tbxAccount.Text != string.Empty && tbxRouting.Text != string.Empty)
+            {
+                ProgOps.updateAccountRouting(tbxAccount.Text, tbxRouting.Text);
+                tbxAccount.Enabled = false;
+                tbxRouting.Enabled = false;
+                btnChangeNumbers.Enabled = true;
+                btnConfirmNewDeposit.Enabled = false;
+                MessageBox.Show("Account and Routing changed", "Banking Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Account or Routing number cannot be empty", "Banking Information", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
     }
 }
