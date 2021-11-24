@@ -415,7 +415,7 @@ namespace BCD_Restaurant_Project.Classes {
             string cardNumber, string cardType, string cardName, string security, MaskedTextBox expiration
         ) {
             try {
-                MessageBox.Show(cardName + cardType + security + cardNumber + expiration.Text);
+                //MessageBox.Show(cardName + cardType + security + cardNumber + expiration.Text);
                 //Query to insert payment option for the current account
                 string query
                     = "INSERT INTO group2fa212330.Payment(AccountID, Type, CardNumber, CardName, SecurityCode, ExpirationDate) " +
