@@ -7,10 +7,13 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Net.Mail;
+using System.Security.Principal;
 using System.Text;
 using System.Windows.Forms;
 using System.Xml.Linq;
+
 using BCD_Restaurant_Project.Forms.Login;
+
 using static BCD_Restaurant_Project.Classes.ProgOps.CurrentForm;
 
 #endregion
@@ -880,6 +883,34 @@ namespace BCD_Restaurant_Project.Classes {
             DTAccounts.Clear();
 
             return true;
+        }
+
+        public static void updateAnEmployeeStatus(string employeeID, bool changeAdmin = false) {
+            try {
+                string query;
+                if (!changeAdmin) {
+                    //update employee active status
+                    query = $"UPDATE group2fa212330.Employees SET isActive = 0 WHERE EmployeeID = {employeeID}";
+                } else {
+
+                    //update employee admin status
+                    query = $"UPDATE group2fa212330.Employees SET isAdmin = 1 WHERE EmployeeID = {employeeID}";
+                }
+
+                _sqlAccountsCommand = new SqlCommand(query, _dbConnection);
+                _sqlAccountsCommand.ExecuteNonQuery();
+            } catch (SqlException ex) {
+                for (int i = 0; i < ex.Errors.Count; i++)
+                    ErrorMessages.Append("Index#" + i + "\n" + "Message: " + ex.Errors[i].Message + "\n" +
+                                         "LineNumber: " + ex.Errors[i].LineNumber + "\n" + "Source: " +
+                                         ex.Errors[i].Source + "\n" + "Procedure: " + ex.Errors[i].Procedure + "\n");
+
+                MessageBox.Show(ErrorMessages.ToString(), "Error Closing Database", MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+            } catch (Exception ex) {
+                MessageBox.Show("Error:\n\t" + ex.Message, "ProgOps Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
     }
 }
