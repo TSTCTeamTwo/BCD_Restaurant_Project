@@ -39,7 +39,7 @@ namespace BCD_Restaurant_Project.Forms.Employees.Regular
             this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(336, 10);
+            this.label8.Location = new System.Drawing.Point(207, 12);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(158, 29);
             this.label8.TabIndex = 16;
@@ -55,7 +55,7 @@ namespace BCD_Restaurant_Project.Forms.Employees.Regular
             this.dgvPaychecks.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvPaychecks.BackgroundColor = System.Drawing.Color.White;
             this.dgvPaychecks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPaychecks.Location = new System.Drawing.Point(58, 46);
+            this.dgvPaychecks.Location = new System.Drawing.Point(17, 45);
             this.dgvPaychecks.Name = "dgvPaychecks";
             this.dgvPaychecks.ReadOnly = true;
             this.dgvPaychecks.RowHeadersVisible = false;
@@ -64,14 +64,14 @@ namespace BCD_Restaurant_Project.Forms.Employees.Regular
             this.dgvPaychecks.ShowCellToolTips = false;
             this.dgvPaychecks.ShowEditingIcon = false;
             this.dgvPaychecks.ShowRowErrors = false;
-            this.dgvPaychecks.Size = new System.Drawing.Size(714, 376);
+            this.dgvPaychecks.Size = new System.Drawing.Size(539, 376);
             this.dgvPaychecks.TabIndex = 23;
             // 
             // frmPaycheck
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(830, 433);
+            this.ClientSize = new System.Drawing.Size(573, 433);
             this.Controls.Add(this.dgvPaychecks);
             this.Controls.Add(this.label8);
             this.Name = "frmPaycheck";

@@ -1,7 +1,7 @@
 ﻿#region Imports
 
 using System.Windows.Forms;
-using BCD_Restaurant_Project.Classes;
+using static BCD_Restaurant_Project.Classes.ProgOps;
 
 #endregion
 
@@ -12,7 +12,7 @@ namespace BCD_Restaurant_Project.Forms.Employees.Regular {
         }
 
         private void frmPaycheck_Load(object sender, System.EventArgs e) {
-
+            populatePaychecks(dgvPaychecks);
         }
     }
 }
