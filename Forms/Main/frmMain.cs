@@ -56,13 +56,7 @@ namespace BCD_Restaurant_Project.Forms.Main {
         }
 
         private void btnLogOut_Click(object sender, EventArgs e) {
-            DialogResult result = MessageBox.Show("Confirm log out. ", "Log Out", MessageBoxButtons.YesNo,
-                                                  MessageBoxIcon.Question);
-            if (result == DialogResult.Yes) {
-                Hide();
-                new frmLogin().Show();
-                ProgOps.closeDatabase();
-            }
+            performLogout();
         }
 
         private void btnDashboard_Click(object sender, EventArgs e) {
@@ -70,6 +64,20 @@ namespace BCD_Restaurant_Project.Forms.Main {
                 activeForm.Close();
 
             lblTitle.Text = "Dashboard";
+        }
+
+        private void frmMain_FormClosing(object sender, FormClosingEventArgs e) {
+            performLogout();
+        }
+
+        private void performLogout() {
+            DialogResult result = MessageBox.Show("Confirm log out. ", "Log Out", MessageBoxButtons.YesNo,
+                                                  MessageBoxIcon.Question);
+            if (result == DialogResult.Yes) {
+                Hide();
+                ProgOps.login.Show();
+            }
+
         }
     }
 }

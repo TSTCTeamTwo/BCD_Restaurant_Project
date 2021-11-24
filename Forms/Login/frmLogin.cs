@@ -6,10 +6,9 @@ using System.Drawing;
 using System.Media;
 using System.Text;
 using System.Windows.Forms;
-
-using BCD_Restaurant_Project.Classes;
 using BCD_Restaurant_Project.Forms.Main;
 using BCD_Restaurant_Project.Properties;
+using static BCD_Restaurant_Project.Classes.ProgOps;
 
 #endregion
 
@@ -23,7 +22,9 @@ namespace BCD_Restaurant_Project.Forms.Login {
         }
 
         private void btnExit_Click(object sender, EventArgs e) {
-            Close();
+            closeDatabase();
+            Application.Exit();
+            //Close();
         }
 
         private void btnLogin_Click(object sender, EventArgs e) {
@@ -31,16 +32,16 @@ namespace BCD_Restaurant_Project.Forms.Login {
                 lblEmpty.Visible = true;
             else
                 try {
-                    ProgOps.openDatabase();
-                    int checkPasswordCombination = ProgOps.verifyAccountStatus(tbxUsername.Text, tbxPassword.Text);
-                    if ((ProgOps.AccountID != -1) && (checkPasswordCombination != -1)) {
+                    openDatabase();
+                    int checkPasswordCombination = verifyAccountStatus(tbxUsername.Text, tbxPassword.Text);
+                    if ((AccountID != -1) && (checkPasswordCombination != -1)) {
                         switch (checkPasswordCombination) {
                             case 0:
                                 lblEmpty.Visible = true;
                                 lblEmpty.Text = "Incorrect username or password.";
                                 break;
                             case 1:
-                                int accountType = ProgOps.verifyEmployeeStatus();
+                                int accountType = verifyEmployeeStatus();
 
                                 if (accountType == 2) //account is an admin -> which would mean accountType = 2
                                 {
@@ -66,7 +67,11 @@ namespace BCD_Restaurant_Project.Forms.Login {
                                 }
 
                                 lblEmpty.Visible = false;
+                                tbxUsername.Text = string.Empty;
+                                tbxPassword.Text = string.Empty;
+                                tbxUsername.Focus();
                                 Hide();
+
                                 break;
                             case 2:
                                 new frmNewPassword().Show();
@@ -92,24 +97,24 @@ namespace BCD_Restaurant_Project.Forms.Login {
         }
 
         private void frmLogin_FormClosing(object sender, FormClosingEventArgs e) {
-            ProgOps.closeDatabase();
-            Application.Exit();
+            closeDatabase();
         }
 
         private void frmLogin_Load(object sender, EventArgs e) {
+            login = this;
             showPassword = false;
             tbxUsername.Focus();
 
         }
 
         private void lnkForgot_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
-            ProgOps.closeDatabase();
+            closeDatabase();
             frmForgot form = new frmForgot();
             form.Show();
         }
 
         private void lnkSignUp_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
-            ProgOps.closeDatabase();
+            closeDatabase();
             frmSignUp sign = new frmSignUp();
             sign.Show();
         }

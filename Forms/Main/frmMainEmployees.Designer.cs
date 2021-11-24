@@ -231,6 +231,7 @@ namespace BCD_Restaurant_Project.Forms.Main
             this.Name = "frmMainEmployees";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Employee";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMainEmployees_FormClosing);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel1.ResumeLayout(false);

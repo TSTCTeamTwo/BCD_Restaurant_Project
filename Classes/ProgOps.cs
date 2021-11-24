@@ -10,13 +10,18 @@ using System.Net.Mail;
 using System.Text;
 using System.Windows.Forms;
 using System.Xml.Linq;
-
+using BCD_Restaurant_Project.Forms.Login;
 using static BCD_Restaurant_Project.Classes.ProgOps.CurrentForm;
 
 #endregion
 
 namespace BCD_Restaurant_Project.Classes {
+
+
     internal static class ProgOps {
+
+        public static frmLogin login;
+
         private const string CONNECT_STRING
             = "Server=cstnt.tstc.edu;Database= inew2330fa21;User Id =group2fa212330;password=2547268";
 
@@ -334,17 +339,13 @@ namespace BCD_Restaurant_Project.Classes {
             }
         }
 
-        public static void updateAccountRouting(string newAccount, string newRouting)
-        {
+        public static void updateAccountRouting(string newAccount, string newRouting) {
             string numbers = string.Empty;
-            try
-            {
+            try {
                 numbers = $"UPDATE group2fa212330.Employees SET RoutingNumber = '{newRouting}', AccountNumber = {newAccount} WHERE AccountID = {AccountID}";
                 _sqlAccountsCommand = new SqlCommand(numbers, _dbConnection);
                 _sqlAccountsCommand.ExecuteNonQuery();
-            }
-            catch (SqlException ex)
-            {
+            } catch (SqlException ex) {
                 for (int i = 0; i < ex.Errors.Count; i++)
                     ErrorMessages.Append("Index#" + i + "\n" + "Message: " + ex.Errors[i].Message + "\n" +
                                          "LineNumber: " + ex.Errors[i].LineNumber + "\n" + "Source: " +
@@ -352,9 +353,7 @@ namespace BCD_Restaurant_Project.Classes {
 
                 MessageBox.Show(ErrorMessages.ToString(), "Error Closing Database", MessageBoxButtons.OK,
                                 MessageBoxIcon.Error);
-            }
-            catch (Exception ex)
-            {
+            } catch (Exception ex) {
                 MessageBox.Show("Error:\n\t" + ex.Message, "ProgOps Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -653,13 +652,10 @@ namespace BCD_Restaurant_Project.Classes {
             return null;
         }
 
-        public static void showPaycheck(
-            Label lblEmployeeId, Label lblEmployeeName, Label lblSalaryType, Label lblHourlyRate, Label lblWeeklyHoursWorked,
-            Label lblGrossPay, Label lblSocialSecurityWithheld, Label lblFicaWithheld, Label lblRetirement, Label lblNetPay
-        ) {
+        public static void populatePaychecks(DataGridView dgvPaychecks) {
             try {
                 string query
-                    = "select TOP 1 e.EmployeeID AS EmployeeID,  CONCAT(a.LastName, ', ', a.FirstName) AS FullName, " +
+                    = "select e.EmployeeID AS EmployeeID,  CONCAT(a.LastName, ', ', a.FirstName) AS FullName, " +
                       "CASE when SalaryPay is not null then 1 when SalaryPay is null then 0 END AS SalaryType, " +
                       "CASE WHEN HourlyPay IS NULL THEN 0 WHEN SalaryPay IS NULL THEN HourlyPay END AS HourlyRate, " +
                       "CASE WHEN HoursWorked IS NULL THEN 0 WHEN HoursWorked > 0 THEN HoursWorked END AS HoursWorked, " +
@@ -668,24 +664,12 @@ namespace BCD_Restaurant_Project.Classes {
                       $"INNER JOIN group2fa212330.Paycheck p on e.EmployeeID = p.EmployeeID WHERE a.AccountID = {AccountID} ORDER BY P.PaycheckID desc";
 
                 SqlCommand _sqlPaycheckCommand = new SqlCommand(query, _dbConnection);
-                SqlDataAdapter _daPaycheck = new SqlDataAdapter();
-                _daPaycheck.SelectCommand = _sqlPaycheckCommand;
+                SqlDataAdapter _daPaycheck = new SqlDataAdapter(_sqlPaycheckCommand);
                 DataTable DTPaycheck = new DataTable();
+
+                DTPaycheck.Clear();
                 _daPaycheck.Fill(DTPaycheck);
-
-                if (DTPaycheck.Rows.Count != 0) {
-                    lblEmployeeId.DataBindings.Add("Text", DTPaycheck, "EmployeeID");
-                    lblEmployeeName.DataBindings.Add("Text", DTPaycheck, "FullName");
-                    lblSalaryType.Text = (int)DTPaycheck.Rows[0]["SalaryType"] == 1 ? "Salary Pay:" : "Hourly Rate:";
-
-                    lblHourlyRate.DataBindings.Add("Text", DTPaycheck, "HourlyRate");
-                    lblWeeklyHoursWorked.DataBindings.Add("Text", DTPaycheck, "HoursWorked");
-                    lblGrossPay.DataBindings.Add("Text", DTPaycheck, "GrossPay");
-                    lblSocialSecurityWithheld.DataBindings.Add("Text", DTPaycheck, "SocialSecurityTax");
-                    lblFicaWithheld.DataBindings.Add("Text", DTPaycheck, "FICA");
-                    lblRetirement.DataBindings.Add("Text", DTPaycheck, "Retirement");
-                    lblNetPay.DataBindings.Add("Text", DTPaycheck, "NetPay");
-                }
+                dgvPaychecks.DataSource = DTPaycheck;
 
 
             } catch (SqlException exception) {
@@ -701,8 +685,6 @@ namespace BCD_Restaurant_Project.Classes {
                 MessageBox.Show("Error:\n\t" + ex.Message, "ProgOps Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-
 
         public static void updateMenuOnClose() {
             try {

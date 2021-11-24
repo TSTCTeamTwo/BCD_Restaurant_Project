@@ -74,7 +74,7 @@ namespace BCD_Restaurant_Project.Forms.Main {
                                                   MessageBoxIcon.Question);
             if (result == DialogResult.Yes) {
                 Hide();
-                new frmLogin().Show();
+                ProgOps.login.Show();
             }
 
         }

@@ -2,6 +2,7 @@
 
 using System;
 using System.Windows.Forms;
+using BCD_Restaurant_Project.Classes;
 using BCD_Restaurant_Project.Forms.Employees;
 using BCD_Restaurant_Project.Forms.Employees.Regular;
 using BCD_Restaurant_Project.Forms.Login;
@@ -29,8 +30,9 @@ namespace BCD_Restaurant_Project.Forms.Main {
         }
 
         private void OpenChildForm(Form childForm, object btnSender) {
-            if (activeForm != null)
+            if (activeForm != null) {
                 activeForm.Close();
+            }
             activeForm = childForm;
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
@@ -42,12 +44,7 @@ namespace BCD_Restaurant_Project.Forms.Main {
         }
 
         private void btnLogOut_Click(object sender, EventArgs e) {
-            DialogResult result = MessageBox.Show("Confirm log out. ", "Log Out", MessageBoxButtons.YesNo,
-                                                  MessageBoxIcon.Question);
-            if (result == DialogResult.Yes) {
-                Hide();
-                new frmLogin().Show();
-            }
+            performLogout();
         }
 
         private void button1_Click(object sender, EventArgs e) {
@@ -55,6 +52,20 @@ namespace BCD_Restaurant_Project.Forms.Main {
                 activeForm.Close();
 
             lblTitle.Text = "Dashboard";
+        }
+
+        private void performLogout() {
+            DialogResult result = MessageBox.Show("Confirm log out. ", "Log Out", MessageBoxButtons.YesNo,
+                                                  MessageBoxIcon.Question);
+            if (result == DialogResult.Yes) {
+                Hide();
+                ProgOps.login.Show();
+            }
+
+        }
+
+        private void frmMainEmployees_FormClosing(object sender, FormClosingEventArgs e) {
+            performLogout();
         }
     }
 }
