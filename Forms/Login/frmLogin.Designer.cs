@@ -61,7 +61,7 @@ namespace BCD_Restaurant_Project.Forms.Login
             this.pnlLogin.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnlLogin.Name = "pnlLogin";
             this.pnlLogin.Size = new System.Drawing.Size(412, 249);
-            this.pnlLogin.TabIndex = 3;
+            this.pnlLogin.TabIndex = 0;
             // 
             // lblEmpty
             // 
@@ -72,7 +72,7 @@ namespace BCD_Restaurant_Project.Forms.Login
             this.lblEmpty.Location = new System.Drawing.Point(83, 7);
             this.lblEmpty.Name = "lblEmpty";
             this.lblEmpty.Size = new System.Drawing.Size(247, 17);
-            this.lblEmpty.TabIndex = 9;
+            this.lblEmpty.TabIndex = 0;
             this.lblEmpty.Text = "Please enter username and password";
             this.lblEmpty.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblEmpty.Visible = false;
@@ -99,7 +99,7 @@ namespace BCD_Restaurant_Project.Forms.Login
             this.btnExit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(94, 36);
-            this.btnExit.TabIndex = 7;
+            this.btnExit.TabIndex = 6;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = false;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
@@ -110,7 +110,7 @@ namespace BCD_Restaurant_Project.Forms.Login
             this.lnkSignUp.Location = new System.Drawing.Point(286, 187);
             this.lnkSignUp.Name = "lnkSignUp";
             this.lnkSignUp.Size = new System.Drawing.Size(58, 17);
-            this.lnkSignUp.TabIndex = 6;
+            this.lnkSignUp.TabIndex = 7;
             this.lnkSignUp.TabStop = true;
             this.lnkSignUp.Text = "Sign Up";
             this.lnkSignUp.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkSignUp_LinkClicked);
@@ -121,7 +121,7 @@ namespace BCD_Restaurant_Project.Forms.Login
             this.lnkForgot.Location = new System.Drawing.Point(286, 213);
             this.lnkForgot.Name = "lnkForgot";
             this.lnkForgot.Size = new System.Drawing.Size(114, 17);
-            this.lnkForgot.TabIndex = 5;
+            this.lnkForgot.TabIndex = 8;
             this.lnkForgot.TabStop = true;
             this.lnkForgot.Text = "Forgot Password";
             this.lnkForgot.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkForgot_LinkClicked);
@@ -132,10 +132,13 @@ namespace BCD_Restaurant_Project.Forms.Login
             this.tbxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxPassword.Location = new System.Drawing.Point(174, 90);
             this.tbxPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tbxPassword.MaxLength = 30;
             this.tbxPassword.Name = "tbxPassword";
             this.tbxPassword.PasswordChar = '•';
             this.tbxPassword.Size = new System.Drawing.Size(199, 26);
             this.tbxPassword.TabIndex = 4;
+            this.tbxPassword.Click += new System.EventHandler(this.tbxPassword_Click);
+            this.tbxPassword.DoubleClick += new System.EventHandler(this.tbxPassword_DoubleClick);
             // 
             // tbxUsername
             // 
@@ -143,9 +146,14 @@ namespace BCD_Restaurant_Project.Forms.Login
             this.tbxUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxUsername.Location = new System.Drawing.Point(174, 40);
             this.tbxUsername.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tbxUsername.MaxLength = 30;
             this.tbxUsername.Name = "tbxUsername";
             this.tbxUsername.Size = new System.Drawing.Size(199, 26);
-            this.tbxUsername.TabIndex = 3;
+            this.tbxUsername.TabIndex = 2;
+            this.tbxUsername.Click += new System.EventHandler(this.tbxUsername_Click);
+            this.tbxUsername.DoubleClick += new System.EventHandler(this.tbxUsername_DoubleClick);
+            this.tbxUsername.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbxUsername_KeyDown);
+            this.tbxUsername.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxUsername_KeyPress);
             // 
             // lblPassword
             // 
@@ -153,7 +161,7 @@ namespace BCD_Restaurant_Project.Forms.Login
             this.lblPassword.Location = new System.Drawing.Point(40, 97);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(69, 17);
-            this.lblPassword.TabIndex = 2;
+            this.lblPassword.TabIndex = 3;
             this.lblPassword.Text = "Password";
             this.lblPassword.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -175,7 +183,7 @@ namespace BCD_Restaurant_Project.Forms.Login
             this.btnLogin.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(125, 44);
-            this.btnLogin.TabIndex = 0;
+            this.btnLogin.TabIndex = 5;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
