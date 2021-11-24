@@ -4,6 +4,7 @@ using System;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using BCD_Restaurant_Project.Classes;
 using static BCD_Restaurant_Project.Classes.ProgOps;
 
 #endregion
@@ -141,6 +142,14 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator {
                                " Records: " + tbxLastName.Text + ", " + tbxFirstName.Text;
 
 
+        }
+
+        private void btnDeactivateEmployeeAccount_Click(object sender, EventArgs e) {
+            updateAnEmployeeStatus(tbxEmployeeID.Text);
+        }
+
+        private void btnMakeEmployeeAdmin_Click(object sender, EventArgs e) {
+            updateAnEmployeeStatus(tbxEmployeeID.Text);
         }
     }
 }
