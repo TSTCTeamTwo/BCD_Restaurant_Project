@@ -16,7 +16,7 @@ namespace BCD_Restaurant_Project.Forms.Customers.Order {
         }
 
         private void btnCheckout_Click(object sender, EventArgs e) {
-            MessageBox.Show(Cart.Tip.ToString());
+           // MessageBox.Show(Cart.Tip.ToString());
             if (Cart.myCart.Count == 0) {
                 MessageBox.Show("Your cart is empty!", "Cart", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;

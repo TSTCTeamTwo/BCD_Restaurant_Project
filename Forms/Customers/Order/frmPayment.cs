@@ -3,7 +3,7 @@
 using System;
 using System.Windows.Forms;
 using BCD_Restaurant_Project.Classes;
-
+using BCD_Restaurant_Project.Reports;
 #endregion Imports
 
 namespace BCD_Restaurant_Project.Forms.Customers.Order {
@@ -13,12 +13,38 @@ namespace BCD_Restaurant_Project.Forms.Customers.Order {
             InitializeComponent();
         }
         private void btnAdd_Click(object sender, EventArgs e) {
+            
             if (rdoPaymentOptionCard.Checked)
                 ProgOps.insertPaymentOption(mskPaymentNumber.Text, "Credit", tbxName.Text, mskSecurityCode.Text,
                                    mskExpirationDate);
             else if (rdoPaymentOptiondebit.Checked)
                 ProgOps.insertPaymentOption(mskPaymentNumber.Text, "Debit", tbxName.Text, mskSecurityCode.Text,
                                    mskExpirationDate);
+            else if(!rdoPaymentOptionCard.Checked && !rdoPaymentOptiondebit.Checked)
+            {
+                MessageBox.Show("Choose card type", "Payment", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+               
+
+            ProgOps.finalizeOrder(Cart.Tip);
+
+            frmReceipt receipt = new frmReceipt();
+            //create an object of the report
+            crptReceipt crptReceipt = new crptReceipt();
+            crptReceipt.Load(@"Reports\crptReceipt.rpt");
+
+            crptReceipt.SetParameterValue("OrderID", Cart.OrderID);
+
+            //set the database logon for the report
+            crptReceipt.SetDatabaseLogon("group2fa212330", "2547268");
+            //create an object of the frmViewer so we can use vrmViewer
+            //set to null first to clear the viewer
+            receipt.crvReceiptViewer.ReportSource = null;
+            //Then set the crvViewer to the report object
+            receipt.crvReceiptViewer.ReportSource = crptReceipt;
+            receipt.crvReceiptViewer.Refresh();
+            receipt.ShowDialog(); //opens an instance of the form now
         }
         private void btnCancel_Click(object sender, EventArgs e) {
             Hide();
