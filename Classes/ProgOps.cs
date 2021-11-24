@@ -106,8 +106,6 @@ namespace BCD_Restaurant_Project.Classes {
             get;
         } = new StringBuilder();
 
-       
-
         public static void changeCategoryAndImage(CurrencyManager currency, ComboBox cbCategory, PictureBox pbxImage) {
             cbCategory.SelectedIndex = cbCategory.FindString(DTMenu.Rows[currency.Position]["CategoryName"].ToString());
             pbxImage.Image = setImage((int)DTMenu.Rows[currency.Position]["ItemID"]);
@@ -207,7 +205,7 @@ namespace BCD_Restaurant_Project.Classes {
             _sqlAccountsCommand.ExecuteNonQuery();
         }
 
-       
+
 
         public static void displayMenuItems(DataGridView dgvDisplay, CurrentForm currentForm = FOOD) {
             string menuQuery
@@ -704,7 +702,7 @@ namespace BCD_Restaurant_Project.Classes {
             }
         }
 
-        
+
 
         public static void updateMenuOnClose() {
             try {
@@ -964,7 +962,7 @@ namespace BCD_Restaurant_Project.Classes {
                 MessageBox.Show("Error:\n\t" + ex.Message, "ProgOps Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
- 
+
 public static void updateAccount(string[] text) {
             try {
                 string query = "UPDATE group2fa212330.Accounts " + "SET Email = '" + text[1] + "', Username = '" +

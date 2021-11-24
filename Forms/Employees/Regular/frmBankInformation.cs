@@ -64,13 +64,13 @@ namespace BCD_Restaurant_Project.Forms.Employees.Regular {
                     btnConfirmNewDeposit.Enabled = false;
                     MessageBox.Show("Account and Routing changed", "Banking Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-               
+
             }
             else
             {
                 MessageBox.Show("Account or Routing number cannot be empty", "Banking Information", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
+
         }
     }
 }

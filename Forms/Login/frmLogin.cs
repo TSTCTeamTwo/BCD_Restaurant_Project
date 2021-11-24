@@ -3,8 +3,10 @@
 using System;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Media;
 using System.Text;
 using System.Windows.Forms;
+
 using BCD_Restaurant_Project.Classes;
 using BCD_Restaurant_Project.Forms.Main;
 using BCD_Restaurant_Project.Properties;
@@ -98,19 +100,6 @@ namespace BCD_Restaurant_Project.Forms.Login {
             showPassword = false;
             tbxUsername.Focus();
 
-            //Testing for customer
-            //tbxUsername.Text = "rdemeza0";
-            //tbxPassword.Text = "password";
-
-            //Testing for employee
-            tbxUsername.Text = "dcoultar";
-            tbxPassword.Text = "password";
-
-            //Testing for admin
-            //tbxUsername.Text = "sdeerr";
-            //tbxPassword.Text = "hola";
-
-            btnLogin.Focus();
         }
 
         private void lnkForgot_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
@@ -129,12 +118,51 @@ namespace BCD_Restaurant_Project.Forms.Login {
             if (!showPassword) {
                 pbxPasswordIcon.Image = (Bitmap)Resources.ResourceManager.GetObject("pressToShow");
                 tbxPassword.PasswordChar = default;
+                //tbxPassword.UseSystemPasswordChar = false;
                 showPassword = true;
             } else {
                 pbxPasswordIcon.Image = (Bitmap)Resources.ResourceManager.GetObject("pressToHide");
                 tbxPassword.PasswordChar = '•';
+                //tbxPassword.UseSystemPasswordChar = true;
                 showPassword = false;
             }
+        }
+
+        private void tbxUsername_KeyPress(object sender, KeyPressEventArgs e) {
+
+            if (((e.KeyChar >= 'A') && (e.KeyChar <= 'Z')) || ((e.KeyChar >= 'a') && (e.KeyChar <= 'z')) || (e.KeyChar == 8)) {
+                e.Handled = false;
+            } else if (e.KeyChar == 13) {
+                tbxPassword.Focus();
+            } else {
+                e.Handled = true;
+                SystemSounds.Beep.Play();
+            }
+
+        }
+
+        private void tbxUsername_KeyDown(object sender, KeyEventArgs e) {
+            if (e.KeyCode == Keys.Left || e.KeyCode == Keys.Right || e.KeyCode == Keys.Up || e.KeyCode == Keys.Down || e.KeyCode == Keys.Home
+                || e.KeyCode == Keys.End) {
+                e.Handled = true;
+                SystemSounds.Beep.Play();
+            }
+        }
+
+        private void tbxUsername_Click(object sender, EventArgs e) {
+            tbxUsername.SelectionStart = tbxUsername.TextLength;
+        }
+
+        private void tbxPassword_Click(object sender, EventArgs e) {
+            tbxPassword.SelectionStart = tbxPassword.TextLength;
+        }
+
+        private void tbxUsername_DoubleClick(object sender, EventArgs e) {
+            tbxUsername.SelectionStart = tbxUsername.TextLength;
+        }
+
+        private void tbxPassword_DoubleClick(object sender, EventArgs e) {
+            tbxPassword.SelectionStart = tbxPassword.TextLength;
         }
     }
 }
