@@ -56,7 +56,7 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator {
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(20, 243);
+            this.label4.Location = new System.Drawing.Point(20, 184);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(58, 13);
             this.label4.TabIndex = 8;
@@ -68,7 +68,7 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator {
             this.tbxPassword.BackColor = System.Drawing.Color.White;
             this.tbxPassword.Enabled = false;
             this.tbxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxPassword.Location = new System.Drawing.Point(154, 202);
+            this.tbxPassword.Location = new System.Drawing.Point(154, 143);
             this.tbxPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbxPassword.Name = "tbxPassword";
             this.tbxPassword.Size = new System.Drawing.Size(199, 26);
@@ -77,7 +77,7 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator {
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(20, 176);
+            this.label5.Location = new System.Drawing.Point(20, 117);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(55, 13);
             this.label5.TabIndex = 4;
@@ -87,7 +87,7 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator {
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(20, 209);
+            this.label2.Location = new System.Drawing.Point(20, 150);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 13);
             this.label2.TabIndex = 6;
@@ -99,7 +99,7 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator {
             this.tbxUsername.BackColor = System.Drawing.Color.White;
             this.tbxUsername.Enabled = false;
             this.tbxUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxUsername.Location = new System.Drawing.Point(154, 169);
+            this.tbxUsername.Location = new System.Drawing.Point(154, 110);
             this.tbxUsername.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbxUsername.Name = "tbxUsername";
             this.tbxUsername.Size = new System.Drawing.Size(199, 26);
@@ -110,7 +110,7 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator {
             this.tbxEmail.BackColor = System.Drawing.Color.White;
             this.tbxEmail.Enabled = false;
             this.tbxEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxEmail.Location = new System.Drawing.Point(154, 135);
+            this.tbxEmail.Location = new System.Drawing.Point(154, 76);
             this.tbxEmail.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbxEmail.Name = "tbxEmail";
             this.tbxEmail.Size = new System.Drawing.Size(199, 26);
@@ -121,7 +121,7 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator {
             this.tbxLastName.BackColor = System.Drawing.Color.White;
             this.tbxLastName.Enabled = false;
             this.tbxLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxLastName.Location = new System.Drawing.Point(154, 236);
+            this.tbxLastName.Location = new System.Drawing.Point(154, 177);
             this.tbxLastName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbxLastName.Name = "tbxLastName";
             this.tbxLastName.Size = new System.Drawing.Size(199, 26);
@@ -130,7 +130,7 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator {
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(20, 142);
+            this.label1.Location = new System.Drawing.Point(20, 83);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(32, 13);
             this.label1.TabIndex = 2;
@@ -140,7 +140,7 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator {
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(20, 277);
+            this.label3.Location = new System.Drawing.Point(20, 218);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(57, 13);
             this.label3.TabIndex = 10;
@@ -152,7 +152,7 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator {
             this.tbxFirstName.BackColor = System.Drawing.Color.White;
             this.tbxFirstName.Enabled = false;
             this.tbxFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxFirstName.Location = new System.Drawing.Point(154, 270);
+            this.tbxFirstName.Location = new System.Drawing.Point(154, 211);
             this.tbxFirstName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbxFirstName.Name = "tbxFirstName";
             this.tbxFirstName.Size = new System.Drawing.Size(199, 26);
@@ -209,7 +209,7 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator {
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(20, 81);
+            this.label6.Location = new System.Drawing.Point(20, 57);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(32, 13);
             this.label6.TabIndex = 15;
@@ -219,7 +219,7 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator {
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(154, 72);
+            this.comboBox1.Location = new System.Drawing.Point(154, 48);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 16;

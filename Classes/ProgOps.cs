@@ -119,13 +119,15 @@ namespace BCD_Restaurant_Project.Classes {
             pbxImage.Image = setImage((int)DTMenu.Rows[currency.Position]["ItemID"]);
         }
 
-        public static void changeMenuItemImage(int itemID) {
+        public static void changeMenuItemImage(int itemID = -1, bool insertion = false) {
             OpenFileDialog ofdImage = new OpenFileDialog();
 
             ofdImage.InitialDirectory = Directory.GetCurrentDirectory();
 
             ofdImage.ValidateNames = true;
             ofdImage.AddExtension = false;
+            //string[] extensions = new[] { ".jpg",".png"};
+            //ofdImage.Filter = extensions;s
             // ofdImage.Filter = "PNG File|*.png|JPEG File|*.jpg";
             ofdImage.Title = "Image to Upload";
 
@@ -142,7 +144,19 @@ namespace BCD_Restaurant_Project.Classes {
                         imageID = (int)DTImage.Rows[0]["ImageID"];
                     }
 
-                    string insertQuery = "UPDATE group2fa212330.Images SET Image = @Image WHERE ImageID = " + imageID;
+                    string fileName = string.Empty;
+                    if (ofdImage.SafeFileName != null) {
+                        fileName = ofdImage.SafeFileName.Replace(".jpg", "");
+                        fileName = ofdImage.SafeFileName.Replace(".png", "");
+                    }
+
+                    string insertQuery;
+                    if (insertion) {
+                        insertQuery = $"INSERT INTO group2fa212330.Images (ImageName, Image) VALUES ('{fileName}',@Image)";
+                    } else {
+                        insertQuery = "UPDATE group2fa212330.Images SET Image = @Image WHERE ImageID = " + imageID;
+                    }
+
                     _sqlImageCommand = new SqlCommand(insertQuery, _dbConnection);
                     SqlParameter imageParam = _sqlImageCommand.Parameters.AddWithValue("@Image", image);
                     _sqlImageCommand.ExecuteNonQuery();
@@ -908,11 +922,13 @@ namespace BCD_Restaurant_Project.Classes {
 
         }
 
-        public static void insertMenuItem(string name, string description, double price, ComboBox cbCategory) {
+        public static void insertMenuItem(
+            string name, string description, string price, ComboBox cbCategory
+        ) {
             try {
                 string query
-                    = "INSERT INTO group2fa212330.Menu(ItemName, ItemDescription, Price, CategoryID) VALUES('" + name +
-                      "', '" + description + "', " + price + ", " + cbCategory.SelectedIndex + 1;
+                    = "INSERT INTO group2fa212330.Menu(ItemName, ItemDescription, Price, CategoryID, ImageID) VALUES('" + name +
+                      "', '" + description + "', " + price + ", " + cbCategory.SelectedIndex + 1 +", "+ returnImageID();
                 _sqlMenuCommand = new SqlCommand(query, _dbConnection);
                 _sqlMenuCommand.ExecuteNonQuery();
             } catch (SqlException ex) {
@@ -928,7 +944,7 @@ namespace BCD_Restaurant_Project.Classes {
             }
         }
 
-        public static void changeMenuRecord(string itemID, string itemName, string description, string price, string category) {
+        public static void updateMenuRecord(string itemID, string itemName, string description, string price, string category) {
 
             try {
 
@@ -939,7 +955,6 @@ namespace BCD_Restaurant_Project.Classes {
 
                 _sqlMenuCommand = new SqlCommand(query, _dbConnection);
                 _sqlMenuCommand.ExecuteNonQuery();
-
 
                 MessageBox.Show("Successfully modified menu item.", "Menu Modification", MessageBoxButtons.OK, MessageBoxIcon.None);
 
@@ -955,19 +970,26 @@ namespace BCD_Restaurant_Project.Classes {
             }
         }
 
-        public static void insertMenuRecord(string itemName, string description, string price, string category) {
-
+        public static int returnImageID() {
             try {
+                string query = "SELECT TOP 1 ImageID from group2fa212330.Images Order By ImageID DESC";
+                _sqlImageCommand = new SqlCommand(query, _dbConnection);
+                return (int)_sqlImageCommand.ExecuteScalar();
+            } catch (SqlException exception) {
+                for (int i = 0; i < exception.Errors.Count; i++)
+                    ErrorMessages.Append("Index#" + i + "\n" + "Message: " + exception.Errors[i].Message + "\n" +
+                                         "LineNumber: " + exception.Errors[i].LineNumber + "\n" + "Source: " +
+                                         exception.Errors[i].Source + "\n" + "Procedure: " +
+                                         exception.Errors[i].Procedure + "\n");
 
-                //in the beginning make sure they have entered an image
-                string imageQuery = "INSERT INTO () VALUES()";
-
-                //get the image id
-
-            } catch (SqlException exception) { } catch (Exception exception) {
-                MessageBox.Show("Error:\n\t" + exception.Message, "ProgOps Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ErrorMessages.ToString(), "Error Closing Database", MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+            } catch (Exception exception) {
+                MessageBox.Show("Error:\n\t" + exception.Message, "ProgOps Error", MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
             }
 
+            return -1;
         }
 
     }

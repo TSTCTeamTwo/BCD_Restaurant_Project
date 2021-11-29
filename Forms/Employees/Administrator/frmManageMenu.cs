@@ -4,6 +4,7 @@ using System;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+
 using BCD_Restaurant_Project.Classes;
 
 #endregion
@@ -51,7 +52,7 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator {
             if (tbxItemID.Text != string.Empty) {
                 ProgOps.changeMenuItemImage(int.Parse(tbxItemID.Text));
             } else {
-                ProgOps.changeMenuItemImage(-1);
+                ProgOps.changeMenuItemImage(insertion: true);
             }
 
         }
@@ -70,12 +71,14 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator {
 
         private void btnSave_Click(object sender, EventArgs e) {
             menuManager.EndCurrentEdit();
-            //ProgOps.updateMenuOnClose();
 
             if (myState == "Edit") {
                 string category = cbxCategories.GetItemText(cbxCategories.SelectedItem);
-                ProgOps.changeMenuRecord(tbxItemID.Text, tbxName.Text, tbxDescription.Text, tbxPrice.Text,category);
+                ProgOps.updateMenuRecord(tbxItemID.Text, tbxName.Text, tbxDescription.Text, tbxPrice.Text, category);
+            }else if (myState == "Add") {
+                ProgOps.insertMenuItem(tbxName.Text, tbxDescription.Text, tbxPrice.Text, cbxCategories );
             }
+
 
             setState("View");
         }
@@ -86,11 +89,7 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator {
             ProgOps.modifyMenu(tbxName, tbxItemID, tbxDescription, tbxPrice, cbxCategories, this, out menuManager,
                                dgvDisplay, pbxImageBox);
             setState("View");
-            //byte[] image = System.Text.Encoding.UTF8.GetBytes(tbxImagePath.Text);
 
-            //string str = System.Text.Encoding.UTF8.GetString(image, 0, image.Length);
-
-            //tbxImagePath.Text = str.ToString();
         }
 
         private void setState(string appState) {
@@ -131,6 +130,8 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator {
                         tbxCurrent.ReadOnly = false;
                         tbxCurrent.Enabled = true;
                     }
+
+                    tbxItemID.ReadOnly = true;
 
                     //ENABLED - BUTTONS
                     btnFirst.Enabled = false;
