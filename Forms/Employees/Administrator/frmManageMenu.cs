@@ -24,8 +24,8 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator {
         }
 
         private void btnCancel_Click(object sender, EventArgs e) {
-            setState("View");
             menuManager.CancelCurrentEdit();
+            setState("View");
         }
 
         private void btnDelete_Click(object sender, EventArgs e) {
@@ -48,7 +48,12 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator {
         }
 
         private void btnLoadImage_Click(object sender, EventArgs e) {
-            ProgOps.changeMenuItemImage(int.Parse(tbxItemID.Text));
+            if (tbxItemID.Text != string.Empty) {
+                ProgOps.changeMenuItemImage(int.Parse(tbxItemID.Text));
+            } else {
+                ProgOps.changeMenuItemImage(-1);
+            }
+
         }
 
         private void btnNext_Click(object sender, EventArgs e) {
@@ -65,7 +70,13 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator {
 
         private void btnSave_Click(object sender, EventArgs e) {
             menuManager.EndCurrentEdit();
-            ProgOps.updateMenuOnClose();
+            //ProgOps.updateMenuOnClose();
+
+            if (myState == "Edit") {
+                string category = cbxCategories.GetItemText(cbxCategories.SelectedItem);
+                ProgOps.changeMenuRecord(tbxItemID.Text, tbxName.Text, tbxDescription.Text, tbxPrice.Text,category);
+            }
+
             setState("View");
         }
 
@@ -104,8 +115,10 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator {
                     btnDelete.Enabled = true;
                     btnLoadImage.Enabled = false;
                     btnFirst.Enabled = true;
+                    btnCancel.Enabled = false;
                     btnLast.Enabled = true;
                     btnSave.Enabled = false;
+                    cbxCategories.Enabled = false;
                     btnEdit.Text = "Edit";
                     break;
 
@@ -127,8 +140,10 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator {
                     btnAdd.Enabled = false;
                     btnSave.Enabled = true;
                     btnDelete.Enabled = false;
+                    btnCancel.Enabled = true;
                     btnEdit.Enabled = false;
                     btnLoadImage.Enabled = true;
+                    cbxCategories.Enabled = true;
                     tbxName.Focus();
                     break;
             }
