@@ -149,7 +149,11 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator {
         }
 
         private void btnMakeEmployeeAdmin_Click(object sender, EventArgs e) {
-            updateAnEmployeeStatus(tbxEmployeeID.Text);
+            updateAnEmployeeStatus(tbxEmployeeID.Text, true);
+        }
+
+        private void btnCreateEmployee_Click(object sender, EventArgs e) {
+
         }
     }
 }

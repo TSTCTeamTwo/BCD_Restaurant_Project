@@ -69,13 +69,15 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator
             this.dgvDisplay.MultiSelect = false;
             this.dgvDisplay.Name = "dgvDisplay";
             this.dgvDisplay.ReadOnly = true;
+            this.dgvDisplay.RowHeadersVisible = false;
             this.dgvDisplay.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
+            this.dgvDisplay.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDisplay.ShowCellErrors = false;
             this.dgvDisplay.ShowCellToolTips = false;
             this.dgvDisplay.ShowEditingIcon = false;
             this.dgvDisplay.ShowRowErrors = false;
             this.dgvDisplay.Size = new System.Drawing.Size(457, 347);
-            this.dgvDisplay.TabIndex = 22;
+            this.dgvDisplay.TabIndex = 21;
             // 
             // btnNext
             // 
@@ -86,7 +88,7 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator
             this.btnNext.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(99, 28);
-            this.btnNext.TabIndex = 51;
+            this.btnNext.TabIndex = 17;
             this.btnNext.Text = "&Next";
             this.btnNext.UseVisualStyleBackColor = false;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
@@ -96,7 +98,7 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator
             this.btnLoadImage.Location = new System.Drawing.Point(84, 159);
             this.btnLoadImage.Name = "btnLoadImage";
             this.btnLoadImage.Size = new System.Drawing.Size(151, 28);
-            this.btnLoadImage.TabIndex = 48;
+            this.btnLoadImage.TabIndex = 11;
             this.btnLoadImage.Text = "Change Image";
             this.btnLoadImage.UseVisualStyleBackColor = true;
             this.btnLoadImage.Click += new System.EventHandler(this.btnLoadImage_Click);
@@ -110,7 +112,7 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator
             this.btnPrevious.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnPrevious.Name = "btnPrevious";
             this.btnPrevious.Size = new System.Drawing.Size(99, 28);
-            this.btnPrevious.TabIndex = 50;
+            this.btnPrevious.TabIndex = 16;
             this.btnPrevious.Text = "&Previous";
             this.btnPrevious.UseVisualStyleBackColor = false;
             this.btnPrevious.Click += new System.EventHandler(this.btnPrevious_Click);
@@ -121,19 +123,20 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator
             this.label3.Location = new System.Drawing.Point(15, 167);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(36, 13);
-            this.label3.TabIndex = 47;
+            this.label3.TabIndex = 10;
             this.label3.Text = "Image";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // cbxCategories
             // 
+            this.cbxCategories.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxCategories.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.cbxCategories.FormattingEnabled = true;
             this.cbxCategories.Location = new System.Drawing.Point(84, 134);
             this.cbxCategories.Margin = new System.Windows.Forms.Padding(2);
             this.cbxCategories.Name = "cbxCategories";
             this.cbxCategories.Size = new System.Drawing.Size(151, 21);
-            this.cbxCategories.TabIndex = 46;
+            this.cbxCategories.TabIndex = 9;
             // 
             // label6
             // 
@@ -141,7 +144,7 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator
             this.label6.Location = new System.Drawing.Point(15, 138);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(49, 13);
-            this.label6.TabIndex = 45;
+            this.label6.TabIndex = 8;
             this.label6.Text = "Category";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -153,7 +156,7 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator
             this.tbxPrice.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbxPrice.Name = "tbxPrice";
             this.tbxPrice.Size = new System.Drawing.Size(151, 26);
-            this.tbxPrice.TabIndex = 44;
+            this.tbxPrice.TabIndex = 7;
             // 
             // label2
             // 
@@ -161,7 +164,7 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator
             this.label2.Location = new System.Drawing.Point(15, 109);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(31, 13);
-            this.label2.TabIndex = 43;
+            this.label2.TabIndex = 6;
             this.label2.Text = "Price";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -174,7 +177,7 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator
             this.btnDelete.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(99, 28);
-            this.btnDelete.TabIndex = 42;
+            this.btnDelete.TabIndex = 20;
             this.btnDelete.Text = "&Delete";
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
@@ -188,7 +191,7 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator
             this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(99, 28);
-            this.btnAdd.TabIndex = 41;
+            this.btnAdd.TabIndex = 13;
             this.btnAdd.Text = "&Add";
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -199,7 +202,7 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator
             this.lblUsername.Location = new System.Drawing.Point(15, 22);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(41, 13);
-            this.lblUsername.TabIndex = 34;
+            this.lblUsername.TabIndex = 0;
             this.lblUsername.Text = "Item ID";
             this.lblUsername.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -212,7 +215,7 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator
             this.btnEdit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(99, 28);
-            this.btnEdit.TabIndex = 40;
+            this.btnEdit.TabIndex = 12;
             this.btnEdit.Text = "&Edit";
             this.btnEdit.UseVisualStyleBackColor = false;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
@@ -226,7 +229,7 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator
             this.tbxItemID.Name = "tbxItemID";
             this.tbxItemID.ReadOnly = true;
             this.tbxItemID.Size = new System.Drawing.Size(151, 26);
-            this.tbxItemID.TabIndex = 35;
+            this.tbxItemID.TabIndex = 1;
             // 
             // label1
             // 
@@ -234,7 +237,7 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator
             this.label1.Location = new System.Drawing.Point(15, 51);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(58, 13);
-            this.label1.TabIndex = 36;
+            this.label1.TabIndex = 2;
             this.label1.Text = "Item Name";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -246,7 +249,7 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator
             this.tbxName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbxName.Name = "tbxName";
             this.tbxName.Size = new System.Drawing.Size(151, 26);
-            this.tbxName.TabIndex = 37;
+            this.tbxName.TabIndex = 3;
             // 
             // tbxDescription
             // 
@@ -256,7 +259,7 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator
             this.tbxDescription.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbxDescription.Name = "tbxDescription";
             this.tbxDescription.Size = new System.Drawing.Size(151, 26);
-            this.tbxDescription.TabIndex = 39;
+            this.tbxDescription.TabIndex = 5;
             // 
             // label5
             // 
@@ -264,7 +267,7 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator
             this.label5.Location = new System.Drawing.Point(15, 80);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(60, 13);
-            this.label5.TabIndex = 38;
+            this.label5.TabIndex = 4;
             this.label5.Text = "Description";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -277,7 +280,7 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator
             this.btnSave.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(99, 28);
-            this.btnSave.TabIndex = 52;
+            this.btnSave.TabIndex = 15;
             this.btnSave.Text = "&Save";
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -291,7 +294,7 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator
             this.btnLast.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnLast.Name = "btnLast";
             this.btnLast.Size = new System.Drawing.Size(99, 28);
-            this.btnLast.TabIndex = 53;
+            this.btnLast.TabIndex = 19;
             this.btnLast.Text = "&Last";
             this.btnLast.UseVisualStyleBackColor = false;
             this.btnLast.Click += new System.EventHandler(this.btnLast_Click);
@@ -305,7 +308,7 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator
             this.btnFirst.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnFirst.Name = "btnFirst";
             this.btnFirst.Size = new System.Drawing.Size(99, 28);
-            this.btnFirst.TabIndex = 54;
+            this.btnFirst.TabIndex = 18;
             this.btnFirst.Text = "&First";
             this.btnFirst.UseVisualStyleBackColor = false;
             this.btnFirst.Click += new System.EventHandler(this.btnFirst_Click);
@@ -319,7 +322,7 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator
             this.btnCancel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(99, 28);
-            this.btnCancel.TabIndex = 55;
+            this.btnCancel.TabIndex = 14;
             this.btnCancel.Text = "&Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
