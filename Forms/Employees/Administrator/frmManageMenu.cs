@@ -77,7 +77,8 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator {
             if (myState == "Edit") {
                 string category = cbxCategories.GetItemText(cbxCategories.SelectedItem);
                 ProgOps.updateMenuRecord(tbxItemID.Text, tbxName.Text, tbxDescription.Text, tbxPrice.Text, category);
-            }else if (myState == "Add") {
+                setState("View");
+            } else if (myState == "Add") {
                 ProgOps.insertMenuItem(tbxName.Text, tbxDescription.Text, tbxPrice.Text, cbxCategories);
 
                 foreach (Control c in Controls) {
@@ -87,9 +88,6 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator {
                 frmManageMenu_Load(sender, e);
                 btnLast.PerformClick();
             }
-
-            setState("View");
-
 
         }
 
