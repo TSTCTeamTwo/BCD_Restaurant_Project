@@ -269,6 +269,7 @@
   <ItemGroup>
     <None Include="Reports\Group2_ProgressReport_3.pdf" />
     <None Include="Reports\Group2_ProgressReport_5.pdf" />
+    <None Include="Resources\Mandatory Prefixes.pdf" />
     <None Include="Resources\pressToHide.png" />
   </ItemGroup>
   <ItemGroup>

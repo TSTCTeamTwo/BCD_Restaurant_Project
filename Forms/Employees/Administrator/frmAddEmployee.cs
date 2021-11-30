@@ -10,8 +10,18 @@ using System.Windows.Forms;
 
 namespace BCD_Restaurant_Project.Forms.Employees.Administrator {
     public partial class frmAddEmployee : Form {
+
         public frmAddEmployee() {
             InitializeComponent();
+        }
+
+        public frmAddEmployee(string accountID) {
+            tbxAccountID.Text = accountID;
+            cbx.Focus();
+        }
+
+        private void frmAddEmployee_Load(object sender, EventArgs e) {
+
         }
     }
 }
