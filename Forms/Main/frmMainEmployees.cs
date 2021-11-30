@@ -22,7 +22,7 @@ namespace BCD_Restaurant_Project.Forms.Main {
         }
 
         private void btnPersonal_Click(object sender, EventArgs e) {
-            OpenChildForm(new frmPersonal(), sender);
+            OpenChildForm(new frmAccDetails(), sender);
         }
 
         private void btnBankInformation_Click(object sender, EventArgs e) {

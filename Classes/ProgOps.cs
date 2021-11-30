@@ -37,6 +37,9 @@ namespace BCD_Restaurant_Project.Classes {
         //data adapters for the tables in our database
         private static SqlDataAdapter _daAccounts = new SqlDataAdapter();
         private static SqlDataAdapter _daEmployees = new SqlDataAdapter();
+
+       
+
         private static SqlDataAdapter _daImage = new SqlDataAdapter();
         private static SqlDataAdapter _daMenu = new SqlDataAdapter();
         private static SqlConnection _dbConnection = new SqlConnection(CONNECT_STRING);
@@ -324,12 +327,41 @@ namespace BCD_Restaurant_Project.Classes {
             }
         }
 
+        public static void updateAccountDetails(string address, string email, string username, string phone)
+        {
+            try
+            {
+                string query = $"UPDATE group2fa212330.Employees SET Address ='{address}', Phone ='{phone}' WHERE AccountID = {AccountID}";
+                _sqlAccountsCommand = new SqlCommand(query, _dbConnection);
+                _sqlAccountsCommand.ExecuteNonQuery();
+                string query2 = $"UPDATE group2fa212330.Accounts SET Email ='{email}', Username ='{username}' WHERE AccountID = {AccountID}";
+                _sqlAccountsCommand = new SqlCommand(query2, _dbConnection);
+                _sqlAccountsCommand.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                for (int i = 0; i < ex.Errors.Count; i++)
+                    ErrorMessages.Append("Index#" + i + "\n" + "Message: " + ex.Errors[i].Message + "\n" +
+                                         "LineNumber: " + ex.Errors[i].LineNumber + "\n" + "Source: " +
+                                         ex.Errors[i].Source + "\n" + "Procedure: " + ex.Errors[i].Procedure + "\n");
+
+                MessageBox.Show(ErrorMessages.ToString(), "Error Close Database", MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error:\n\t" + ex.Message, "Finalize Order Error", MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+            }
+        }
+
         public static void generatePassword(int argument, string newUserPassword = null) {
             string password = string.Empty;
             try {
                 switch (argument) {
                     case 1: //replaces old password with new password
                         password = $"UPDATE group2fa212330.Accounts SET Password = '{newUserPassword}', OneTimePassword = NULL WHERE AccountID = {AccountID}";
+                        MessageBox.Show("Password has been changed", "Password", MessageBoxButtons.OK, MessageBoxIcon.None);
                         break;
                     case 2: //generates new one time password
                         password = "DECLARE @password varchar(20) " +
@@ -337,6 +369,7 @@ namespace BCD_Restaurant_Project.Classes {
                                    "UPDATE group2fa212330.Accounts " + "SET OneTimePassword = @password " +
                                    $"WHERE Email = '{Email}'";
                         break;
+                     
                 }
 
                 _sqlAccountsCommand = new SqlCommand(password, _dbConnection);
@@ -992,6 +1025,10 @@ namespace BCD_Restaurant_Project.Classes {
             return -1;
         }
 
+        public static void returnNonEmployees()
+        {
+
+        }
     }
 }
 

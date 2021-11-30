@@ -20,11 +20,7 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator {
             InitializeComponent();
         }
 
-        private void btnAdd_Click(object sender, EventArgs e) {
-            setState("Add");
-            accountsManager.AddNew();
-            tbxAccountID.Enabled = false;
-        }
+       
 
         private void btnCancel_Click(object sender, EventArgs e) {
             setState("View");
@@ -74,9 +70,10 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator {
                                tbxFirstName.Text
                            };
 
+           
+
             accountsManager.EndCurrentEdit();
             commandAccount();
-            accountsManager.Refresh();
             setTitleAndEmployees();
             setState("View");
         }
@@ -106,7 +103,7 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator {
                     //ENABLED - BUTTONS
                     btnPrevious.Enabled = true;
                     btnNext.Enabled = true;
-                    btnAdd.Enabled = true;
+                    //btnAdd.Enabled = true;
                     btnSave.Enabled = false;
                     btnEdit.Enabled = true;
                     btnDelete.Enabled = true;
@@ -129,7 +126,7 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator {
                     btnSave.Enabled = true;
                     btnPrevious.Enabled = false;
                     btnNext.Enabled = false;
-                    btnAdd.Enabled = false;
+                    //btnAdd.Enabled = false;
                     btnCancel.Enabled = true;
                     btnDelete.Enabled = false;
                     btnEdit.Enabled = false;

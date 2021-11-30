@@ -1,7 +1,7 @@
 ﻿
 namespace BCD_Restaurant_Project.Forms.Employees.Regular
 {
-    partial class frmPersonal
+    partial class frmAccDetails
     {
         /// <summary>
         /// Required designer variable.
@@ -36,17 +36,21 @@ namespace BCD_Restaurant_Project.Forms.Employees.Regular
             this.tbxName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tbxAccountID = new System.Windows.Forms.TextBox();
-            this.btnChangePassword = new System.Windows.Forms.Button();
+            this.btnChangeInformation = new System.Windows.Forms.Button();
             this.lblUsername = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tbxPassword = new System.Windows.Forms.TextBox();
-            this.btnConfirmPassword = new System.Windows.Forms.Button();
+            this.btnConfirmInformation = new System.Windows.Forms.Button();
+            this.lblPhone = new System.Windows.Forms.Label();
+            this.tbxPhone = new System.Windows.Forms.TextBox();
+            this.lblAddress = new System.Windows.Forms.Label();
+            this.tbxAddress = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(115, 146);
+            this.label4.Location = new System.Drawing.Point(115, 81);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(35, 13);
             this.label4.TabIndex = 15;
@@ -56,7 +60,7 @@ namespace BCD_Restaurant_Project.Forms.Employees.Regular
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(115, 112);
+            this.label5.Location = new System.Drawing.Point(115, 145);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(55, 13);
             this.label5.TabIndex = 14;
@@ -66,40 +70,42 @@ namespace BCD_Restaurant_Project.Forms.Employees.Regular
             // tbxUsername
             // 
             this.tbxUsername.BackColor = System.Drawing.Color.White;
+            this.tbxUsername.Enabled = false;
             this.tbxUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxUsername.Location = new System.Drawing.Point(249, 106);
+            this.tbxUsername.Location = new System.Drawing.Point(249, 139);
             this.tbxUsername.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbxUsername.Name = "tbxUsername";
-            this.tbxUsername.ReadOnly = true;
             this.tbxUsername.Size = new System.Drawing.Size(199, 26);
             this.tbxUsername.TabIndex = 16;
             // 
             // tbxEmail
             // 
             this.tbxEmail.BackColor = System.Drawing.Color.White;
+            this.tbxEmail.Enabled = false;
             this.tbxEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxEmail.Location = new System.Drawing.Point(249, 73);
+            this.tbxEmail.Location = new System.Drawing.Point(249, 106);
             this.tbxEmail.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbxEmail.Name = "tbxEmail";
-            this.tbxEmail.ReadOnly = true;
             this.tbxEmail.Size = new System.Drawing.Size(199, 26);
             this.tbxEmail.TabIndex = 12;
             // 
             // tbxName
             // 
             this.tbxName.BackColor = System.Drawing.Color.White;
+            this.tbxName.Enabled = false;
             this.tbxName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxName.Location = new System.Drawing.Point(249, 140);
+            this.tbxName.Location = new System.Drawing.Point(249, 75);
             this.tbxName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbxName.Name = "tbxName";
             this.tbxName.ReadOnly = true;
             this.tbxName.Size = new System.Drawing.Size(199, 26);
             this.tbxName.TabIndex = 17;
+            this.tbxName.TextChanged += new System.EventHandler(this.tbxName_TextChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(115, 79);
+            this.label1.Location = new System.Drawing.Point(115, 112);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(32, 13);
             this.label1.TabIndex = 11;
@@ -117,19 +123,19 @@ namespace BCD_Restaurant_Project.Forms.Employees.Regular
             this.tbxAccountID.Size = new System.Drawing.Size(69, 26);
             this.tbxAccountID.TabIndex = 9;
             // 
-            // btnChangePassword
+            // btnChangeInformation
             // 
-            this.btnChangePassword.BackColor = System.Drawing.Color.White;
-            this.btnChangePassword.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnChangePassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnChangePassword.Location = new System.Drawing.Point(118, 228);
-            this.btnChangePassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnChangePassword.Name = "btnChangePassword";
-            this.btnChangePassword.Size = new System.Drawing.Size(128, 28);
-            this.btnChangePassword.TabIndex = 20;
-            this.btnChangePassword.Text = "&Change Password";
-            this.btnChangePassword.UseVisualStyleBackColor = false;
-            this.btnChangePassword.Click += new System.EventHandler(this.btnChangePassword_Click);
+            this.btnChangeInformation.BackColor = System.Drawing.Color.White;
+            this.btnChangeInformation.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnChangeInformation.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChangeInformation.Location = new System.Drawing.Point(116, 295);
+            this.btnChangeInformation.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnChangeInformation.Name = "btnChangeInformation";
+            this.btnChangeInformation.Size = new System.Drawing.Size(148, 28);
+            this.btnChangeInformation.TabIndex = 20;
+            this.btnChangeInformation.Text = "&Change Information";
+            this.btnChangeInformation.UseVisualStyleBackColor = false;
+            this.btnChangeInformation.Click += new System.EventHandler(this.btnChangeInformation_Click);
             // 
             // lblUsername
             // 
@@ -154,6 +160,7 @@ namespace BCD_Restaurant_Project.Forms.Employees.Regular
             // tbxPassword
             // 
             this.tbxPassword.BackColor = System.Drawing.Color.White;
+            this.tbxPassword.Enabled = false;
             this.tbxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxPassword.Location = new System.Drawing.Point(249, 173);
             this.tbxPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -161,39 +168,88 @@ namespace BCD_Restaurant_Project.Forms.Employees.Regular
             this.tbxPassword.Size = new System.Drawing.Size(199, 26);
             this.tbxPassword.TabIndex = 22;
             // 
-            // btnConfirmPassword
+            // btnConfirmInformation
             // 
-            this.btnConfirmPassword.BackColor = System.Drawing.Color.White;
-            this.btnConfirmPassword.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnConfirmPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConfirmPassword.Location = new System.Drawing.Point(353, 228);
-            this.btnConfirmPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnConfirmPassword.Name = "btnConfirmPassword";
-            this.btnConfirmPassword.Size = new System.Drawing.Size(128, 28);
-            this.btnConfirmPassword.TabIndex = 23;
-            this.btnConfirmPassword.Text = "C&onfirm Password";
-            this.btnConfirmPassword.UseVisualStyleBackColor = false;
-            this.btnConfirmPassword.Click += new System.EventHandler(this.btnConfirmPassword_Click);
+            this.btnConfirmInformation.BackColor = System.Drawing.Color.White;
+            this.btnConfirmInformation.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnConfirmInformation.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConfirmInformation.Location = new System.Drawing.Point(351, 295);
+            this.btnConfirmInformation.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnConfirmInformation.Name = "btnConfirmInformation";
+            this.btnConfirmInformation.Size = new System.Drawing.Size(148, 28);
+            this.btnConfirmInformation.TabIndex = 23;
+            this.btnConfirmInformation.Text = "C&onfirm Information";
+            this.btnConfirmInformation.UseVisualStyleBackColor = false;
+            this.btnConfirmInformation.Click += new System.EventHandler(this.btnConfirmInformation_Click);
             // 
-            // frmPersonal
+            // lblPhone
+            // 
+            this.lblPhone.AutoSize = true;
+            this.lblPhone.Location = new System.Drawing.Point(115, 247);
+            this.lblPhone.Name = "lblPhone";
+            this.lblPhone.Size = new System.Drawing.Size(38, 13);
+            this.lblPhone.TabIndex = 24;
+            this.lblPhone.Text = "Phone";
+            this.lblPhone.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tbxPhone
+            // 
+            this.tbxPhone.BackColor = System.Drawing.Color.White;
+            this.tbxPhone.Enabled = false;
+            this.tbxPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxPhone.Location = new System.Drawing.Point(249, 241);
+            this.tbxPhone.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tbxPhone.MaxLength = 10;
+            this.tbxPhone.Name = "tbxPhone";
+            this.tbxPhone.Size = new System.Drawing.Size(199, 26);
+            this.tbxPhone.TabIndex = 25;
+            this.tbxPhone.TextChanged += new System.EventHandler(this.tbxPhone_TextChanged);
+            this.tbxPhone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxPhone_KeyPress);
+            // 
+            // lblAddress
+            // 
+            this.lblAddress.AutoSize = true;
+            this.lblAddress.Location = new System.Drawing.Point(115, 213);
+            this.lblAddress.Name = "lblAddress";
+            this.lblAddress.Size = new System.Drawing.Size(45, 13);
+            this.lblAddress.TabIndex = 26;
+            this.lblAddress.Text = "Address";
+            this.lblAddress.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tbxAddress
+            // 
+            this.tbxAddress.BackColor = System.Drawing.Color.White;
+            this.tbxAddress.Enabled = false;
+            this.tbxAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxAddress.Location = new System.Drawing.Point(249, 207);
+            this.tbxAddress.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tbxAddress.Name = "tbxAddress";
+            this.tbxAddress.Size = new System.Drawing.Size(199, 26);
+            this.tbxAddress.TabIndex = 27;
+            // 
+            // frmAccDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(645, 302);
-            this.Controls.Add(this.btnConfirmPassword);
+            this.ClientSize = new System.Drawing.Size(645, 336);
+            this.Controls.Add(this.lblAddress);
+            this.Controls.Add(this.tbxAddress);
+            this.Controls.Add(this.lblPhone);
+            this.Controls.Add(this.tbxPhone);
+            this.Controls.Add(this.btnConfirmInformation);
             this.Controls.Add(this.tbxPassword);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblUsername);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.btnChangePassword);
+            this.Controls.Add(this.btnChangeInformation);
             this.Controls.Add(this.tbxUsername);
             this.Controls.Add(this.tbxAccountID);
             this.Controls.Add(this.tbxEmail);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbxName);
-            this.Name = "frmPersonal";
-            this.Text = "Personal Information";
+            this.Name = "frmAccDetails";
+            this.Text = "Account Details";
             this.Load += new System.EventHandler(this.frmPersonal_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -209,10 +265,14 @@ namespace BCD_Restaurant_Project.Forms.Employees.Regular
         private System.Windows.Forms.TextBox tbxName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbxAccountID;
-        private System.Windows.Forms.Button btnChangePassword;
+        private System.Windows.Forms.Button btnChangeInformation;
         private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tbxPassword;
-        private System.Windows.Forms.Button btnConfirmPassword;
+        private System.Windows.Forms.Button btnConfirmInformation;
+        private System.Windows.Forms.Label lblPhone;
+        private System.Windows.Forms.TextBox tbxPhone;
+        private System.Windows.Forms.Label lblAddress;
+        private System.Windows.Forms.TextBox tbxAddress;
     }
 }
