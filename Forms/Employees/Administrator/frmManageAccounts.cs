@@ -13,7 +13,7 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator {
     public partial class frmManageAccounts : Form {
         private CurrencyManager accountsManager;
 
-        private CurrencyManager employeesManager;
+        //private CurrencyManager employeesManager;
         private string myState;
 
         public frmManageAccounts() {

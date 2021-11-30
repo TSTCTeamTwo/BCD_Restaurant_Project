@@ -7,6 +7,8 @@ using System.Windows.Forms;
 
 using BCD_Restaurant_Project.Classes;
 
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
+
 #endregion
 
 namespace BCD_Restaurant_Project.Forms.Employees.Administrator {
@@ -76,11 +78,19 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator {
                 string category = cbxCategories.GetItemText(cbxCategories.SelectedItem);
                 ProgOps.updateMenuRecord(tbxItemID.Text, tbxName.Text, tbxDescription.Text, tbxPrice.Text, category);
             }else if (myState == "Add") {
-                ProgOps.insertMenuItem(tbxName.Text, tbxDescription.Text, tbxPrice.Text, cbxCategories );
+                ProgOps.insertMenuItem(tbxName.Text, tbxDescription.Text, tbxPrice.Text, cbxCategories);
+
+                foreach (Control c in Controls) {
+                    c.DataBindings.Clear();
+                }
+
+                frmManageMenu_Load(sender, e);
+                btnLast.PerformClick();
             }
 
-
             setState("View");
+
+
         }
 
         private void frmManageMenu_FormClosing(object sender, FormClosingEventArgs e) { }

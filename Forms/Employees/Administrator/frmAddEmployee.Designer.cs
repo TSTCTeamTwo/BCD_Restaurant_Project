@@ -174,7 +174,7 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator {
             // 
             this.btnAdd.BackColor = System.Drawing.Color.White;
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Location = new System.Drawing.Point(249, 307);
+            this.btnAdd.Location = new System.Drawing.Point(248, 245);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(73, 28);
@@ -186,7 +186,7 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator {
             // 
             this.btnCancel.BackColor = System.Drawing.Color.White;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(50, 307);
+            this.btnCancel.Location = new System.Drawing.Point(49, 245);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(73, 28);
@@ -198,7 +198,7 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator {
             // 
             this.btnClear.BackColor = System.Drawing.Color.White;
             this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.Location = new System.Drawing.Point(149, 307);
+            this.btnClear.Location = new System.Drawing.Point(148, 245);
             this.btnClear.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(73, 28);
@@ -228,7 +228,7 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator {
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(373, 341);
+            this.ClientSize = new System.Drawing.Size(373, 288);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.btnAdd);

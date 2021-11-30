@@ -928,7 +928,7 @@ namespace BCD_Restaurant_Project.Classes {
             try {
                 string query
                     = "INSERT INTO group2fa212330.Menu(ItemName, ItemDescription, Price, CategoryID, ImageID) VALUES('" + name +
-                      "', '" + description + "', " + price + ", " + cbCategory.SelectedIndex + 1 +", "+ returnImageID();
+                      "', '" + description + "', " + price + ", " + cbCategory.SelectedIndex + 1 +", "+ returnImageID() + ")";
                 _sqlMenuCommand = new SqlCommand(query, _dbConnection);
                 _sqlMenuCommand.ExecuteNonQuery();
             } catch (SqlException ex) {
