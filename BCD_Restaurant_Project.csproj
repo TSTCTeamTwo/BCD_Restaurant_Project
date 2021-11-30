@@ -159,11 +159,11 @@
     <Compile Include="Forms\Employees\Administrator\frmManageMenu.Designer.cs">
       <DependentUpon>frmManageMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Employees\Regular\frmPersonal.cs">
+    <Compile Include="Forms\Employees\Regular\frmAccDetails.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Employees\Regular\frmPersonal.Designer.cs">
-      <DependentUpon>frmPersonal.cs</DependentUpon>
+    <Compile Include="Forms\Employees\Regular\frmAccDetails.Designer.cs">
+      <DependentUpon>frmAccDetails.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Login\frmNewPassword.cs">
       <SubType>Form</SubType>
@@ -230,8 +230,8 @@
     <EmbeddedResource Include="Forms\Employees\Administrator\frmManageMenu.resx">
       <DependentUpon>frmManageMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Employees\Regular\frmPersonal.resx">
-      <DependentUpon>frmPersonal.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Employees\Regular\frmAccDetails.resx">
+      <DependentUpon>frmAccDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Login\frmNewPassword.resx">
       <DependentUpon>frmNewPassword.cs</DependentUpon>
