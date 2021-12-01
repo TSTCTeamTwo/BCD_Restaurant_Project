@@ -3,6 +3,7 @@
 using System;
 using System.Drawing;
 using System.Linq;
+using System.Media;
 using System.Windows.Forms;
 
 using BCD_Restaurant_Project.Classes;
@@ -76,10 +77,12 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator {
 
             if (myState == "Edit") {
                 string category = cbxCategories.GetItemText(cbxCategories.SelectedItem);
-                ProgOps.updateMenuRecord(tbxItemID.Text, tbxName.Text, tbxDescription.Text, tbxPrice.Text, category);
+                string price = tbxPrice.Text.Replace("$", "");
+                ProgOps.updateMenuRecord(tbxItemID.Text, tbxName.Text, tbxDescription.Text, price, category);
                 setState("View");
             } else if (myState == "Add") {
-                ProgOps.insertMenuItem(tbxName.Text, tbxDescription.Text, tbxPrice.Text, cbxCategories);
+                string price = tbxPrice.Text.Replace("$", "");
+                ProgOps.insertMenuItem(tbxName.Text, tbxDescription.Text, price, cbxCategories);
 
                 foreach (Control c in Controls) {
                     c.DataBindings.Clear();
@@ -160,6 +163,17 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator {
 
         private void setText() {
             Text = "Menu - Record" + (menuManager.Position + 1) + " of" + menuManager.Count + " Records";
+        }
+
+        private void tbxPrice_KeyPress(object sender, KeyPressEventArgs e) {
+            if (((e.KeyChar >= '0') && (e.KeyChar <= '9')) || (e.KeyChar == 8) || (e.KeyChar == '.')) {
+                e.Handled = false;
+            } else if (e.KeyChar == 13) {
+                cbxCategories.Focus();
+            } else {
+                e.Handled = true;
+                SystemSounds.Beep.Play();
+            }
         }
     }
 }
