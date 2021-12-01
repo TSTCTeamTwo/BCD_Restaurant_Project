@@ -157,6 +157,7 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator
             this.tbxPrice.Name = "tbxPrice";
             this.tbxPrice.Size = new System.Drawing.Size(151, 26);
             this.tbxPrice.TabIndex = 7;
+            this.tbxPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxPrice_KeyPress);
             // 
             // label2
             // 
