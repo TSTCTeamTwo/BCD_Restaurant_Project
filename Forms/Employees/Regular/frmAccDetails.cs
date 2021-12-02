@@ -35,10 +35,6 @@ namespace BCD_Restaurant_Project.Forms.Employees.Regular {
                 return;
             }
 
-         
-
-
-
             if (tbxPassword.Text != string.Empty)
             {
                 ProgOps.generatePassword(1, tbxPassword.Text);

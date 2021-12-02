@@ -87,7 +87,7 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator
             this.btnCreateEmployee.Name = "btnCreateEmployee";
             this.btnCreateEmployee.Size = new System.Drawing.Size(114, 51);
             this.btnCreateEmployee.TabIndex = 4;
-            this.btnCreateEmployee.Text = "&Designate As Employee";
+            this.btnCreateEmployee.Text = "Assign New Employee";
             this.btnCreateEmployee.UseVisualStyleBackColor = false;
             this.btnCreateEmployee.Click += new System.EventHandler(this.btnCreateEmployee_Click);
             // 

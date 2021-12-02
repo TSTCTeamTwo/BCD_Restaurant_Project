@@ -37,7 +37,7 @@ namespace BCD_Restaurant_Project.Classes {
         //data adapters for the tables in our database
         private static SqlDataAdapter _daAccounts = new SqlDataAdapter();
         private static SqlDataAdapter _daEmployees = new SqlDataAdapter();
-
+        private static SqlDataAdapter _daPositions = new SqlDataAdapter();
        
 
         private static SqlDataAdapter _daImage = new SqlDataAdapter();
@@ -52,6 +52,7 @@ namespace BCD_Restaurant_Project.Classes {
         private static SqlCommand _sqlMenuCommand = new SqlCommand();
         private static SqlCommand _sqlOrderItemsCommand = new SqlCommand();
         private static SqlCommand _sqlOrdersCommand = new SqlCommand();
+        private static SqlCommand _sqlPositionsCommand = new SqlCommand();
 
         public enum CurrentForm {
             FOOD = 1, DRINKS, DESSERTS, SIDES
@@ -74,6 +75,12 @@ namespace BCD_Restaurant_Project.Classes {
         } = string.Empty;
 
         public static DataTable DTAccounts {
+            get;
+            private set;
+        } = new DataTable();
+
+        public static DataTable DTPositions
+        {
             get;
             private set;
         } = new DataTable();
@@ -584,6 +591,41 @@ namespace BCD_Restaurant_Project.Classes {
             tbxFirstName.DataBindings.Add("Text", DTAccounts, "Firstname");
 
             accountsManager = (CurrencyManager)form.BindingContext[DTAccounts];
+        }
+
+        public static void findAccounts(TextBox tbxAccountID, ComboBox cboPositions)
+        {
+            try
+            {
+                string query = "SELECT AccountID FROM group2fa212330.Accounts ORDER BY AccountID";
+                _sqlAccountsCommand = new SqlCommand(query, _dbConnection);
+                _daAccounts.SelectCommand = _sqlAccountsCommand;
+                _daAccounts.Fill(DTAccounts);
+                tbxAccountID.DataBindings.Add("Text", DTAccounts, "AccountID");
+
+                string comboBox = "SELECT * FROM group2fa212330.Positions";
+                _sqlPositionsCommand = new SqlCommand(comboBox, _dbConnection);
+                _daPositions.SelectCommand = _sqlPositionsCommand;
+                _daPositions.Fill(DTPositions);
+                cboPositions.DataSource = DTPositions;
+                cboPositions.DisplayMember = "PositionTitle";
+                cboPositions.ValueMember = "PositionID";
+                cboPositions.DataBindings.Add("SelectedItem", DTPositions, "PositionTitle");
+            }
+            catch (SqlException ex)
+            {
+                for (int i = 0; i < ex.Errors.Count; i++)
+                    ErrorMessages.Append("Index#" + i + "\n" + "Message: " + ex.Errors[i].Message + "\n" +
+                                         "LineNumber: " + ex.Errors[i].LineNumber + "\n" + "Source: " +
+                                         ex.Errors[i].Source + "\n" + "Procedure: " + ex.Errors[i].Procedure + "\n");
+
+                MessageBox.Show(ErrorMessages.ToString(), "Error Close Database", MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error:\n\t" + ex.Message, "ProgOps Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         public static void populateBanking(
