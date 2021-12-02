@@ -21,6 +21,7 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator {
         }
 
         private void frmAddEmployee_Load(object sender, EventArgs e) {
+            
             addEmployee = (CurrencyManager)this.BindingContext[ProgOps.DTAccounts];
             ProgOps.findAccounts(tbxAccountID, cboPositions);
         }
@@ -35,6 +36,7 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator {
             DataRow[] foundRows;
             ProgOps.DTAccounts.DefaultView.Sort = "Username";
             foundRows = ProgOps.DTAccounts.Select("Username LIKE '" + tbxSearch.Text + "*'");
+
             if(foundRows.Length == 0)
             {
                 addEmployee.Position = savedRow;
@@ -50,6 +52,12 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator {
                 addEmployee.Position = ProgOps.DTAccounts.DefaultView.Find(foundRows[0]["Username"]);
             }
             
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+           
+            this.Close();
         }
     }
 }

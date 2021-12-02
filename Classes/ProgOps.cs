@@ -597,7 +597,7 @@ namespace BCD_Restaurant_Project.Classes {
         {
             try
             {
-                string query = "SELECT AccountID FROM group2fa212330.Accounts ORDER BY AccountID";
+                string query = "SELECT A.AccountID FROM group2fa212330.Accounts AS A INNER JOIN group2fa212330.Employees AS E ON A.AccountID = E.AccountID ORDER BY AccountID";
                 _sqlAccountsCommand = new SqlCommand(query, _dbConnection);
                 _daAccounts.SelectCommand = _sqlAccountsCommand;
                 _daAccounts.Fill(DTAccounts);
@@ -606,11 +606,15 @@ namespace BCD_Restaurant_Project.Classes {
                 string comboBox = "SELECT * FROM group2fa212330.Positions";
                 _sqlPositionsCommand = new SqlCommand(comboBox, _dbConnection);
                 _daPositions.SelectCommand = _sqlPositionsCommand;
+                DTPositions.Rows.Clear();
                 _daPositions.Fill(DTPositions);
+                cboPositions.Items.Clear();
                 cboPositions.DataSource = DTPositions;
                 cboPositions.DisplayMember = "PositionTitle";
                 cboPositions.ValueMember = "PositionID";
                 cboPositions.DataBindings.Add("SelectedItem", DTPositions, "PositionTitle");
+                
+                
             }
             catch (SqlException ex)
             {
