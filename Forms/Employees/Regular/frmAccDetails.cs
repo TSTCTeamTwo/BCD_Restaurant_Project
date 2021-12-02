@@ -29,6 +29,16 @@ namespace BCD_Restaurant_Project.Forms.Employees.Regular {
 
         private void btnConfirmInformation_Click(object sender, EventArgs e)
         {
+            if (!ProgOps.isValidEmail(tbxEmail.Text))
+            {
+                MessageBox.Show("Invalid email", "Password", MessageBoxButtons.OK, MessageBoxIcon.None);
+                return;
+            }
+
+         
+
+
+
             if (tbxPassword.Text != string.Empty)
             {
                 ProgOps.generatePassword(1, tbxPassword.Text);
@@ -43,6 +53,7 @@ namespace BCD_Restaurant_Project.Forms.Employees.Regular {
             else
             {
                 MessageBox.Show("Password cannot be empty", "Password", MessageBoxButtons.OK, MessageBoxIcon.None);
+                return;
             }
         }
 

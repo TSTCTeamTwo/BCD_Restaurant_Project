@@ -894,9 +894,10 @@ namespace BCD_Restaurant_Project.Classes {
             return result;
         }
 
-        private static bool returnStatus(string variable, int type = 0) {
+        public static bool returnStatus(string variable, int type = 0) {
             string addition = "";
             string error = "";
+
             switch (type) {
                 case 0:
                     addition = $"email = '{variable}'";
@@ -920,9 +921,7 @@ namespace BCD_Restaurant_Project.Classes {
                 return false;
             }
 
-            _daAccounts.Dispose();
-            _sqlAccountsCommand.Dispose();
-            DTAccounts.Clear();
+          
 
             return true;
         }
