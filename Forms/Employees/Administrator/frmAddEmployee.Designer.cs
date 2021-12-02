@@ -127,6 +127,7 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator {
             this.btnCancel.TabIndex = 12;
             this.btnCancel.Text = "&Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnClear
             // 
