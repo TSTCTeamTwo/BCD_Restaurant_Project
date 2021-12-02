@@ -35,6 +35,9 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator {
             this.btnClear = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.cboPositions = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.tbxSearch = new System.Windows.Forms.TextBox();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblUsername
@@ -155,11 +158,48 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator {
             this.cboPositions.Size = new System.Drawing.Size(121, 21);
             this.cboPositions.TabIndex = 16;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(253, 14);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(109, 13);
+            this.label2.TabIndex = 17;
+            this.label2.Text = "Search by Username:";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tbxSearch
+            // 
+            this.tbxSearch.BackColor = System.Drawing.Color.White;
+            this.tbxSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxSearch.Location = new System.Drawing.Point(368, 8);
+            this.tbxSearch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tbxSearch.Name = "tbxSearch";
+            this.tbxSearch.Size = new System.Drawing.Size(199, 26);
+            this.tbxSearch.TabIndex = 18;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.BackColor = System.Drawing.Color.White;
+            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.Location = new System.Drawing.Point(386, 42);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(146, 28);
+            this.btnSearch.TabIndex = 19;
+            this.btnSearch.Text = "&Search";
+            this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
             // frmAddEmployee
             // 
+            this.AcceptButton = this.btnSearch;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(373, 191);
+            this.ClientSize = new System.Drawing.Size(595, 191);
+            this.Controls.Add(this.btnSearch);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.tbxSearch);
             this.Controls.Add(this.cboPositions);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.btnAdd);
@@ -192,5 +232,8 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator {
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox cboPositions;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox tbxSearch;
+        private System.Windows.Forms.Button btnSearch;
     }
 }

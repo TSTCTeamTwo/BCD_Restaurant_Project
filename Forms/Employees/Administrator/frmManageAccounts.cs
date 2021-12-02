@@ -6,7 +6,7 @@ using System.Linq;
 using System.Windows.Forms;
 using BCD_Restaurant_Project.Classes;
 using static BCD_Restaurant_Project.Classes.ProgOps;
-
+using BCD_Restaurant_Project.Forms.Employees;
 #endregion
 
 namespace BCD_Restaurant_Project.Forms.Employees.Administrator {
@@ -150,7 +150,7 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator {
         }
 
         private void btnCreateEmployee_Click(object sender, EventArgs e) {
-
+            new frmAddEmployee().Show();
         }
     }
 }
