@@ -135,7 +135,8 @@ namespace BCD_Restaurant_Project.Forms.Login {
 
         private void tbxUsername_KeyPress(object sender, KeyPressEventArgs e) {
 
-            if (((e.KeyChar >= 'A') && (e.KeyChar <= 'Z')) || ((e.KeyChar >= 'a') && (e.KeyChar <= 'z')) || (e.KeyChar == 8)) {
+            if (((e.KeyChar >= 'A') && (e.KeyChar <= 'Z')) || ((e.KeyChar >= 'a') && (e.KeyChar <= 'z')) ||
+                ((e.KeyChar >= '0') && (e.KeyChar <= '9')) || (e.KeyChar == 8)) {
                 e.Handled = false;
             } else if (e.KeyChar == 13) {
                 tbxPassword.Focus();

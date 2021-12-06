@@ -17,9 +17,13 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator {
             InitializeComponent();
         }
 
+        //private bool searched = false;
+
         private void frmAddEmployee_Load(object sender, EventArgs e) {
             findAccounts(tbxAccountID, tbxFullName, cboPositions);
             addEmployee = (CurrencyManager)this.BindingContext[DTAccounts];
+            tbxAccountID.Hide();
+            btnAdd.Hide();
 
         }
 
@@ -48,8 +52,10 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator {
                 tbxSearch.Clear();
                 tbxSearch.Focus();
             }
-            else
-            {
+            else {
+                tbxSearch.Clear();
+                tbxAccountID.Show();
+                btnAdd.Show();
                 addEmployee.Position = DTAccounts.DefaultView.Find(foundRows[0]["Username"]);
                 cboPositions.Focus();
             }
@@ -66,7 +72,10 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator {
         }
 
         private void btnClear_Click(object sender, EventArgs e) {
-
+            tbxAccountID.Hide();
+            btnAdd.Hide();
+            tbxSearch.Clear();
+            tbxSearch.Focus();
         }
     }
 }
