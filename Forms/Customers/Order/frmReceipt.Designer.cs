@@ -52,10 +52,10 @@ namespace BCD_Restaurant_Project.Forms.Customers.Order
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1176, 769);
             this.Controls.Add(this.crvReceiptViewer);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmReceipt";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmReceipt";
+            this.Text = "Receipt";
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.frmReceipt_MouseDown);
             this.ResumeLayout(false);
 
