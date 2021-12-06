@@ -13,7 +13,7 @@ namespace BCD_Restaurant_Project.Forms.Customers.Order {
             InitializeComponent();
         }
         private void btnAdd_Click(object sender, EventArgs e) {
-            
+
             if (rdoPaymentOptionCard.Checked)
                 ProgOps.insertPaymentOption(mskPaymentNumber.Text, "Credit", tbxName.Text, mskSecurityCode.Text,
                                    mskExpirationDate);
@@ -25,7 +25,6 @@ namespace BCD_Restaurant_Project.Forms.Customers.Order {
                 MessageBox.Show("Choose card type", "Payment", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-               
 
             ProgOps.finalizeOrder(Cart.Tip);
 
