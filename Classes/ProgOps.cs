@@ -524,7 +524,7 @@ namespace BCD_Restaurant_Project.Classes {
                 _sqlMenuCommand = new SqlCommand(query, _dbConnection);
                 _daMenu = new SqlDataAdapter();
                 _daMenu.SelectCommand = _sqlMenuCommand;
-                DTMenu = new DataTable();
+                DTMenu.Rows.Clear();
                 _daMenu.Fill(DTMenu);
 
                 dgvDisplay.DataSource = DTMenu;

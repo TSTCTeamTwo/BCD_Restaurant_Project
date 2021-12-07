@@ -29,11 +29,7 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator
         /// </summary>
         private void InitializeComponent()
         {
-            this.gbxEmployeeInfo = new System.Windows.Forms.GroupBox();
-            this.btnCreateEmployee = new System.Windows.Forms.Button();
             this.btnMakeEmployeeAdmin = new System.Windows.Forms.Button();
-            this.lblPassword = new System.Windows.Forms.Label();
-            this.tbxEmployeeID = new System.Windows.Forms.TextBox();
             this.btnDeactivateEmployeeAccount = new System.Windows.Forms.Button();
             this.tbxPassword = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -57,83 +53,32 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator
             this.dgvEmployees = new System.Windows.Forms.DataGridView();
             this.btnLast = new System.Windows.Forms.Button();
             this.btnFirst = new System.Windows.Forms.Button();
-            this.gbxEmployeeInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmployees)).BeginInit();
             this.SuspendLayout();
-            // 
-            // gbxEmployeeInfo
-            // 
-            this.gbxEmployeeInfo.Controls.Add(this.btnCreateEmployee);
-            this.gbxEmployeeInfo.Controls.Add(this.btnMakeEmployeeAdmin);
-            this.gbxEmployeeInfo.Controls.Add(this.lblPassword);
-            this.gbxEmployeeInfo.Controls.Add(this.tbxEmployeeID);
-            this.gbxEmployeeInfo.Controls.Add(this.btnDeactivateEmployeeAccount);
-            this.gbxEmployeeInfo.Location = new System.Drawing.Point(352, 52);
-            this.gbxEmployeeInfo.Margin = new System.Windows.Forms.Padding(2);
-            this.gbxEmployeeInfo.Name = "gbxEmployeeInfo";
-            this.gbxEmployeeInfo.Padding = new System.Windows.Forms.Padding(2);
-            this.gbxEmployeeInfo.Size = new System.Drawing.Size(146, 328);
-            this.gbxEmployeeInfo.TabIndex = 21;
-            this.gbxEmployeeInfo.TabStop = false;
-            this.gbxEmployeeInfo.Text = "Employee Information Attached To Account";
-            // 
-            // btnCreateEmployee
-            // 
-            this.btnCreateEmployee.BackColor = System.Drawing.Color.White;
-            this.btnCreateEmployee.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btnCreateEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCreateEmployee.Location = new System.Drawing.Point(16, 123);
-            this.btnCreateEmployee.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnCreateEmployee.Name = "btnCreateEmployee";
-            this.btnCreateEmployee.Size = new System.Drawing.Size(114, 51);
-            this.btnCreateEmployee.TabIndex = 4;
-            this.btnCreateEmployee.Text = "Assign New Employee";
-            this.btnCreateEmployee.UseVisualStyleBackColor = false;
-            this.btnCreateEmployee.Click += new System.EventHandler(this.btnCreateEmployee_Click);
             // 
             // btnMakeEmployeeAdmin
             // 
             this.btnMakeEmployeeAdmin.BackColor = System.Drawing.Color.White;
             this.btnMakeEmployeeAdmin.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnMakeEmployeeAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMakeEmployeeAdmin.Location = new System.Drawing.Point(16, 241);
+            this.btnMakeEmployeeAdmin.Location = new System.Drawing.Point(373, 323);
             this.btnMakeEmployeeAdmin.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnMakeEmployeeAdmin.Name = "btnMakeEmployeeAdmin";
-            this.btnMakeEmployeeAdmin.Size = new System.Drawing.Size(114, 51);
+            this.btnMakeEmployeeAdmin.Size = new System.Drawing.Size(130, 34);
             this.btnMakeEmployeeAdmin.TabIndex = 3;
             this.btnMakeEmployeeAdmin.Text = "&Make Employee An Admin";
             this.btnMakeEmployeeAdmin.UseVisualStyleBackColor = false;
             this.btnMakeEmployeeAdmin.Click += new System.EventHandler(this.btnMakeEmployeeAdmin_Click);
-            // 
-            // lblPassword
-            // 
-            this.lblPassword.AutoSize = true;
-            this.lblPassword.Location = new System.Drawing.Point(40, 41);
-            this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(67, 13);
-            this.lblPassword.TabIndex = 2;
-            this.lblPassword.Text = "Employee ID";
-            this.lblPassword.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // tbxEmployeeID
-            // 
-            this.tbxEmployeeID.BackColor = System.Drawing.Color.White;
-            this.tbxEmployeeID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxEmployeeID.Location = new System.Drawing.Point(16, 58);
-            this.tbxEmployeeID.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tbxEmployeeID.Name = "tbxEmployeeID";
-            this.tbxEmployeeID.Size = new System.Drawing.Size(114, 26);
-            this.tbxEmployeeID.TabIndex = 1;
             // 
             // btnDeactivateEmployeeAccount
             // 
             this.btnDeactivateEmployeeAccount.BackColor = System.Drawing.Color.White;
             this.btnDeactivateEmployeeAccount.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnDeactivateEmployeeAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeactivateEmployeeAccount.Location = new System.Drawing.Point(16, 182);
+            this.btnDeactivateEmployeeAccount.Location = new System.Drawing.Point(231, 323);
             this.btnDeactivateEmployeeAccount.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnDeactivateEmployeeAccount.Name = "btnDeactivateEmployeeAccount";
-            this.btnDeactivateEmployeeAccount.Size = new System.Drawing.Size(114, 51);
+            this.btnDeactivateEmployeeAccount.Size = new System.Drawing.Size(136, 34);
             this.btnDeactivateEmployeeAccount.TabIndex = 0;
             this.btnDeactivateEmployeeAccount.Text = "Deactivate Employee Record";
             this.btnDeactivateEmployeeAccount.UseVisualStyleBackColor = false;
@@ -364,7 +309,7 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator
             this.dgvEmployees.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvEmployees.BackgroundColor = System.Drawing.Color.White;
             this.dgvEmployees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEmployees.Location = new System.Drawing.Point(503, 18);
+            this.dgvEmployees.Location = new System.Drawing.Point(12, 364);
             this.dgvEmployees.Name = "dgvEmployees";
             this.dgvEmployees.ReadOnly = true;
             this.dgvEmployees.RowHeadersVisible = false;
@@ -373,14 +318,14 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator
             this.dgvEmployees.ShowCellToolTips = false;
             this.dgvEmployees.ShowEditingIcon = false;
             this.dgvEmployees.ShowRowErrors = false;
-            this.dgvEmployees.Size = new System.Drawing.Size(490, 376);
+            this.dgvEmployees.Size = new System.Drawing.Size(490, 88);
             this.dgvEmployees.TabIndex = 22;
             // 
             // btnLast
             // 
             this.btnLast.BackColor = System.Drawing.Color.White;
             this.btnLast.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLast.Location = new System.Drawing.Point(186, 329);
+            this.btnLast.Location = new System.Drawing.Point(129, 329);
             this.btnLast.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnLast.Name = "btnLast";
             this.btnLast.Size = new System.Drawing.Size(96, 28);
@@ -393,7 +338,7 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator
             // 
             this.btnFirst.BackColor = System.Drawing.Color.White;
             this.btnFirst.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFirst.Location = new System.Drawing.Point(71, 329);
+            this.btnFirst.Location = new System.Drawing.Point(14, 329);
             this.btnFirst.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnFirst.Name = "btnFirst";
             this.btnFirst.Size = new System.Drawing.Size(96, 28);
@@ -406,16 +351,17 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1084, 412);
+            this.ClientSize = new System.Drawing.Size(554, 512);
+            this.Controls.Add(this.btnMakeEmployeeAdmin);
             this.Controls.Add(this.btnFirst);
             this.Controls.Add(this.btnLast);
             this.Controls.Add(this.dgvEmployees);
+            this.Controls.Add(this.btnDeactivateEmployeeAccount);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.lblAccounts);
             this.Controls.Add(this.btnNext);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnPrevious);
-            this.Controls.Add(this.gbxEmployeeInfo);
             this.Controls.Add(this.lblUsername);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.tbxPassword);
@@ -434,8 +380,6 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator
             this.Name = "frmManageAccounts";
             this.Text = "Manage Accounts";
             this.Load += new System.EventHandler(this.frmManageAccounts_Load);
-            this.gbxEmployeeInfo.ResumeLayout(false);
-            this.gbxEmployeeInfo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmployees)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -454,13 +398,10 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnEdit;
-        private System.Windows.Forms.Label lblPassword;
-        private System.Windows.Forms.TextBox tbxEmployeeID;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnDeactivateEmployeeAccount;
         private System.Windows.Forms.TextBox tbxPassword;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.GroupBox gbxEmployeeInfo;
         private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnPrevious;
@@ -468,7 +409,6 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.DataGridView dgvEmployees;
         private System.Windows.Forms.Button btnMakeEmployeeAdmin;
-        private System.Windows.Forms.Button btnCreateEmployee;
         private System.Windows.Forms.Button btnLast;
         private System.Windows.Forms.Button btnFirst;
     }
