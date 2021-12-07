@@ -68,6 +68,8 @@ namespace BCD_Restaurant_Project.Forms.Customers.Order {
         private void btnClear_Click(object sender, EventArgs e) {
             Cart.clearCart(dgvOrder);
             Cart.fillBtnCheckoutText(btnCheckout);
+            tbxTip.Text = string.Empty;
+            fillLabels();
         }
 
         private void btnRemove_Click(object sender, EventArgs e) {
