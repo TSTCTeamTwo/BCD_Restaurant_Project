@@ -41,6 +41,7 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator {
 
         private void btnEdit_Click(object sender, EventArgs e) {
             setState("Edit");
+            
         }
 
         private void btnFirst_Click(object sender, EventArgs e) {
