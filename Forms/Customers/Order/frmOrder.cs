@@ -14,7 +14,7 @@ namespace BCD_Restaurant_Project.Forms.Customers.Order {
         public frmOrder() {
             InitializeComponent();
         }
-
+        static int dotCounter = 0;
         private void btnCheckout_Click(object sender, EventArgs e) {
            // MessageBox.Show(Cart.Tip.ToString());
             if (Cart.myCart.Count == 0) {
@@ -24,7 +24,7 @@ namespace BCD_Restaurant_Project.Forms.Customers.Order {
 
             if (ProgOps.scanForPaymentOption()) {
                 DialogResult result = MessageBox.Show("Would you like to use your previous paying method?", "Payment",
-                                                      MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                                                      MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
                 if (result == DialogResult.No) {
                     Hide();
                     new frmPayment().Show();
@@ -55,7 +55,11 @@ namespace BCD_Restaurant_Project.Forms.Customers.Order {
                     receipt.crvReceiptViewer.Refresh();
                     receipt.ShowDialog(); //opens an instance of the form now
                 }
-            } else {
+                else if(result == DialogResult.Cancel)
+                {
+                    return;
+                }
+            }else {
                 Hide();
                 new frmPayment().Show();
             }
@@ -132,12 +136,23 @@ namespace BCD_Restaurant_Project.Forms.Customers.Order {
         private void tbxTip_KeyDown(object sender, KeyEventArgs e) { }
 
         private void tbxTip_KeyPress(object sender, KeyPressEventArgs e) {
-            if (((e.KeyChar >= '0') && (e.KeyChar <= '9')) || (e.KeyChar == 8))
+            
+            if (((e.KeyChar >= '0') && (e.KeyChar <= '9')) || (e.KeyChar == 8) || (e.KeyChar == 46))
+            {
+                 
+                if (e.KeyChar == 46)
+                    dotCounter++;
                 e.Handled = false;
+            }
             else if (e.KeyChar == 13)
                 tbxTip.Focus();
             else
                 e.Handled = true;
+        }
+
+        private void tbxTip_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

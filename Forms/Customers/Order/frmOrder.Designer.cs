@@ -165,10 +165,11 @@ namespace BCD_Restaurant_Project.Forms.Customers.Order
             // 
             this.tbxTip.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxTip.Location = new System.Drawing.Point(559, 275);
-            this.tbxTip.MaxLength = 10;
+            this.tbxTip.MaxLength = 4;
             this.tbxTip.Name = "tbxTip";
             this.tbxTip.Size = new System.Drawing.Size(100, 29);
             this.tbxTip.TabIndex = 9;
+            this.tbxTip.TextChanged += new System.EventHandler(this.tbxTip_TextChanged);
             this.tbxTip.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbxTip_KeyDown);
             this.tbxTip.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxTip_KeyPress);
             this.tbxTip.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tbxTip_KeyUp);
