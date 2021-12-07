@@ -539,6 +539,7 @@ namespace BCD_Restaurant_Project.Classes {
                 string categoryName = "SELECT * FROM group2fa212330.Categories";
                 _sqlCategoryCommand = new SqlCommand(categoryName, _dbConnection);
                 _daCategory.SelectCommand = _sqlCategoryCommand;
+                DTCategories.Rows.Clear();
                 _daCategory.Fill(DTCategories);
                 cbCategory.DataSource = DTCategories;
                 cbCategory.DisplayMember = "CategoryName";
