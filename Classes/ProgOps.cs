@@ -303,7 +303,7 @@ namespace BCD_Restaurant_Project.Classes {
             try {
                 //1. Insert an empty order record with the accountid, paymentid, and orderdate
                 string query = "INSERT INTO group2fa212330.Orders(AccountID, PaymentID, OrderDate, Tip) " + "VALUES(" +
-                               AccountID + "," + DTPayment.Rows[0]["PaymentID"] + ",'" + DateTime.Now + "'," + tip +
+                               AccountID + ", (SELECT TOP 1 PaymentID FROM group2fa212330.Payment WHERE AccountID = "+AccountID+" ORDER BY PaymentID DESC),'" + DateTime.Now + "'," + tip +
                                ")";
                 _sqlOrdersCommand = new SqlCommand(query, _dbConnection);
                 _sqlOrdersCommand.ExecuteNonQuery();
