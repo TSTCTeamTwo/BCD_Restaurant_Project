@@ -25,25 +25,33 @@ namespace BCD_Restaurant_Project.Forms.Customers.Order {
                 MessageBox.Show("Choose card type", "Payment", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
+            DialogResult result = MessageBox.Show("Complete Order?", "Finalize Order", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if(result == DialogResult.Yes)
+            {
+                ProgOps.finalizeOrder(Cart.Tip);
 
-            ProgOps.finalizeOrder(Cart.Tip);
+                frmReceipt receipt = new frmReceipt();
+                //create an object of the report
+                crptReceipt crptReceipt = new crptReceipt();
+                crptReceipt.Load(@"Reports\crptReceipt.rpt");
 
-            frmReceipt receipt = new frmReceipt();
-            //create an object of the report
-            crptReceipt crptReceipt = new crptReceipt();
-            crptReceipt.Load(@"Reports\crptReceipt.rpt");
+                crptReceipt.SetParameterValue("OrderID", Cart.OrderID);
 
-            crptReceipt.SetParameterValue("OrderID", Cart.OrderID);
-
-            //set the database logon for the report
-            crptReceipt.SetDatabaseLogon("group2fa212330", "2547268");
-            //create an object of the frmViewer so we can use vrmViewer
-            //set to null first to clear the viewer
-            receipt.crvReceiptViewer.ReportSource = null;
-            //Then set the crvViewer to the report object
-            receipt.crvReceiptViewer.ReportSource = crptReceipt;
-            receipt.crvReceiptViewer.Refresh();
-            receipt.ShowDialog(); //opens an instance of the form now
+                //set the database logon for the report
+                crptReceipt.SetDatabaseLogon("group2fa212330", "2547268");
+                //create an object of the frmViewer so we can use vrmViewer
+                //set to null first to clear the viewer
+                receipt.crvReceiptViewer.ReportSource = null;
+                //Then set the crvViewer to the report object
+                receipt.crvReceiptViewer.ReportSource = crptReceipt;
+                receipt.crvReceiptViewer.Refresh();
+                receipt.ShowDialog(); //opens an instance of the form now
+            }
+            else
+            {
+                this.Close();
+            }
+            
         }
         private void btnCancel_Click(object sender, EventArgs e) {
             Hide();
