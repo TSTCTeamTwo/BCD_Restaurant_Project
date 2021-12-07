@@ -30,6 +30,7 @@ namespace BCD_Restaurant_Project.Forms.Customers.Menu
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDesserts));
             this.pbxDesserts = new System.Windows.Forms.PictureBox();
             this.btnAddToOrder = new System.Windows.Forms.Button();
             this.dgvDesserts = new System.Windows.Forms.DataGridView();
@@ -111,6 +112,7 @@ namespace BCD_Restaurant_Project.Forms.Customers.Menu
             this.Controls.Add(this.btnAddToOrder);
             this.Controls.Add(this.pbxDesserts);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmDesserts";
             this.Text = "Desserts";

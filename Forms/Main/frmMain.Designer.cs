@@ -29,6 +29,7 @@ namespace BCD_Restaurant_Project.Forms.Main
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.pnlTitle = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
             this.pnlFourth = new System.Windows.Forms.Panel();
@@ -236,6 +237,7 @@ namespace BCD_Restaurant_Project.Forms.Main
             this.Controls.Add(this.pnlDisplay);
             this.Controls.Add(this.pnlTitle);
             this.Controls.Add(this.pnlFourth);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
