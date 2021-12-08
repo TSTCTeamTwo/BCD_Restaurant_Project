@@ -69,6 +69,7 @@ namespace BCD_Restaurant_Project.Forms.Customers.Order {
             Cart.clearCart(dgvOrder);
             Cart.fillBtnCheckoutText(btnCheckout);
             tbxTip.Text = string.Empty;
+            Cart.Tip = 0;
             fillLabels();
         }
 
@@ -84,6 +85,12 @@ namespace BCD_Restaurant_Project.Forms.Customers.Order {
                 dgvOrder.Rows[row].Cells[2].Value = item.Value.IndividualPrice;
                 dgvOrder.Rows[row].Cells[3].Value = item.Value.Quantity;
             }
+
+            if (Cart.myCart.Count == 0)
+            {
+                Cart.Tip = 0;
+                tbxTip.Text = string.Empty;
+            }  
 
             fillLabels();
         }
