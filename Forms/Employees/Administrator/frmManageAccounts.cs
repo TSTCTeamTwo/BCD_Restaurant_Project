@@ -42,10 +42,13 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator {
 
         private void btnFirst_Click(object sender, EventArgs e) {
             accountsManager.Position = 0;
+            setTitleAndEmployees();
+
         }
 
         private void btnLast_Click(object sender, EventArgs e) {
             accountsManager.Position = accountsManager.Count - 1;
+            setTitleAndEmployees();
         }
 
         private void btnNext_Click(object sender, EventArgs e) {
@@ -106,7 +109,7 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator {
                     //btnAdd.Enabled = true;
                     btnSave.Enabled = false;
                     btnEdit.Enabled = true;
-                    btnDelete.Enabled = true;
+                    //btnDelete.Enabled = true;
                     btnPrevious.Focus();
                     setTitleAndEmployees();
                     break;
@@ -128,7 +131,7 @@ namespace BCD_Restaurant_Project.Forms.Employees.Administrator {
                     btnNext.Enabled = false;
                     //btnAdd.Enabled = false;
                     btnCancel.Enabled = true;
-                    btnDelete.Enabled = false;
+                    //btnDelete.Enabled = false;
                     btnEdit.Enabled = false;
                     break;
             }
