@@ -78,9 +78,8 @@ namespace BCD_Restaurant_Project.Forms.Login {
                                 break;
                         }
                     } else {
-                        MessageBox.Show("Account not found", "Login", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        tbxPassword.Clear();
-                        tbxUsername.Focus();
+                        lblEmpty.Visible = true;
+                        lblEmpty.Text = "Incorrect username or password.";
                     }
                 } catch (SqlException ex) {
                     for (int i = 0; i < ex.Errors.Count; i++)
@@ -97,7 +96,7 @@ namespace BCD_Restaurant_Project.Forms.Login {
         }
 
         private void frmLogin_FormClosing(object sender, FormClosingEventArgs e) {
-            closeDatabase();
+            //closeDatabase();
         }
 
         private void frmLogin_Load(object sender, EventArgs e) {

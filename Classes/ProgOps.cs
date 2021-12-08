@@ -193,12 +193,14 @@ namespace BCD_Restaurant_Project.Classes {
                 _daMenu.Dispose();
                 _daOrderItems.Dispose();
                 _daOrders.Dispose();
+                _daPositions.Dispose();
                 DTCategories.Dispose();
                 DTMenu.Dispose();
                 DTOrders.Dispose();
                 DTOrderItems.Dispose();
                 DTAccounts.Dispose();
                 DTEmployees.Dispose();
+                DTPositions.Dispose();
             } catch (SqlException ex) {
                 for (int i = 0; i < ex.Errors.Count; i++)
                     ErrorMessages.Append("Index#" + i + "\n" + "Message: " + ex.Errors[i].Message + "\n" +
