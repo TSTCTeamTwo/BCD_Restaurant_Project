@@ -2,16 +2,13 @@
 
 using System;
 using System.Windows.Forms;
-
 using BCD_Restaurant_Project.Classes;
-using BCD_Restaurant_Project.Forms.Employees;
 using BCD_Restaurant_Project.Forms.Employees.Administrator;
 using BCD_Restaurant_Project.Forms.Employees.Regular;
-using BCD_Restaurant_Project.Forms.Login;
 
 #endregion
 
-namespace BCD_Restaurant_Project.Forms.Main {
+namespace BCD_Restaurant_Project.Forms.Parent_Forms {
     public partial class frmMainManagers : Form {
         private Form activeForm;
 
@@ -66,7 +63,7 @@ namespace BCD_Restaurant_Project.Forms.Main {
         private void panel3_Paint(object sender, PaintEventArgs e) { }
 
         private void frmMainManagers_FormClosing(object sender, FormClosingEventArgs e) {
-            performLogout();
+            //performLogout();
         }
 
         private void performLogout() {

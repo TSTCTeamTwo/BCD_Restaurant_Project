@@ -1,5 +1,5 @@
 ﻿
-namespace BCD_Restaurant_Project.Forms.Main
+namespace BCD_Restaurant_Project.Forms.Parent_Forms
 {
     partial class frmMain
     {
@@ -234,6 +234,7 @@ namespace BCD_Restaurant_Project.Forms.Main
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1284, 661);
+            this.ControlBox = false;
             this.Controls.Add(this.pnlDisplay);
             this.Controls.Add(this.pnlTitle);
             this.Controls.Add(this.pnlFourth);

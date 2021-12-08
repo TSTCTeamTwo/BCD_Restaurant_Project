@@ -95,6 +95,7 @@ namespace BCD_Restaurant_Project.Forms.Login
             // btnExit
             // 
             this.btnExit.BackColor = System.Drawing.Color.White;
+            this.btnExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnExit.Location = new System.Drawing.Point(32, 194);
             this.btnExit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -195,7 +196,9 @@ namespace BCD_Restaurant_Project.Forms.Login
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.CancelButton = this.btnExit;
             this.ClientSize = new System.Drawing.Size(447, 301);
+            this.ControlBox = false;
             this.Controls.Add(this.pnlLogin);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;

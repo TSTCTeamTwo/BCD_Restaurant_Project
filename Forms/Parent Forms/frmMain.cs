@@ -4,14 +4,12 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 using BCD_Restaurant_Project.Classes;
-using BCD_Restaurant_Project.Forms.Customers;
 using BCD_Restaurant_Project.Forms.Customers.Menu;
 using BCD_Restaurant_Project.Forms.Customers.Order;
-using BCD_Restaurant_Project.Forms.Login;
 
 #endregion
 
-namespace BCD_Restaurant_Project.Forms.Main {
+namespace BCD_Restaurant_Project.Forms.Parent_Forms {
     public partial class frmMain : Form {
         private Form activeForm;
 
@@ -67,14 +65,14 @@ namespace BCD_Restaurant_Project.Forms.Main {
         }
 
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e) {
-            performLogout();
+            //performLogout();
         }
 
         private void performLogout() {
             DialogResult result = MessageBox.Show("Confirm log out. ", "Log Out", MessageBoxButtons.YesNo,
                                                   MessageBoxIcon.Question);
             if (result == DialogResult.Yes) {
-                Hide();
+                Close();
                 ProgOps.login.Show();
             }
             else if(result == DialogResult.No)

@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Media;
 using System.Text;
 using System.Windows.Forms;
-using BCD_Restaurant_Project.Forms.Main;
+using BCD_Restaurant_Project.Forms.Parent_Forms;
 using BCD_Restaurant_Project.Properties;
 using static BCD_Restaurant_Project.Classes.ProgOps;
 
@@ -78,8 +78,11 @@ namespace BCD_Restaurant_Project.Forms.Login {
                                 break;
                         }
                     } else {
+                        //MessageBox.Show("Account not found", "Login", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         lblEmpty.Visible = true;
                         lblEmpty.Text = "Incorrect username or password.";
+                        tbxPassword.Clear();
+                        tbxUsername.Focus();
                     }
                 } catch (SqlException ex) {
                     for (int i = 0; i < ex.Errors.Count; i++)
@@ -96,7 +99,7 @@ namespace BCD_Restaurant_Project.Forms.Login {
         }
 
         private void frmLogin_FormClosing(object sender, FormClosingEventArgs e) {
-            //closeDatabase();
+            closeDatabase();
         }
 
         private void frmLogin_Load(object sender, EventArgs e) {
