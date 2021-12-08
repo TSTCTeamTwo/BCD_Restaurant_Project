@@ -13,10 +13,10 @@ namespace BCD_Restaurant_Project.Forms.Employees.Regular {
         }
 
         private void frmPersonal_Load(object sender, EventArgs e) {
-            ProgOps.fillInPersonalInformation(tbxAccountID, tbxEmail, tbxUsername, tbxName, tbxPassword);
+            ProgOps.fillInPersonalInformation(tbxAccountID, tbxEmail, tbxUsername, tbxName, tbxPassword, tbxAddress, tbxPhone);
+            btnChangeInformation.Enabled = true;
+            btnConfirmInformation.Enabled = false;
         }
-
-        
 
         private void btnChangeInformation_Click(object sender, EventArgs e)
         {
@@ -25,6 +25,9 @@ namespace BCD_Restaurant_Project.Forms.Employees.Regular {
             tbxEmail.Enabled = true;
             tbxPhone.Enabled = true;
             tbxUsername.Enabled = true;
+
+            btnChangeInformation.Enabled = false;
+            btnConfirmInformation.Enabled = true;
         }
 
         private void btnConfirmInformation_Click(object sender, EventArgs e)
@@ -38,12 +41,14 @@ namespace BCD_Restaurant_Project.Forms.Employees.Regular {
             if (tbxPassword.Text != string.Empty)
             {
                 ProgOps.generatePassword(1, tbxPassword.Text);
-                
+
                 tbxPassword.Enabled = false;
                 tbxAddress.Enabled = false;
                 tbxEmail.Enabled = false;
                 tbxPhone.Enabled = false;
                 tbxUsername.Enabled = false;
+                btnChangeInformation.Enabled = true;
+                btnConfirmInformation.Enabled = false;
                 ProgOps.updateAccountDetails(tbxAddress.Text, tbxEmail.Text, tbxUsername.Text, tbxPhone.Text);
             }
             else
@@ -60,7 +65,7 @@ namespace BCD_Restaurant_Project.Forms.Employees.Regular {
 
         private void tbxPhone_TextChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void tbxPhone_KeyPress(object sender, KeyPressEventArgs e)

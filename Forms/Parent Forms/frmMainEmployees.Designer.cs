@@ -1,5 +1,5 @@
 ﻿
-namespace BCD_Restaurant_Project.Forms.Main
+namespace BCD_Restaurant_Project.Forms.Parent_Forms
 {
     partial class frmMainEmployees
     {
@@ -29,6 +29,7 @@ namespace BCD_Restaurant_Project.Forms.Main
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMainEmployees));
             this.panel3 = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -223,10 +224,12 @@ namespace BCD_Restaurant_Project.Forms.Main
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1274, 678);
+            this.ControlBox = false;
             this.Controls.Add(this.pnlDisplay);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmMainEmployees";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

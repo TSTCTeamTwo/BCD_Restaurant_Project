@@ -269,7 +269,7 @@ namespace BCD_Restaurant_Project.Classes {
 
         //displaying the specific items wherever the user is in the form
         public static void fillInPersonalInformation(
-            TextBox tbxAccountID, TextBox tbxEmail, TextBox tbxUsername, TextBox tbxName, TextBox tbxPassword
+            TextBox tbxAccountID, TextBox tbxEmail, TextBox tbxUsername, TextBox tbxName, TextBox tbxPassword, TextBox tbxAddress, TextBox tbxPhone
         ) {
             try {
                 string query
@@ -286,6 +286,18 @@ namespace BCD_Restaurant_Project.Classes {
                 tbxUsername.DataBindings.Add("Text", DTAccounts, "Username");
                 tbxName.DataBindings.Add("Text", DTAccounts, "Name");
                 tbxPassword.DataBindings.Add("Text", DTAccounts, "Password");
+
+                string query2 = $"SELECT Address, Phone FROM group2fa212330.Employees where AccountID = {AccountID}";
+                _sqlEmployeesCommand = new SqlCommand(query2, _dbConnection);
+                _daEmployees = new SqlDataAdapter();
+                _daEmployees.SelectCommand = _sqlEmployeesCommand;
+                DTEmployees = new DataTable();
+                _daEmployees.Fill(DTEmployees);
+
+                tbxAddress.DataBindings.Add("Text", DTEmployees, "Address");
+                tbxPhone.DataBindings.Add("Text", DTEmployees, "Phone");
+
+
             } catch (SqlException ex) {
                 for (int i = 0; i < ex.Errors.Count; i++)
                     ErrorMessages.Append("Index#" + i + "\n" + "Message: " + ex.Errors[i].Message + "\n" +

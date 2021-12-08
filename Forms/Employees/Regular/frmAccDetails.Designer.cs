@@ -53,7 +53,7 @@ namespace BCD_Restaurant_Project.Forms.Employees.Regular
             this.label4.Location = new System.Drawing.Point(115, 81);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(35, 13);
-            this.label4.TabIndex = 15;
+            this.label4.TabIndex = 2;
             this.label4.Text = "Name";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -63,7 +63,7 @@ namespace BCD_Restaurant_Project.Forms.Employees.Regular
             this.label5.Location = new System.Drawing.Point(115, 145);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(55, 13);
-            this.label5.TabIndex = 14;
+            this.label5.TabIndex = 6;
             this.label5.Text = "Username";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -76,7 +76,7 @@ namespace BCD_Restaurant_Project.Forms.Employees.Regular
             this.tbxUsername.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbxUsername.Name = "tbxUsername";
             this.tbxUsername.Size = new System.Drawing.Size(199, 26);
-            this.tbxUsername.TabIndex = 16;
+            this.tbxUsername.TabIndex = 7;
             // 
             // tbxEmail
             // 
@@ -87,7 +87,7 @@ namespace BCD_Restaurant_Project.Forms.Employees.Regular
             this.tbxEmail.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbxEmail.Name = "tbxEmail";
             this.tbxEmail.Size = new System.Drawing.Size(199, 26);
-            this.tbxEmail.TabIndex = 12;
+            this.tbxEmail.TabIndex = 5;
             // 
             // tbxName
             // 
@@ -99,7 +99,7 @@ namespace BCD_Restaurant_Project.Forms.Employees.Regular
             this.tbxName.Name = "tbxName";
             this.tbxName.ReadOnly = true;
             this.tbxName.Size = new System.Drawing.Size(199, 26);
-            this.tbxName.TabIndex = 17;
+            this.tbxName.TabIndex = 3;
             this.tbxName.TextChanged += new System.EventHandler(this.tbxName_TextChanged);
             // 
             // label1
@@ -108,20 +108,21 @@ namespace BCD_Restaurant_Project.Forms.Employees.Regular
             this.label1.Location = new System.Drawing.Point(115, 112);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(32, 13);
-            this.label1.TabIndex = 11;
+            this.label1.TabIndex = 4;
             this.label1.Text = "Email";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tbxAccountID
             // 
             this.tbxAccountID.BackColor = System.Drawing.Color.White;
+            this.tbxAccountID.Enabled = false;
             this.tbxAccountID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxAccountID.Location = new System.Drawing.Point(249, 41);
             this.tbxAccountID.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbxAccountID.Name = "tbxAccountID";
             this.tbxAccountID.ReadOnly = true;
             this.tbxAccountID.Size = new System.Drawing.Size(69, 26);
-            this.tbxAccountID.TabIndex = 9;
+            this.tbxAccountID.TabIndex = 1;
             // 
             // btnChangeInformation
             // 
@@ -132,7 +133,7 @@ namespace BCD_Restaurant_Project.Forms.Employees.Regular
             this.btnChangeInformation.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnChangeInformation.Name = "btnChangeInformation";
             this.btnChangeInformation.Size = new System.Drawing.Size(148, 28);
-            this.btnChangeInformation.TabIndex = 20;
+            this.btnChangeInformation.TabIndex = 14;
             this.btnChangeInformation.Text = "&Change Information";
             this.btnChangeInformation.UseVisualStyleBackColor = false;
             this.btnChangeInformation.Click += new System.EventHandler(this.btnChangeInformation_Click);
@@ -143,7 +144,7 @@ namespace BCD_Restaurant_Project.Forms.Employees.Regular
             this.lblUsername.Location = new System.Drawing.Point(115, 47);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(61, 13);
-            this.lblUsername.TabIndex = 7;
+            this.lblUsername.TabIndex = 0;
             this.lblUsername.Text = "Account ID";
             this.lblUsername.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -153,7 +154,7 @@ namespace BCD_Restaurant_Project.Forms.Employees.Regular
             this.label2.Location = new System.Drawing.Point(115, 179);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 13);
-            this.label2.TabIndex = 21;
+            this.label2.TabIndex = 8;
             this.label2.Text = "Password";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -166,7 +167,7 @@ namespace BCD_Restaurant_Project.Forms.Employees.Regular
             this.tbxPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbxPassword.Name = "tbxPassword";
             this.tbxPassword.Size = new System.Drawing.Size(199, 26);
-            this.tbxPassword.TabIndex = 22;
+            this.tbxPassword.TabIndex = 9;
             // 
             // btnConfirmInformation
             // 
@@ -177,7 +178,7 @@ namespace BCD_Restaurant_Project.Forms.Employees.Regular
             this.btnConfirmInformation.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnConfirmInformation.Name = "btnConfirmInformation";
             this.btnConfirmInformation.Size = new System.Drawing.Size(148, 28);
-            this.btnConfirmInformation.TabIndex = 23;
+            this.btnConfirmInformation.TabIndex = 15;
             this.btnConfirmInformation.Text = "C&onfirm Information";
             this.btnConfirmInformation.UseVisualStyleBackColor = false;
             this.btnConfirmInformation.Click += new System.EventHandler(this.btnConfirmInformation_Click);
@@ -188,7 +189,7 @@ namespace BCD_Restaurant_Project.Forms.Employees.Regular
             this.lblPhone.Location = new System.Drawing.Point(115, 247);
             this.lblPhone.Name = "lblPhone";
             this.lblPhone.Size = new System.Drawing.Size(38, 13);
-            this.lblPhone.TabIndex = 24;
+            this.lblPhone.TabIndex = 12;
             this.lblPhone.Text = "Phone";
             this.lblPhone.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -202,7 +203,7 @@ namespace BCD_Restaurant_Project.Forms.Employees.Regular
             this.tbxPhone.MaxLength = 10;
             this.tbxPhone.Name = "tbxPhone";
             this.tbxPhone.Size = new System.Drawing.Size(199, 26);
-            this.tbxPhone.TabIndex = 25;
+            this.tbxPhone.TabIndex = 13;
             this.tbxPhone.TextChanged += new System.EventHandler(this.tbxPhone_TextChanged);
             this.tbxPhone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxPhone_KeyPress);
             // 
@@ -212,7 +213,7 @@ namespace BCD_Restaurant_Project.Forms.Employees.Regular
             this.lblAddress.Location = new System.Drawing.Point(115, 213);
             this.lblAddress.Name = "lblAddress";
             this.lblAddress.Size = new System.Drawing.Size(45, 13);
-            this.lblAddress.TabIndex = 26;
+            this.lblAddress.TabIndex = 10;
             this.lblAddress.Text = "Address";
             this.lblAddress.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -225,7 +226,7 @@ namespace BCD_Restaurant_Project.Forms.Employees.Regular
             this.tbxAddress.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbxAddress.Name = "tbxAddress";
             this.tbxAddress.Size = new System.Drawing.Size(199, 26);
-            this.tbxAddress.TabIndex = 27;
+            this.tbxAddress.TabIndex = 11;
             // 
             // frmAccDetails
             // 

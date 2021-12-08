@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Media;
 using System.Text;
 using System.Windows.Forms;
-using BCD_Restaurant_Project.Forms.Main;
+using BCD_Restaurant_Project.Forms.Parent_Forms;
 using BCD_Restaurant_Project.Properties;
 using static BCD_Restaurant_Project.Classes.ProgOps;
 
@@ -78,7 +78,9 @@ namespace BCD_Restaurant_Project.Forms.Login {
                                 break;
                         }
                     } else {
-                        MessageBox.Show("Account not found", "Login", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        //MessageBox.Show("Account not found", "Login", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        lblEmpty.Visible = true;
+                        lblEmpty.Text = "Incorrect username or password.";
                         tbxPassword.Clear();
                         tbxUsername.Focus();
                     }
