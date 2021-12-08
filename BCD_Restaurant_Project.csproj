@@ -102,10 +102,10 @@
     <Compile Include="Forms\Login\frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Main\frmMain.cs">
+    <Compile Include="Forms\Parent Forms\frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Main\frmMain.Designer.cs">
+    <Compile Include="Forms\Parent Forms\frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Employees\Regular\frmBankInformation.cs">
@@ -114,16 +114,16 @@
     <Compile Include="Forms\Employees\Regular\frmBankInformation.Designer.cs">
       <DependentUpon>frmBankInformation.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Main\frmMainEmployees.cs">
+    <Compile Include="Forms\Parent Forms\frmMainEmployees.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Main\frmMainEmployees.Designer.cs">
+    <Compile Include="Forms\Parent Forms\frmMainEmployees.Designer.cs">
       <DependentUpon>frmMainEmployees.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Main\frmMainManagers.cs">
+    <Compile Include="Forms\Parent Forms\frmMainManagers.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Main\frmMainManagers.Designer.cs">
+    <Compile Include="Forms\Parent Forms\frmMainManagers.Designer.cs">
       <DependentUpon>frmMainManagers.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Customers\Order\frmOrder.cs">
@@ -206,16 +206,16 @@
     <EmbeddedResource Include="Forms\Login\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Main\frmMain.resx">
+    <EmbeddedResource Include="Forms\Parent Forms\frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Employees\Regular\frmBankInformation.resx">
       <DependentUpon>frmBankInformation.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Main\frmMainEmployees.resx">
+    <EmbeddedResource Include="Forms\Parent Forms\frmMainEmployees.resx">
       <DependentUpon>frmMainEmployees.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Main\frmMainManagers.resx">
+    <EmbeddedResource Include="Forms\Parent Forms\frmMainManagers.resx">
       <DependentUpon>frmMainManagers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Customers\Order\frmPayment.resx">

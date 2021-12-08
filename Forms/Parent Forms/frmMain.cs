@@ -77,6 +77,10 @@ namespace BCD_Restaurant_Project.Forms.Main {
                 Hide();
                 ProgOps.login.Show();
             }
+            else if(result == DialogResult.No)
+            {
+                return;
+            }
 
         }
     }

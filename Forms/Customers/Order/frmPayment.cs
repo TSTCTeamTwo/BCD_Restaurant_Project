@@ -30,6 +30,8 @@ namespace BCD_Restaurant_Project.Forms.Customers.Order {
             {
                 ProgOps.finalizeOrder(Cart.Tip);
 
+                this.Close();
+
                 frmReceipt receipt = new frmReceipt();
                 //create an object of the report
                 crptReceipt crptReceipt = new crptReceipt();
